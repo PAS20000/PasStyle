@@ -30,7 +30,12 @@ const CopyClipBoard = ({
             tag='BUTTON'
             bg={theme.colors.bg}
             color={theme.colors.darkGray}
-            b_Color={theme.colors.purple}
+            b_Color={theme.colors.darkGray}
+            border='solid 2px'
+            b_Radius='8px'
+            pd='8px'
+            mg='5px'
+            cursor='pointer'
         >
            <FaCopy />
         </PasStyle>

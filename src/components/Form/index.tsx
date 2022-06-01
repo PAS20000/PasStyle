@@ -22,6 +22,7 @@ const Form = () => {
         b_Radius:'8px',
         mg:'0px 10px 0px',
         border: `solid 2px ${theme.colors.green}`,
+        h:'75%'
     })
 
     const tratamentStyle = () : Array<string> => {
