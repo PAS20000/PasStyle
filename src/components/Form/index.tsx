@@ -22,21 +22,27 @@ const Form = () => {
         b_Radius:'8px',
         mg:'0px 10px 0px',
         border: `solid 2px ${theme.colors.green}`,
-        h:'75%'
     })
 
     const tratamentStyle = () : Array<string> => {
 
     const css = CreateStyle({...style}).split(';')
 
-    const tratament = css.map(c => c.trim()).filter((c, i, array) => c !== 'undefined' && c !== 'false' && i !== 0 && i !== array.length && i !== array.length - 1)
+    const tratament = css.map(c => c.trim()).filter(
+        (c, i, array) => 
+            c !== 'undefined' && 
+            c !== 'false' && 
+            i !== 0 && 
+            i !== array.length && 
+            i !== array.length - 1
+        )
        
        return tratament
     }
 
     return(
     <>   
-        <PasStyle  grid columns='1fr 1fr'
+        <PasStyle  grid rows='1fr 1fr 1fr'
             tag='FORM' 
             mg='30px' 
             pd='15px'
@@ -44,7 +50,7 @@ const Form = () => {
             shadow={`5px 5px 5px 1px #0000006c`}
             bg={theme.colors.bg}
         >
-                <PasStyle grid columns='1fr 1fr'>
+                <PasStyle grid columns='1fr 1fr 1fr'>
                     <Field 
                         prop='tag:'
                         placeholder='tag='
@@ -129,8 +135,13 @@ const Form = () => {
                             id='css'
                         />
                     </PasStyle>
-                    <PasStyle {...style}    
-                        id='css' 
+                    <PasStyle id='css'
+                         color={theme.colors.cyan}
+                         pd='20px'
+                         bg={theme.colors.bg}
+                         b_Radius='8px'
+                         mg='0px 10px 0px'
+                         border={`solid 2px ${theme.colors.green}`}
                     >
                         CSS : <br /> 
                         {tratamentStyle().map((css, index) => 
@@ -139,6 +150,7 @@ const Form = () => {
                             </PasStyle>
                         )}
                 </PasStyle>
+                
             </PasStyle>
         </PasStyle>
     </>
