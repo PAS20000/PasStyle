@@ -66,7 +66,7 @@ const CreateStyles = ({
         ${flex && 'flex-wrap: wrap'};
         ${!flex && columns && `grid-template-columns: ${columns}`};
         ${!flex && rows && `grid-template-rows: ${rows}`};
-        ${flex && column ? 'flex-direction: column' : 'flex-direction: row'};
+        ${flex && column && 'flex-direction: column'};
         ${position && `position: ${position}`};
         ${shadow && `box-shadow: ${shadow}`};
         ${border && `border: ${border}`};

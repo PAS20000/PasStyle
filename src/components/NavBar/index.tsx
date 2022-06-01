@@ -11,7 +11,7 @@ const NavBar = () => {
         <PasStyle flex between
             tag='NAV'
             bg={theme.colors.bg}
-            pd='30px'
+            pd='10px'
         >
             <PasStyle 
                 tag='NEXTLINK'
@@ -19,10 +19,10 @@ const NavBar = () => {
                 t_decoration='none'
                 f_size='36px'
                 f_weight='600'
-                color={theme.colors.quintenary}
+                color={theme.colors.cyan}
                 _hover={{
                     transition: '1s',
-                    color:theme.colors.tertiary,
+                    color:theme.colors.green,
                 }}
             >
                 {'<PasStyle>'}
@@ -30,7 +30,7 @@ const NavBar = () => {
             <PasStyle  
                 onClick={() => changeMode()}
                 tag='BUTTON'
-                color={theme.colors.quintenary}
+                color={theme.colors.cyan}
                 bg='transparent'
                 border='solid 2px'
                 b_Radius='50%'
@@ -42,8 +42,8 @@ const NavBar = () => {
                 f_weight='300'
                 _hover={{
                     transition: '1s',
-                    bg:theme.colors.quartenary,
-                    color:theme.colors.tertiary,
+                    bg:theme.colors.darkGray,
+                    color:theme.colors.green,
                 }}
             >
                 <PasStyle 

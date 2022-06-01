@@ -69,14 +69,25 @@ const Home = ({
 
     return(
         <>
-           <PasStyle tag='HEADER'>
+           <PasStyle 
+             tag='HEADER'
+             position='fixed'
+             w='100%'
+             transform='translateY(-2vh)'
+             z='3'
+           >
                 <NavBar />
            </PasStyle>
-            <PasStyle tag='MAIN'>
+            <PasStyle 
+                tag='MAIN' 
+                pd='60px 0px 50px'
+                h='100vh'
+                bg={theme.colors.darkGray}
+            >
                 <Form />
             </PasStyle>
            <PasStyle tag='FOOTER'>
-               
+              
            </PasStyle>
         </>
     )

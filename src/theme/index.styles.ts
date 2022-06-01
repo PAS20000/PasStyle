@@ -4,11 +4,12 @@ import { Theme } from '@emotion/react'
 declare module '@emotion/react' {
     export interface Theme {
       colors?: {
-        primary:string
-        secondary: string
-        tertiary:string
-        quartenary:string
-        quintenary:string
+        purple:string
+        yellow:string
+        green:string
+        darkGray:string 
+        cyan:string
+        blue:string
         bg:string
       }
     }
@@ -16,22 +17,24 @@ declare module '@emotion/react' {
 
 export const light : Theme = {
     colors: {
-        primary:'yellow',
-        secondary:'red',
-        tertiary:'blue',
-        quartenary:'gray',
-        quintenary:'#242',
-        bg:'orange'
+        purple:'',
+        yellow:'',
+        green:'',
+        darkGray:'', 
+        cyan:'',
+        blue:'',
+        bg:'#21202c'
     }
 }
 
 export const dark : Theme = {
     colors: {
-        primary:'#bd93f9',
-        secondary:'#f1fa8c',
-        tertiary:'#50fa7b',
-        quartenary:'#282a36', 
-        quintenary:'#8be9fd',
+        purple:'#bd93f9',
+        yellow:'#f1fa8c',
+        green:'#50fa7b',
+        darkGray:'#282a36', 
+        cyan:'#8be9fd',
+        blue:'#6272a4',
         bg:'#21202c'
     }
 }

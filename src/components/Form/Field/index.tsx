@@ -1,18 +1,22 @@
 import * as React from 'react'
-import { FaSearch } from 'react-icons/fa'
 import useThemeCTX from '../../../hooks/useThemeCTX'
 import PasStyle from '../../_PasStyle'
+import { Styles } from '../../_PasStyle/types'
 
 type Props = {
     icon?:React.ReactNode
     prop?:string
-    pd?:string
+    placeholder?:string
+    onChange?:React.MouseEventHandler
+    value?:string
 }
 
 const Field = ({
     icon,
     prop,
-    pd,
+    placeholder,
+    value,
+    onChange
 } : Props) => {
 
     const { theme } = useThemeCTX()
@@ -20,37 +24,43 @@ const Field = ({
     
 
     return(
-        <PasStyle mg='30px'>
+        <PasStyle mg='15px 10px 0px'>
             <PasStyle tag='LABEL'
                 position='absolute'
                 bg={theme.colors.bg}
-                mg='0px 40px 0px'
-                color={theme.colors.tertiary}
+                mg='0px 10px 0px'
+                color={theme.colors.green}
                 transform='translateY(-10px)'
-                pd='0px 5px 0px'
+                pd='0px 2px 0px'
                 b_Radius='8px'
                 f_size='14px'
             >
                 Props.{prop ?? 'prop'}
             </PasStyle>
             <PasStyle>
+            {icon &&
                 <PasStyle tag='SPAN'
-                    color={theme.colors.tertiary}
+                    color={theme.colors.green}
                     position='absolute'
                     f_size='14px'
                     pd='10px'
                 >
-                    {icon ? icon : <FaSearch /> }
+                   {icon}
                 </PasStyle> 
+            }
             <PasStyle tag='INPUT' 
-                onChange={(e) => {}}
-                pd={`10px ${pd ?? '40px'}`}
+                onChange={onChange}
+                pd='10px'
+                w='90%'
                 b_Radius='8px'
                 border='solid 2px'
                 bg={theme.colors.bg}
-                color={theme.colors.secondary}
-                b_Color={theme.colors.quintenary}
-                outline_color={theme.colors.tertiary}
+                color={theme.colors.yellow}
+                b_Color={theme.colors.cyan}
+                outline_color={theme.colors.yellow}
+                placeholder={placeholder}
+                type='text'
+                value={value}
             />
             </PasStyle>
         </PasStyle>
