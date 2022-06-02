@@ -10,7 +10,10 @@ declare module '@emotion/react' {
         darkGray:string 
         cyan:string
         blue:string
+        red:string
         bg:string
+        white:string
+        pink:string
       }
     }
   }
@@ -23,6 +26,9 @@ export const light : Theme = {
         darkGray:'', 
         cyan:'',
         blue:'',
+        red:'',
+        white:'#f8f8f2',
+        pink:'#ff79c6',
         bg:'#21202c'
     }
 }
@@ -35,6 +41,9 @@ export const dark : Theme = {
         darkGray:'#282a36', 
         cyan:'#8be9fd',
         blue:'#6272a4',
+        red:'#ff5555',
+        white:'#f8f8f2',
+        pink:'#ff79c6',
         bg:'#21202c'
     }
 }

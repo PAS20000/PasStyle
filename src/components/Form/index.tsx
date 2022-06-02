@@ -1,7 +1,9 @@
 import * as React from 'react'
 import useThemeCTX from '../../hooks/useThemeCTX'
+import Code from '../Code'
 import Container from '../Container'
 import CopyClipBoard from '../CopyClipBoard'
+import Lorem from '../Lorem'
 import PasStyle from "../_PasStyle"
 import CreateStyle from '../_PasStyle/CreateStyle/index.styles'
 import { Styles } from '../_PasStyle/types'
@@ -16,12 +18,11 @@ const Form = () => {
     const { theme } = useThemeCTX()
 
     const [style, setStyle] = React.useState<Styles>({
-        color:theme.colors.cyan,
+        color:theme.colors.red,
         pd:'20px',
         bg:theme.colors.bg,
         b_Radius:'8px',
-        mg:'0px 10px 0px',
-        border: `solid 2px ${theme.colors.green}`,
+        border: `solid 2px ${theme.colors.red}`,
     })
 
     const tratamentStyle = () : Array<string> => {
@@ -123,35 +124,19 @@ const Form = () => {
                         value={style.f_weight}
                     />
                 </PasStyle>
-                <PasStyle>
-                    <PasStyle flex end>
-                        <CopyClipBoard 
-                            id='css'
-                        />
-                        <CopyClipBoard 
-                            id='css'
-                        />
-                        <CopyClipBoard 
-                            id='css'
-                        />
+                <Code>
+                    <PasStyle {...style}>
+                        <Lorem />
                     </PasStyle>
-                    <PasStyle id='css'
-                         color={theme.colors.cyan}
-                         pd='20px'
-                         bg={theme.colors.bg}
-                         b_Radius='8px'
-                         mg='0px 10px 0px'
-                         border={`solid 2px ${theme.colors.green}`}
-                    >
-                        CSS : <br /> 
-                        {tratamentStyle().map((css, index) => 
-                            <PasStyle key={css + index}>
-                                {`${css ? `${css};`:css}`}
-                            </PasStyle>
-                        )}
-                </PasStyle>
-                
-            </PasStyle>
+                </Code>
+                <Code copyId='css'>
+                    CSS : <br /> 
+                    {tratamentStyle().map((css, index) => 
+                        <PasStyle key={css + index}>
+                            {`${css ? `${css};`:css}`}
+                        </PasStyle>
+                    )}
+                </Code>
         </PasStyle>
     </>
     )
