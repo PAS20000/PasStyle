@@ -1,5 +1,6 @@
 import * as React from 'react'
 import AuthProvider from './AuthContext'
+import DemoProvider from './DemoContext'
 import PasStyleThemeProvider from './ThemeContext'
 
 type Props = {
@@ -11,11 +12,13 @@ export const GlobalProvider = ({
 } : Props) => {
 
     return(
-        <PasStyleThemeProvider>
-            <AuthProvider>
-                {children}
-            </AuthProvider>
-        </PasStyleThemeProvider>
+        <DemoProvider>
+            <PasStyleThemeProvider>
+                <AuthProvider>
+                    {children}
+                </AuthProvider>
+            </PasStyleThemeProvider>
+        </DemoProvider>
     )
 }
 

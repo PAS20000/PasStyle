@@ -2,8 +2,17 @@ import * as React from 'react'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import PasStyle from '../_PasStyle'
 import { FaMoon, FaSun } from 'react-icons/fa'
+import Router from './Router'
+import Select from '../Select'
+import Option from '../Select/Option'
 
-const NavBar = () => {
+type Props = {
+    current?:'docs' | 'demo' | 'git'
+}
+
+const NavBar = ({
+    current
+}: Props) => {
 
     const { theme, mode, changeMode } = useThemeCTX()
 
@@ -27,34 +36,57 @@ const NavBar = () => {
             >
                 {'<PasStyle>'}
             </PasStyle>
-            <PasStyle  
-                onClick={() => changeMode()}
-                tag='BUTTON'
-                color={theme.colors.cyan}
-                bg='transparent'
-                border='solid 2px'
-                b_Radius='50%'
-                w='40px'
-                h='40px'
-                mg='10px 0px 0px'
-                cursor='pointer'
-                t_transform='uppercase'
-                f_weight='300'
-                _hover={{
-                    transition: '1s',
-                    bg:theme.colors.darkGray,
-                    color:theme.colors.green,
-                }}
+            <PasStyle flex
+                mg='18px'
             >
-                <PasStyle 
-                    tag='SPAN'
-                    mg='0px 5px 0px'
-                >
-                    {mode === 'light' ?
-                        <FaSun /> 
-                        :
-                        <FaMoon />
-                    }
+                <Select title='Language'>
+                    <Option>
+                        EN
+                    </Option>
+                    <Option>
+                        PT
+                    </Option>
+                </Select>
+                <Router 
+                    href='/'
+                    name='Docs'
+                    current={current === 'docs' ? true : false}
+                />
+                <Router 
+                    href='/demo/'
+                    name='Demo'
+                    current={current === 'demo' ? true : false}
+                />
+                <Router 
+                    href='/git/'
+                    name='Github'
+                    current={current === 'git' ? true : false}
+                />
+                 <PasStyle  
+                    onClick={() => changeMode()}
+                    tag='BUTTON'
+                    color={theme.colors.cyan}
+                    bg='transparent'
+                    cursor='pointer'
+                    border='none'
+                    t_transform='uppercase'
+                    f_weight='300'
+                    b_Radius='8px'
+                    _hover={{
+                        transition: '1s',
+                        bg:theme.colors.darkGray,
+                        color:theme.colors.green,
+                    }}>
+                    <PasStyle 
+                        tag='SPAN'
+                        mg='0px 5px 0px'
+                    >
+                        {mode === 'light' ?
+                            <FaSun /> 
+                            :
+                            <FaMoon />
+                        }
+                    </PasStyle>
                 </PasStyle>
             </PasStyle>
         </PasStyle>

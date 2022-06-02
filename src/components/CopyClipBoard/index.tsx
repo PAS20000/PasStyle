@@ -11,7 +11,7 @@ const CopyClipBoard = ({
     id,
 } : Props) => {
 
-    const [copy, setCopy] = React.useState<boolean>(false)
+    const [copy, setCopy] = React.useState<'Copy' | 'Copied!' | null>()
 
     const { theme } = useThemeCTX()
 
@@ -21,7 +21,7 @@ const CopyClipBoard = ({
       
         navigator.clipboard.writeText(copyText.innerText);
 
-        setCopy(true)
+        setCopy('Copied!')
     }
 
     return( 
@@ -39,7 +39,8 @@ const CopyClipBoard = ({
             pd='8px'
             mg='5px'
             cursor='pointer'
-            onMouseLeave={() => { setCopy(false) }}
+            onMouseLeave={() => setCopy(null)}
+            onMouseEnter={() => setCopy('Copy')}
         >
            <FaCopy />
         </PasStyle>
@@ -53,8 +54,13 @@ const CopyClipBoard = ({
                 transform='translate(10px, 45px)'
                 f_weight='700'
                 animation='show'
+
+                _hover={{
+                    transition:'1s',
+                    bg:theme.colors.darkGray
+                }}
             >
-                Copied
+                {copy}
             </PasStyle>
         }
     </>

@@ -29,14 +29,14 @@ const Avatar = ({
                 b_Radius='8px'
                 border='solid 2px'
                 t_decoration='none'
-                color={theme.colors.quintenary}
+                color={theme.colors.purple}
                 cursor='pointer'
                 t_transform='capitalize'
                 _hover={{
                     transition:'1s',
-                    bg:theme.colors.quartenary,
-                    color:theme.colors.tertiary,
-                    b_Color:theme.colors.tertiary,
+                    bg:theme.colors.bg,
+                    color:theme.colors.red,
+                    b_Color:theme.colors.red,
                 }}
                 animation='show'
             > 
@@ -49,7 +49,7 @@ const Avatar = ({
                     b_Radius='50%'
                 />
                 <PasStyle 
-                    tag='H1'
+                    tag='H2'
                 >
                     {name}
                 </PasStyle>

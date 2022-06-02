@@ -1,13 +1,11 @@
 import { GetStaticProps } from 'next'
 import * as React from 'react'
-import Code from '../src/components/Code'
-import Cotainer from '../src/components/Container'
-import Form from '../src/components/Form'
-import Gen from '../src/components/Form'
-import NavBar from '../src/components/NavBar'
-import PasStyle from '../src/components/_PasStyle'
-import useThemeCTX from '../src/hooks/useThemeCTX'
-import { dataAnimes, dataUsers } from './api'
+import Avatar from '../../src/components/Avatar'
+import NavBar from '../../src/components/NavBar'
+import PasStyle from '../../src/components/_PasStyle'
+import useThemeCTX from '../../src/hooks/useThemeCTX'
+import { dataAnimes, dataUsers } from '../api'
+
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -61,7 +59,7 @@ type Props = {
     }
 }
 
-const Home = ({
+const Demo = ({
     datas
 } : Props) => {
 
@@ -77,7 +75,7 @@ const Home = ({
              z='3'
            >
                 <NavBar 
-                    current='docs'
+                    current='demo'
                 />
            </PasStyle>
             <PasStyle 
@@ -86,7 +84,7 @@ const Home = ({
                 h='100%'
                 bg={theme.colors.darkGray}
             >
-                
+             
             </PasStyle>
            <PasStyle tag='FOOTER'>
               
@@ -95,4 +93,4 @@ const Home = ({
     )
 }
 
-export default Home
+export default Demo

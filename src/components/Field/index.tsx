@@ -1,7 +1,7 @@
 import * as React from 'react'
-import useThemeCTX from '../../../hooks/useThemeCTX'
-import PasStyle from '../../_PasStyle'
-import { Styles } from '../../_PasStyle/types'
+import useThemeCTX from '../../hooks/useThemeCTX'
+import PasStyle from '../_PasStyle'
+import { Styles } from '../_PasStyle/types'
 
 type Props = {
     icon?:React.ReactNode
@@ -35,7 +35,7 @@ const Field = ({
                 b_Radius='8px'
                 f_size='14px'
             >
-                Props.{prop ?? 'prop'}
+               {prop ?? 'prop'}
             </PasStyle>
             <PasStyle>
             {icon &&

@@ -3,19 +3,22 @@ import useThemeCTX from '../../../hooks/useThemeCTX'
 import PasStyle from '../../_PasStyle'
 
 type Props = {
-    
+    children?:React.ReactNode
 }
 
-const Select = () => {
+const Option = ({
+    children
+} : Props) => {
 
     const { theme } = useThemeCTX()
 
-
     return(
-        <PasStyle>
-            
-        </PasStyle>
+        <>
+            <PasStyle>
+                {children}
+            </PasStyle>
+        </>
     )
 }
 
-export default Select
+export default Option

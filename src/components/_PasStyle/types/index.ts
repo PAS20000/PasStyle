@@ -44,6 +44,7 @@ export type Styles = {
     f_family?:string
     t_transform?:string
     t_decoration?:string
+    t_align?:string
     transform?:string
     transition?:string
     op?:string,
@@ -54,6 +55,7 @@ export type Styles = {
     shadow?:string
     outline?:string
     outline_color?:string
+    z?:string
 }
 
 export type childrenProps<T> = React.PropsWithChildren<T & DefaultProps>
@@ -93,7 +95,8 @@ export type Tags = [
     'NEXTLINK',
     'NEXTIMG',
     'CODE',
-    'LABEL'
+    'LABEL',
+    'IFRAME'
 ]
 
 export type Animations = [

@@ -29,6 +29,7 @@ const CreateStyles = ({
     f_family,
     t_transform,
     t_decoration,
+    t_align,
     transform,
     transition,
     op,
@@ -38,7 +39,8 @@ const CreateStyles = ({
     position,
     shadow,
     outline,
-    outline_color
+    outline_color,
+    z
 } : Styles) => {
     return`
 
@@ -50,10 +52,11 @@ const CreateStyles = ({
                 opacity: 1;
             }
         }
-            animation: ${animation} 1s;
         `}
+        ${animation && `animation: ${animation}`};
         ${outline && `outline: ${outline}`};
         ${outline_color && `outline-color: ${outline_color}`};
+        ${t_align && `text-align: ${t_align}`};
         ${flex && 'display: flex'};
         ${flex && between && `justify-content: space-between`};
         ${flex && around && `justify-content: space-around`};
@@ -67,6 +70,7 @@ const CreateStyles = ({
         ${!flex && columns && `grid-template-columns: ${columns}`};
         ${!flex && rows && `grid-template-rows: ${rows}`};
         ${flex && column && 'flex-direction: column'};
+        ${z && `z-index: ${z}`};
         ${position && `position: ${position}`};
         ${shadow && `box-shadow: ${shadow}`};
         ${border && `border: ${border}`};
@@ -132,9 +136,11 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
 export default CreateStyle
 
 export const Testes = styled.div`
+        z-index:2 ;
         width: 100%;
         background-color: blue;
         outline-color: red;
+        text-align: center;
         @media(max-width: 500px){
             
         }

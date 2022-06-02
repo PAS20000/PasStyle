@@ -36,6 +36,7 @@ export type Props = {
     f_family?:string
     t_transform?:string
     t_decoration?:string
+    t_align?:string
     transform?:string
     transition?:string
     op?:string,
@@ -50,6 +51,7 @@ export type Props = {
     outline_color?:string
     placeholder?:string
     type?:any
+    z?:string
 }
 
 const PasStyle = (props:childrenProps<Props>) => {
@@ -148,6 +150,9 @@ const PasStyle = (props:childrenProps<Props>) => {
     }
     if(tag === 'LABEL'){
         return <Emotion.StyleLabel {...props} />
+    }
+    if(tag === 'IFRAME'){
+        return <Emotion.StyleIframe {...props} />
     }
     if(tag === 'NEXTLINK'){
         return (
