@@ -57,6 +57,7 @@ const Select = ({
                     border='solid 2px'
                     shadow='2px 2px 2px black'
                     t_align='center'
+                    animation='show'
                 >
                     {children}
                 </PasStyle>

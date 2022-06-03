@@ -5,10 +5,9 @@ import Container from '../src/components/Layout/Container'
 import Footer from '../src/components/Layout/Footer'
 import Header from '../src/components/Layout/Header'
 import Main from '../src/components/Layout/Main'
-import Lorem from '../src/components/Lorem'
 import NavBar from '../src/components/NavBar'
 import Title from '../src/components/Title/indx'
-import PasStyle from '../src/components/_PasStyle'
+import { Testes } from '../src/components/_PasStyle/CreateStyle/index.styles'
 import useThemeCTX from '../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from './api'
 
@@ -91,7 +90,9 @@ const Home = ({
                </Container>
             </Main>
             <Footer>
-
+                <Testes>
+                    ADJASODJ29
+                </Testes>
             </Footer>
         </>
     )

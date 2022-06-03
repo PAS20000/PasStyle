@@ -54,7 +54,7 @@ const CreateStyles = ({
             }
         }
         `}
-        ${animation && `animation: ${animation}`};
+        ${animation && `animation: ${animation} 1s`};
         ${b_Bottom && ` border-bottom: ${b_Bottom}`};
         ${outline && `outline: ${outline}`};
         ${outline_color && `outline-color: ${outline_color}`};
@@ -138,20 +138,6 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
 export default CreateStyle
 
 export const Testes = styled.div`
-        z-index:2 ;
-        width: 100%;
-        background-color: blue;
-        outline-color: red;
-        text-align: center;
-       
-        @media(max-width: 500px){
-            
-        }
-        font-size: 20px;
-        outline: none;
-    :focus{
-        color: red;
-    }
-   
+        
    
 `
