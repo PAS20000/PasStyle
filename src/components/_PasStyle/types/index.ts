@@ -56,6 +56,7 @@ export type Styles = {
     outline?:string
     outline_color?:string
     z?:string
+    b_Bottom?:string
 }
 
 export type childrenProps<T> = React.PropsWithChildren<T & DefaultProps>

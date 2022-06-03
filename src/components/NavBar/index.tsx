@@ -22,13 +22,14 @@ const NavBar = ({
             bg={theme.colors.bg}
             pd='10px'
         >
-            <PasStyle 
+            <PasStyle flex
                 tag='NEXTLINK'
                 href='/'
                 t_decoration='none'
-                f_size='36px'
+                f_size='24px'
+                mg='15px 0px 0px'
                 f_weight='600'
-                color={theme.colors.cyan}
+                color={theme.colors.white}
                 _hover={{
                     transition: '1s',
                     color:theme.colors.green,
@@ -39,12 +40,18 @@ const NavBar = ({
             <PasStyle flex
                 mg='18px'
             >
-                <Select title='Language'>
+                <Select title={`Language`}>
                     <Option>
-                        EN
+                        <Router 
+                            href='/'
+                            name='EN'
+                        />
                     </Option>
                     <Option>
-                        PT
+                        <Router 
+                            href='/pt/'
+                            name='PT'
+                        />
                     </Option>
                 </Select>
                 <Router 
@@ -65,7 +72,7 @@ const NavBar = ({
                  <PasStyle  
                     onClick={() => changeMode()}
                     tag='BUTTON'
-                    color={theme.colors.cyan}
+                    color={theme.colors.white}
                     bg='transparent'
                     cursor='pointer'
                     border='none'
@@ -75,7 +82,7 @@ const NavBar = ({
                     _hover={{
                         transition: '1s',
                         bg:theme.colors.darkGray,
-                        color:theme.colors.green,
+                        color:theme.colors.yellow,
                     }}>
                     <PasStyle 
                         tag='SPAN'

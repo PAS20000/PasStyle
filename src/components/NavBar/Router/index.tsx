@@ -28,14 +28,18 @@ const Router = ({
             f_weight='600'
             mg='0px 5px 0px'
             pd='5px'
+            b_Radius='8px'
+            b_Bottom={current ? 'solid 2px':''}
             t_decoration='none'
-            color={current ? theme.colors.green : theme.colors.cyan }
+            bg={current ?  theme.colors.darkGray : 'trasparent' }
+            color={current ? theme.colors.green : theme.colors.white }
             _hover={{
                 transition: '1s',
                 color:theme.colors.green,
+                bg:theme.colors.darkGray,
             }}
         >
-           {name}&nbsp;
+          {name}
         </PasStyle>
     </>
     )

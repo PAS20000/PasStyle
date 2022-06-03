@@ -52,6 +52,7 @@ export type Props = {
     placeholder?:string
     type?:any
     z?:string
+    b_Bottom?:string
 }
 
 const PasStyle = (props:childrenProps<Props>) => {

@@ -20,7 +20,19 @@ const Select = ({
     return(
         <PasStyle>
             <PasStyle 
-                mg='0px 5px 0px' 
+                 f_size='12px'
+                 f_weight='600'
+                 mg='0px 5px 0px'
+                 pd='5px'
+                 cursor='pointer'
+                 t_decoration='none'
+                 b_Radius='8px'
+                 color={open  ? theme.colors.green : theme.colors.white}
+                 _hover={{
+                     transition: '1s',
+                     color:theme.colors.green,
+                     bg:theme.colors.darkGray
+                 }}
                 onClick={() => setOpen(open ? false : true)}
             >
                 {title}

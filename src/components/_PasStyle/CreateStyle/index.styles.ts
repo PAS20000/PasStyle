@@ -40,7 +40,8 @@ const CreateStyles = ({
     shadow,
     outline,
     outline_color,
-    z
+    z,
+    b_Bottom
 } : Styles) => {
     return`
 
@@ -54,6 +55,7 @@ const CreateStyles = ({
         }
         `}
         ${animation && `animation: ${animation}`};
+        ${b_Bottom && ` border-bottom: ${b_Bottom}`};
         ${outline && `outline: ${outline}`};
         ${outline_color && `outline-color: ${outline_color}`};
         ${t_align && `text-align: ${t_align}`};
@@ -141,6 +143,7 @@ export const Testes = styled.div`
         background-color: blue;
         outline-color: red;
         text-align: center;
+       
         @media(max-width: 500px){
             
         }
