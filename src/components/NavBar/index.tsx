@@ -27,12 +27,12 @@ const NavBar = ({
                 href='/'
                 t_decoration='none'
                 f_size='24px'
-                mg='15px 0px 0px'
+                mg='18px 0px 0px'
                 f_weight='600'
                 color={theme.colors.white}
                 _hover={{
                     transition: '1s',
-                    color:theme.colors.green,
+                    color:theme.colors.purple,
                 }}
             >
                 {'<PasStyle>'}
@@ -44,13 +44,13 @@ const NavBar = ({
                     <Option>
                         <Router 
                             href='/'
-                            name='EN'
+                            name='EN 🇺🇸'
                         />
                     </Option>
                     <Option>
                         <Router 
                             href='/pt/'
-                            name='PT'
+                            name='PT 🇧🇷'
                         />
                     </Option>
                 </Select>

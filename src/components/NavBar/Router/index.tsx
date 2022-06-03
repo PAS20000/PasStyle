@@ -25,17 +25,17 @@ const Router = ({
             target={target}
             href={href}
             f_size='18px'
-            f_weight='600'
+            f_weight='500'
             mg='0px 5px 0px'
             pd='5px'
             b_Radius='8px'
             b_Bottom={current ? 'solid 2px':''}
             t_decoration='none'
             bg={current ?  theme.colors.darkGray : 'trasparent' }
-            color={current ? theme.colors.green : theme.colors.white }
+            color={current ? theme.colors.purple : theme.colors.white }
             _hover={{
                 transition: '1s',
-                color:theme.colors.green,
+                color:theme.colors.purple,
                 bg:theme.colors.darkGray,
             }}
         >

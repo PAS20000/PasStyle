@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Users } from '../../../pages'
-import { SetState } from '../../contexts/types'
-import useThemeCTX from '../../hooks/useThemeCTX'
-import PasStyle from '../_PasStyle'
+import { Users } from '../../..'
+import { SetState } from '../../../../src/contexts/types'
+import useThemeCTX from '../../../../src/hooks/useThemeCTX'
+import PasStyle from '../../../../src/components/_PasStyle'
 
 type Props = {
     setOpen:SetState<boolean>

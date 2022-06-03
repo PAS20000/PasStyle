@@ -1,11 +1,9 @@
 import { GetStaticProps } from 'next'
 import * as React from 'react'
-import Code from '../src/components/Code'
-import Cotainer from '../src/components/Container'
-import Form from '../src/components/Form'
-import Gen from '../src/components/Form'
+import Footer from '../src/components/Layout/Footer'
+import Header from '../src/components/Layout/Header'
+import Main from '../src/components/Layout/Main'
 import NavBar from '../src/components/NavBar'
-import PasStyle from '../src/components/_PasStyle'
 import useThemeCTX from '../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from './api'
 
@@ -69,28 +67,17 @@ const Home = ({
 
     return(
         <>
-           <PasStyle 
-             tag='HEADER'
-             position='fixed'
-             w='100%'
-             transform='translateY(-2vh)'
-             z='3'
-           >
+           <Header>
                 <NavBar 
                     current='docs'
                 />
-           </PasStyle>
-            <PasStyle 
-                tag='MAIN' 
-                pd='60px 0px 50px'
-                h='100%'
-                bg={theme.colors.darkGray}
-            >
-                
-            </PasStyle>
-           <PasStyle tag='FOOTER'>
-              
-           </PasStyle>
+           </Header>
+            <Main>
+
+            </Main>
+            <Footer>
+
+            </Footer>
         </>
     )
 }
