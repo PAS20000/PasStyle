@@ -1,6 +1,6 @@
 import * as React from 'react'
-import useThemeCTX from '../../hooks/useThemeCTX'
-import PasStyle from "../_PasStyle"
+import useThemeCTX from '../../../hooks/useThemeCTX'
+import PasStyle from "../../_PasStyle"
 
 type Props = {
     children?:React.ReactNode
@@ -16,9 +16,8 @@ const Container = ({
 
     return(
         <PasStyle tag='SECTION'
-            bg={theme.colors.bg}
+            mg='50px'
             pd='20px'
-            mg='20px'
         >
             {children}
         </PasStyle>

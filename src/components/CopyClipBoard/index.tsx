@@ -51,7 +51,7 @@ const CopyClipBoard = ({
                 color={theme.colors.darkGray}
                 b_Radius='8px'
                 pd='5px'
-                transform='translate(10px, 45px)'
+                transform='translate(0px, 45px)'
                 f_weight='700'
                 animation='show'
 

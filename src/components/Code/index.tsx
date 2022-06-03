@@ -17,24 +17,24 @@ const Code = ({
 
     return(
         <>
-            <PasStyle 
+            <PasStyle flex between
                 tag='CODE'
-                pd='20px'
-                bg={theme.colors.bg}
                 b_Radius='8px'
-                mg='15px 10px 0px'
-                border={`solid 2px ${theme.colors.green}`}
-                color={theme.colors.cyan}
-                id={copyId}
+                bg={theme.colors.bg}
+                color={theme.colors.green}
                 f_size='16px'
-            > 
+                pd='15px'
+                mg='30px'
+                shadow='2px 2px 2px black'
+            >
+                <PasStyle  id={copyId}>
+                    {children}
+                </PasStyle>
                 {copyId && 
-                    <PasStyle flex end >
+                    <PasStyle transform='translate(-30px, -15px)'>
                         <CopyClipBoard id={copyId}/>
                     </PasStyle>
-                }
-                {children}
-               
+                }  
             </PasStyle>
         </>
     )

@@ -1,9 +1,14 @@
 import { GetStaticProps } from 'next'
 import * as React from 'react'
+import Code from '../src/components/Code'
+import Container from '../src/components/Layout/Container'
 import Footer from '../src/components/Layout/Footer'
 import Header from '../src/components/Layout/Header'
 import Main from '../src/components/Layout/Main'
+import Lorem from '../src/components/Lorem'
 import NavBar from '../src/components/NavBar'
+import Title from '../src/components/Title/indx'
+import PasStyle from '../src/components/_PasStyle'
 import useThemeCTX from '../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from './api'
 
@@ -73,7 +78,17 @@ const Home = ({
                 />
            </Header>
             <Main>
-
+               <Container> 
+                   <Title>
+                       Quick start
+                   </Title>
+                   <Code copyId='npm'>
+                        npm i passtyle
+                   </Code>
+                   <Code copyId='yarn'>
+                        yarn passtyle
+                   </Code>
+               </Container>
             </Main>
             <Footer>
 

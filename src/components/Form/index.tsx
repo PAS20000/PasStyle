@@ -2,7 +2,7 @@ import * as React from 'react'
 import useDemoCTX from '../../hooks/useDemoCTX'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import Code from '../Code'
-import Container from '../Container'
+import Container from '../Layout/Container'
 import CopyClipBoard from '../CopyClipBoard'
 import Lorem from '../Lorem'
 import PasStyle from "../_PasStyle"
