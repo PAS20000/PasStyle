@@ -69,7 +69,7 @@ const Demo = ({
         <>
            <Header>
                 <NavBar 
-                    current='docs'
+                    current='demo'
                 />
            </Header>
             <Main>

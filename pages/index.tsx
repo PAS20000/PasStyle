@@ -90,9 +90,7 @@ const Home = ({
                </Container>
             </Main>
             <Footer>
-                <Testes>
-                    ADJASODJ29
-                </Testes>
+                
             </Footer>
         </>
     )

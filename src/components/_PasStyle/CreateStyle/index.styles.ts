@@ -45,7 +45,7 @@ const CreateStyles = ({
 } : Styles) => {
     return`
 
-        ${animation && `@keyframes show {
+        @keyframes show {
             from{
                 opacity: 0;
             }
@@ -53,7 +53,6 @@ const CreateStyles = ({
                 opacity: 1;
             }
         }
-        `}
         ${animation && `animation: ${animation} 1s`};
         ${b_Bottom && ` border-bottom: ${b_Bottom}`};
         ${outline && `outline: ${outline}`};
