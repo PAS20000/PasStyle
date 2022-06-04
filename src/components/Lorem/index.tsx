@@ -4,7 +4,7 @@ import PasStyle from '../_PasStyle'
 
 const Lorem = () => {
 
-    const { theme, mode, changeMode } = useThemeCTX()
+    const { theme } = useThemeCTX()
 
     const ispum = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -16,6 +16,15 @@ const Lorem = () => {
     return(
        <PasStyle tag='P'>
            {ispum}
+            <PasStyle tag='A' href='#' target='_blank'
+                color={theme.colors.cyan}
+                _hover={{
+                    transition: '1s',
+                    color: theme.colors.purple,
+                }}
+            >
+                External Link
+            </PasStyle>
        </PasStyle>
     )
 }

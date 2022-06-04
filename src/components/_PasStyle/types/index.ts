@@ -61,7 +61,7 @@ export type Styles = {
 
 export type childrenProps<T> = React.PropsWithChildren<T & DefaultProps>
 
-export type PasStyleProps = Styles
+export type PasStyleProps<T> = childrenProps<T & Styles>
 
 export type Tags = [
     'ARTICLE', 

@@ -7,17 +7,25 @@ type Props = {
     
 }
 
-const Container = (props:PasStyleProps<Props>) => {
+const Aside = (props :PasStyleProps<Props>) => {
 
     const { theme } = useThemeCTX()
 
    
 
     return(
-        <PasStyle {...props}>
+        <PasStyle 
+            tag='ASIDE' 
+            pd='25px'
+            b_Radius='8px'
+            shadow='2px 2px 2px black'
+            border='solid 2px'
+            bg={theme.colors.bg}
+            color={theme.colors.white}
+        >
             {props.children}
         </PasStyle>
     )
 }
 
-export default Container
+export default Aside

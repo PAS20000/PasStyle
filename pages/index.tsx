@@ -1,15 +1,18 @@
 import { GetStaticProps } from 'next'
 import * as React from 'react'
 import Code from '../src/components/Code'
+import Aside from '../src/components/Layout/Aside'
 import Container from '../src/components/Layout/Container'
 import Footer from '../src/components/Layout/Footer'
 import Header from '../src/components/Layout/Header'
 import Main from '../src/components/Layout/Main'
+import Lorem from '../src/components/Lorem'
 import NavBar from '../src/components/NavBar'
 import Title from '../src/components/Title/indx'
 import { Testes } from '../src/components/_PasStyle/CreateStyle/index.styles'
 import useThemeCTX from '../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from './api'
+import Content from '../src/components/Content'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -77,16 +80,19 @@ const Home = ({
                 />
            </Header>
             <Main>
-               <Container> 
-                   <Title>
-                       Quick start
-                   </Title>
-                   <Code copyId='npm'>
+               <Container
+                    mg='50px'
+                    pd='25px'
+                    tag='SECTION'
+                > 
+                <Content title='Quick start' text={<Lorem />}>
+                    <Code copyId='npm'>
                         npm i passtyle
-                   </Code>
-                   <Code copyId='yarn'>
+                    </Code>
+                    <Code copyId='yarn'>
                         yarn passtyle
-                   </Code>
+                    </Code>
+                </Content>
                </Container>
             </Main>
             <Footer>
