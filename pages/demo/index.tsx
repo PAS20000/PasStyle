@@ -7,6 +7,7 @@ import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from '../api'
 
+
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
     try {
@@ -37,19 +38,28 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
 }
 
 export type Animes = {
-    id?:string
+    id?:number
     name?:string
     thumb?:string
 }
 
 export type Users = {
-    id?:string
+    id?:number
     name?:string
     email?:string
     avatar?:string
     status?:string
-    animes_like?:Array<Animes>
-    
+    phone?: {
+        ddd:string
+        ddi:string
+        number:string
+    }
+    document?: {
+        type:string
+        number:string
+    }
+    createdAt:string
+    animes_like?:Array<Animes>   
 }
 
 type Props = {
@@ -58,6 +68,7 @@ type Props = {
         users:Array<Users>
     }
 }
+
 
 const Demo = ({
     datas

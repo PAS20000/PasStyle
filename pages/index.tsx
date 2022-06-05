@@ -1,18 +1,14 @@
 import { GetStaticProps } from 'next'
 import * as React from 'react'
 import Code from '../src/components/Code'
-import Aside from '../src/components/Layout/Aside'
-import Container from '../src/components/Layout/Container'
 import Footer from '../src/components/Layout/Footer'
 import Header from '../src/components/Layout/Header'
 import Main from '../src/components/Layout/Main'
 import Lorem from '../src/components/Lorem'
 import NavBar from '../src/components/NavBar'
-import Title from '../src/components/Title/indx'
-import { Testes } from '../src/components/_PasStyle/CreateStyle/index.styles'
 import useThemeCTX from '../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from './api'
-import Content from '../src/components/Content'
+import Content from '../src/components/Layout/Content'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -44,19 +40,28 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
 }
 
 export type Animes = {
-    id?:string
+    id?:number
     name?:string
     thumb?:string
 }
 
 export type Users = {
-    id?:string
+    id?:number
     name?:string
     email?:string
     avatar?:string
     status?:string
-    animes_like?:Array<Animes>
-    
+    phone?: {
+        ddd:string
+        ddi:string
+        number:string
+    }
+    document?: {
+        type:string
+        number:string
+    }
+    createdAt:string
+    animes_like?:Array<Animes>   
 }
 
 type Props = {
@@ -80,12 +85,14 @@ const Home = ({
                 />
            </Header>
             <Main>
-               <Container
-                    mg='50px'
-                    pd='25px'
+                <Content
+                    titleContent='Quick start' 
+                    text={<Lorem />}
                     tag='SECTION'
-                > 
-                <Content title='Quick start' text={<Lorem />}>
+                    mg='50px'
+                    pd='50px'
+                    right
+                >
                     <Code copyId='npm'>
                         npm i passtyle
                     </Code>
@@ -93,7 +100,6 @@ const Home = ({
                         yarn passtyle
                     </Code>
                 </Content>
-               </Container>
             </Main>
             <Footer>
                 

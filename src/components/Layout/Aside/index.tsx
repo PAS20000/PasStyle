@@ -22,6 +22,7 @@ const Aside = (props :PasStyleProps<Props>) => {
             border='solid 2px'
             bg={theme.colors.bg}
             color={theme.colors.white}
+            b_Color={theme.colors.purple}
         >
             {props.children}
         </PasStyle>
