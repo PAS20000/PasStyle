@@ -157,11 +157,11 @@ const Form = () => {
                         value={style.f_weight}
                     />
                 </PasStyle>
-                {showCss && 
+                {!showCss && 
                     <Code copyId='css'>
                     CSS : <br /> 
                     {tratamentStyle().map((css, index) => 
-                        <PasStyle key={css + index}>
+                        <PasStyle key={css + index} color={theme.colors.cyan}>
                             {`${css ? `${css};`:css}`}
                         </PasStyle>
                     )}

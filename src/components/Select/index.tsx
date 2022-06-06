@@ -2,7 +2,6 @@ import * as React from 'react'
 import { GoKebabVertical } from 'react-icons/go'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import PasStyle from '../_PasStyle'
-import Option from './Option'
 
 type Props = {
     title:string
@@ -22,6 +21,10 @@ const Select = ({
 
     const [open, setOpen] = React.useState<boolean>(false)
 
+    const Open = () => {
+        setOpen(open ? false : true)
+    }
+
     return(
         <PasStyle w={w}>
             <PasStyle 
@@ -38,7 +41,7 @@ const Select = ({
                      color:theme.colors.purple,
                      bg:theme.colors.darkGray
                  }}
-                onClick={() => setOpen(open ? false : true)}
+                onClick={Open}
             >
                 <PasStyle flex between>
                     <PasStyle>
@@ -49,9 +52,10 @@ const Select = ({
             </PasStyle>
             {open &&
                 <PasStyle grid
+                    onMouseLeave={Open}
                     position='absolute'
                     bg={theme.colors.bg}
-                    transform='translate(20px, 8px)'
+                    transform='translate(20px, -35px)'
                     pd='10px'
                     b_Radius='8px'
                     color={theme.colors.purple}

@@ -53,6 +53,7 @@ const CreateStyles = ({
                 opacity: 1;
             }
         }
+
         ${animation && `animation: ${animation} 1s`};
         ${b_Bottom && ` border-bottom: ${b_Bottom}`};
         ${outline && `outline: ${outline}`};
@@ -113,8 +114,8 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
             ${_focus && `:focus{
                 ${CreateStyles({..._focus})}
             }`}
-            ${_media && `:hover{
-                
+            ${_media && _media.max && `:@media (max-width: ${_media.max[0]}px){
+                ${CreateStyles({..._media.max[1]})}
             }`}
         }`
     }
@@ -128,8 +129,8 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
         ${_focus && `:focus{
             ${CreateStyles({..._focus})}
         }`}
-        ${_media && `:hover{
-            
+        ${_media && _media.max && `:@media (max-width: ${_media.max[0]}px){
+            ${CreateStyles({..._media.max[1]})}
         }`}
     `}
 `}

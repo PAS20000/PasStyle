@@ -41,7 +41,10 @@ export type Props = {
     transition?:string
     op?:string,
     shadow?:string
-    _media?:Styles
+    _media?:{
+        max?:[number, Styles]
+        min?:[number, Styles]
+    }
     _hover?:Styles
     _focus?:Styles
     color?:string
