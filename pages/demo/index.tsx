@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next'
 import * as React from 'react'
+import Form from './components/Form'
 import Footer from '../../src/components/Layout/Footer'
 import Header from '../../src/components/Layout/Header'
 import Main from '../../src/components/Layout/Main'
@@ -84,7 +85,7 @@ const Demo = ({
                 />
            </Header>
             <Main>
-                Demo
+                <Form />
             </Main>
             <Footer>
 

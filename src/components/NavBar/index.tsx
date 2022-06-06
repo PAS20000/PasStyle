@@ -41,18 +41,14 @@ const NavBar = ({
                 mg='18px'
             >
                 <Select title={`Language`}>
-                    <Option>
-                        <Router 
-                            href='/'
-                            name='EN 🇺🇸'
-                        />
-                    </Option>
-                    <Option>
-                        <Router 
-                            href='/pt/'
-                            name='PT 🇧🇷'
-                        />
-                    </Option>
+                    <Router 
+                        href='/'
+                        name='EN 🇺🇸'
+                    />
+                     <Router 
+                        href='/pt/'
+                        name='PT 🇧🇷'
+                    />
                 </Select>
                 <Router 
                     href='/'

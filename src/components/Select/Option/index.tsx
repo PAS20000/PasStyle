@@ -7,14 +7,20 @@ type Props = {
 }
 
 const Option = ({
-    children
+    children,
 } : Props) => {
 
     const { theme } = useThemeCTX()
 
     return(
         <>
-            <PasStyle>
+            <PasStyle
+                cursor='pointer'
+                _hover={{
+                    transition:'1s',
+                    bg:theme.colors.darkGray,
+                }}
+            >
                 {children}
             </PasStyle>
         </>

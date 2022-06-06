@@ -1,18 +1,53 @@
 import * as React from 'react'
-import useDemoCTX from '../../hooks/useDemoCTX'
-import useThemeCTX from '../../hooks/useThemeCTX'
-import Code from '../Code'
-import Container from '../Layout/Container'
-import CopyClipBoard from '../CopyClipBoard'
-import Lorem from '../Lorem'
-import PasStyle from "../_PasStyle"
-import CreateStyle from '../_PasStyle/CreateStyle/index.styles'
-import { Styles } from '../_PasStyle/types'
-import Field from '../Field'
+import useDemoCTX from '../../../../src/hooks/useDemoCTX'
+import useThemeCTX from '../../../../src/hooks/useThemeCTX'
+import Code from '../../../../src/components/Code'
+import PasStyle from "../../../../src/components/_PasStyle"
+import CreateStyle from '../../../../src/components/_PasStyle/CreateStyle/index.styles'
+import Field from '../../../../src/components/Field'
+import Select from '../../../../src/components/Select'
+import Option from '../../../../src/components/Select/Option'
 
 type Props = {
     
 }
+
+const tags = [
+    'ARTICLE', 
+    'SECTION', 
+    'ASIDE',
+    'HEADER',
+    'BODY',
+    'DIV',
+    'FORM',
+    'NAV',
+    'FOOTER',
+    'BUTTON',
+    'MAIN',
+    'SPAN',
+    'H1',
+    'H2',
+    'H3',
+    'H4',
+    'H5',
+    'H6',
+    'INPUT',
+    'P',
+    'TD',
+    'TR',
+    'TH',
+    'THEAD',
+    'TBODY',
+    'TFOOT',
+    'TABLE',
+    'A',
+    'IMG',
+    'NEXTLINK',
+    'NEXTIMG',
+    'CODE',
+    'LABEL',
+    'IFRAME'
+]
 
 const Form = () => {
 
@@ -47,13 +82,14 @@ const Form = () => {
             shadow={`5px 5px 5px 1px #0000006c`}
             bg={theme.colors.bg}
         >
-
+                    <Select title='Props.tag' w='200px'>
+                        {tags.map((tag, index) =>
+                            <Option key={index}>
+                                {tag}
+                            </Option>
+                        )}
+                    </Select>
                 <PasStyle grid columns='1fr 1fr 1fr'>
-                    <Field 
-                        prop='Props.tag:'
-                        placeholder='tag='
-                        
-                    />
                     <Field 
                         prop='Props.background:'
                         placeholder='bg='

@@ -8,12 +8,14 @@ type Props = {
     title:string
     children?:React.ReactNode
     icon?:React.ReactChild
+    w?:string
 }
 
 const Select = ({
     title,
     children,
-    icon
+    icon,
+    w
 } : Props) => {
 
     const { theme } = useThemeCTX()
@@ -21,7 +23,7 @@ const Select = ({
     const [open, setOpen] = React.useState<boolean>(false)
 
     return(
-        <PasStyle>
+        <PasStyle w={w}>
             <PasStyle 
                  f_size='12px'
                  mg='0px 20px 0px'
@@ -30,7 +32,7 @@ const Select = ({
                  t_decoration='none'
                  b_Radius='8px'
                  border='solid 2px'
-                 color={open  ? theme.colors.purple : theme.colors.white}
+                 color={open ? theme.colors.purple : theme.colors.white}
                  _hover={{
                      transition: '1s',
                      color:theme.colors.purple,
@@ -39,25 +41,26 @@ const Select = ({
                 onClick={() => setOpen(open ? false : true)}
             >
                 <PasStyle flex between>
-                    <PasStyle>
+                    <PasStyle f_weight='500'>
                         {title} 
                     </PasStyle>
-                    {icon ??  <GoKebabVertical  style={{marginTop:'3px'}}/>}
+                    {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
                 </PasStyle>
             </PasStyle>
             {open &&
                 <PasStyle grid
                     position='absolute'
-                    bg={theme.colors.darkGray}
-                    transform='translate(5px, 8px)'
-                    pd='5px'
+                    bg={theme.colors.bg}
+                    transform='translate(20px, 8px)'
+                    pd='10px'
                     b_Radius='8px'
-                    w='100px'
                     color={theme.colors.purple}
                     border='solid 2px'
                     shadow='2px 2px 2px black'
                     t_align='center'
                     animation='show'
+                    z='3'
+                    w={`${(parseInt(w) - 65).toString()}px`}
                 >
                     {children}
                 </PasStyle>
