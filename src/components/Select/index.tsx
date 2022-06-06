@@ -41,7 +41,7 @@ const Select = ({
                 onClick={() => setOpen(open ? false : true)}
             >
                 <PasStyle flex between>
-                    <PasStyle f_weight='500'>
+                    <PasStyle>
                         {title} 
                     </PasStyle>
                     {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}

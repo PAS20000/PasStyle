@@ -5,6 +5,7 @@ import { FaMoon, FaSun } from 'react-icons/fa'
 import Router from './Router'
 import Select from '../Select'
 import Option from '../Select/Option'
+import { useRouter } from 'next/router'
 
 type Props = {
     current?:'docs' | 'demo' | 'git'
@@ -15,6 +16,8 @@ const NavBar = ({
 }: Props) => {
 
     const { theme, mode, changeMode } = useThemeCTX()
+
+    const router = useRouter()
 
     return(
         <PasStyle flex between
@@ -40,15 +43,13 @@ const NavBar = ({
             <PasStyle flex
                 mg='18px'
             >
-                <Select title={`Language`}>
-                    <Router 
-                        href='/'
-                        name='EN 🇺🇸'
-                    />
-                     <Router 
-                        href='/pt/'
-                        name='PT 🇧🇷'
-                    />
+                <Select title={`Language`} w='130'>
+                   <Option onClick={() => router.push('/')}>
+                       EN 🇺🇸
+                   </Option>
+                   <Option  onClick={() => router.push('/pt/')}>
+                       PT 🇧🇷
+                   </Option>
                 </Select>
                 <Router 
                     href='/'

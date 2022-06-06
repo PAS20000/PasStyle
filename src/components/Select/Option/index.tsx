@@ -4,10 +4,12 @@ import PasStyle from '../../_PasStyle'
 
 type Props = {
     children?:React.ReactNode
+    onClick?:React.MouseEventHandler
 }
 
 const Option = ({
     children,
+    onClick,
 } : Props) => {
 
     const { theme } = useThemeCTX()
@@ -15,9 +17,10 @@ const Option = ({
     return(
         <>
             <PasStyle
+                onClick={onClick}
+                mg='5px 0px 0px'
                 cursor='pointer'
                 _hover={{
-                    transition:'1s',
                     bg:theme.colors.darkGray,
                 }}
             >
