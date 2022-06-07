@@ -7,6 +7,7 @@ import Main from '../../src/components/Layout/Main'
 import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from '../api'
+import Avatar from './components/Avatar'
 
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
@@ -86,6 +87,21 @@ const Demo = ({
            </Header>
             <Main>
                 <Form />
+                {dataUsers.map(user =>  
+                    <Avatar key={user.id}
+                        createdAt={user.createdAt}
+                        animes_like={user.likes}
+                        avatar={user.avatar}
+                        document={user.document}
+                        email={user.email}
+                        name={user.name}
+                        id={user.id}
+                        phone={user.phone}
+                        status={user.status}
+                        setOpen={() => {}}
+                    />
+                )}
+               
             </Main>
             <Footer>
 

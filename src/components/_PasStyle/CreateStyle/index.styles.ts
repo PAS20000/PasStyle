@@ -46,15 +46,6 @@ const CreateStyles = ({
     _webkit
 } : Styles) => {
     return`
-
-        @keyframes show {
-            from{
-                opacity: 0;
-            }
-            to{
-                opacity: 1;
-            }
-        }
         ${unselectableText && `
             -webkit-touch-callout: none;
             -webkit-user-select: none;   
@@ -114,9 +105,10 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
     const { tag, _hover, _focus, _media } = props
 
     return`
+    
         ${tag === 'NEXTLINK' && `a{
-            ${CreateStyles({...props})}
 
+            ${CreateStyles({...props})}
            
             ${_hover && `:hover{
                 ${CreateStyles({..._hover})}

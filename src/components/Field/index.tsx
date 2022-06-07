@@ -9,6 +9,7 @@ type Props = {
     placeholder?:string
     onChange?:React.MouseEventHandler
     value?:string
+    type?:string
 }
 
 const Field = ({
@@ -16,7 +17,8 @@ const Field = ({
     prop,
     placeholder,
     value,
-    onChange
+    onChange,
+    type
 } : Props) => {
 
     const { theme } = useThemeCTX()
@@ -49,20 +51,35 @@ const Field = ({
                    {icon}
                 </PasStyle> 
             }
-            <PasStyle tag='INPUT' 
-                onChange={onChange}
-                pd='10px'
-                w='90%'
-                b_Radius='8px'
-                border='solid 2px'
-                bg={theme.colors.bg}
-                color={theme.colors.yellow}
-                b_Color={theme.colors.cyan}
-                outline_color={theme.colors.yellow}
-                placeholder={placeholder}
-                type='text'
-                value={value}
-            />
+            {type === 'color' ? 
+                <PasStyle tag='INPUT' 
+                    type={type} 
+                    w='95%' 
+                    bg={theme.colors.bg} 
+                    border='solid 2px' 
+                    b_Color={theme.colors.cyan}
+                    h='40px'
+                    pd='5px'
+                    b_Radius='8px'
+                    onChange={onChange}
+                    value={value}
+                />
+                :
+                <PasStyle tag='INPUT' 
+                    onChange={onChange}
+                    pd='10px'
+                    w='90%'
+                    b_Radius='8px'
+                    border='solid 2px'
+                    bg={theme.colors.bg}
+                    color={theme.colors.yellow}
+                    b_Color={theme.colors.cyan}
+                    outline_color={theme.colors.yellow}
+                    placeholder={placeholder}
+                    type={type}
+                    value={value}
+                />
+            }
             </PasStyle>
         </PasStyle>
     )

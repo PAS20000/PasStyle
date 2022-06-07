@@ -8,9 +8,12 @@ import Field from '../../../../src/components/Field'
 import Select from '../../../../src/components/Select'
 import Option from '../../../../src/components/Select/Option'
 import useUserExperienceCTX from '../../../../src/hooks/useUserExperienceCTX'
+import { SetState } from '../../../../src/contexts/types'
+import Container from '../../../../src/components/Layout/Container'
 
 type Props = {
-    
+    style?:object
+    setStyle?:SetState<object>
 }
 
 const tags = [
@@ -53,7 +56,7 @@ const tags = [
 const Form = () => {
 
     const { theme } = useThemeCTX()
-    const { style, setStyle } = useDemoCTX()
+    const { setStyle, style} = useDemoCTX()
     const { globalOpen, setGlobalOpen, closeAll } = useUserExperienceCTX()
     const [ showCss, setShowCss ] = React.useState<boolean>(false)
 
@@ -78,33 +81,49 @@ const Form = () => {
             i !== array.length && 
             i !== array.length - 1 
         )
-       console.log(tratament)
+
        return tratament
     }
 
     return(
-    <>   
-        <PasStyle  grid rows='1fr'
+    <PasStyle
+        mg='30px' 
+        pd='15px'
+        b_Radius='8px'
+        shadow={`5px 5px 5px 1px #0000006c`}
+        bg={theme.colors.bg}
+    >   
+        <PasStyle flex between>
+            <Select title='tag' w='200px' onClick={open} open={globalOpen.formSelect}>
+                {tags.map((tag, index) =>
+                    <Option key={index} value={tag}>
+                    {tag}
+                    </Option>
+                )}
+            </Select>
+            <PasStyle>
+                <PasStyle tag='BUTTON'>
+                    _hover
+                </PasStyle>
+                <PasStyle tag='BUTTON'>
+                    css
+                </PasStyle>
+            </PasStyle>
+            <PasStyle tag='BUTTON'>
+                X
+            </PasStyle>
+        </PasStyle>
+        <Container  grid rows='1fr'
             tag='FORM' 
-            mg='30px' 
-            pd='15px'
-            b_Radius='8px'
-            shadow={`5px 5px 5px 1px #0000006c`}
-            bg={theme.colors.bg}
+            pd='10px'
         >
-                    <Select title='tag' w='200px' onClick={open} open={globalOpen.formSelect}>
-                        {tags.map((tag, index) =>
-                            <Option key={index} value={tag}>
-                                {tag}
-                            </Option>
-                        )}
-                    </Select>
-                <PasStyle grid columns='1fr 1fr 1fr' onClick={() => closeAll()}>
+                <PasStyle grid columns='1fr 1fr 1fr'>
                     <Field 
                         prop='background:'
                         placeholder='bg='
                         onChange={(e:any) => setStyle({...style, bg:e.target.value})}
                         value={style.bg}
+                        type='color'
                     />
                     <Field 
                         prop='padding:'
@@ -117,6 +136,7 @@ const Form = () => {
                         placeholder='color='
                         onChange={(e:any) => setStyle({...style, color:e.target.value})}
                         value={style.color}
+                        type='color'
                     />
                     <Field 
                         prop='border:'
@@ -129,6 +149,7 @@ const Form = () => {
                         placeholder='b_Color='
                         onChange={(e:any) => setStyle({...style, b_Color:e.target.value})}
                         value={style.b_Color}
+                        type='color'
                     />
                     <Field 
                         prop='border-radius:'
@@ -166,6 +187,12 @@ const Form = () => {
                         onChange={(e:any) => setStyle({...style, f_weight:e.target.value})}
                         value={style.f_weight}
                     />
+                      <Field 
+                        prop='text-transform:'
+                        placeholder='f_transform='
+                        onChange={(e:any) => setStyle({...style, t_transform:e.target.value})}
+                        value={style.t_transform}
+                    />
                 </PasStyle>
                 {!showCss && 
                     <Code copyId='css'>
@@ -189,8 +216,8 @@ const Form = () => {
                     )}
                     </Code>
                 }
-        </PasStyle>
-    </>
+        </Container>
+    </PasStyle>
     )
 }
 

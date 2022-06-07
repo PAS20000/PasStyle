@@ -17,11 +17,16 @@ const DemoProvider = ({
 
 
     const [style, setStyle] = React.useState<Styles>({
-        color:'cyan',
-        pd:'20px',
-        bg:'#000',
-        b_Radius:'8px',
-        border: `solid 2px ${'red'}`,
+                bg:'#000',
+                pd:'10px',
+                mg:'10px',
+                b_Radius:'8px',
+                border:'solid 2px',
+                t_decoration:'none',
+                color:'#fff',
+                b_Color:'#b90909',
+                cursor:'pointer',
+                t_transform:'capitalize',
     })
 
 
