@@ -1,4 +1,5 @@
 import * as React from 'react'
+import useId from '../../hooks/useId/useId'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import PasStyle from '../_PasStyle'
 import { Styles } from '../_PasStyle/types'
@@ -23,7 +24,7 @@ const Field = ({
 
     const { theme } = useThemeCTX()
 
-    
+    const { random } = useId('color')
 
     return(
         <PasStyle mg='15px 10px 0px'>
@@ -52,18 +53,31 @@ const Field = ({
                 </PasStyle> 
             }
             {type === 'color' ? 
-                <PasStyle tag='INPUT' 
-                    type={type} 
-                    w='95%' 
+                <PasStyle w='93%'
+                    onClick={() => document.getElementById(random).click()}
                     bg={theme.colors.bg} 
                     border='solid 2px' 
                     b_Color={theme.colors.cyan}
-                    h='40px'
+                    color={theme.colors.yellow}
                     pd='5px'
+                    placeholder={placeholder}
                     b_Radius='8px'
-                    onChange={onChange}
-                    value={value}
-                />
+                    f_size='14px'
+                >
+                    <PasStyle tag='INPUT'
+                        id={random}
+                        type={type} 
+                        bg={theme.colors.bg} 
+                        border='none'
+                        onChange={onChange}
+                        h='30px'
+                        w='30px'
+                        value={value}
+                    />
+                    <PasStyle tag='SPAN' position='absolute' pd='5px'>
+                        {value}
+                    </PasStyle>
+                </PasStyle>
                 :
                 <PasStyle tag='INPUT' 
                     onChange={onChange}

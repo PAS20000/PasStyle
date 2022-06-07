@@ -46,7 +46,7 @@ const CopyClipBoard = ({
         {copy && 
             <PasStyle 
                 position='absolute'
-                bg={theme.colors.cyan}
+                bg={theme.colors.green}
                 color={theme.colors.darkGray}
                 b_Radius='8px'
                 pd='5px'

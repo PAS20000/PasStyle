@@ -10,6 +10,7 @@ import Option from '../../../../src/components/Select/Option'
 import useUserExperienceCTX from '../../../../src/hooks/useUserExperienceCTX'
 import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
+import { MdClose } from 'react-icons/md'
 
 type Props = {
     style?:object
@@ -93,6 +94,49 @@ const Form = () => {
         shadow={`5px 5px 5px 1px #0000006c`}
         bg={theme.colors.bg}
     >   
+     <PasStyle pd='20px'>
+            <PasStyle tag='BUTTON' 
+                    onClick={() => setShowCss(false)}
+                    bg={theme.colors.darkGray}
+                    border='none'
+                    color={!showCss ? theme.colors.green : theme.colors.white}
+                    cursor='pointer'
+                    f_size='18px'
+                    _hover={{
+                        transition: '1s',
+                        color: theme.colors.green,
+                    }}
+                >
+                    style
+                </PasStyle>
+                <PasStyle tag='BUTTON'  
+                   bg={theme.colors.darkGray}
+                   border='none'
+                   color={theme.colors.white}
+                   cursor='pointer'
+                   f_size='18px'
+                   _hover={{
+                       transition: '1s',
+                       color: theme.colors.green,
+                   }}
+                >
+                    _hover
+                </PasStyle>
+                <PasStyle tag='BUTTON' 
+                    onClick={() => setShowCss(true)}
+                    bg={theme.colors.darkGray}
+                    border='none'
+                    color={showCss ? theme.colors.green : theme.colors.white}
+                    cursor='pointer'
+                    f_size='18px'
+                    _hover={{
+                        transition: '1s',
+                        color: theme.colors.green,
+                    }}
+                >
+                    css
+                </PasStyle>
+            </PasStyle>
         <PasStyle flex between>
             <Select title='tag' w='200px' onClick={open} open={globalOpen.formSelect}>
                 {tags.map((tag, index) =>
@@ -101,16 +145,18 @@ const Form = () => {
                     </Option>
                 )}
             </Select>
-            <PasStyle>
-                <PasStyle tag='BUTTON'>
-                    _hover
-                </PasStyle>
-                <PasStyle tag='BUTTON'>
-                    css
-                </PasStyle>
-            </PasStyle>
-            <PasStyle tag='BUTTON'>
-                X
+            <PasStyle tag='BUTTON'
+                bg='transparent'
+                border='none'
+                color={theme.colors.white}
+                cursor='pointer'
+                f_size='18px'
+                _hover={{
+                    transition: '1s',
+                    color: theme.colors.red,
+                }}
+            >
+                <MdClose />
             </PasStyle>
         </PasStyle>
         <Container  grid rows='1fr'
@@ -187,14 +233,14 @@ const Form = () => {
                         onChange={(e:any) => setStyle({...style, f_weight:e.target.value})}
                         value={style.f_weight}
                     />
-                      <Field 
+                    <Field 
                         prop='text-transform:'
                         placeholder='f_transform='
                         onChange={(e:any) => setStyle({...style, t_transform:e.target.value})}
                         value={style.t_transform}
                     />
                 </PasStyle>
-                {!showCss && 
+                {showCss && 
                     <Code copyId='css'>
                     {tratamentStyle().map((css, index) => 
                         <PasStyle key={css + index} color={theme.colors.cyan}>

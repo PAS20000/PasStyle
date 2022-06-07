@@ -59,6 +59,7 @@ export type Styles = {
     b_Bottom?:string
     unselectableText?:boolean
     _webkit?:string
+    display?:string
 }
 
 export type childrenProps<T> = React.PropsWithChildren<T & DefaultProps>

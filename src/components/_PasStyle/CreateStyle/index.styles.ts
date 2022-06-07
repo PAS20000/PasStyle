@@ -43,7 +43,8 @@ const CreateStyles = ({
     z,
     b_Bottom,
     unselectableText,
-    _webkit
+    _webkit,
+    display
 } : Styles) => {
     return`
         ${unselectableText && `
@@ -54,6 +55,7 @@ const CreateStyles = ({
             -ms-user-select: none;
             user-select: none;
         `}
+        ${display && `display: ${display}`};
         ${_webkit && _webkit}
         ${animation && `animation: ${animation} 1s`};
         ${b_Bottom && ` border-bottom: ${b_Bottom}`};
@@ -105,7 +107,7 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
     const { tag, _hover, _focus, _media } = props
 
     return`
-    
+
         ${tag === 'NEXTLINK' && `a{
 
             ${CreateStyles({...props})}
@@ -140,6 +142,6 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
 export default CreateStyle
 
 export const Testes = styled.div`
-        
+        display: none;
    
 `
