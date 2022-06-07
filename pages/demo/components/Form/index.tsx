@@ -174,6 +174,9 @@ const Form = () => {
                             {css &&
                                 <>
                                     {css.split(':')[0]}
+                                    <PasStyle tag='SPAN' color={theme.colors.pink}>
+                                        :
+                                    </PasStyle>
                                     <PasStyle tag='SPAN' color={theme.colors.purple}>
                                         {css.split(':')[1]};
                                     </PasStyle> 
