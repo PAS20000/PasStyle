@@ -56,6 +56,7 @@ export type Props = {
     type?:any
     z?:string
     b_Bottom?:string
+    value?:string
 }
 
 const PasStyle = (props:childrenProps<Props>) => {
