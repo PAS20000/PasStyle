@@ -70,11 +70,11 @@ const Field = ({
                         bg={theme.colors.bg} 
                         border='none'
                         onChange={onChange}
-                        h='30px'
-                        w='30px'
+                        h='25px'
+                        w='25px'
                         value={value}
                     />
-                    <PasStyle tag='SPAN' position='absolute' pd='5px'>
+                    <PasStyle tag='SPAN' position='absolute' pd='2px'>
                         {value}
                     </PasStyle>
                 </PasStyle>
