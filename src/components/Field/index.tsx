@@ -1,6 +1,6 @@
 import * as React from 'react'
-import useId from '../../hooks/useId/useId'
 import useThemeCTX from '../../hooks/useThemeCTX'
+import useWhoIam from '../../hooks/useWhoIam'
 import PasStyle from '../_PasStyle'
 import { Styles } from '../_PasStyle/types'
 
@@ -24,7 +24,7 @@ const Field = ({
 
     const { theme } = useThemeCTX()
 
-    const { random } = useId('color')
+    const { random } = useWhoIam('color')
 
     return(
         <PasStyle mg='15px 10px 0px'>

@@ -7,7 +7,7 @@ type TReturn = {
 
 let id = 0
 
-const useId = (addString?:string) : TReturn => {
+const useWhoIam = (addString?:string) : TReturn => {
     const [ sequencial, setSequencial ] = React.useState<string | number>(id++)
     const [ random, setRandom ] = React.useState<string>()
 
@@ -26,4 +26,4 @@ const useId = (addString?:string) : TReturn => {
     }
 }
 
-export default useId
+export default useWhoIam
