@@ -73,10 +73,12 @@ const Form = () => {
             c !== 'undefined' && 
             c !== 'false' && 
             i !== 0 && 
+            i !== 1 &&
+            i !== 2 &&
             i !== array.length && 
-            i !== array.length - 1
+            i !== array.length - 1 
         )
-       
+       console.log(tratament)
        return tratament
     }
 
@@ -167,10 +169,16 @@ const Form = () => {
                 </PasStyle>
                 {!showCss && 
                     <Code copyId='css'>
-                    CSS : <br /> 
                     {tratamentStyle().map((css, index) => 
                         <PasStyle key={css + index} color={theme.colors.cyan}>
-                            {`${css ? `${css};`:css}`}
+                            {css &&
+                                <>
+                                    {css.split(':')[0]}
+                                    <PasStyle tag='SPAN' color={theme.colors.purple}>
+                                        {css.split(':')[1]};
+                                    </PasStyle> 
+                                </>
+                            }
                         </PasStyle>
                     )}
                     </Code>
