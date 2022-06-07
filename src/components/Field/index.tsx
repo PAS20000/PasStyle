@@ -60,7 +60,6 @@ const Field = ({
                     b_Color={theme.colors.cyan}
                     color={theme.colors.yellow}
                     pd='5px'
-                    placeholder={placeholder}
                     b_Radius='8px'
                     f_size='14px'
                 >
@@ -70,6 +69,7 @@ const Field = ({
                         bg={theme.colors.bg} 
                         border='none'
                         onChange={onChange}
+                        placeholder={placeholder}
                         h='25px'
                         w='25px'
                         value={value}

@@ -87,16 +87,42 @@ const Form = () => {
     }
 
     return(
-    <PasStyle pd='30px'>
-      <PasStyle flex around
-            w='30%'
-            position='absolute' 
+    <PasStyle pd='40px'>
+        
+    <PasStyle
+        mg='0px 30px 30px' 
+        pd='20px'
+        b_Radius='8px'
+        shadow={`5px 5px 5px 1px #0000006c`}
+        bg={theme.colors.bg}
+    >
+        <PasStyle flex end
+            w='100%'
+        >
+                <PasStyle 
+                    tag='BUTTON'
+                    bg='transparent'
+                    border='none'
+                    color={theme.colors.white}
+                    f_size='18px'
+                    pd='10px'
+                    transform='translate(20px, -20px)'
+                    cursor='pointer'
+                    position='absolute'
+                    _hover={{
+                    transition: '1s',
+                    color: theme.colors.red,
+                }}> 
+                    <MdClose />
+                </PasStyle>
+            </PasStyle>
+        <PasStyle flex around
             mg='0px 30px 0px' 
             pd='8px'
-            b_Radius='8px'
+            b_Bottom='solid 1px'
             bg={theme.colors.bg}
         >
-            <PasStyle tag='BUTTON' 
+                <PasStyle tag='BUTTON' 
                     onClick={() => setShowCss(false)}
                     bg={!showCss ? theme.colors.darkGray : 'transparent'}
                     w='33%'
@@ -147,14 +173,7 @@ const Form = () => {
                     CSS
                 </PasStyle>
             </PasStyle>
-    <PasStyle
-        mg='30px' 
-        pd='15px'
-        b_Radius='8px'
-        shadow={`5px 5px 5px 1px #0000006c`}
-        bg={theme.colors.bg}
-    >   
-        <PasStyle flex between>
+        <PasStyle mg='15px'>
             <Select title='tag' w='200px' onClick={open} open={globalOpen.formSelect}>
                 {tags.map((tag, index) =>
                     <Option key={index} value={tag}>
@@ -162,19 +181,6 @@ const Form = () => {
                     </Option>
                 )}
             </Select>
-            <PasStyle tag='BUTTON'
-                bg='transparent'
-                border='none'
-                color={theme.colors.white}
-                cursor='pointer'
-                f_size='18px'
-                _hover={{
-                    transition: '1s',
-                    color: theme.colors.red,
-                }}
-            >
-                <MdClose />
-            </PasStyle>
         </PasStyle>
         <Container  grid rows='1fr'
             tag='FORM' 
