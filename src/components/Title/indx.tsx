@@ -15,7 +15,7 @@ const Title = ({
     return(
        <PasStyle 
             tag='H2'
-            color={theme.colors.purple}
+            color={theme.colors.white}
             mg='30px'
         >
            {children}

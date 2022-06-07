@@ -32,12 +32,11 @@ const CopyClipBoard = ({
             type='button' 
             tag='BUTTON'
             bg={theme.colors.bg}
-            color={theme.colors.cyan}
-            b_Color={theme.colors.cyan}
-            border='solid 2px'
+            color={theme.colors.white}
+            border='none'
             b_Radius='8px'
-            pd='8px'
-            mg='5px'
+            pd='10px'
+            mg='6px'
             cursor='pointer'
             onMouseLeave={() => setCopy(null)}
             onMouseEnter={() => setCopy('Copy')}
@@ -47,7 +46,7 @@ const CopyClipBoard = ({
         {copy && 
             <PasStyle 
                 position='absolute'
-                bg={theme.colors.green}
+                bg={theme.colors.cyan}
                 color={theme.colors.darkGray}
                 b_Radius='8px'
                 pd='5px'
