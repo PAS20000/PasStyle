@@ -133,7 +133,7 @@ const Form = () => {
                     onClick={() => setShowCss(false)}
                     bg={!showCss ? theme.colors.darkGray : 'transparent'}
                     w='33%'
-                    border='none'
+                    border='solid 2px'
                     color={!showCss ? theme.colors.green : theme.colors.white}
                     cursor='pointer'
                     f_size='18px'
