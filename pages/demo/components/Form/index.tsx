@@ -178,8 +178,11 @@ const Form = () => {
                                         :
                                     </PasStyle>
                                     <PasStyle tag='SPAN' color={theme.colors.purple}>
-                                        {css.split(':')[1]};
+                                        {css.split(':')[1]}
                                     </PasStyle> 
+                                    <PasStyle tag='SPAN' color={theme.colors.white}>
+                                        ;
+                                    </PasStyle>
                                 </>
                             }
                         </PasStyle>
