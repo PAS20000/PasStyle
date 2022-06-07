@@ -27,7 +27,7 @@ const PasStyleThemeProvider = ({
     const [theme, setTheme] = React.useState(dark)
 
         React.useEffect(() => {
-           setTheme(mode === 'dark' ? dark : light)
+            setTheme(mode === 'dark' ? dark : light)
         }, [mode])
 
         const changeMode = () : void => {

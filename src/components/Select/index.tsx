@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { GoKebabVertical } from 'react-icons/go'
 import useThemeCTX from '../../hooks/useThemeCTX'
+import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
 import PasStyle from '../_PasStyle'
 
 type Props = {
@@ -8,22 +9,23 @@ type Props = {
     children?:React.ReactNode
     icon?:React.ReactChild
     w?:string
+    onClick?:React.MouseEventHandler
+    open?:boolean
+    value?:string
 }
 
 const Select = ({
     title,
     children,
     icon,
-    w
+    w,
+    open,
+    onClick,
+    value
 } : Props) => {
 
     const { theme } = useThemeCTX()
-
-    const [open, setOpen] = React.useState<boolean>(false)
-
-    const Open = () => {
-        setOpen(open ? false : true)
-    }
+    
 
     return(
         <PasStyle w={w}>
@@ -35,13 +37,13 @@ const Select = ({
                  t_decoration='none'
                  b_Radius='8px'
                  border='solid 2px'
-                 color={open ? theme.colors.purple : theme.colors.white}
+                 color={open ? theme.colors.green : theme.colors.white}
                  _hover={{
                      transition: '1s',
-                     color:theme.colors.purple,
+                     color:theme.colors.green,
                      bg:theme.colors.darkGray
                  }}
-                onClick={Open}
+                onClick={onClick}
             >
                 <PasStyle flex between>
                     <PasStyle>
@@ -52,15 +54,13 @@ const Select = ({
             </PasStyle>
             {open &&
                 <PasStyle grid
-                    onMouseLeave={Open}
                     position='absolute'
                     bg={theme.colors.bg}
-                    transform='translate(20px, -35px)'
+                    transform='translate(20px, 5px)'
                     pd='10px'
                     b_Radius='8px'
-                    color={theme.colors.purple}
-                    border='solid 2px'
-                    shadow='2px 2px 2px black'
+                    border='solid 1px'
+                    b_Color={theme.colors.green}
                     t_align='center'
                     animation='show'
                     z='3'

@@ -89,8 +89,7 @@ const Home = ({
                     titleContent='Quick start' 
                     text={<Lorem />}
                     tag='SECTION'
-                    mg='50px'
-                    pd='50px'
+                    pd='100px'
                     right
                 >
                     <Code copyId='npm'>

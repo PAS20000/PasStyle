@@ -4,6 +4,7 @@ import Container from '../Container'
 import Title from '../../Title/indx'
 import { PasStyleProps } from '../../_PasStyle/types'
 import useThemeCTX from '../../../hooks/useThemeCTX'
+import useUserExperienceCTX from '../../../hooks/useUserExperienceCTX'
 
 type Props = {
     titleContent:React.ReactNode
@@ -19,7 +20,9 @@ const Content = (props:PasStyleProps<Props>) => {
     const { theme } = useThemeCTX()
 
     return(
-        <Container {...props} grid columns='1fr 1fr'  animation='show'> 
+        <Container {...props} grid columns='1fr 1fr'  
+            animation='show' 
+        > 
             {left &&
                 <Aside>
                     {text}

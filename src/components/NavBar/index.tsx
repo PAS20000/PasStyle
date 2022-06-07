@@ -6,6 +6,7 @@ import Router from './Router'
 import Select from '../Select'
 import Option from '../Select/Option'
 import { useRouter } from 'next/router'
+import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
 
 type Props = {
     current?:'docs' | 'demo' | 'git'
@@ -16,9 +17,15 @@ const NavBar = ({
 }: Props) => {
 
     const { theme, mode, changeMode } = useThemeCTX()
+    const { globalOpen, setGlobalOpen } = useUserExperienceCTX()
 
     const router = useRouter()
-
+    const open = () => {
+        setGlobalOpen({
+            ...globalOpen,
+            navSelect:globalOpen.navSelect ? false : true
+        })
+    }
     return(
         <PasStyle flex between
             tag='NAV'
@@ -43,7 +50,7 @@ const NavBar = ({
             <PasStyle flex
                 mg='18px'
             >
-                <Select title={`Language`} w='130'>
+                <Select title={`Language`} w='130' onClick={open} open={globalOpen.navSelect}>
                    <Option onClick={() => router.push('/')}>
                        EN 🇺🇸
                    </Option>

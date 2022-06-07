@@ -1,5 +1,6 @@
 import * as React from 'react'
 import useThemeCTX from '../../hooks/useThemeCTX'
+import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
 import CopyClipBoard from '../CopyClipBoard'
 import PasStyle from "../_PasStyle"
 
@@ -14,7 +15,7 @@ const Code = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-
+    const { closeAll } = useUserExperienceCTX()
     return(
         <>
             <PasStyle flex between
@@ -26,6 +27,7 @@ const Code = ({
                 pd='15px'
                 mg='30px'
                 shadow='2px 2px 2px black'
+                onClick={() => closeAll()}
             >
                 <PasStyle  id={copyId}>
                     {children}

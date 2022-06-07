@@ -11,9 +11,9 @@ const Main = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-
+   
     return(
-        <PasStyle 
+        <PasStyle
             tag='MAIN' 
             pd='60px 0px 50px'
             h='100%'

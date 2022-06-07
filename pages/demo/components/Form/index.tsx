@@ -7,6 +7,7 @@ import CreateStyle from '../../../../src/components/_PasStyle/CreateStyle/index.
 import Field from '../../../../src/components/Field'
 import Select from '../../../../src/components/Select'
 import Option from '../../../../src/components/Select/Option'
+import useUserExperienceCTX from '../../../../src/hooks/useUserExperienceCTX'
 
 type Props = {
     
@@ -53,8 +54,15 @@ const Form = () => {
 
     const { theme } = useThemeCTX()
     const { style, setStyle } = useDemoCTX()
-
+    const { globalOpen, setGlobalOpen, closeAll } = useUserExperienceCTX()
     const [ showCss, setShowCss ] = React.useState<boolean>(false)
+
+    const open = () => {
+        setGlobalOpen({
+            ...globalOpen,
+            formSelect:globalOpen.formSelect ? false : true
+        })
+    }
 
     const tratamentStyle = () : Array<string> => {
 
@@ -82,14 +90,14 @@ const Form = () => {
             shadow={`5px 5px 5px 1px #0000006c`}
             bg={theme.colors.bg}
         >
-                    <Select title='Props.tag' w='200px'>
+                    <Select title='Props.tag' w='200px' onClick={open} open={globalOpen.formSelect}>
                         {tags.map((tag, index) =>
-                            <Option key={index}>
+                            <Option key={index} value={tag}>
                                 {tag}
                             </Option>
                         )}
                     </Select>
-                <PasStyle grid columns='1fr 1fr 1fr'>
+                <PasStyle grid columns='1fr 1fr 1fr' onClick={() => closeAll()}>
                     <Field 
                         prop='Props.background:'
                         placeholder='bg='
