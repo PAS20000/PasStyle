@@ -34,6 +34,7 @@ const Field = ({
                 pd='0px 2px 0px'
                 b_Radius='8px'
                 f_size='14px'
+                t_transform='capitalize'
             >
                {prop ?? 'prop'}
             </PasStyle>

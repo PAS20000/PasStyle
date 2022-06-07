@@ -92,7 +92,7 @@ const Form = () => {
             shadow={`5px 5px 5px 1px #0000006c`}
             bg={theme.colors.bg}
         >
-                    <Select title='Props.tag' w='200px' onClick={open} open={globalOpen.formSelect}>
+                    <Select title='tag' w='200px' onClick={open} open={globalOpen.formSelect}>
                         {tags.map((tag, index) =>
                             <Option key={index} value={tag}>
                                 {tag}
@@ -101,67 +101,67 @@ const Form = () => {
                     </Select>
                 <PasStyle grid columns='1fr 1fr 1fr' onClick={() => closeAll()}>
                     <Field 
-                        prop='Props.background:'
+                        prop='background:'
                         placeholder='bg='
                         onChange={(e:any) => setStyle({...style, bg:e.target.value})}
                         value={style.bg}
                     />
                     <Field 
-                        prop='Props.padding:'
+                        prop='padding:'
                         placeholder='pd='
                         onChange={(e:any) => setStyle({...style, pd:e.target.value})}
                         value={style.pd}
                     />
                     <Field 
-                        prop='Props.color:'
+                        prop='color:'
                         placeholder='color='
                         onChange={(e:any) => setStyle({...style, color:e.target.value})}
                         value={style.color}
                     />
                     <Field 
-                        prop='Props.border:'
+                        prop='border:'
                         placeholder='border='
                         onChange={(e:any) => setStyle({...style, border:e.target.value})}
                         value={style.border}
                     />
                     <Field 
-                        prop='Props.border-color:'
-                        placeholder='b_color='
+                        prop='border-color:'
+                        placeholder='b_Color='
                         onChange={(e:any) => setStyle({...style, b_Color:e.target.value})}
                         value={style.b_Color}
                     />
                     <Field 
-                        prop='Props.border-radius:'
+                        prop='border-radius:'
                         placeholder='b_Radius='
                         onChange={(e:any) => setStyle({...style, b_Radius:e.target.value})}
                         value={style.b_Radius}
                     />
                     <Field 
-                        prop='Props.margin:'
+                        prop='margin:'
                         placeholder='mg='
                         onChange={(e:any) => setStyle({...style, mg:e.target.value})}
                         value={style.mg}
                     />
                     <Field 
-                        prop='Props.box-shadow:'
+                        prop='box-shadow:'
                         placeholder='shadow='
                         onChange={(e:any) => setStyle({...style, shadow:e.target.value})}
                         value={style.shadow}
                     />
                     <Field 
-                        prop='Props.transform:'
+                        prop='transform:'
                         placeholder='transform='
                         onChange={(e:any) => setStyle({...style, transform:e.target.value})}
                         value={style.transform}
                     />
                     <Field 
-                        prop='Props.font-size:'
+                        prop='font-size:'
                         placeholder='f_size='
                         onChange={(e:any) => setStyle({...style, f_size:e.target.value})}
                         value={style.f_size}
                     />
                     <Field 
-                        prop='Props.font-weight:'
+                        prop='font-weight:'
                         placeholder='f_weight='
                         onChange={(e:any) => setStyle({...style, f_weight:e.target.value})}
                         value={style.f_weight}
