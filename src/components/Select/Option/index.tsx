@@ -26,7 +26,7 @@ const Option = ({
                 color={theme.colors.white}
                 _hover={{
                     bg:theme.colors.darkGray,
-                    color: theme.colors.cyan
+                    color: theme.colors.yellow
                 }}
             >
                 {children}
