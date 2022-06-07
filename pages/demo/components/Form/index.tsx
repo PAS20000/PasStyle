@@ -11,13 +11,14 @@ import useUserExperienceCTX from '../../../../src/hooks/useUserExperienceCTX'
 import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
 import { MdClose } from 'react-icons/md'
+import { Tags } from '../../../../src/components/_PasStyle/types'
 
 type Props = {
     style?:object
     setStyle?:SetState<object>
 }
 
-const tags = [
+const tags : Tags = [
     'ARTICLE', 
     'SECTION', 
     'ASIDE',
@@ -85,7 +86,13 @@ const Form = () => {
 
        return tratament
     }
-
+    const OptionClick = (tag : any) => {
+        setStyle({...style, tag : tag})
+        setGlobalOpen({
+            ...globalOpen,
+            formSelect:false
+        })
+    }
     return(
     <PasStyle pd='40px'>
         
@@ -176,7 +183,7 @@ const Form = () => {
         <PasStyle mg='15px'>
             <Select title='tag' w='200px' onClick={open} open={globalOpen.formSelect}>
                 {tags.map((tag, index) =>
-                    <Option key={index} value={tag}>
+                    <Option key={index} value={tag} onClick={() => OptionClick(tag)}>
                     {tag}
                     </Option>
                 )}
