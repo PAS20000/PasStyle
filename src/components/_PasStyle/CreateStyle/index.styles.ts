@@ -41,7 +41,9 @@ const CreateStyles = ({
     outline,
     outline_color,
     z,
-    b_Bottom
+    b_Bottom,
+    unselectableText,
+    _webkit
 } : Styles) => {
     return`
 
@@ -53,7 +55,15 @@ const CreateStyles = ({
                 opacity: 1;
             }
         }
-
+        ${unselectableText && `
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;   
+            -khtml-user-select: none;
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            user-select: none;
+        `}
+        ${_webkit && _webkit}
         ${animation && `animation: ${animation} 1s`};
         ${b_Bottom && ` border-bottom: ${b_Bottom}`};
         ${outline && `outline: ${outline}`};

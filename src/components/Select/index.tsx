@@ -28,9 +28,10 @@ const Select = ({
     
 
     return(
-        <PasStyle w={w}>
+        <PasStyle w={w} unselectableText>
             <PasStyle 
                  f_size='12px'
+                 t_transform='capitalize'
                  mg='0px 20px 0px'
                  pd='5px'
                  cursor='pointer'

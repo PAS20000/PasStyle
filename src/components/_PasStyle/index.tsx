@@ -57,6 +57,8 @@ export type Props = {
     z?:string
     b_Bottom?:string
     value?:string
+    unselectableText?:boolean
+    _webkit?:string
 }
 
 const PasStyle = (props:childrenProps<Props>) => {

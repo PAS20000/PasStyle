@@ -57,6 +57,8 @@ export type Styles = {
     outline_color?:string
     z?:string
     b_Bottom?:string
+    unselectableText?:boolean
+    _webkit?:string
 }
 
 export type childrenProps<T> = React.PropsWithChildren<T & DefaultProps>
