@@ -8,6 +8,8 @@ import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from '../api'
 import Avatar from './components/Avatar'
+import PasStyle from '../../src/components/_PasStyle'
+import Container from '../../src/components/Layout/Container'
 
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
@@ -77,6 +79,7 @@ const Demo = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
+    const [showForm, setShowForm] = React.useState(false)
 
     return(
         <>
@@ -86,22 +89,42 @@ const Demo = ({
                 />
            </Header>
             <Main>
-                <Form />
-                {dataUsers.map(user =>  
-                    <Avatar key={user.id}
-                        createdAt={user.createdAt}
-                        animes_like={user.likes}
-                        avatar={user.avatar}
-                        document={user.document}
-                        email={user.email}
-                        name={user.name}
-                        id={user.id}
-                        phone={user.phone}
-                        status={user.status}
-                        setOpen={() => {}}
-                    />
-                )}
-               
+                {showForm && 
+                    <PasStyle 
+                        bg='#0000009d' 
+                        w='100%' 
+                        h='100vh' 
+                        tag='DIV' 
+                        position='absolute'
+                    >
+                        <Form 
+                            showForm={showForm}
+                            setShowForm={setShowForm}
+                        />
+                    </PasStyle>
+                }
+               <Container pd='20px' mg='20px'>
+                <PasStyle tag='BUTTON'
+                        onClick={() => setShowForm(true)}
+                        pd='10px'
+                        bg={theme.colors.cyan}
+                    >
+                        Edit
+                    </PasStyle>
+                    {dataUsers.map(user =>  
+                        <Avatar key={user.id}
+                            createdAt={user.createdAt}
+                            animes_like={user.likes}
+                            avatar={user.avatar}
+                            document={user.document}
+                            email={user.email}
+                            name={user.name}
+                            id={user.id}
+                            phone={user.phone}
+                            status={user.status}
+                        />
+                    )}
+               </Container>
             </Main>
             <Footer>
 

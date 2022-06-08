@@ -5,6 +5,8 @@ import { Styles } from '../../components/_PasStyle/types'
 export type DemoCTX = {
     style:Styles
     setStyle:SetState<Styles>
+    globalOpen:boolean 
+    setGlobalOpen:SetState<boolean>
 }
 
 
@@ -17,21 +19,23 @@ const DemoProvider = ({
 
 
     const [style, setStyle] = React.useState<Styles>({
-                bg:'#000',
+                bg:'#000000',
                 pd:'10px',
                 mg:'10px',
                 b_Radius:'8px',
                 border:'solid 2px',
                 t_decoration:'none',
-                color:'#fff',
-                b_Color:'#b90909',
+                color:'#ffffff',
+                b_Color:'#ffffff',
                 cursor:'pointer',
                 t_transform:'capitalize',
     })
 
+    const [globalOpen, setGlobalOpen] = React.useState<boolean>(false)
+
 
    return(
-        <DemoContext.Provider value={{style, setStyle}}>
+        <DemoContext.Provider value={{style, setStyle, globalOpen, setGlobalOpen}}>
             {children}
         </DemoContext.Provider>
     )

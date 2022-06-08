@@ -50,11 +50,17 @@ const NavBar = ({
             <PasStyle flex
                 mg='18px'
             >
-                <Select title={`Language`} w='130' onClick={open} open={globalOpen.navSelect}>
-                   <Option onClick={() => router.push('/')}>
+                <Select title={`Language`} 
+                    w='130px' 
+                    wOptions='65px'
+                    transform='translate(20px, 5px)'
+                    onClick={open} 
+                    open={globalOpen.navSelect}
+                >
+                   <Option onClick={() => router.push('/')} value='EN 🇺🇸'>
                        EN 🇺🇸
                    </Option>
-                   <Option  onClick={() => router.push('/pt/')}>
+                   <Option  onClick={() => router.push('/pt/')} value='PT 🇧🇷'>
                        PT 🇧🇷
                    </Option>
                 </Select>

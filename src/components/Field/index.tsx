@@ -41,7 +41,7 @@ const Field = ({
             >
                {prop ?? 'prop'}
             </PasStyle>
-            <PasStyle>
+        <PasStyle>
             {icon &&
                 <PasStyle tag='SPAN'
                     color={theme.colors.green}

@@ -9,9 +9,10 @@ type Props = {
     children?:React.ReactNode
     icon?:React.ReactChild
     w?:string
+    wOptions?:string
     onClick?:React.MouseEventHandler
     open?:boolean
-    value?:string
+    transform?:string
 }
 
 const Select = ({
@@ -21,14 +22,43 @@ const Select = ({
     w,
     open,
     onClick,
-    value
+    transform,
+    wOptions
 } : Props) => {
 
     const { theme } = useThemeCTX()
     
+    const [value, setValue] = React.useState<any>()
 
+    const Listener = () => {
+        const arrayOptions = Array.from(document.querySelectorAll('.option'))
+
+        arrayOptions.map(opt => opt.addEventListener('click', () => setValue(opt.innerHTML)))
+    }
+
+    React.useEffect(() => {
+       
+    }, [])
+
+    React.useEffect(() => {
+      Listener()
+    }, [open])
+   
     return(
         <PasStyle w={w} unselectableText>
+            <PasStyle tag='LABEL'
+                position='absolute'
+                bg={theme.colors.bg}
+                mg='2px 28px 0px'
+                color={theme.colors.green}
+                transform='translateY(-10px)'
+                pd='0px 2px 0px'
+                b_Radius='8px'
+                f_size='12px'
+                t_transform='capitalize'
+            >
+                {title}
+            </PasStyle>
             <PasStyle 
                  f_size='12px'
                  t_transform='capitalize'
@@ -46,9 +76,11 @@ const Select = ({
                  }}
                 onClick={onClick}
             >
-                <PasStyle flex between>
-                    <PasStyle>
-                        {title} 
+                <PasStyle flex between
+                   
+                >
+                    <PasStyle f_size='0.8rem'>
+                       {value ?? children[0].props.value}
                     </PasStyle>
                     {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
                 </PasStyle>
@@ -57,7 +89,7 @@ const Select = ({
                 <PasStyle grid
                     position='absolute'
                     bg={theme.colors.bg}
-                    transform='translate(20px, 5px)'
+                    transform={transform}
                     pd='10px'
                     b_Radius='8px'
                     border='solid 1px'
@@ -65,7 +97,7 @@ const Select = ({
                     t_align='center'
                     animation='show'
                     z='3'
-                    w={`${(parseInt(w) - 65).toString()}px`}
+                    w={wOptions}
                 >
                     {children}
                 </PasStyle>

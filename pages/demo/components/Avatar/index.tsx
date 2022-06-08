@@ -1,29 +1,23 @@
 import * as React from 'react'
 import { Users } from '../../..'
-import { SetState } from '../../../../src/contexts/types'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
 import PasStyle from '../../../../src/components/_PasStyle'
 import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 
 type Props = {
-    setOpen:SetState<boolean>
-    open?:boolean
+   
 }
 
 const Avatar = ({
     name,
     avatar,
-    setOpen,
-    open
 } : Users & Props) => {
 
     const { theme } = useThemeCTX()
-    const { setStyle, style } = useDemoCTX()
-
+    const { style } = useDemoCTX()
     return(
-        <>
+        <PasStyle>
             <PasStyle flex center
-                onClick={() => setOpen(prev => prev ? false : true)}
                 href={avatar} 
                 {...style}
             > 
@@ -41,7 +35,7 @@ const Avatar = ({
                     {name}
                 </PasStyle>
             </PasStyle>
-    </>
+    </PasStyle>
     )   
 }
 

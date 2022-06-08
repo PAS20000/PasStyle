@@ -15,10 +15,11 @@ const Option = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-
+   
     return(
         <>
             <PasStyle
+                className='option'
                 value={value}
                 onClick={onClick}
                 mg='5px 0px 0px'

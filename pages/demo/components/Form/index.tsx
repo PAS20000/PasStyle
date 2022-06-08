@@ -1,5 +1,4 @@
 import * as React from 'react'
-import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
 import Code from '../../../../src/components/Code'
 import PasStyle from "../../../../src/components/_PasStyle"
@@ -11,11 +10,12 @@ import useUserExperienceCTX from '../../../../src/hooks/useUserExperienceCTX'
 import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
 import { MdClose } from 'react-icons/md'
-import { Tags } from '../../../../src/components/_PasStyle/types'
+import { Styles, Tags } from '../../../../src/components/_PasStyle/types'
+import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 
 type Props = {
-    style?:object
-    setStyle?:SetState<object>
+    showForm?:boolean
+    setShowForm?:SetState<boolean>
 }
 
 const tags : Tags = [
@@ -55,12 +55,16 @@ const tags : Tags = [
     'IFRAME'
 ]
 
-const Form = () => {
+const Form = ({
+    setShowForm,
+    showForm
+} : Props) => {
 
     const { theme } = useThemeCTX()
-    const { setStyle, style} = useDemoCTX()
     const { globalOpen, setGlobalOpen, closeAll } = useUserExperienceCTX()
     const [ showCss, setShowCss ] = React.useState<boolean>(false)
+
+    const { setStyle, style } = useDemoCTX()
 
     const open = () => {
         setGlobalOpen({
@@ -93,8 +97,9 @@ const Form = () => {
             formSelect:false
         })
     }
+
     return(
-    <PasStyle pd='40px'>
+    <PasStyle pd='40px' position='absolute' transform='translate(35vh, 5vh)'>
     <PasStyle
         mg='0px 30px 30px' 
         pd='20px'
@@ -105,7 +110,7 @@ const Form = () => {
         <PasStyle flex end
             w='100%'
         >
-                <PasStyle 
+                <PasStyle onClick={() => setShowForm(false)}
                     tag='BUTTON'
                     bg='transparent'
                     color={theme.colors.white}
@@ -175,10 +180,21 @@ const Form = () => {
                 </PasStyle>
             </PasStyle>
         <PasStyle mg='15px'>
-            <Select title='tag' w='200px' onClick={open} open={globalOpen.formSelect}>
+            <Select 
+                title='tag' 
+                w='33%'
+                wOptions='16%'
+                transform='translate(25px, 5px)'
+                onClick={open} 
+                open={globalOpen.formSelect}
+            >
                 {tags.map((tag, index) =>
-                    <Option key={index} value={tag} onClick={() => OptionClick(tag)}>
-                    {tag}
+                    <Option 
+                        key={index} 
+                        value={tag} 
+                        onClick={() => OptionClick(tag)}
+                    >
+                        {tag}
                     </Option>
                 )}
             </Select>
@@ -186,6 +202,7 @@ const Form = () => {
         <Container  grid rows='1fr'
             tag='FORM' 
             pd='10px'
+            w='100vh' h='35vh'
         >
                 {!showCss && 
                     <PasStyle grid columns='1fr 1fr 1fr'>
@@ -257,6 +274,7 @@ const Form = () => {
                             placeholder='f_weight='
                             onChange={(e:any) => setStyle({...style, f_weight:e.target.value})}
                             value={style.f_weight}
+                            type='number'
                         />
                         <Field 
                             prop='text-transform:'

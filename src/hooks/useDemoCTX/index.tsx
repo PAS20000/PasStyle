@@ -2,11 +2,13 @@ import * as React from 'react'
 import { DemoContext, DemoCTX } from '../../contexts/DemoContext'
 
 const useDemoCTX = () : DemoCTX  => {
-    const { setStyle, style } = React.useContext(DemoContext)
+    const { setStyle, style, globalOpen, setGlobalOpen } = React.useContext(DemoContext)
 
     return {
       setStyle,
-      style
+      style,
+      globalOpen, 
+      setGlobalOpen
     }
 }
 
