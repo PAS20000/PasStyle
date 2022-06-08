@@ -99,7 +99,7 @@ const Form = () => {
         mg='0px 30px 30px' 
         pd='20px'
         b_Radius='8px'
-        shadow={`5px 5px 5px 1px #0000006c`}
+        shadow='2px 2px 10px black'
         bg={theme.colors.bg}
     >
         <PasStyle flex end

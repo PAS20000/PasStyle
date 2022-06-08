@@ -26,7 +26,7 @@ const Code = ({
                 f_size='16px'
                 pd='15px'
                 mg='30px'
-                shadow='2px 2px 2px black'
+                shadow='2px 2px 10px black'
                 onClick={() => closeAll()}
             >
                 <PasStyle  id={copyId}>

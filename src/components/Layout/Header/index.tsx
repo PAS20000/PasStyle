@@ -18,7 +18,7 @@ const Header = ({
             position='fixed'
             w='100%'
             transform='translateY(-2vh)'
-            shadow='2px 2px 2px black'
+            shadow='2px 2px 10px black'
             z='3'
         >
             {children}

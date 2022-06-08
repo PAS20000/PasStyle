@@ -18,7 +18,7 @@ const Aside = (props :PasStyleProps<Props>) => {
             tag='ASIDE' 
             pd='25px'
             b_Radius='8px'
-            shadow='2px 2px 2px black'
+            shadow='2px 2px 10px black'
             bg={theme.colors.bg}
             color={theme.colors.white}
         >
