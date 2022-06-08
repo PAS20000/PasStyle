@@ -45,7 +45,7 @@ export const dataUsers = [
         id:id(),
         name:'User Name 1',
         email:'user1@gmail.com',
-        avatar:'https://i.pinimg.com/736x/d5/ed/82/d5ed82acab71310edca849429431e505.jpg',
+        avatar:'/img/avatar1.jpg',
         status:'inactive',
         phone: {
 			ddd: "88",
@@ -63,7 +63,7 @@ export const dataUsers = [
         id:id(),
         name:'User Name 2',
         email:'user2@gmail.com',
-        avatar:'https://33.media.tumblr.com/964388f84a8052c301d6309ecea8db05/tumblr_nel87gkcTr1r2gyilo1_500.gif',
+        avatar:'/img/avatar2.jpg',
         status:'active',
         phone: {
 			ddd: "69",
@@ -81,7 +81,7 @@ export const dataUsers = [
         id:id(),
         name:'User Name 3',
         email:'user3@gmail.com',
-        avatar:'https://i.pinimg.com/236x/ec/d2/2a/ecd22ad93617a905117156091ebc7bb8.jpg',
+        avatar:'/img/avatar3.jpg',
         status:'active',
         phone: {
 			ddd: "95",
@@ -99,7 +99,7 @@ export const dataUsers = [
         id:id(),
         name:'User Name 4',
         email:'user4@gmail.com',
-        avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBwI0cCsHrPG1OeVhTfyjkBln1dbjpcO5oveG-bB4TBBLC_Iq7QOMGEaZ3IXQtb3egVpg&usqp=CAU',
+        avatar:'/img/avatar4.jpg',
         status:'inactive',
         phone: {
 			ddd: "61",
@@ -117,7 +117,7 @@ export const dataUsers = [
         id:id(),
         name:'User Name 5',
         email:'user5@gmail.com',
-        avatar:'https://i1.sndcdn.com/avatars-hNxI1fLALMFOBFzd-NXIV5Q-t500x500.jpg',
+        avatar:'/img/avatar5.jpg',
         status:'active',
         phone: {
 			ddd: "63",
