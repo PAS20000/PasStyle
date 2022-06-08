@@ -95,7 +95,6 @@ const Form = () => {
     }
     return(
     <PasStyle pd='40px'>
-        
     <PasStyle
         mg='0px 30px 30px' 
         pd='20px'
@@ -109,12 +108,12 @@ const Form = () => {
                 <PasStyle 
                     tag='BUTTON'
                     bg='transparent'
-                    border='none'
                     color={theme.colors.white}
                     f_size='18px'
                     pd='10px'
                     transform='translate(20px, -20px)'
                     cursor='pointer'
+                    border='none'
                     position='absolute'
                     _hover={{
                     transition: '1s',
@@ -126,54 +125,49 @@ const Form = () => {
         <PasStyle flex around
             mg='0px 30px 0px' 
             pd='8px'
-            b_Bottom='solid 1px'
             bg={theme.colors.bg}
+            t_align='center'
         >
-                <PasStyle tag='BUTTON' 
+                <PasStyle
                     onClick={() => setShowCss(false)}
-                    bg={!showCss ? theme.colors.darkGray : 'transparent'}
                     w='33%'
-                    border='solid 2px'
+                    b_Bottom='solid 1px'
                     color={!showCss ? theme.colors.green : theme.colors.white}
                     cursor='pointer'
                     f_size='18px'
                     t_transform='uppercase'
                     _hover={{
                        transition: '1s',
-                       bg:theme.colors.darkGray,
                        color: theme.colors.green,
                    }}
                 >
                     props
                 </PasStyle>
-                <PasStyle tag='BUTTON'
+                <PasStyle
                    w='33%'
                    bg={'transparent'}
-                   border='none'
+                   b_Bottom='solid 1px'
                    color={theme.colors.white}
                    cursor='pointer'
                    f_size='18px'
                    t_transform='uppercase'
                    _hover={{
                        transition: '1s',
-                       bg:theme.colors.darkGray,
                        color: theme.colors.green,
                    }}
                 >
                     hover
                 </PasStyle>
-                <PasStyle tag='BUTTON' 
+                <PasStyle
                     w='33%'
                     onClick={() => setShowCss(true)}
-                    bg={showCss ? theme.colors.darkGray : 'transparent'}
-                    border='none'
+                    b_Bottom='solid 1px'
                     t_transform='uppercase'
                     color={showCss ? theme.colors.green : theme.colors.white}
                     cursor='pointer'
                     f_size='18px'
                     _hover={{
                        transition: '1s',
-                       bg:theme.colors.darkGray,
                        color: theme.colors.green,
                    }}
                 >
