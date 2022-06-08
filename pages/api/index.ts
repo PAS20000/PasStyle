@@ -11,32 +11,32 @@ export const dataAnimes = [
     {
         id:id(),
         name:'anime1',
-        thumb:'/img/anime.webp'
+        thumb:'/img/anime.png'
     },
     {
         id:id(),
         name:'anime2',
-        thumb:'/img/anime.webp'
+        thumb:'/img/anime.png'
     },
     {
         id:id(),
         name:'anime3',
-        thumb:'/img/anime.webp'
+        thumb:'/img/anime.png'
     },
     {
         id:id(),
         name:'anime4',
-        thumb:'/img/anime.webp'
+        thumb:'/img/anime.png'
     },
     {
         id:id(),
         name:'anime5',
-        thumb:'/img/anime.webp'
+        thumb:'/img/anime.png'
     },
     {
         id:id(),
         name:'anime6',
-        thumb:'/img/anime.webp'
+        thumb:'/img/anime.png'
     }
 ]
 
