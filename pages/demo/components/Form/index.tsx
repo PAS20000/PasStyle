@@ -10,7 +10,6 @@ import useUserExperienceCTX from '../../../../src/hooks/useUserExperienceCTX'
 import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
 import { MdClose } from 'react-icons/md'
-import { Styles, Tags } from '../../../../src/components/_PasStyle/types'
 import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 
 type Props = {
@@ -18,13 +17,13 @@ type Props = {
     setShowForm?:SetState<boolean>
 }
 
-const tags : Tags = [
-    'ARTICLE', 
+const tags = [
+    'DIV', 
     'SECTION', 
     'ASIDE',
     'HEADER',
     'BODY',
-    'DIV',
+    'ARTICLE',
     'FORM',
     'NAV',
     'FOOTER',

@@ -53,7 +53,7 @@ const Field = ({
                 </PasStyle> 
             }
             {type === 'color' ? 
-                <PasStyle w='93%'
+                <PasStyle w='95%'
                     onClick={() => document.getElementById(random).click()}
                     bg={theme.colors.bg} 
                     border='solid 2px' 

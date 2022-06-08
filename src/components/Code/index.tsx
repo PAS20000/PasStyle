@@ -25,7 +25,7 @@ const Code = ({
                 color={theme.colors.green}
                 f_size='16px'
                 pd='15px'
-                mg='30px'
+                mg='25px'
                 shadow='2px 2px 10px black'
                 onClick={() => closeAll()}
             >

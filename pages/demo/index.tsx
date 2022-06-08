@@ -10,6 +10,7 @@ import { dataAnimes, dataUsers } from '../api'
 import Avatar from './components/Avatar'
 import PasStyle from '../../src/components/_PasStyle'
 import Container from '../../src/components/Layout/Container'
+import { FaEdit } from 'react-icons/fa'
 
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
@@ -107,9 +108,12 @@ const Demo = ({
                 <PasStyle tag='BUTTON'
                         onClick={() => setShowForm(true)}
                         pd='10px'
-                        bg={theme.colors.cyan}
+                        border='none'
+                        bg={theme.colors.bg}
+                        color={theme.colors.white}
+                        b_Radius='8px'
                     >
-                        Edit
+                        <FaEdit />
                     </PasStyle>
                     {dataUsers.map(user =>  
                         <Avatar key={user.id}
