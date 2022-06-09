@@ -34,77 +34,77 @@ const Inputs = ({
     return(
         <>
             <Field 
-                prop='background:'
+                prop='background :'
                 placeholder='bg='
                 onChange={(e:any) => changes({bg : e.target.value})}
                 value={values('bg')}
                 type='color'
             />
             <Field 
-                prop='padding:'
+                prop='padding :'
                 placeholder='pd='
                 onChange={(e:any) =>  changes({pd : e.target.value})}
                 value={values('pd')}
             />
             <Field 
-                prop='color:'
+                prop='color :'
                 placeholder='color='
                 onChange={(e:any) =>  changes({color : e.target.value})}
                 value={values('color')}
                 type='color'
             />
             <Field 
-                prop='border:'
+                prop='border :'
                 placeholder='border='
                 onChange={(e:any) =>  changes({border : e.target.value})}
                 value={values('border')}
             />
             <Field 
-                prop='border-color:'
+                prop='border-color :'
                 placeholder='b_Color='
                 onChange={(e:any) =>  changes({b_Color : e.target.value})}
                 value={values('b_Color')}
                 type='color'
             />
             <Field 
-                prop='border-radius:'
+                prop='border-radius :'
                 placeholder='b_Radius='
                 onChange={(e:any) =>  changes({b_Radius : e.target.value})}
                 value={values('b_Radius')}
             />
             <Field 
-                prop='margin:'
+                prop='margin :'
                 placeholder='mg='
                 onChange={(e:any) =>  changes({mg : e.target.value})}
                 value={values('mg')}
             />
             <Field 
-                prop='box-shadow:'
+                prop='box-shadow :'
                 placeholder='shadow='
                 onChange={(e:any) =>  changes({shadow : e.target.value})}
                 value={values('shadow')}
             />
             <Field 
-                prop='transform:'
+                prop='transform :'
                 placeholder='transform='
                 onChange={(e:any) =>  changes({transform : e.target.value})}
                 value={values('transform')}
             />
             <Field 
-                prop='font-size:'
+                prop='font-size :'
                 placeholder='f_size='
                 onChange={(e:any) =>  changes({f_size : e.target.value})}
                 value={values('f_size')}
             />
             <Field 
-                prop='font-weight:'
+                prop='font-weight :'
                 placeholder='f_weight='
                 onChange={(e:any) =>  changes({f_weight : e.target.value})}
                 value={values('f_weight')}
                 type='number'
             />
             <Field 
-                prop='text-transform:'
+                prop='text-transform :'
                 placeholder='f_transform='
                 onChange={(e:any) =>  changes({t_transform : e.target.value})}
                 value={values('t_transform')}

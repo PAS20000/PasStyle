@@ -43,6 +43,18 @@ const tags = [
     'IFRAME'
 ]
 
+const weights = [
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900
+]
+
 type Props = {
     show:ShowState
 }
@@ -71,9 +83,9 @@ const Selects = ({
     return(
         <>
           {show !== 'css' &&
-            <PasStyle mg='15px'>
+            <PasStyle mg='15px'flex >
                 <Select 
-                    title='tag' 
+                    title='tag :' 
                     w='33%'
                     wOptions='16%'
                     transform='translate(25px, 5px)'
@@ -87,6 +99,20 @@ const Selects = ({
                             onClick={() => OptionClick(tag)}
                         >
                             {tag}
+                        </Option>
+                    )}
+                </Select>
+                <Select
+                    title='font-weight :'
+                    w='33%'
+                    
+                >
+                    {weights.map((weight, index) => 
+                        <Option
+                            key={index}
+                            value={weight.toString()}
+                        >
+                            {weight}
                         </Option>
                     )}
                 </Select>

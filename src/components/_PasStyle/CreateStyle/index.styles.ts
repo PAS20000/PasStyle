@@ -145,5 +145,4 @@ export default CreateStyle
 
 export const Testes = styled.div`
         pointer-events: none;
-   
 `

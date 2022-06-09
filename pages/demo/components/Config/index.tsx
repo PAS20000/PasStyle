@@ -27,11 +27,12 @@ const Config = ({
             <PasStyle tag='BUTTON'
                 title='Edit'
                 onClick={() => setShowForm(true)}
-                pd='10px'
+                w='30px'
+                h='30px'
                 border='none'
                 bg={theme.colors.bg}
                 color={theme.colors.white}
-                b_Radius='8px'
+                b_Radius='50%'
                 cursor='pointer'
                 _hover={{
                     transition: '1s',
