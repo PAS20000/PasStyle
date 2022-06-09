@@ -30,12 +30,13 @@ const Field = ({
     return(
         <PasStyle mg='15px 10px 0px'>
             <PasStyle tag='LABEL'
+                h='13px'
                 position='absolute'
                 bg={theme.colors.bg}
                 mg='0px 10px 0px'
                 color={theme.colors.green}
                 transform='translateY(-10px)'
-                pd='0px 2px 0px'
+                pd='0px 4px 0px'
                 b_Radius='8px'
                 f_size='14px'
                 t_transform='capitalize'

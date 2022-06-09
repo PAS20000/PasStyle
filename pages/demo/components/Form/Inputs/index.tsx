@@ -30,7 +30,6 @@ const Inputs = ({
         }
     }
 
-
     return(
         <>
             <Field 
@@ -95,12 +94,6 @@ const Inputs = ({
                 placeholder='f_size='
                 onChange={(e:any) =>  changes({f_size : e.target.value})}
                 value={values('f_size')}
-            />
-            <Field 
-                prop='text-transform :'
-                placeholder='f_transform='
-                onChange={(e:any) =>  changes({t_transform : e.target.value})}
-                value={values('t_transform')}
             />
         </>
     )
