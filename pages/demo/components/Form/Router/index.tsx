@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { ShowState } from '..'
 import PasStyle from '../../../../../src/components/_PasStyle'
 import { SetState } from '../../../../../src/contexts/types'
 import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
 
 type Props = {
-    show:any
-    setShow:SetState<any>
+    show:ShowState
+    setShow:SetState<ShowState>
 }
 
 const Router = ({
@@ -38,6 +39,7 @@ const Router = ({
                 props
             </PasStyle>
             <PasStyle
+                onClick={() => setShow('hover')}
                w='33%'
                bg={'transparent'}
                b_Bottom='solid 1px'

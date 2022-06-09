@@ -16,13 +16,15 @@ type Props = {
     setShowForm?:SetState<boolean>
 }
 
+export type ShowState = 'css' | 'hover' | 'props'
+
 const Form = ({
     setShowForm,
     showForm
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const [ show, setShow ] = React.useState<'css' | 'hover' | 'props'>('props')
+    const [ show, setShow ] = React.useState<ShowState>('props')
 
     return(
     <PasStyle 
@@ -67,11 +69,10 @@ const Form = ({
             pd='10px'
             w='100vh' h='35vh'
         >
-                {show === 'props' && 
-                    <PasStyle grid columns='1fr 1fr 1fr'>
-                       <Props />
-                    </PasStyle>
-                }
+                <PasStyle grid columns='1fr 1fr 1fr'>
+                    {show === 'props' && <Props />}
+                    {show === 'hover' && <>Hover</>}
+                </PasStyle>
                 {show === 'css' && 
                   <Css />
                 }

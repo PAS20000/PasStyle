@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 export type DefaultProps = {
+    title?:string
     children?:React.ReactNode
     id?:string
     name?:string
