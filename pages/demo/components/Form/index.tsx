@@ -63,7 +63,7 @@ const Form = ({
             setShow={setShow}
             show={show}
         />
-        <Selects />
+        <Selects show={show}/>
         <Container  grid rows='1fr'
             tag='FORM' 
             pd='10px'

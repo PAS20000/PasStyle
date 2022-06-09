@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { ShowState } from '..'
 import Select from '../../../../../src/components/Select'
 import Option from '../../../../../src/components/Select/Option'
 import PasStyle from '../../../../../src/components/_PasStyle'
@@ -42,7 +43,13 @@ const tags = [
     'IFRAME'
 ]
 
-const Selects = () => {
+type Props = {
+    show:ShowState
+}
+
+const Selects = ({
+    show
+} : Props) => {
 
     const { globalOpen, setGlobalOpen } = useUserExperienceCTX()
     const { style, setStyle } = useDemoCTX()
@@ -62,26 +69,30 @@ const Selects = () => {
         })
     }
     return(
-        <PasStyle mg='15px'>
-            <Select 
-                title='tag' 
-                w='33%'
-                wOptions='16%'
-                transform='translate(25px, 5px)'
-                onClick={open} 
-                open={globalOpen.formSelect}
-            >
-                {tags.map((tag, index) =>
-                    <Option 
-                        key={index} 
-                        value={style.tag ?? tag} 
-                        onClick={() => OptionClick(tag)}
-                    >
-                        {tag}
-                    </Option>
-                )}
-            </Select>
-        </PasStyle>
+        <>
+          {show !== 'css' &&
+            <PasStyle mg='15px'>
+                <Select 
+                    title='tag' 
+                    w='33%'
+                    wOptions='16%'
+                    transform='translate(25px, 5px)'
+                    onClick={open} 
+                    open={globalOpen.formSelect}
+                >
+                    {tags.map((tag, index) =>
+                        <Option 
+                            key={index} 
+                            value={style.tag ?? tag} 
+                            onClick={() => OptionClick(tag)}
+                        >
+                            {tag}
+                        </Option>
+                    )}
+                </Select>
+            </PasStyle>
+        }
+    </>
     )
 }
 
