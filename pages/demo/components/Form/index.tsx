@@ -11,48 +11,14 @@ import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
 import { MdClose } from 'react-icons/md'
 import useDemoCTX from '../../../../src/hooks/useDemoCTX'
+import Css from './Css'
+import Router from './Router'
+import Selects from './Selects'
 
 type Props = {
     showForm?:boolean
     setShowForm?:SetState<boolean>
 }
-
-const tags = [
-    'DIV', 
-    'SECTION', 
-    'ASIDE',
-    'HEADER',
-    'BODY',
-    'ARTICLE',
-    'FORM',
-    'NAV',
-    'FOOTER',
-    'BUTTON',
-    'MAIN',
-    'SPAN',
-    'H1',
-    'H2',
-    'H3',
-    'H4',
-    'H5',
-    'H6',
-    'INPUT',
-    'P',
-    'TD',
-    'TR',
-    'TH',
-    'THEAD',
-    'TBODY',
-    'TFOOT',
-    'TABLE',
-    'A',
-    'IMG',
-    'NEXTLINK',
-    'NEXTIMG',
-    'CODE',
-    'LABEL',
-    'IFRAME'
-]
 
 const Form = ({
     setShowForm,
@@ -60,45 +26,17 @@ const Form = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const { globalOpen, setGlobalOpen, closeAll } = useUserExperienceCTX()
-    const [ showCss, setShowCss ] = React.useState<boolean>(false)
+    const { globalOpen, setGlobalOpen } = useUserExperienceCTX()
+    const [ show, setShow ] = React.useState<'css' | 'hover' | 'props'>('props')
 
     const { setStyle, style } = useDemoCTX()
 
-    const open = () => {
-        setGlobalOpen({
-            ...globalOpen,
-            formSelect:globalOpen.formSelect ? false : true
-        })
-    }
-
-    const tratamentStyle = () : Array<string> => {
-
-    const css = CreateStyle({...style}).split(';')
-
-    const tratament = css.map(c => c.trim()).filter(
-        (c, i, array) => 
-            c !== 'undefined' && 
-            c !== 'false' && 
-            i !== 0 && 
-            i !== 1 &&
-            i !== 2 &&
-            i !== array.length && 
-            i !== array.length - 1 
-        )
-
-       return tratament
-    }
-    const OptionClick = (tag : any) => {
-        setStyle({...style, tag : tag})
-        setGlobalOpen({
-            ...globalOpen,
-            formSelect:false
-        })
-    }
 
     return(
-    <PasStyle pd='40px' position='absolute' transform='translate(35vh, 5vh)'>
+    <PasStyle 
+        position='absolute' 
+        transform='translate(40vh, 10vh)'
+    >
     <PasStyle
         mg='0px 30px 30px' 
         pd='20px'
@@ -106,9 +44,9 @@ const Form = ({
         shadow='2px 2px 10px black'
         bg={theme.colors.bg}
     >
-        <PasStyle flex end
-            w='100%'
-        >
+            <PasStyle flex end
+                w='100%'
+            >
                 <PasStyle onClick={() => setShowForm(false)}
                     tag='BUTTON'
                     bg='transparent'
@@ -126,84 +64,18 @@ const Form = ({
                     <MdClose />
                 </PasStyle>
             </PasStyle>
-        <PasStyle flex around
-            mg='0px 30px 0px' 
-            pd='8px'
-            bg={theme.colors.bg}
-            t_align='center'
-        >
-                <PasStyle
-                    onClick={() => setShowCss(false)}
-                    w='33%'
-                    b_Bottom='solid 1px'
-                    color={!showCss ? theme.colors.green : theme.colors.white}
-                    cursor='pointer'
-                    f_size='18px'
-                    t_transform='uppercase'
-                    _hover={{
-                       transition: '1s',
-                       color: theme.colors.green,
-                   }}
-                >
-                    props
-                </PasStyle>
-                <PasStyle
-                   w='33%'
-                   bg={'transparent'}
-                   b_Bottom='solid 1px'
-                   color={theme.colors.white}
-                   cursor='pointer'
-                   f_size='18px'
-                   t_transform='uppercase'
-                   _hover={{
-                       transition: '1s',
-                       color: theme.colors.green,
-                   }}
-                >
-                    hover
-                </PasStyle>
-                <PasStyle
-                    w='33%'
-                    onClick={() => setShowCss(true)}
-                    b_Bottom='solid 1px'
-                    t_transform='uppercase'
-                    color={showCss ? theme.colors.green : theme.colors.white}
-                    cursor='pointer'
-                    f_size='18px'
-                    _hover={{
-                       transition: '1s',
-                       color: theme.colors.green,
-                   }}
-                >
-                    CSS
-                </PasStyle>
-            </PasStyle>
-        <PasStyle mg='15px'>
-            <Select 
-                title='tag' 
-                w='33%'
-                wOptions='16%'
-                transform='translate(25px, 5px)'
-                onClick={open} 
-                open={globalOpen.formSelect}
-            >
-                {tags.map((tag, index) =>
-                    <Option 
-                        key={index} 
-                        value={tag} 
-                        onClick={() => OptionClick(tag)}
-                    >
-                        {tag}
-                    </Option>
-                )}
-            </Select>
-        </PasStyle>
+        
+        <Router 
+            setShow={setShow}
+            show={show}
+        />
+        <Selects />
         <Container  grid rows='1fr'
             tag='FORM' 
             pd='10px'
             w='100vh' h='35vh'
         >
-                {!showCss && 
+                {show === 'props' && 
                     <PasStyle grid columns='1fr 1fr 1fr'>
                         <Field 
                             prop='background:'
@@ -283,27 +155,8 @@ const Form = ({
                         />
                     </PasStyle>
                 }
-                {showCss && 
-                    <Code copyId='css'>
-                    {tratamentStyle().map((css, index) => 
-                        <PasStyle key={css + index} color={theme.colors.cyan}>
-                            {css &&
-                                <>
-                                    {css.split(':')[0]}
-                                    <PasStyle tag='SPAN' color={theme.colors.pink}>
-                                        :
-                                    </PasStyle>
-                                    <PasStyle tag='SPAN' color={theme.colors.purple}>
-                                        {css.split(':')[1]}
-                                    </PasStyle> 
-                                    <PasStyle tag='SPAN' color={theme.colors.white}>
-                                        ;
-                                    </PasStyle>
-                                </>
-                            }
-                        </PasStyle>
-                    )}
-                    </Code>
+                {show === 'css' && 
+                  <Css />
                 }
             </Container>
         </PasStyle>

@@ -11,6 +11,7 @@ import Avatar from './components/Avatar'
 import PasStyle from '../../src/components/_PasStyle'
 import Container from '../../src/components/Layout/Container'
 import { FaEdit } from 'react-icons/fa'
+import Config from './components/Config'
 
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
@@ -104,17 +105,13 @@ const Demo = ({
                         />
                     </PasStyle>
                 }
-               <Container pd='20px' mg='20px'>
-                <PasStyle tag='BUTTON'
-                        onClick={() => setShowForm(true)}
-                        pd='10px'
-                        border='none'
-                        bg={theme.colors.bg}
-                        color={theme.colors.white}
-                        b_Radius='8px'
-                    >
-                        <FaEdit />
-                    </PasStyle>
+               <Container 
+                    pd='30px' 
+                    mg='30px'
+                >
+                   <Config 
+                       setShowForm={setShowForm}
+                   />
                     {dataUsers.map(user =>  
                         <Avatar key={user.id}
                             createdAt={user.createdAt}
