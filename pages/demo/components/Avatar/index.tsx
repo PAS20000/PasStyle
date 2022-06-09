@@ -14,12 +14,15 @@ const Avatar = ({
 } : Users & Props) => {
 
     const { theme } = useThemeCTX()
-    const { style } = useDemoCTX()
+    const { style, hover } = useDemoCTX()
     return(
         <PasStyle>
             <PasStyle flex center
                 href={avatar} 
                 {...style}
+                _hover={{
+                    ...hover
+                }}
             > 
                 <PasStyle 
                     tag='IMG'

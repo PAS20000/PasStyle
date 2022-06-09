@@ -35,6 +35,9 @@ const DemoProvider = ({
 
     const [hover, setHover] = React.useState<Styles>({
         transition: '1s',
+        bg:'#000000',
+        b_Color:'#000000',
+        color:'#ffffff',
         op:'0.5',
     })
 

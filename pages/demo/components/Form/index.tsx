@@ -9,7 +9,7 @@ import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import Css from './Css'
 import Router from './Router'
 import Selects from './Selects'
-import Props from './Inputs/Props'
+import Inputs from './Inputs'
 
 type Props = {
     showForm?:boolean
@@ -70,8 +70,8 @@ const Form = ({
             w='100vh' h='35vh'
         >
                 <PasStyle grid columns='1fr 1fr 1fr'>
-                    {show === 'props' && <Props />}
-                    {show === 'hover' && <>Hover</>}
+                    {show === 'props' && <Inputs />}
+                    {show === 'hover' && <Inputs _hover/>}
                 </PasStyle>
                 {show === 'css' && 
                   <Css />

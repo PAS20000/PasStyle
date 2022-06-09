@@ -39,11 +39,10 @@ const Router = ({
                 props
             </PasStyle>
             <PasStyle
-                onClick={() => setShow('hover')}
+               onClick={() => setShow('hover')}
                w='33%'
-               bg={'transparent'}
                b_Bottom='solid 1px'
-               color={theme.colors.white}
+               color={show === 'hover' ? theme.colors.green : theme.colors.white}
                cursor='pointer'
                f_size='18px'
                t_transform='uppercase'
