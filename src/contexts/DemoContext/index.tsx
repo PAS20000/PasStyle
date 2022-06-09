@@ -7,6 +7,8 @@ export type DemoCTX = {
     setStyle:SetState<Styles>
     globalOpen:boolean 
     setGlobalOpen:SetState<boolean>
+    hover:Styles 
+    setHover:SetState<Styles>
 }
 
 
@@ -31,11 +33,16 @@ const DemoProvider = ({
                 t_transform:'capitalize',
     })
 
+    const [hover, setHover] = React.useState<Styles>({
+        transition: '1s',
+        op:'0.5',
+    })
+
     const [globalOpen, setGlobalOpen] = React.useState<boolean>(false)
 
 
    return(
-        <DemoContext.Provider value={{style, setStyle, globalOpen, setGlobalOpen}}>
+        <DemoContext.Provider value={{style, setStyle, globalOpen, setGlobalOpen, hover, setHover}}>
             {children}
         </DemoContext.Provider>
     )
