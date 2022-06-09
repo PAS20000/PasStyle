@@ -47,6 +47,7 @@ const Select = ({
     return(
         <PasStyle w={w} unselectableText>
             <PasStyle tag='LABEL'
+                onClick={onClick}
                 position='absolute'
                 bg={theme.colors.bg}
                 mg='2px 28px 0px'
@@ -79,7 +80,9 @@ const Select = ({
                 <PasStyle flex between
                    
                 >
-                    <PasStyle f_size='0.8rem'>
+                    <PasStyle f_size='0.8rem'
+                        
+                    >
                        {value ?? children[0].props.value}
                     </PasStyle>
                     {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}

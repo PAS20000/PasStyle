@@ -60,6 +60,7 @@ export type Styles = {
     unselectableText?:boolean
     _webkit?:string
     display?:string
+    p_Events?:string
 }
 
 export type childrenProps<T> = React.PropsWithChildren<T & DefaultProps>

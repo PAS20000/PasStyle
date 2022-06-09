@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 import Code from '../../src/components/Code'
 import Content from '../../src/components/Layout/Content'

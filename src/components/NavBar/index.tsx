@@ -13,11 +13,14 @@ type Props = {
 }
 
 const NavBar = ({
-    current
+    current,
 }: Props) => {
 
     const { theme, mode, changeMode } = useThemeCTX()
     const { globalOpen, setGlobalOpen } = useUserExperienceCTX()
+
+    const [lang, setLang] = React.useState<string>('en')
+
 
     const router = useRouter()
     const open = () => {
@@ -26,6 +29,7 @@ const NavBar = ({
             navSelect:globalOpen.navSelect ? false : true
         })
     }
+
     return(
         <PasStyle flex between
             tag='NAV'
@@ -57,12 +61,12 @@ const NavBar = ({
                     onClick={open} 
                     open={globalOpen.navSelect}
                 >
-                   <Option onClick={() => router.push('/')} value='EN 🇺🇸'>
-                       EN 🇺🇸
-                   </Option>
-                   <Option  onClick={() => router.push('/pt/')} value='PT 🇧🇷'>
-                       PT 🇧🇷
-                   </Option>
+                    <Option onClick={() => router.push('/')} value='EN 🇺🇸'>
+                        EN 🇺🇸
+                    </Option>
+                    <Option  onClick={() => router.push('/pt/')} value='PT 🇧🇷'>
+                        PT 🇧🇷
+                    </Option>
                 </Select>
                 <Router 
                     href='/'

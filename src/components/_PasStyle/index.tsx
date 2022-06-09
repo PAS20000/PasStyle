@@ -60,6 +60,7 @@ export type Props = {
     unselectableText?:boolean
     _webkit?:string
     display?:string
+    p_Events?:string
 }
 
 const PasStyle = (props:childrenProps<Props>) => {

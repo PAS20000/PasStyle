@@ -44,7 +44,8 @@ const CreateStyles = ({
     b_Bottom,
     unselectableText,
     _webkit,
-    display
+    display,
+    p_Events
 } : Styles) => {
     return`
         ${unselectableText && `
@@ -55,6 +56,7 @@ const CreateStyles = ({
             -ms-user-select: none;
             user-select: none;
         `}
+        ${p_Events && `pointer-events: ${p_Events}`};
         ${display && `display: ${display}`};
         ${_webkit && _webkit}
         ${animation && `animation: ${animation} 1s`};
@@ -142,6 +144,6 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
 export default CreateStyle
 
 export const Testes = styled.div`
-        display: none;
+        pointer-events: none;
    
 `
