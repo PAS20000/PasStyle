@@ -74,7 +74,7 @@ const Selects = () => {
                 {tags.map((tag, index) =>
                     <Option 
                         key={index} 
-                        value={tag} 
+                        value={style.tag ?? tag} 
                         onClick={() => OptionClick(tag)}
                     >
                         {tag}
