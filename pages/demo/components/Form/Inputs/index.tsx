@@ -97,13 +97,6 @@ const Inputs = ({
                 value={values('f_size')}
             />
             <Field 
-                prop='font-weight :'
-                placeholder='f_weight='
-                onChange={(e:any) =>  changes({f_weight : e.target.value})}
-                value={values('f_weight')}
-                type='number'
-            />
-            <Field 
                 prop='text-transform :'
                 placeholder='f_transform='
                 onChange={(e:any) =>  changes({t_transform : e.target.value})}

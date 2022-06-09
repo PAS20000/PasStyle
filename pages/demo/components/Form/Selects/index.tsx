@@ -55,6 +55,10 @@ const weights = [
     900
 ]
 
+const textTransform = [
+    'capitalize'
+]
+
 type Props = {
     show:ShowState
 }
@@ -113,6 +117,20 @@ const Selects = ({
                             value={weight.toString()}
                         >
                             {weight}
+                        </Option>
+                    )}
+                </Select>
+                <Select
+                    title='text-transform :'
+                    w='33%'
+                    
+                >
+                    {textTransform.map((transform, index) => 
+                        <Option
+                            key={index}
+                            value={transform}
+                        >
+                            {transform}
                         </Option>
                     )}
                 </Select>

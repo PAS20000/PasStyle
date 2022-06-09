@@ -81,7 +81,7 @@ const Select = ({
                    
                 >
                     <PasStyle f_size='0.8rem'
-                        
+                        color={theme.colors.yellow}
                     >
                        {value ?? children[0].props.value}
                     </PasStyle>
