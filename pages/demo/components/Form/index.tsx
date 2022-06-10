@@ -64,15 +64,17 @@ const Form = ({
             show={show}
         />
         <Selects show={show}/>
-        <Container  grid rows='1fr'
-            tag='FORM' 
-            pd='10px'
-            w='100vh' h='35vh'
-        >
-                <PasStyle grid columns='1fr 1fr 1fr'>
-                    {show === 'props' && <Inputs />}
-                    {show === 'hover' && <Inputs _hover/>}
-                </PasStyle>
+            <Container  grid rows='1fr'
+                tag='FORM' 
+                pd='10px'
+                w='100vh' 
+            >
+                {show !== 'css' && 
+                    <PasStyle grid columns='1fr 1fr 1fr'>
+                        {show === 'props' && <Inputs />}
+                        {show === 'hover' && <Inputs _hover/>}
+                    </PasStyle>
+                }
                 {show === 'css' && 
                   <Css />
                 }

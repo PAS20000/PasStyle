@@ -46,7 +46,7 @@ const NavBar = ({
                 color={theme.colors.white}
                 _hover={{
                     transition: '1s',
-                    color:theme.colors.purple,
+                    color:theme.colors.red,
                 }}
             >
                 {'<PasStyle>'}
