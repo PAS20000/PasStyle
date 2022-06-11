@@ -11,6 +11,13 @@ type Props = {
 const Avatar = ({
     name,
     avatar,
+    createdAt,
+    animes_like,
+    document,
+    email,
+    id,
+    phone,
+    status,
 } : Users & Props) => {
 
     const { theme } = useThemeCTX()

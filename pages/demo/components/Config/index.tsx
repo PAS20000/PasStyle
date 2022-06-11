@@ -36,12 +36,6 @@ const Config = ({
             <Button onClick={() => {}} title='reset'>
                 <Icons.Bi.BiReset />
             </Button>
-            <Button onClick={() => {}} title='add avatar component'>
-                <Icons.Ai.AiOutlineUserAdd />
-            </Button>
-            <Button onClick={() => {}} title='delete all'>
-                <Icons.Fa.FaTrash />
-            </Button>
         </PasStyle>
     )
 }

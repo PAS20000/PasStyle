@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Code from '../../../../../src/components/Code'
 import Title from '../../../../../src/components/Title/indx'
-import PasStyle from '../../../../../src/components/_PasStyle'
+import PasStyle, { Props } from '../../../../../src/components/_PasStyle'
 import CreateStyle from '../../../../../src/components/_PasStyle/CreateStyle/index.styles'
 import { Styles } from '../../../../../src/components/_PasStyle/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
@@ -13,10 +13,12 @@ type Tratament = {
     hover:Array<string>
 }
 
-const Css = () => {
+const Codes = () => {
 
     const { theme } = useThemeCTX()
     const { style, hover } = useDemoCTX()
+
+    const [show, setShow] = React.useState<'hover' | 'props'>('props')
 
     const tratamentStyle = () : Tratament => {
     
@@ -39,17 +41,49 @@ const Css = () => {
         }
     }
 
+    const BtnStyle : Props = {
+        tag:'BUTTON',
+        type:'button',
+        pd:'5px',
+        mg:'5px',
+        border:'none',
+        cursor: 'pointer',
+        b_Radius: '8px',
+        _hover:{
+            transition: '1s',
+            color:theme.colors.red,
+            bg:theme.colors.darkGray
+        }
+    }
+    
     return(
         <>
-         <PasStyle 
-                tag='H3' 
-                t_align='center'
-                color={theme.colors.cyan}
-                b_Bottom='solid 1px'
+        <PasStyle flex
+            mg='20px 15px 0px'
+        >
+            <PasStyle onClick={() => setShow('props')}
+               {...BtnStyle}
+               color={show === 'props' ? theme.colors.red : theme.colors.white}
+               bg={show === 'props' ? theme.colors.darkGray : theme.colors.bg}
             >
-                Props css
+                Props
             </PasStyle>
+            <PasStyle onClick={() => setShow('hover')}
+               {...BtnStyle}
+               color={show === 'hover' ? theme.colors.red : theme.colors.white}
+               bg={show === 'hover' ? theme.colors.darkGray : theme.colors.bg}
+            >
+                Hover
+            </PasStyle>
+        </PasStyle>
+         {show === 'props' &&
             <Code copyId='css-props'>
+                <PasStyle
+                    tag='SPAN'
+                    color={theme.colors.green}
+                >
+                    CSS : 
+                </PasStyle>
                 {tratamentStyle().tratamentProps.map((css, index) => 
                     <PasStyle key={css + index} color={theme.colors.cyan}>
                         {css &&
@@ -69,15 +103,15 @@ const Css = () => {
                     </PasStyle>
                 )}
             </Code>
-            <PasStyle 
-                tag='H3' 
-                t_align='center'
-                color={theme.colors.cyan}
-                b_Bottom='solid 1px'
-            >
-                Hover css
-            </PasStyle>
+        }
+        {show === 'hover' &&   
             <Code copyId='css-hover'>
+                <PasStyle
+                    tag='SPAN'
+                    color={theme.colors.green}
+                >
+                    CSS : 
+                </PasStyle>
                 {tratamentStyle().hover.map((css, index) => 
                     <PasStyle key={css + index} color={theme.colors.cyan}>
                         {css &&
@@ -97,8 +131,9 @@ const Css = () => {
                     </PasStyle>
                 )}
             </Code>
+        }
         </>
     )
 }
 
-export default Css
+export default Codes

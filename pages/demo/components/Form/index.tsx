@@ -4,10 +4,10 @@ import PasStyle from "../../../../src/components/_PasStyle"
 import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
 import { MdClose } from 'react-icons/md'
-import Css from './Css'
 import Router from './Router'
 import Selects from './Selects'
 import Inputs from './Inputs'
+import Codes from './Codes'
 
 type Props = {
     showForm?:boolean
@@ -74,7 +74,7 @@ const Form = ({
                     </PasStyle>
                 }
                 {show === 'css' && 
-                  <Css />
+                  <Codes />
                 }
             </Container>
         </PasStyle>

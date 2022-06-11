@@ -66,7 +66,7 @@ const Router = ({
                    color: theme.colors.green,
                }}
             >
-                CSS
+                Codes
             </PasStyle>
         </PasStyle>
     )
