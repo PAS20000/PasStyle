@@ -10,7 +10,6 @@ import { dataAnimes, dataUsers } from '../api'
 import Avatar from './components/Avatar'
 import PasStyle from '../../src/components/_PasStyle'
 import Container from '../../src/components/Layout/Container'
-import { FaEdit } from 'react-icons/fa'
 import Config from './components/Config'
 
 

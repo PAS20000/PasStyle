@@ -1,11 +1,9 @@
 import * as React from 'react'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
 import PasStyle from "../../../../src/components/_PasStyle"
-import useUserExperienceCTX from '../../../../src/hooks/useUserExperienceCTX'
 import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
 import { MdClose } from 'react-icons/md'
-import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import Css from './Css'
 import Router from './Router'
 import Selects from './Selects'

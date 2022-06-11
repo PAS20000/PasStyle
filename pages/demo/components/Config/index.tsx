@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { FaReact, FaTrash } from 'react-icons/fa'
-import { MdOutlineFormatColorFill } from 'react-icons/md'
-import { BiReset } from 'react-icons/bi'
 import PasStyle from '../../../../src/components/_PasStyle'
 import { SetState } from '../../../../src/contexts/types'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
+import Icons from '../../../../utils/Icons'
 import Button from './Button'
-
 
 type Props = {
     setShowForm:SetState<boolean>
@@ -30,16 +27,19 @@ const Config = ({
                 bg={theme.colors.darkGray}
             >
             <Button onClick={() => setShowForm(true)} title='edit props'>
-                <MdOutlineFormatColorFill />
+                <Icons.Md.MdOutlineFormatColorFill />
             </Button>
             <Button onClick={() => {}} title='create component'>
-                <FaReact />
+                <Icons.Fa.FaReact />
             </Button>
             <Button onClick={() => {}} title='reset'>
-                <BiReset />
+                <Icons.Bi.BiReset />
+            </Button>
+            <Button onClick={() => {}} title='add avatar component'>
+                <Icons.Ai.AiOutlineUserAdd />
             </Button>
             <Button onClick={() => {}} title='delete all'>
-                <FaTrash />
+                <Icons.Fa.FaTrash />
             </Button>
         </PasStyle>
     )
