@@ -15,6 +15,14 @@ type Props = {
     transform?:string
 }
 
+type ValueState = {
+    navLang:string
+    formTag:string
+    formF_weight:string
+    formT_transform:string
+}
+
+
 const Select = ({
     title,
     children,
@@ -27,18 +35,54 @@ const Select = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    
-    const [value, setValue] = React.useState<any>()
+    const { globalOpen } = useUserExperienceCTX()
+
+    const kid = children[0].props.value
+
+    const [value, setValue] = React.useState<ValueState>({
+        navLang:kid,
+        formTag:kid,
+        formF_weight:kid,
+        formT_transform:kid
+    })
 
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
 
-        arrayOptions.map(opt => opt.addEventListener('click', () => setValue(opt.innerHTML)))
+        const { formF_weight, formT_transform, formTag, navLang } = value
+        const { f_weight, t_transform, tag } = globalOpen.formSelect
+        const { navSelect } = globalOpen
+
+        arrayOptions.map(opt => opt.addEventListener('click', () => setValue({
+            navLang: navSelect ? opt.innerHTML : navLang,
+            formF_weight:f_weight ? opt.innerHTML : formF_weight,
+            formTag:tag ? opt.innerHTML : formTag,
+            formT_transform:t_transform ? opt.innerHTML : formT_transform,
+        })))
     }
 
-    React.useEffect(() => {
+    const TratamentValue = (childrenValue : React.ReactNode) : string | React.ReactNode => {
+
+        const { formF_weight, formT_transform, formTag, navLang } = value
+        const { f_weight, t_transform, tag } = globalOpen.formSelect
+        const { navSelect } = globalOpen
+
+        if(navSelect){
+            return navLang
+        }
+        if(f_weight){
+            return formF_weight
+        }
+        if(t_transform){
+            return formT_transform
+        }
+        if(tag){
+            return formTag
+        }
+
+        return childrenValue
        
-    }, [])
+    }
 
     React.useEffect(() => {
       Listener()
@@ -84,7 +128,7 @@ const Select = ({
                     <PasStyle f_size='0.8rem'
                         color={theme.colors.yellow}
                     >
-                       {value ?? children[0].props.value}
+                       {TratamentValue(kid)}
                     </PasStyle>
                     {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
                 </PasStyle>
