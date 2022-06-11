@@ -1,9 +1,15 @@
 import * as React from 'react'
 import { PropsCTXdefault, SetState } from '../types'
 
+type formSelects = {
+    tag:boolean
+    f_weight:boolean
+    t_transform:boolean
+}
+
 type SelectOpen = {
     navSelect:boolean
-    formSelect:boolean
+    formSelect:formSelects
 }
 
 export type UserExperienceCTX = {
@@ -20,7 +26,11 @@ const UserExperienceProvider = ({
     children
 } : PropsCTXdefault) => {
    const [globalOpen, setGlobalOpen] = React.useState<SelectOpen>({
-        formSelect:false,
+        formSelect:{
+            f_weight:false,
+            t_transform:false,
+            tag:false,
+        },
         navSelect:false
    })
 
@@ -34,13 +44,21 @@ const UserExperienceProvider = ({
     const closeFormSelect = () : void => {
         setGlobalOpen({
             ...globalOpen,
-            formSelect:false
+            formSelect:{
+                f_weight:false,
+                t_transform:false,
+                tag:false,
+            },
         })
     }
 
    const closeAll = () : void => {
         setGlobalOpen({
-            formSelect:false,
+            formSelect:{
+                f_weight:false,
+                t_transform:false,
+                tag:false,
+            },
             navSelect:false
         })
    }

@@ -48,6 +48,11 @@ const NavBar = ({
                     transition: '1s',
                     color:theme.colors.red,
                 }}
+                _media={{
+                    min:[500, {
+                        color:'blue'
+                    }]
+                }}
             >
                 {'<PasStyle>'}
             </PasStyle>

@@ -70,10 +70,17 @@ const Selects = ({
     const { globalOpen, setGlobalOpen } = useUserExperienceCTX()
     const { style, setStyle } = useDemoCTX()
 
-    const open = () => {
+    const open = (select : 'tag' | 'f_weight' | 't_transform') => {
+
+        const { tag, f_weight, t_transform } = globalOpen.formSelect
+
         setGlobalOpen({
             ...globalOpen,
-            formSelect:globalOpen.formSelect ? false : true
+            formSelect:{
+                tag:select === 'tag' ? (tag ? false : true) : false,
+                f_weight:select === 'f_weight' ? (f_weight ? false : true) : false,
+                t_transform:select === 't_transform' ? (t_transform ? false : true ) : false,
+            }
         })
     }
 
@@ -81,7 +88,11 @@ const Selects = ({
         setStyle({...style, tag : tag})
         setGlobalOpen({
             ...globalOpen,
-            formSelect:false
+            formSelect:{
+                f_weight:false,
+                t_transform:false,
+                tag:false
+            }
         })
     }
     return(
@@ -93,8 +104,8 @@ const Selects = ({
                     w='33%'
                     wOptions='16%'
                     transform='translate(25px, 5px)'
-                    onClick={open} 
-                    open={globalOpen.formSelect}
+                    onClick={() => open('tag')} 
+                    open={globalOpen.formSelect.tag}
                 >
                     {tags.map((tag, index) =>
                         <Option 
@@ -109,7 +120,8 @@ const Selects = ({
                 <Select
                     title='font-weight :'
                     w='33%'
-                    
+                    onClick={() => open('f_weight')} 
+                    open={globalOpen.formSelect.f_weight}
                 >
                     {weights.map((weight, index) => 
                         <Option
@@ -123,7 +135,8 @@ const Selects = ({
                 <Select
                     title='text-transform :'
                     w='33%'
-                    
+                    onClick={() => open('t_transform')} 
+                    open={globalOpen.formSelect.t_transform}
                 >
                     {textTransform.map((transform, index) => 
                         <Option

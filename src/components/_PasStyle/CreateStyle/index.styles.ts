@@ -48,6 +48,7 @@ const CreateStyles = ({
     p_Events
 } : Styles) => {
     return`
+       
         ${unselectableText && `
             -webkit-touch-callout: none;
             -webkit-user-select: none;   
@@ -109,7 +110,7 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
     const { tag, _hover, _focus, _media } = props
 
     return`
-
+      
         ${tag === 'NEXTLINK' && `a{
 
             ${CreateStyles({...props})}
@@ -144,5 +145,5 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
 export default CreateStyle
 
 export const Testes = styled.div`
-        pointer-events: none;
+      opacity: 1;
 `
