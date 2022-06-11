@@ -45,8 +45,6 @@ const UserExperienceProvider = ({
         })
    }
 
-   console.log(globalOpen)
-
    return(
         <UserExperienceContext.Provider value={{ globalOpen, setGlobalOpen, closeAll, closeFormSelect, closeNavSelect }}>
             {children}

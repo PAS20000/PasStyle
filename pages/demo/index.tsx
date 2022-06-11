@@ -107,7 +107,10 @@ const Demo = ({
                 }
                <Container 
                     pd='30px' 
-                    mg='30px'
+                    mg='50px'
+                    bg={theme.colors.bg}
+                    b_Radius='8px'
+                    shadow='2px 2px 10px black'
                 >
                    <Config 
                        setShowForm={setShowForm}

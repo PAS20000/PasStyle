@@ -1,8 +1,11 @@
 import * as React from 'react'
-import { FaEdit } from 'react-icons/fa'
+import { FaReact, FaTrash } from 'react-icons/fa'
+import { MdOutlineFormatColorFill } from 'react-icons/md'
+import { BiReset } from 'react-icons/bi'
 import PasStyle from '../../../../src/components/_PasStyle'
 import { SetState } from '../../../../src/contexts/types'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
+import Button from './Button'
 
 
 type Props = {
@@ -19,29 +22,25 @@ const Config = ({
     return(
         <PasStyle
                 pd='10px'
-                mg='10px'
+                mg='15px'
                 shadow='1px 1px 10px black'
                 b_Radius='8px'
-                bg={theme.colors.bg}
-            >
-            <PasStyle tag='BUTTON'
-                title='Edit'
-                onClick={() => setShowForm(true)}
-                w='30px'
-                h='30px'
-                border='none'
-                bg={theme.colors.bg}
+                border='solid 1px'
                 color={theme.colors.white}
-                b_Radius='50%'
-                cursor='pointer'
-                _hover={{
-                    transition: '1s',
-                    bg:theme.colors.darkGray,
-                    color: theme.colors.cyan,
-                }}
+                bg={theme.colors.darkGray}
             >
-                <FaEdit />
-            </PasStyle>
+            <Button onClick={() => setShowForm(true)} title='edit props'>
+                <MdOutlineFormatColorFill />
+            </Button>
+            <Button onClick={() => {}} title='create component'>
+                <FaReact />
+            </Button>
+            <Button onClick={() => {}} title='reset'>
+                <BiReset />
+            </Button>
+            <Button onClick={() => {}} title='delete all'>
+                <FaTrash />
+            </Button>
         </PasStyle>
     )
 }
