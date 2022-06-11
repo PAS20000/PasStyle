@@ -89,18 +89,17 @@ const NavBar = ({
                     color={theme.colors.white}
                     bg='transparent'
                     cursor='pointer'
+                    pd='5px'
                     border='none'
                     t_transform='uppercase'
                     f_weight='300'
                     b_Radius='8px'
                     _hover={{
                         transition: '1s',
-                        bg:theme.colors.darkGray,
                         color:theme.colors.yellow,
                     }}>
                     <PasStyle 
                         tag='SPAN'
-                        mg='0px 5px 0px'
                     >
                         {mode === 'light' ?
                             <FaSun /> 
