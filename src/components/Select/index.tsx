@@ -46,19 +46,26 @@ const Select = ({
         formT_transform:kid
     })
 
-    const Listener = () => {
-        const arrayOptions = Array.from(document.querySelectorAll('.option'))
+    const TratamentSetValue = (html : any) => {
 
         const { formF_weight, formT_transform, formTag, navLang } = value
         const { f_weight, t_transform, tag } = globalOpen.formSelect
         const { navSelect } = globalOpen
 
-        arrayOptions.map(opt => opt.addEventListener('click', () => setValue({
-            navLang: navSelect ? opt.innerHTML : navLang,
-            formF_weight:f_weight ? opt.innerHTML : formF_weight,
-            formTag:tag ? opt.innerHTML : formTag,
-            formT_transform:t_transform ? opt.innerHTML : formT_transform,
-        })))
+        setValue({
+            navLang: navSelect ? html : navLang,
+            formF_weight:f_weight ? html : formF_weight,
+            formTag:tag ? html : formTag,
+            formT_transform:t_transform ? html : formT_transform,
+        })
+    }
+
+    const Listener = () => {
+        const arrayOptions = Array.from(document.querySelectorAll('.option'))
+
+       
+
+        arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
     }
 
     const TratamentValue = (childrenValue : React.ReactNode) : string | React.ReactNode => {
