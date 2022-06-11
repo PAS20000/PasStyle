@@ -19,12 +19,13 @@ const Config = ({
     return(
         <PasStyle
                 pd='10px'
-                mg='15px'
+                mg='20px'
                 shadow='1px 1px 10px black'
                 b_Radius='8px'
                 border='solid 1px'
                 color={theme.colors.white}
                 bg={theme.colors.darkGray}
+                t_align='center'
             >
             <Button onClick={() => setShowForm(true)} title='edit props'>
                 <Icons.Md.MdOutlineFormatColorFill />
