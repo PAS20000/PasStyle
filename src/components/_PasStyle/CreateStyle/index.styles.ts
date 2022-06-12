@@ -48,7 +48,7 @@ const CreateStyles = ({
     p_Events
 } : Styles) => {
     return`
-       
+      
         ${unselectableText && `
             -webkit-touch-callout: none;
             -webkit-user-select: none;   
@@ -59,8 +59,7 @@ const CreateStyles = ({
         `}
         ${p_Events && `pointer-events: ${p_Events}`};
         ${display && `display: ${display}`};
-        ${_webkit && _webkit}
-        ${animation && `animation: ${animation} 1s`};
+        ${_webkit && _webkit};
         ${b_Bottom && ` border-bottom: ${b_Bottom}`};
         ${outline && `outline: ${outline}`};
         ${outline_color && `outline-color: ${outline_color}`};

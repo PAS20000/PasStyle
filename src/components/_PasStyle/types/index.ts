@@ -102,7 +102,8 @@ export type Tags = [
     'NEXTIMG',
     'CODE',
     'LABEL',
-    'IFRAME'
+    'IFRAME',
+    'TEXTAREA'
 ]
 
 export type Animations = [

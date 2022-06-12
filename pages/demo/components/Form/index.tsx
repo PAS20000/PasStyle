@@ -8,21 +8,26 @@ import Router from './Router'
 import Selects from './Selects'
 import Inputs from './Inputs'
 import Codes from './Codes'
+import { ShowState } from '../..'
 
 type Props = {
     showForm?:boolean
     setShowForm?:SetState<boolean>
+    show:ShowState
+    setShow:SetState<ShowState>
 }
 
-export type ShowState = 'css' | 'hover' | 'props'
+
 
 const Form = ({
     setShowForm,
-    showForm
+    showForm,
+    show,
+    setShow
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const [ show, setShow ] = React.useState<ShowState>('props')
+    
 
     return(
     <PasStyle 
@@ -69,8 +74,9 @@ const Form = ({
             >
                 {show !== 'css' && 
                     <PasStyle grid columns='1fr 1fr 1fr'>
-                        {show === 'props' && <Inputs />}
+                        {show === 'props' && <Inputs  props/>}
                         {show === 'hover' && <Inputs _hover/>}
+                        {show === 'create' && <Inputs create/>}
                     </PasStyle>
                 }
                 {show === 'css' && 

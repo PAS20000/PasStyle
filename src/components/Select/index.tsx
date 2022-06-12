@@ -63,8 +63,6 @@ const Select = ({
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
 
-       
-
         arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
     }
 

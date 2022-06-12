@@ -74,6 +74,7 @@ type Props = {
     }
 }
 
+export type ShowState = 'css' | 'hover' | 'props' | 'create'
 
 const Demo = ({
     datas
@@ -81,6 +82,7 @@ const Demo = ({
 
     const { theme } = useThemeCTX()
     const [showForm, setShowForm] = React.useState(false)
+    const [ show, setShow ] = React.useState<ShowState>('props')
 
     return(
         <>
@@ -101,6 +103,8 @@ const Demo = ({
                         <Form 
                             showForm={showForm}
                             setShowForm={setShowForm}
+                            setShow={setShow}
+                            show={show}
                         />
                     </PasStyle>
                 }
@@ -113,6 +117,7 @@ const Demo = ({
                 >
                    <Config 
                        setShowForm={setShowForm}
+                       setShow={setShow}
                    />
                     {dataUsers.map(user =>  
                         <Avatar key={user.id}

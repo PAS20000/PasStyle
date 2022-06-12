@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ShowState } from '..'
+import { ShowState } from '../../..'
 import Select from '../../../../../src/components/Select'
 import Option from '../../../../../src/components/Select/Option'
 import PasStyle from '../../../../../src/components/_PasStyle'

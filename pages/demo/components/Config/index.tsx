@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { ShowState } from '../..'
 import PasStyle from '../../../../src/components/_PasStyle'
 import { SetState } from '../../../../src/contexts/types'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
@@ -7,15 +8,22 @@ import Button from './Button'
 
 type Props = {
     setShowForm:SetState<boolean>
+    setShow:SetState<ShowState>
 }
 
 
 const Config = ({
-    setShowForm
+    setShowForm,
+    setShow
 } : Props ) => {
 
     const { theme } = useThemeCTX()
 
+    const openCreate = () => {
+        setShowForm(true)
+        setShow('create')
+    }
+    
     return(
         <PasStyle
                 pd='10px'
@@ -30,7 +38,7 @@ const Config = ({
             <Button onClick={() => setShowForm(true)} title='edit props'>
                 <Icons.Md.MdOutlineFormatColorFill />
             </Button>
-            <Button onClick={() => {}} title='create component'>
+            <Button onClick={openCreate} title='create component'>
                 <Icons.Fa.FaReact />
             </Button>
             <Button onClick={() => {}} title='reset'>

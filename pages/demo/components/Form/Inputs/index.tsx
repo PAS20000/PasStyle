@@ -5,10 +5,14 @@ import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 
 type Props = {
     _hover?:boolean
+    create?:boolean
+    props?:boolean
 }
 
 const Inputs = ({
-    _hover
+    _hover,
+    create,
+    props
 } : Props) => {
 
     const { style, setStyle, hover, setHover } = useDemoCTX()
@@ -17,7 +21,11 @@ const Inputs = ({
 
         if(_hover){
             setHover({...hover, ...obj})
-        } else {
+        }
+        if(create){
+           
+        } 
+        if(props){
             setStyle({...style, ...obj})
         }
     }
@@ -25,7 +33,11 @@ const Inputs = ({
     const values = (key : string) => {
         if(_hover){
             return hover[key]
-        } else {
+        }
+        if(create){
+          
+        } 
+        if(props){
             return style[key]
         }
     }
