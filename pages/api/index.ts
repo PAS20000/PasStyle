@@ -1,4 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
+import { Animes } from "./animes"
+import { Langs } from "./langs"
+import { Users } from "./users"
 
 const id = () : number => {
 
@@ -7,7 +10,7 @@ const id = () : number => {
     return Math.floor(Math.random() * max)
 }
 
-export const dataAnimes = [
+export const dataAnimes : Array<Animes> = [
     {
         id:id(),
         name:'anime1',
@@ -40,7 +43,7 @@ export const dataAnimes = [
     }
 ]
 
-export const dataUsers = [
+export const dataUsers : Array<Users> = [
     {
         id:id(),
         name:'User Name 1',
@@ -133,13 +136,30 @@ export const dataUsers = [
     }
 ]
 
+export const Lang : Array<Langs> = [{
+    pt:{   
+        content:[{
+            id:id(),
+            title:'início rápido',
+            aside:'aside pt'
+        }]
+    },
+    en:{
+        content:[{
+            id:id(),
+            title:'quick start',
+            aside:'aside en'
+        }]
+    }
+}]
 
 const datas = (req : NextApiRequest, res : NextApiResponse) => {
 
 
     return res.status(200).json({
         animes:dataAnimes,
-        users:dataUsers
+        users:dataUsers,
+        lang:Lang
     })
 }
 

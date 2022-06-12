@@ -10,6 +10,8 @@ import Lorem from '../../src/components/Lorem'
 import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
 import { dataAnimes, dataUsers } from '../api'
+import { Animes } from '../api/animes'
+import { Users } from '../api/users'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -38,22 +40,6 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
             notFound:true
           }
     }
-}
-
-export type Animes = {
-    id?:string
-    name?:string
-    thumb?:string
-}
-
-export type Users = {
-    id?:string
-    name?:string
-    email?:string
-    avatar?:string
-    status?:string
-    animes_like?:Array<Animes>
-    
 }
 
 type Props = {

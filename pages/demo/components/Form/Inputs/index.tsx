@@ -50,7 +50,7 @@ const Inputs = ({
                 onChange={(e:any) => changes({bg : e.target.value})}
                 value={values('bg')}
                 type='color'
-            />
+            />                                                                                                        
             <Field 
                 prop='padding :'
                 placeholder='pd='

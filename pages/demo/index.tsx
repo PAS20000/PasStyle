@@ -11,7 +11,8 @@ import Avatar from './components/Avatar'
 import PasStyle from '../../src/components/_PasStyle'
 import Container from '../../src/components/Layout/Container'
 import Config from './components/Config'
-
+import { Animes } from '../api/animes'
+import { Users } from '../api/users'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -40,31 +41,6 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
             notFound:true
           }
     }
-}
-
-export type Animes = {
-    id?:number
-    name?:string
-    thumb?:string
-}
-
-export type Users = {
-    id?:number
-    name?:string
-    email?:string
-    avatar?:string
-    status?:string
-    phone?: {
-        ddd:string
-        ddi:string
-        number:string
-    }
-    document?: {
-        type:string
-        number:string
-    }
-    createdAt:string
-    animes_like?:Array<Animes>   
 }
 
 type Props = {
