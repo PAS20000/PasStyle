@@ -1,10 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { Lang } from ".."
+import { dataLang } from ".."
 
 type Content = {
     content:[{
         id:number
         title:string
+        codes:Array<string>
         aside:string
     }]
 }
@@ -16,7 +17,7 @@ export type Langs = {
 
 const langs = (req : NextApiRequest, res : NextApiResponse) => {
 
-    return res.status(200).json(Lang)
+    return res.status(200).json(dataLang)
 }
 
 export default langs

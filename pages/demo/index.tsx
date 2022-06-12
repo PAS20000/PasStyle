@@ -6,13 +6,14 @@ import Header from '../../src/components/Layout/Header'
 import Main from '../../src/components/Layout/Main'
 import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
-import { dataAnimes, dataUsers } from '../api'
+import { dataAnimes, dataLang, dataUsers } from '../api'
 import Avatar from './components/Avatar'
 import PasStyle from '../../src/components/_PasStyle'
 import Container from '../../src/components/Layout/Container'
 import Config from './components/Config'
 import { Animes } from '../api/animes'
 import { Users } from '../api/users'
+import { Langs } from '../api/langs'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -20,11 +21,13 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
         //const resp = await axiosConfig(`users/{params.id}/`)
         const respAnimes = dataAnimes
         const respUsers = dataUsers
+        const respLangs = dataLang
         return {
             props: {
               datas:{
                   animes:respAnimes,
-                  users:respUsers
+                  users:respUsers,
+                  langs:respLangs
               },
             },
           }
@@ -35,7 +38,8 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
             props: {
               datas:{
                   animes:[{}],
-                  users:[{}]
+                  users:[{}],
+                  langs:[{}]
               },
             },
             notFound:true
@@ -47,6 +51,7 @@ type Props = {
     datas:{
         animes:Array<Animes>
         users:Array<Users>
+        langs:Array<Langs>
     }
 }
 

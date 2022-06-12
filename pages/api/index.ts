@@ -136,11 +136,15 @@ export const dataUsers : Array<Users> = [
     }
 ]
 
-export const Lang : Array<Langs> = [{
+export const dataLang : Array<Langs> = [{
     pt:{   
         content:[{
             id:id(),
             title:'início rápido',
+            codes:[
+                'npm passtyle',
+                'yarn passtyle'
+            ],
             aside:'aside pt'
         }]
     },
@@ -148,6 +152,10 @@ export const Lang : Array<Langs> = [{
         content:[{
             id:id(),
             title:'quick start',
+            codes:[
+                'npm passtyle',
+                'yarn passtyle'
+            ],
             aside:'aside en'
         }]
     }
@@ -159,7 +167,7 @@ const datas = (req : NextApiRequest, res : NextApiResponse) => {
     return res.status(200).json({
         animes:dataAnimes,
         users:dataUsers,
-        lang:Lang
+        langs:dataLang
     })
 }
 

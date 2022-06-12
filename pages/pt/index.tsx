@@ -9,8 +9,9 @@ import Main from '../../src/components/Layout/Main'
 import Lorem from '../../src/components/Lorem'
 import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
-import { dataAnimes, dataUsers } from '../api'
+import { dataAnimes, dataLang, dataUsers } from '../api'
 import { Animes } from '../api/animes'
+import langs, { Langs } from '../api/langs'
 import { Users } from '../api/users'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
@@ -19,11 +20,13 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
         //const resp = await axiosConfig(`users/{params.id}/`)
         const respAnimes = dataAnimes
         const respUsers = dataUsers
+        const respLangs = dataLang
         return {
             props: {
               datas:{
                   animes:respAnimes,
-                  users:respUsers
+                  users:respUsers,
+                  langs:respLangs
               },
             },
           }
@@ -34,7 +37,8 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
             props: {
               datas:{
                   animes:[{}],
-                  users:[{}]
+                  users:[{}],
+                  langs:[{}]
               },
             },
             notFound:true
@@ -46,6 +50,7 @@ type Props = {
     datas:{
         animes:Array<Animes>
         users:Array<Users>
+        langs:Array<Langs>
     }
 }
 
@@ -63,21 +68,26 @@ const HomePT = ({
                 />
            </Header>
             <Main>
-                <Content
-                    titleContent='Início rápido' 
-                    text={<Lorem />}
-                    tag='SECTION'
-                    mg='50px'
-                    pd='50px'
-                    right
-                >
-                    <Code copyId='npm'>
-                        npm i passtyle
-                    </Code>
-                    <Code copyId='yarn'>
-                        yarn passtyle
-                    </Code>
-                </Content>
+                {datas.langs.map(lang => lang.pt.content.map(content => 
+                    <Content 
+                        tag='SECTION'
+                        mg='50px'
+                        pd='50px'
+                        right
+                        key={content.id} 
+                        titleContent={content.title} 
+                        text={content.aside}
+                    >
+                        {content.codes.map((code, index) => 
+                            <Code 
+                                key={index}
+                                copyId={index.toString()}
+                            >
+                                {code}
+                            </Code>
+                        )}
+                    </Content>
+                ))}
             </Main>
             <Footer>
 
