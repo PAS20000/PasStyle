@@ -4,12 +4,11 @@ import Code from '../src/components/Code'
 import Footer from '../src/components/Layout/Footer'
 import Header from '../src/components/Layout/Header'
 import Main from '../src/components/Layout/Main'
-import Lorem from '../src/components/Lorem'
 import NavBar from '../src/components/NavBar'
 import useThemeCTX from '../src/hooks/useThemeCTX'
-import { dataAnimes, dataUsers, dataLang } from './api'
+import { dataMusics, dataUsers, dataLang } from './api'
 import Content from '../src/components/Layout/Content'
-import { Animes } from './api/animes'
+import { Musics } from './api/music'
 import { Users } from './api/users'
 import { Langs } from './api/langs'
 
@@ -17,13 +16,13 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
     
     try {
         //const resp = await axiosConfig(`users/{params.id}/`)
-        const respAnimes = dataAnimes
+        const respMusics = dataMusics
         const respUsers = dataUsers
         const respLangs = dataLang
         return {
             props: {
               datas:{
-                  animes:respAnimes,
+                  Musics:respMusics,
                   users:respUsers,
                   langs:respLangs
               },
@@ -35,7 +34,7 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
         return {
             props: {
               datas:{
-                  animes:[{}],
+                  Musics:[{}],
                   users:[{}],
                   langs:[{}]
               },
@@ -47,7 +46,7 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
 
 type Props = {
     datas:{
-        animes:Array<Animes>
+        musics:Array<Musics>
         users:Array<Users>
         langs:Array<Langs>
     }

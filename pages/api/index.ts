@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { Animes } from "./animes"
 import { Langs } from "./langs"
+import { Musics } from "./music"
 import { Users } from "./users"
 
 const id = () : number => {
@@ -10,7 +10,7 @@ const id = () : number => {
     return Math.floor(Math.random() * max)
 }
 
-export const dataAnimes : Array<Animes> = [
+export const dataMusics : Array<Musics> = [
     {
         id:id(),
         name:'anime1',
@@ -60,7 +60,7 @@ export const dataUsers : Array<Users> = [
 			number: "18223002078"
 		},
 		createdAt: "2021-12-14T23:15:14.715Z",
-        likes:dataAnimes.slice(0, 1)
+        likes:dataMusics.slice(0, 1)
     },
     {
         id:id(),
@@ -78,7 +78,7 @@ export const dataUsers : Array<Users> = [
 			number: "09362435039"
 		},
 		createdAt: "2022-05-12T23:15:14.715Z",
-        likes:dataAnimes.slice(0, 2)
+        likes:dataMusics.slice(0, 2)
     },
     {
         id:id(),
@@ -96,7 +96,7 @@ export const dataUsers : Array<Users> = [
 			number: "14260425072"
 		},
 		createdAt: "2022-03-24T23:15:14.715Z",
-        likes:dataAnimes.slice(0, 3)
+        likes:dataMusics.slice(0, 3)
     },
     {
         id:id(),
@@ -114,7 +114,7 @@ export const dataUsers : Array<Users> = [
 			number: "48023235060"
 		},
 		createdAt: "2022-01-25T23:15:14.715Z",
-        likes:dataAnimes.slice(0, 4)
+        likes:dataMusics.slice(0, 4)
     },
     {
         id:id(),
@@ -132,7 +132,7 @@ export const dataUsers : Array<Users> = [
 			number: "76897370053"
 		},
 		createdAt: "2022-04-14T23:15:14.715Z",
-        likes:dataAnimes.slice(0, 5)
+        likes:dataMusics.slice(0, 5)
     }
 ]
 
@@ -154,7 +154,7 @@ export const dataLang : Array<Langs> = [{
             title:'quick start',
             codes:[
                 'npm passtyle',
-                'yarn passtyle'
+                'yarn passtyle',
             ],
             aside:'aside en'
         }]
@@ -165,7 +165,7 @@ const datas = (req : NextApiRequest, res : NextApiResponse) => {
 
 
     return res.status(200).json({
-        animes:dataAnimes,
+        musics:dataMusics,
         users:dataUsers,
         langs:dataLang
     })

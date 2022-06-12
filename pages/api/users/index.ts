@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { dataUsers } from ".."
-import { Animes } from "../animes"
+import { Musics } from "../music"
 
 
 export type Users = {
@@ -19,7 +19,7 @@ export type Users = {
         number:string
     }
     createdAt:string
-    likes?:Array<Animes>   
+    likes?:Array<Musics>   
 }
 
 const users = (req : NextApiRequest, res : NextApiResponse) => {

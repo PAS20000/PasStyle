@@ -6,12 +6,12 @@ import Header from '../../src/components/Layout/Header'
 import Main from '../../src/components/Layout/Main'
 import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
-import { dataAnimes, dataLang, dataUsers } from '../api'
+import { dataMusics, dataLang, dataUsers } from '../api'
 import Avatar from './components/Avatar'
 import PasStyle from '../../src/components/_PasStyle'
 import Container from '../../src/components/Layout/Container'
 import Config from './components/Config'
-import { Animes } from '../api/animes'
+import { Musics } from '../api/music'
 import { Users } from '../api/users'
 import { Langs } from '../api/langs'
 
@@ -19,13 +19,13 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
     
     try {
         //const resp = await axiosConfig(`users/{params.id}/`)
-        const respAnimes = dataAnimes
+        const respMusics = dataMusics
         const respUsers = dataUsers
         const respLangs = dataLang
         return {
             props: {
               datas:{
-                  animes:respAnimes,
+                  Musics:respMusics,
                   users:respUsers,
                   langs:respLangs
               },
@@ -37,7 +37,7 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
         return {
             props: {
               datas:{
-                  animes:[{}],
+                  Musics:[{}],
                   users:[{}],
                   langs:[{}]
               },
@@ -49,7 +49,7 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
 
 type Props = {
     datas:{
-        animes:Array<Animes>
+        Musics:Array<Musics>
         users:Array<Users>
         langs:Array<Langs>
     }
@@ -103,7 +103,7 @@ const Demo = ({
                     {dataUsers.map(user =>  
                         <Avatar key={user.id}
                             createdAt={user.createdAt}
-                            animes_like={user.likes}
+                            Musics_like={user.likes}
                             avatar={user.avatar}
                             document={user.document}
                             email={user.email}
