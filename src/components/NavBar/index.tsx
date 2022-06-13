@@ -46,7 +46,7 @@ const NavBar = ({
                 color={theme.colors.white}
                 _hover={{
                     transition: '1s',
-                    color:theme.colors.red,
+                    color:theme.colors.green,
                 }}
                 _media={{
                     min:[500, {

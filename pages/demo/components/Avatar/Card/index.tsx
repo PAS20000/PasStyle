@@ -29,11 +29,12 @@ const Card = ({
         >
             <PasStyle 
                 tag='SPAN'
-                f_size='1rem'
+                f_size='1.1rem'
                 mg='5px'
             >
-                {icon} {title} 
+                {icon} 
             </PasStyle>
+            {title} 
             <br />
             {children}
         </PasStyle>

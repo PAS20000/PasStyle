@@ -8,7 +8,6 @@ import * as Bs from 'react-icons/bs'
 import * as Fc from 'react-icons/fc'
 import * as Hi from 'react-icons/hi'
 
-
 export default {
     Fa,
     Ai,

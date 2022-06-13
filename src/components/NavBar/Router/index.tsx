@@ -32,10 +32,10 @@ const Router = ({
             b_Radius='8px'
             t_decoration='none'
             bg={current ?  theme.colors.darkGray : 'trasparent' }
-            color={current ? theme.colors.red : theme.colors.white }
+            color={current ? theme.colors.green : theme.colors.white }
             _hover={{
                 transition: '1s',
-                color:theme.colors.red,
+                color:theme.colors.green,
                 bg:theme.colors.darkGray,
             }}
         >

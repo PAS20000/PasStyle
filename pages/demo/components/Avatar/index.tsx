@@ -70,7 +70,7 @@ const Avatar = ({
                     </Card>
                     <Card 
                         title={document.type}
-                        icon={<Icons.Hi.HiOutlineIdentification />}
+                        icon={<Icons.Fa.FaFileAlt />}
                     >
                         {document.number}
                     </Card>
@@ -94,7 +94,9 @@ const Avatar = ({
                     </Card>
                 </PasStyle>
                     Likes
-                    <PasStyle grid columns='1fr 1fr'>
+                    <PasStyle grid columns='1fr 1fr'
+                       
+                    >
                         {likes.map(like => 
                             <Likes key={like.id}
                                 thumb={like.thumb}

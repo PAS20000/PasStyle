@@ -23,6 +23,7 @@ const Likes = ({
                 href={link}
                 target='_blank'
                 {...style}
+                t_align='center'
                 _hover={{
                     ...hover
                 }}
@@ -30,12 +31,11 @@ const Likes = ({
                 <PasStyle
                     tag='IMG' 
                     src={thumb}
-                    w='75px'
-                    h='75px'
                     b_Radius='8px'
-                    mg='20px'
+                    w='80px'
+                    h='80px'
                 />
-               <PasStyle tag='SPAN' mg='45px 0px 0px'>
+               <PasStyle tag='SPAN' mg='25px 10px 0px'>
                     {name}
                </PasStyle>
             </PasStyle>  
