@@ -27,7 +27,7 @@ const Avatar = ({
     const [show, setShow] = React.useState<boolean>(false)
 
     const tratamentDate = () => {
-        return new Date(createdAt.split('T')[0]).toLocaleDateString()
+        return new Date(createdAt.split('T')[0]).toLocaleDateString('en-US')
     }
 
     return(

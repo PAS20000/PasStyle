@@ -16,7 +16,7 @@ const Main = ({
         <PasStyle
             tag='MAIN' 
             pd='60px 0px 50px'
-            h='100%'
+            h='100vh'
             bg={theme.colors.darkGray}
         >
             {children}
