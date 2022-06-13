@@ -79,7 +79,7 @@ const Demo = ({
                         w='100%' 
                         h='100vh' 
                         tag='DIV' 
-                        position='absolute'
+                        position='fixed'
                     >
                         <Form 
                             showForm={showForm}

@@ -80,6 +80,7 @@ const Avatar = ({
                     {Date().eua}
                 </PasStyle>
                 <PasStyle>
+                    Likes
                     {likes.map(like => 
                         <Likes key={like.id}
                             thumb={like.thumb}
