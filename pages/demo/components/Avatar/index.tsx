@@ -4,6 +4,7 @@ import PasStyle from '../../../../src/components/_PasStyle'
 import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import { Users } from '../../../api/users'
 import Likes from './Likes'
+import Card from './Card'
 
 type Props = {
    
@@ -23,6 +24,7 @@ const Avatar = ({
 
     const { theme } = useThemeCTX()
     const { style, hover } = useDemoCTX()
+    const [show, setShow] = React.useState<boolean>(false)
 
     const Date = () => {
         const date = createdAt.split('T')[0].split('-')
@@ -38,6 +40,7 @@ const Avatar = ({
     return(
         <PasStyle>
             <PasStyle flex center
+                onClick={() => setShow(show ? false : true)}
                 href={avatar} 
                 {...style}
                 _hover={{
@@ -58,38 +61,37 @@ const Avatar = ({
                     {name}
                 </PasStyle>
             </PasStyle>
-            <PasStyle>
+           {show &&  
                 <PasStyle>
-                    Email : <br />
-                    {email}
+                    <Card 
+                        title='Email'
+                    >
+                        {email}
+                    </Card>
+                    <Card title={document.type}>
+                        {document.number}
+                    </Card>
+                    <Card title='Phone'>
+                        {phone.ddi} {phone.ddd} {phone.number}
+                    </Card>
+                    <Card title='Status'>
+                        {status}
+                    </Card>
+                    <Card title='Date'>
+                        {Date().eua}
+                    </Card>
+                    <PasStyle>
+                        Likes
+                        {likes.map(like => 
+                            <Likes key={like.id}
+                                thumb={like.thumb}
+                                name={like.name}
+                                link={like.link}
+                            />
+                        )}
+                    </PasStyle>
                 </PasStyle>
-                <PasStyle>
-                    {document.type} : <br />
-                    {document.number}
-                </PasStyle>
-                <PasStyle>
-                    Phone : <br />
-                    {phone.ddi} {phone.ddd} {phone.number}
-                </PasStyle>
-                <PasStyle>
-                    Status : <br />
-                    {status}
-                </PasStyle>
-                <PasStyle>
-                    Date : <br />
-                    {Date().eua}
-                </PasStyle>
-                <PasStyle>
-                    Likes
-                    {likes.map(like => 
-                        <Likes key={like.id}
-                            thumb={like.thumb}
-                            name={like.name}
-                            link={like.link}
-                        />
-                    )}
-                </PasStyle>
-            </PasStyle>
+            }
     </PasStyle>
     )   
 }

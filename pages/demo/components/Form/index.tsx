@@ -32,7 +32,7 @@ const Form = ({
     return(
     <PasStyle 
         position='absolute' 
-        transform='translate(40vh, 10vh)'
+        transform='translate(50vh, 10vh)'
     >
     <PasStyle
         mg='0px 30px 30px' 
