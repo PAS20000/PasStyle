@@ -90,7 +90,7 @@ const Demo = ({
                     </PasStyle>
                 }
                <Container 
-                    pd='30px' 
+                    pd='50px' 
                     mg='50px'
                     bg={theme.colors.bg}
                     b_Radius='8px'

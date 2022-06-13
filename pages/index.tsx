@@ -71,7 +71,7 @@ const Home = ({
                         tag='SECTION'
                         mg='50px'
                         pd='50px'
-                        right
+                        left
                         key={content.id} 
                         titleContent={content.title} 
                         text={content.aside}
@@ -79,7 +79,7 @@ const Home = ({
                         {content.codes.map((code, index) => 
                             <Code 
                                 key={index}
-                                copyId={index.toString()}
+                                copyId={code}
                             >
                                 {code}
                             </Code>

@@ -1,13 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { dataLang } from ".."
 
+type ObjConent = {
+    id:number
+    title:string
+    codes:Array<string>
+    aside:string
+}
+
 type Content = {
-    content:[{
-        id:number
-        title:string
-        codes:Array<string>
-        aside:string
-    }]
+    content:ObjConent[]
 }
 
 export type Langs = {

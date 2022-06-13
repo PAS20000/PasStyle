@@ -3,7 +3,7 @@ import { Langs } from "./langs"
 import { Musics } from "./music"
 import { Users } from "./users"
 
-const id = () : number => {
+const id = (number ?: number) : number => {
 
     const max = 100000000000000
 
@@ -169,7 +169,16 @@ export const dataLang : Array<Langs> = [{
                 'yarn passtyle',
             ],
             aside:'aside en'
-        }]
+        },
+        {
+            id:id(),
+            title:'????',
+            codes:[
+                '?????'
+            ],
+            aside:'????'
+        }
+    ]
     }
 }]
 
