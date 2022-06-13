@@ -38,9 +38,6 @@ const Config = ({
             <Button onClick={() => setShowForm(true)} title='edit props'>
                 <Icons.Md.MdOutlineFormatColorFill />
             </Button>
-            <Button onClick={openCreate} title='create component'>
-                <Icons.Fa.FaReact />
-            </Button>
             <Button onClick={() => {}} title='reset'>
                 <Icons.Bi.BiReset />
             </Button>

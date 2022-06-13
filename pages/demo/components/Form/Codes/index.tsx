@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Code from '../../../../../src/components/Code'
-import Title from '../../../../../src/components/Title/indx'
+import Title from '../../../../../src/components/Title'
 import PasStyle, { Props } from '../../../../../src/components/_PasStyle'
 import CreateStyle from '../../../../../src/components/_PasStyle/CreateStyle/index.styles'
 import { Styles } from '../../../../../src/components/_PasStyle/types'

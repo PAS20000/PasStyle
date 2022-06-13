@@ -66,11 +66,11 @@ const NavBar = ({
                     onClick={open} 
                     open={globalOpen.navSelect}
                 >
-                    <Option onClick={() => router.push('/')} value='EN 🇺🇸'>
-                        EN 🇺🇸
+                    <Option onClick={() => router.push('/')} value='🇺🇸 EN'>
+                        🇺🇸 EN 
                     </Option>
-                    <Option  onClick={() => router.push('/pt/')} value='PT 🇧🇷'>
-                        PT 🇧🇷
+                    <Option  onClick={() => router.push('/pt/')} value='🇧🇷 PT'>
+                        🇧🇷 PT
                     </Option>
                 </Select>
                 <Router 

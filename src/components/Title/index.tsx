@@ -17,6 +17,7 @@ const Title = ({
             tag='H2'
             color={theme.colors.white}
             mg='30px'
+            t_transform='capitalize'
         >
            {children}
        </PasStyle>

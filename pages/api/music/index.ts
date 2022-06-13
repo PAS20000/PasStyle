@@ -5,6 +5,8 @@ export type Musics = {
     id?:number
     name?:string
     thumb?:string
+    link?:string
+    createdAt?:string
 }
 
 

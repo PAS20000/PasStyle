@@ -13,33 +13,45 @@ const id = () : number => {
 export const dataMusics : Array<Musics> = [
     {
         id:id(),
-        name:'anime1',
-        thumb:'/img/anime.png'
+        name:'Alec Benjamin - Let Me Down Slowly Tevvez Remix Parallel Universe',
+        thumb:'https://i.ytimg.com/vi/8Gs6pFM-B5I/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLArr1g5TpDqNRtTwfhkZh8C05b0aA',
+        link:'https://youtu.be/8Gs6pFM-B5I?list=RDMM',
+        createdAt: "2021-12-13T23:15:14.715Z",
     },
     {
         id:id(),
-        name:'anime2',
-        thumb:'/img/anime.png'
+        name:'The Coasters Sh Boom Life Could Be A Dream',
+        thumb:'/img/anime.png',
+        link:'https://youtu.be/jEP224Sa4Rw',
+        createdAt: "2021-12-13T23:15:14.715Z",
     },
     {
         id:id(),
         name:'anime3',
-        thumb:'/img/anime.png'
+        thumb:'/img/anime.png',
+        link:'',
+        createdAt: "2021-12-12T23:15:14.715Z",
     },
     {
         id:id(),
         name:'anime4',
-        thumb:'/img/anime.png'
+        thumb:'/img/anime.png',
+        link:'',
+        createdAt: "2021-12-11T23:15:14.715Z",
     },
     {
         id:id(),
         name:'anime5',
-        thumb:'/img/anime.png'
+        thumb:'/img/anime.png',
+        link:'',
+        createdAt: "2021-12-10T23:15:14.715Z",
     },
     {
         id:id(),
         name:'anime6',
-        thumb:'/img/anime.png'
+        thumb:'/img/anime.png',
+        link:'',
+        createdAt: "2021-12-09T23:15:14.715Z",
     }
 ]
 
