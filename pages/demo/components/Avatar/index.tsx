@@ -5,6 +5,7 @@ import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import { Users } from '../../../api/users'
 import Likes from './Likes'
 import Card from './Card'
+import Icons from '../../../../utils/Icons'
 
 type Props = {
    
@@ -63,24 +64,37 @@ const Avatar = ({
                 <PasStyle flex evenly>
                     <Card 
                         title='Email'
+                        icon={<Icons.Md.MdEmail />}
                     >
                         {email}
                     </Card>
-                    <Card title={document.type}>
+                    <Card 
+                        title={document.type}
+                        icon={<Icons.Hi.HiOutlineIdentification />}
+                    >
                         {document.number}
                     </Card>
-                    <Card title='Phone'>
+                    <Card 
+                        title='Phone'
+                        icon={<Icons.Md.MdPhone />}
+                    >
                         {phone.ddi} {phone.ddd} {phone.number}
                     </Card>
-                    <Card title='Status'>
+                    <Card 
+                        title='Status'
+                        icon={<Icons.Md.MdWifiTethering />}                    
+                    >
                         {status}
                     </Card>
-                    <Card title='Date'>
+                    <Card 
+                        title='Date'
+                        icon={<Icons.Md.MdCalendarToday />}
+                    >
                         {tratamentDate()}
                     </Card>
                 </PasStyle>
-                    <PasStyle>
-                        Likes
+                    Likes
+                    <PasStyle grid columns='1fr 1fr'>
                         {likes.map(like => 
                             <Likes key={like.id}
                                 thumb={like.thumb}

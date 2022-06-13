@@ -38,8 +38,7 @@ const Likes = ({
                <PasStyle tag='SPAN' mg='45px 0px 0px'>
                     {name}
                </PasStyle>
-            </PasStyle>
-            
+            </PasStyle>  
         </>
     )
 }

@@ -6,10 +6,12 @@ import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
 type Props = {
     title:string
     children:React.ReactNode
+    icon?:React.ReactNode
 }
 
 const Card = ({
     title,
+    icon,
     children
 } : Props) => {
 
@@ -25,7 +27,14 @@ const Card = ({
             w='20%'
             bg={theme.colors.bg}
         >
-            {title} <br />
+            <PasStyle 
+                tag='SPAN'
+                f_size='1rem'
+                mg='5px'
+            >
+                {icon} {title} 
+            </PasStyle>
+            <br />
             {children}
         </PasStyle>
     )

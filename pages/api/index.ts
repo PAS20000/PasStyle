@@ -13,7 +13,7 @@ const id = () : number => {
 export const dataMusics : Array<Musics> = [
     {
         id:id(),
-        name:'Alec Benjamin - Let Me Down Slowly Tevvez Remix Parallel Universe',
+        name:'Let Me Down Slowly Tevvez Remix Parallel Universe',
         thumb:'https://i.ytimg.com/vi/8Gs6pFM-B5I/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLArr1g5TpDqNRtTwfhkZh8C05b0aA',
         link:'https://youtu.be/8Gs6pFM-B5I?list=RDMM',
         createdAt: "2021-12-13T23:15:14.715Z",

@@ -6,6 +6,7 @@ import * as Io5 from 'react-icons/io5'
 import * as Bi from 'react-icons/bi'
 import * as Bs from 'react-icons/bs'
 import * as Fc from 'react-icons/fc'
+import * as Hi from 'react-icons/hi'
 
 
 export default {
@@ -16,5 +17,6 @@ export default {
     Io5,
     Bi,
     Bs,
-    Fc
+    Fc,
+    Hi,
 }
