@@ -26,19 +26,12 @@ const Avatar = ({
     const { style, hover } = useDemoCTX()
     const [show, setShow] = React.useState<boolean>(false)
 
-    const Date = () => {
-        const date = createdAt.split('T')[0].split('-')
-        const eua = `${date[1]}/${date[2]}/${date[0]}`
-        const br = `${date[1]}/${date[2]}/${date[0]}`
-
-        return{
-            br,
-            eua,
-        }
+    const tratamentDate = () => {
+        return new Date(createdAt.split('T')[0]).toLocaleDateString()
     }
 
     return(
-        <PasStyle>
+        <>
             <PasStyle flex center
                 onClick={() => setShow(show ? false : true)}
                 href={avatar} 
@@ -65,6 +58,7 @@ const Avatar = ({
                 <PasStyle
                    {...style}
                    cursor='normal'
+                   mg={`-10px ${style.mg} ${style.mg}`}
                 >
                 <PasStyle flex evenly>
                     <Card 
@@ -82,7 +76,7 @@ const Avatar = ({
                         {status}
                     </Card>
                     <Card title='Date'>
-                        {Date().eua}
+                        {tratamentDate()}
                     </Card>
                 </PasStyle>
                     <PasStyle>
@@ -97,7 +91,7 @@ const Avatar = ({
                     </PasStyle>
                 </PasStyle>
             }
-    </PasStyle>
+    </>
     )   
 }
 
