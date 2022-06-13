@@ -62,7 +62,11 @@ const Avatar = ({
                 </PasStyle>
             </PasStyle>
            {show &&  
-                <PasStyle>
+                <PasStyle
+                   {...style}
+                   cursor='normal'
+                >
+                <PasStyle flex evenly>
                     <Card 
                         title='Email'
                     >
@@ -80,6 +84,7 @@ const Avatar = ({
                     <Card title='Date'>
                         {Date().eua}
                     </Card>
+                </PasStyle>
                     <PasStyle>
                         Likes
                         {likes.map(like => 

@@ -21,7 +21,7 @@ const DemoProvider = ({
 
 
     const [style, setStyle] = React.useState<Styles>({
-                bg:'#000000',
+                bg:'#282a36',
                 pd:'10px',
                 mg:'10px',
                 b_Radius:'8px',
