@@ -6,6 +6,7 @@ import { Users } from '../../../api/users'
 import Likes from './Likes'
 import Card from './Card'
 import Icons from '../../../../utils/Icons'
+import { useRouter } from 'next/router'
 
 type Props = {
    
@@ -26,9 +27,11 @@ const Avatar = ({
     const { theme } = useThemeCTX()
     const { style, hover } = useDemoCTX()
     const [show, setShow] = React.useState<boolean>(false)
-
+    const router = useRouter()
+    
     const tratamentDate = () => {
-        return new Date(createdAt.split('T')[0]).toLocaleDateString('en-US')
+        const pt = router.pathname.split('/').includes('pt')
+        return new Date(createdAt.split('T')[0]).toLocaleDateString(pt ? 'pt-BR':'en-US')
     }
 
     return(

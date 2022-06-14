@@ -12,7 +12,6 @@ const Main = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const { closeNavSelect } = useUserExperienceCTX()
 
     return(
         <PasStyle
@@ -20,7 +19,6 @@ const Main = ({
             pd='60px 0px 50px'
             h='100%'
             bg={theme.colors.darkGray}
-            onClick={() => closeNavSelect()}
         >
             {children}
         </PasStyle>

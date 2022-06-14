@@ -103,7 +103,7 @@ const Selects = ({
                     title='tag :' 
                     w='33%'
                     wOptions='16%'
-                    transform='translate(25px, 5px)'
+                    transform='translate(30px, 5px)'
                     onClick={() => open('tag')} 
                     open={globalOpen.formSelect.tag}
                 >
@@ -120,6 +120,8 @@ const Selects = ({
                 <Select
                     title='font-weight :'
                     w='33%'
+                    wOptions='16%'
+                    transform='translate(30px, 5px)'
                     onClick={() => open('f_weight')} 
                     open={globalOpen.formSelect.f_weight}
                 >
@@ -135,6 +137,8 @@ const Selects = ({
                 <Select
                     title='text-transform :'
                     w='33%'
+                    wOptions='16%'
+                    transform='translate(30px, 5px)'
                     onClick={() => open('t_transform')} 
                     open={globalOpen.formSelect.t_transform}
                 >

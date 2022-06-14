@@ -39,7 +39,7 @@ const CopyClipBoard = ({
             onMouseEnter={() => setCopy('Copy')}
         >
            <FaCopy />
-           {copy && 
+        {copy && 
             <PasStyle 
                 position='absolute'
                 bg={theme.colors.green}
@@ -58,7 +58,6 @@ const CopyClipBoard = ({
             </PasStyle>
         }
         </PasStyle>
-       
     </>
 )
 }
