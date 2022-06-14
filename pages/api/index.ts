@@ -174,7 +174,21 @@ export const dataLang : Array<Langs> = [{
             id:id(),
             title:'????',
             codes:[
-                '?????'
+                `${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}
+                ${id()}`
             ],
             aside:'????'
         }

@@ -27,7 +27,6 @@ const CopyClipBoard = ({
     return( 
     <>
         <PasStyle 
-            position='absolute'
             onClick={Copy} 
             type='button' 
             tag='BUTTON'
@@ -35,25 +34,21 @@ const CopyClipBoard = ({
             color={theme.colors.white}
             border='none'
             b_Radius='8px'
-            pd='10px'
-            mg='6px'
             cursor='pointer'
             onMouseLeave={() => setCopy(null)}
             onMouseEnter={() => setCopy('Copy')}
         >
            <FaCopy />
-        </PasStyle>
-        {copy && 
+           {copy && 
             <PasStyle 
                 position='absolute'
                 bg={theme.colors.green}
                 color={theme.colors.darkGray}
                 b_Radius='8px'
                 pd='5px'
-                transform='translate(0px, 45px)'
+                transform='translate(-10px, 5px)'
                 f_weight='700'
                 animation='show'
-
                 _hover={{
                     transition:'1s',
                     bg:theme.colors.darkGray
@@ -62,6 +57,8 @@ const CopyClipBoard = ({
                 {copy}
             </PasStyle>
         }
+        </PasStyle>
+       
     </>
 )
 }

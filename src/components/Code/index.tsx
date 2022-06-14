@@ -26,6 +26,7 @@ const Code = ({
                 f_size='16px'
                 pd='15px'
                 mg='25px'
+               
                 shadow='2px 2px 10px black'
                 onClick={() => closeAll()}
             >
@@ -33,9 +34,7 @@ const Code = ({
                     {children}
                 </PasStyle>
                 {copyId && 
-                    <PasStyle transform='translate(-30px, -15px)'>
-                        <CopyClipBoard id={copyId}/>
-                    </PasStyle>
+                   <CopyClipBoard id={copyId}/>
                 }  
             </PasStyle>
         </>

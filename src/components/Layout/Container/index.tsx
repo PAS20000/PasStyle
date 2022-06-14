@@ -12,11 +12,11 @@ const Container = (props:PasStyleProps<Props>) => {
 
     const { theme } = useThemeCTX()
 
-    const { closeAll } = useUserExperienceCTX()
+    
    
 
     return(
-        <PasStyle {...props} onClick={() => closeAll()}>
+        <PasStyle {...props}>
             {props.children}
         </PasStyle>
     )
