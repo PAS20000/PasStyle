@@ -2,6 +2,7 @@ import * as React from 'react'
 import { GoKebabVertical } from 'react-icons/go'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
+import useWhoIam from '../../hooks/useWhoIam'
 import PasStyle from '../_PasStyle'
 
 type Props = {
@@ -36,15 +37,29 @@ const Select = ({
 
     const { theme } = useThemeCTX()
     const { globalOpen } = useUserExperienceCTX()
+    const {sequencial} = useWhoIam('options')
 
-    const kid = children[0].props.value
+    const kid = (index?:number) => {
+        return index ? children[index].props.value : children[0].props.value
+    }
 
     const [value, setValue] = React.useState<ValueState>({
-        navLang:kid,
-        formTag:kid,
-        formF_weight:kid,
-        formT_transform:kid
+        navLang:kid(),
+        formTag:kid(),
+        formF_weight:kid(),
+        formT_transform:kid()
     })
+
+    const  [ pagination, setPagination ] = React.useState({
+        init:0,
+        final:2
+    })
+
+    const options = (Children : any) => {
+        return Children.slice(pagination.init , pagination.final)
+    }
+
+   
 
     const TratamentSetValue = (html : any) => {
 
@@ -62,9 +77,27 @@ const Select = ({
 
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
+        const opts = document.getElementById(sequencial)
 
         arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
+
+        const windowScroll =  (e:Event) => {
+            e.isTrusted && (function(){
+                window.onscroll = (eScroll:Event) => console.log(eScroll)
+            })()
+        }
+
+        open ? 
+            opts.addEventListener('mouseenter',(e) => windowScroll(e)) 
+            :
+            window.onscroll = () => {}
+            opts && opts.removeEventListener('mouseenter', windowScroll)
     }
+
+    React.useEffect(() => {
+        Listener()
+    }, [open])
+      
 
     const TratamentValue = (childrenValue : React.ReactNode) : string | React.ReactNode => {
 
@@ -88,21 +121,10 @@ const Select = ({
         return childrenValue
        
     }
-
-    React.useEffect(() => {
-      Listener()
-    }, [open])
-    
-    React.useEffect(() => {
-       
-    }, [])
-
     return(
         <PasStyle 
-            onMouseEnter={() =>  console.log(window.scroll(0, 200))}
             w={w} 
             unselectableText
-
         >
             <PasStyle tag='LABEL'
                 onClick={onClick}
@@ -143,13 +165,14 @@ const Select = ({
                     <PasStyle f_size='0.8rem'
                         color={theme.colors.yellow}
                     >
-                       {TratamentValue(kid)}
+                       {TratamentValue(kid())}
                     </PasStyle>
                     {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
                 </PasStyle>
             </PasStyle>
             {open &&
                 <PasStyle grid
+                    id={sequencial}
                     position='absolute'
                     bg={theme.colors.bg}
                     transform={transform}
@@ -162,7 +185,7 @@ const Select = ({
                     z='3'
                     w={wOptions}
                 >
-                    {children}
+                    {options(children)}
                 </PasStyle>
             }
         </PasStyle>
