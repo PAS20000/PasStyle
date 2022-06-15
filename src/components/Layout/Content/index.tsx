@@ -7,6 +7,7 @@ import useThemeCTX from '../../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../../hooks/useUserExperienceCTX'
 
 type Props = {
+    children:React.ReactNode
     titleContent:React.ReactNode
     text:React.ReactNode
     right?:boolean
@@ -21,7 +22,7 @@ const Content = (props:PasStyleProps<Props>) => {
 
     return(
         <Container {...props} grid columns='1fr 1fr'  
-            animation='show' 
+            animation='show'
         > 
             {left &&
                 <Aside>

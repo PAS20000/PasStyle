@@ -1,69 +1,11 @@
 import * as React from 'react'
 import Emotion from './index.styles'
-import { Animations, childrenProps, Styles, Tags } from './types'
 import NextImage from '../../Contracts/NextImage'
 import NextLink from '../../Contracts/NextLink'
+import { PasStyleProps } from './types'
 
-export type Props = {
-    grid?:boolean
-    flex?:boolean
-    between?:boolean
-    around?:boolean
-    evenly?:boolean
-    start?:boolean
-    center?:boolean
-    end?:boolean
-    column?:boolean
-    columns?:string
-    rows?:string
-    bg?:string
-    pd?:string
-    w?:string
-    h?:string
-    mg?:string
-    tag?:Tags[number]
-    src?:string
-    href?:string
-    border?:string
-    b_Radius?:string
-    b_Color?:string
-    target?:string
-    className?:string
-    id?:string
-    animation?:Animations[number]
-    f_size?:string
-    f_weight?:string
-    f_family?:string
-    t_transform?:string
-    t_decoration?:string
-    t_align?:string
-    transform?:string
-    transition?:string
-    op?:string,
-    shadow?:string
-    _media?:{
-        max?:[number, Styles]
-        min?:[number, Styles]
-    }
-    _hover?:Styles
-    _focus?:Styles
-    color?:string
-    cursor?:string
-    position?:string
-    outline?:string
-    outline_color?:string
-    placeholder?:string
-    type?:any
-    z?:string
-    b_Bottom?:string
-    value?:string
-    unselectableText?:boolean
-    _webkit?:string
-    display?:string
-    p_Events?:string
-}
-
-const PasStyle = (props:childrenProps<Props>) => {
+const PasStyle = (props:PasStyleProps) => {
+    const [genStyle, setGenStyle] = React.useState<'emotion' | 'css-in-js'>('emotion')
 
     const { tag } = props
 

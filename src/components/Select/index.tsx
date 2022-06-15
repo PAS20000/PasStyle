@@ -92,9 +92,18 @@ const Select = ({
     React.useEffect(() => {
       Listener()
     }, [open])
-   
+    
+    React.useEffect(() => {
+       
+    }, [])
+
     return(
-        <PasStyle w={w} unselectableText>
+        <PasStyle 
+            onMouseEnter={() =>  console.log(window.scroll(0, 200))}
+            w={w} 
+            unselectableText
+
+        >
             <PasStyle tag='LABEL'
                 onClick={onClick}
                 h='11px'
@@ -107,6 +116,7 @@ const Select = ({
                 b_Radius='8px'
                 f_size='12px'
                 t_transform='capitalize'
+                
             >
                 {title}
             </PasStyle>
