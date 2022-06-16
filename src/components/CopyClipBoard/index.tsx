@@ -25,9 +25,9 @@ const CopyClipBoard = ({
     }
 
     return( 
-    <>
+    <PasStyle>
         <PasStyle 
-            onClick={Copy} 
+            onClick={Copy}
             type='button' 
             tag='BUTTON'
             bg={theme.colors.bg}
@@ -58,7 +58,7 @@ const CopyClipBoard = ({
             </PasStyle>
         }
         </PasStyle>
-    </>
+    </PasStyle>
 )
 }
 
