@@ -36,6 +36,7 @@ const Select = ({
     transform,
     wOptions
 } : Props) => {
+
     const arrayChildren = React.Children.toArray(children)
     const items = 3
     const { theme } = useThemeCTX()
@@ -57,6 +58,8 @@ const Select = ({
         init:0,
         final:items
     })
+
+    const [clientY, setClientY] = React.useState<number>()
 
     const options = () => {
         return arrayChildren.slice(pagination.init , pagination.final)
@@ -117,25 +120,26 @@ const Select = ({
 
         arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
 
-        open && (opt.onmousedown = (e) => {
-            e.isTrusted && console.log('click')
-            opt.onmousemove = (eMove) => {
-                let countMove = 0
-                countMove++
-                eMove.isTrusted && console.log(countMove)
-            }
-        },
-            opt.onmouseup = (e) => {
-                e.isTrusted && (
+        open && opt ? (
+            opt.onmousedown = (eMouseDown) => {
+                eMouseDown.isTrusted && (
+                    console.log('click'),
+                    opt.onmousemove = (eMouseMove) => {
+                        eMouseMove.isTrusted && (
+                           setClientY(eMouseMove.clientY)
+                        )
+                    }
+                )
+            },
+            opt.onmouseup = (eMouseUp) => {
+                eMouseUp.isTrusted && (
                     opt.onmousemove = () => {}
                 )
             }
-        )
-
-        !open && opt && (
-            opt.onmousedown = () => {},
-            opt.onmousemove = () => {}
-        )
+            ) : opt && (
+                opt.onmousedown = () => {},
+                opt.onmousemove = () => {}
+            )
     }
 
     React.useEffect(() => {
