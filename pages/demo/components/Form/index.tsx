@@ -31,7 +31,7 @@ const Form = ({
 
     return(
     <PasStyle 
-        position='absolute' 
+        position='fixed' 
         transform='translate(50vh, 10vh)'
     >
     <PasStyle

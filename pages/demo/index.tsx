@@ -14,6 +14,7 @@ import Config from './components/Config'
 import { Musics } from '../api/music'
 import { Users } from '../api/users'
 import { Langs } from '../api/langs'
+import Popup from '../../src/components/Popup'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -74,20 +75,16 @@ const Demo = ({
            </Header>
             <Main>
                 {showForm && 
-                    <PasStyle 
-                        bg='#0000009d' 
-                        w='100%' 
-                        h='100vh' 
-                        tag='DIV' 
-                        position='fixed'
-                    >
-                        <Form 
-                            showForm={showForm}
-                            setShowForm={setShowForm}
-                            setShow={setShow}
-                            show={show}
-                        />
-                    </PasStyle>
+                <Popup
+                    setState={setShowForm}
+                >
+                    <Form 
+                        showForm={showForm}
+                        setShowForm={setShowForm}
+                        setShow={setShow}
+                        show={show}
+                    />
+                </Popup>
                 }
                <Container 
                     pd='50px' 

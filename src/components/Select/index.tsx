@@ -59,8 +59,6 @@ const Select = ({
         return Children.slice(pagination.init , pagination.final)
     }
 
-   
-
     const TratamentSetValue = (html : any) => {
 
         const { formF_weight, formT_transform, formTag, navLang } = value
@@ -75,30 +73,26 @@ const Select = ({
         })
     }
 
+    const windowScroll =  () => {
+        const { final } = pagination
+        window.onscroll = (e:Event) => e.isTrusted && setPagination({
+            init:0,
+            final:final + 2
+        })
+    }
+
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
         const opts = document.getElementById(sequencial)
 
         arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
 
-        const windowScroll =  (e:Event) => {
-            e.isTrusted && (function(){
-                window.onscroll = (eScroll:Event) => console.log(eScroll)
-            })()
-        }
-
-        open ? 
-            opts.addEventListener('mouseenter',(e) => windowScroll(e)) 
-            :
-            window.onscroll = () => {}
-            opts && opts.removeEventListener('mouseenter', windowScroll)
     }
 
     React.useEffect(() => {
         Listener()
     }, [open])
       
-
     const TratamentValue = (childrenValue : React.ReactNode) : string | React.ReactNode => {
 
         const { formF_weight, formT_transform, formTag, navLang } = value
@@ -185,7 +179,7 @@ const Select = ({
                     z='3'
                     w={wOptions}
                 >
-                    {options(children)}
+                   {options(children)}
                 </PasStyle>
             }
         </PasStyle>
