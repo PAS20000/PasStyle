@@ -1,12 +1,10 @@
 import * as React from 'react'
 import Code from '../../../../../src/components/Code'
-import Title from '../../../../../src/components/Title'
-import PasStyle, { Props } from '../../../../../src/components/_PasStyle'
+import PasStyle from '../../../../../src/components/_PasStyle'
 import CreateStyle from '../../../../../src/components/_PasStyle/CreateStyle/index.styles'
-import { Styles } from '../../../../../src/components/_PasStyle/types'
+import { PasStyleProps } from '../../../../../src/components/_PasStyle/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
-
 
 type Tratament = {
     tratamentProps:Array<string>
@@ -41,7 +39,7 @@ const Codes = () => {
         }
     }
 
-    const BtnStyle : Props = {
+    const BtnStyle : PasStyleProps = {
         tag:'BUTTON',
         type:'button',
         pd:'5px',
@@ -58,80 +56,80 @@ const Codes = () => {
     
     return(
         <>
-        <PasStyle flex
-            mg='20px 15px 0px'
-        >
-            <PasStyle onClick={() => setShow('props')}
-               {...BtnStyle}
-               color={show === 'props' ? theme.colors.red : theme.colors.white}
-               bg={show === 'props' ? theme.colors.darkGray : theme.colors.bg}
+            <PasStyle flex
+                mg='20px 15px 0px'
             >
-                Props
-            </PasStyle>
-            <PasStyle onClick={() => setShow('hover')}
-               {...BtnStyle}
-               color={show === 'hover' ? theme.colors.red : theme.colors.white}
-               bg={show === 'hover' ? theme.colors.darkGray : theme.colors.bg}
-            >
-                Hover
-            </PasStyle>
-        </PasStyle>
-         {show === 'props' &&
-            <Code copyId='css-props'>
-                <PasStyle
-                    tag='SPAN'
-                    color={theme.colors.green}
+                <PasStyle onClick={() => setShow('props')}
+                    {...BtnStyle}
+                    color={show === 'props' ? theme.colors.red : theme.colors.white}
+                    bg={show === 'props' ? theme.colors.darkGray : theme.colors.bg}
                 >
-                    CSS : 
+                    Props
                 </PasStyle>
-                {tratamentStyle().tratamentProps.map((css, index) => 
-                    <PasStyle key={css + index} color={theme.colors.cyan}>
-                        {css &&
-                            <>
-                                {css.split(':')[0]}
-                                <PasStyle tag='SPAN' color={theme.colors.pink}>
-                                    :
-                                </PasStyle>
-                                <PasStyle tag='SPAN' color={theme.colors.purple}>
-                                    {css.split(':')[1]}
-                                </PasStyle> 
-                                <PasStyle tag='SPAN' color={theme.colors.white}>
-                                    ;
-                                </PasStyle>
-                            </>
-                        }
-                    </PasStyle>
-                )}
-            </Code>
-        }
-        {show === 'hover' &&   
-            <Code copyId='css-hover'>
-                <PasStyle
-                    tag='SPAN'
-                    color={theme.colors.green}
+                <PasStyle onClick={() => setShow('hover')}
+                    {...BtnStyle}
+                    color={show === 'hover' ? theme.colors.red : theme.colors.white}
+                    bg={show === 'hover' ? theme.colors.darkGray : theme.colors.bg}
                 >
-                    CSS : 
+                    Hover
                 </PasStyle>
-                {tratamentStyle().hover.map((css, index) => 
-                    <PasStyle key={css + index} color={theme.colors.cyan}>
-                        {css &&
-                            <>
-                                {css.split(':')[0]}
-                                <PasStyle tag='SPAN' color={theme.colors.pink}>
-                                    :
-                                </PasStyle>
-                                <PasStyle tag='SPAN' color={theme.colors.purple}>
-                                    {css.split(':')[1]}
-                                </PasStyle> 
-                                <PasStyle tag='SPAN' color={theme.colors.white}>
-                                    ;
-                                </PasStyle>
-                            </>
-                        }
+            </PasStyle>
+            {show === 'props' &&
+                <Code copyId='css-props'>
+                    <PasStyle
+                        tag='SPAN'
+                        color={theme.colors.green}
+                    >
+                        CSS : 
                     </PasStyle>
-                )}
-            </Code>
-        }
+                    {tratamentStyle().tratamentProps.map((css, index) => 
+                        <PasStyle key={css + index} color={theme.colors.cyan}>
+                            {css &&
+                                <>
+                                    {css.split(':')[0]}
+                                    <PasStyle tag='SPAN' color={theme.colors.pink}>
+                                        :
+                                    </PasStyle>
+                                    <PasStyle tag='SPAN' color={theme.colors.purple}>
+                                        {css.split(':')[1]}
+                                    </PasStyle> 
+                                    <PasStyle tag='SPAN' color={theme.colors.white}>
+                                        ;
+                                    </PasStyle>
+                                </>
+                            }
+                        </PasStyle>
+                    )}
+                </Code>
+            }
+            {show === 'hover' &&   
+                <Code copyId='css-hover'>
+                    <PasStyle
+                        tag='SPAN'
+                        color={theme.colors.green}
+                    >
+                        CSS : 
+                    </PasStyle>
+                    {tratamentStyle().hover.map((css, index) => 
+                        <PasStyle key={css + index} color={theme.colors.cyan}>
+                            {css &&
+                                <>
+                                    {css.split(':')[0]}
+                                    <PasStyle tag='SPAN' color={theme.colors.pink}>
+                                        :
+                                    </PasStyle>
+                                    <PasStyle tag='SPAN' color={theme.colors.purple}>
+                                        {css.split(':')[1]}
+                                    </PasStyle> 
+                                    <PasStyle tag='SPAN' color={theme.colors.white}>
+                                        ;
+                                    </PasStyle>
+                                </>
+                            }
+                        </PasStyle>
+                    )}
+                </Code>
+            }
         </>
     )
 }

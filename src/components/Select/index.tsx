@@ -7,7 +7,7 @@ import PasStyle from '../_PasStyle'
 
 type Props = {
     title:string
-    children?:React.ReactNode
+    children?:React.ReactChildren
     icon?:React.ReactChild
     w?:string
     wOptions?:string
@@ -34,7 +34,8 @@ const Select = ({
     transform,
     wOptions
 } : Props) => {
-
+    const arrayChildren = React.Children.toArray(children)
+    const items = 3
     const { theme } = useThemeCTX()
     const { globalOpen } = useUserExperienceCTX()
     const {sequencial} = useWhoIam('options')
@@ -52,11 +53,11 @@ const Select = ({
 
     const  [ pagination, setPagination ] = React.useState({
         init:0,
-        final:2
+        final:items
     })
 
-    const options = (Children : any) => {
-        return Children.slice(pagination.init , pagination.final)
+    const options = () => {
+        return arrayChildren.slice(pagination.init , pagination.final)
     }
 
     const TratamentSetValue = (html : any) => {
@@ -73,27 +74,52 @@ const Select = ({
         })
     }
 
-    const windowScroll =  () => {
-        const { final } = pagination
-        window.onscroll = (e:Event) => e.isTrusted && setPagination({
-            init:0,
-            final:final + 2
-        })
+    const nextOpt = (e : React.MouseEvent) => {
+        const { length } = arrayChildren
+        const { init, final } = pagination
+
+        if(final < length && e.isTrusted){
+            setPagination({
+                init:init + items,
+                final:final + items
+            })
+        } else {
+            setPagination({
+                init:0,
+                final:items
+            })
+        }
+    }
+
+    const backOpt = (e : React.MouseEvent) => {
+        const { length } = arrayChildren
+        const { init, final } = pagination
+
+        if(init > (items - 1) && e.isTrusted){
+            setPagination({
+                init:init - items,
+                final:final - items
+            })
+        } else {
+            setPagination({
+                init:length - items,
+                final:length
+            })
+        }
     }
 
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
         const opts = document.getElementById(sequencial)
-
+       
         arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
-
     }
 
     React.useEffect(() => {
         Listener()
     }, [open])
       
-    const TratamentValue = (childrenValue : React.ReactNode) : string | React.ReactNode => {
+    const TratamentValue = (childrenValue : React.ReactNode) : React.ReactNode => {
 
         const { formF_weight, formT_transform, formTag, navLang } = value
         const { f_weight, t_transform, tag } = globalOpen.formSelect
@@ -116,7 +142,7 @@ const Select = ({
        
     }
     return(
-        <PasStyle 
+        <PasStyle
             w={w} 
             unselectableText
         >
@@ -179,7 +205,13 @@ const Select = ({
                     z='3'
                     w={wOptions}
                 >
-                   {options(children)}
+                    <PasStyle onClick={(e) => backOpt(e)}>
+                    -
+                   </PasStyle>
+                    {options()}
+                   <PasStyle onClick={(e) => nextOpt(e)}>
+                    +
+                   </PasStyle>
                 </PasStyle>
             }
         </PasStyle>

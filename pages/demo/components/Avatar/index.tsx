@@ -35,7 +35,7 @@ const Avatar = ({
     }
 
     return(
-        <>
+        <PasStyle className='avatar'>
             <PasStyle flex center
                 onClick={() => setShow(show ? false : true)}
                 href={avatar} 
@@ -110,7 +110,7 @@ const Avatar = ({
                     </PasStyle>
                 </PasStyle>
             }
-    </>
+    </PasStyle>
     )   
 }
 

@@ -18,7 +18,7 @@ const Code = ({
     const { closeAll } = useUserExperienceCTX()
     return(
         <>
-            <PasStyle flex between
+            <PasStyle grid columns='96% 1fr'
                 tag='CODE'
                 b_Radius='8px'
                 bg={theme.colors.bg}
@@ -26,7 +26,6 @@ const Code = ({
                 f_size='16px'
                 pd='15px'
                 mg='25px'
-               
                 shadow='2px 2px 10px black'
                 onClick={() => closeAll()}
             >

@@ -44,6 +44,7 @@ export type Animations = [
 
 export type Props = {
     children?:React.ReactNode
+    name?:string
     alt?:string
     grid?:boolean
     flex?:boolean
