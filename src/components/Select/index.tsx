@@ -1,13 +1,15 @@
 import * as React from 'react'
 import { GoKebabVertical } from 'react-icons/go'
+import Icons from '../../../utils/Icons'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
 import useWhoIam from '../../hooks/useWhoIam'
 import PasStyle from '../_PasStyle'
+import { PasStyleProps } from '../_PasStyle/types'
 
 type Props = {
     title:string
-    children?:React.ReactChildren
+    children?:React.ReactNode
     icon?:React.ReactChild
     w?:string
     wOptions?:string
@@ -38,7 +40,7 @@ const Select = ({
     const items = 3
     const { theme } = useThemeCTX()
     const { globalOpen } = useUserExperienceCTX()
-    const {sequencial} = useWhoIam('options')
+    const { sequencial } = useWhoIam('option')
 
     const kid = (index?:number) => {
         return index ? children[index].props.value : children[0].props.value
@@ -110,9 +112,30 @@ const Select = ({
 
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
-        const opts = document.getElementById(sequencial)
-       
+        const opt = document.getElementById(sequencial)
+
+
         arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
+
+        open && (opt.onmousedown = (e) => {
+            e.isTrusted && console.log('click')
+            opt.onmousemove = (eMove) => {
+                let countMove = 0
+                countMove++
+                eMove.isTrusted && console.log(countMove)
+            }
+        },
+            opt.onmouseup = (e) => {
+                e.isTrusted && (
+                    opt.onmousemove = () => {}
+                )
+            }
+        )
+
+        !open && opt && (
+            opt.onmousedown = () => {},
+            opt.onmousemove = () => {}
+        )
     }
 
     React.useEffect(() => {
@@ -141,6 +164,20 @@ const Select = ({
         return childrenValue
        
     }
+
+    const btnStyle : PasStyleProps = {  
+        bg:'transparent',
+        color: theme.colors.white,
+        border: 'none',
+        pd:'5px',
+        b_Radius:'8px',
+        cursor: 'pointer',
+        _hover:{
+            transition: '1s',
+            bg:theme.colors.darkGray,
+        }
+    }
+
     return(
         <PasStyle
             w={w} 
@@ -192,7 +229,6 @@ const Select = ({
             </PasStyle>
             {open &&
                 <PasStyle grid
-                    id={sequencial}
                     position='absolute'
                     bg={theme.colors.bg}
                     transform={transform}
@@ -204,14 +240,21 @@ const Select = ({
                     animation='show'
                     z='3'
                     w={wOptions}
+                    id={sequencial}
                 >
-                    <PasStyle onClick={(e) => backOpt(e)}>
-                    -
-                   </PasStyle>
-                    {options()}
-                   <PasStyle onClick={(e) => nextOpt(e)}>
-                    +
-                   </PasStyle>
+                    <PasStyle onClick={(e) => backOpt(e)}
+                        tag='BUTTON'
+                        {...btnStyle}
+                    >
+                        <Icons.Io.IoIosArrowUp />
+                    </PasStyle>
+                        {options()}
+                    <PasStyle onClick={(e) => nextOpt(e)} 
+                        tag='BUTTON'
+                        {...btnStyle}
+                    >
+                        <Icons.Io.IoIosArrowDown />
+                    </PasStyle>
                 </PasStyle>
             }
         </PasStyle>

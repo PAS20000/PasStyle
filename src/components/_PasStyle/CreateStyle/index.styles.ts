@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
-import { Props } from ".."
-import { Styles } from "../types"
+import { Props, Styles } from "../types"
 
 export type TCreateStyle = Props
 

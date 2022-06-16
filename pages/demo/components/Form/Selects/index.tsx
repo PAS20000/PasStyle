@@ -34,10 +34,6 @@ const tags = [
     'TBODY',
     'TFOOT',
     'TABLE',
-    'A',
-    'IMG',
-    'NEXTLINK',
-    'NEXTIMG',
     'CODE',
     'LABEL',
     'IFRAME'
