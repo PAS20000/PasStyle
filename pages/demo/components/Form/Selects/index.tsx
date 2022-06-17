@@ -3,6 +3,7 @@ import { ShowState } from '../../..'
 import Select from '../../../../../src/components/Select'
 import Option from '../../../../../src/components/Select/Option'
 import PasStyle from '../../../../../src/components/_PasStyle'
+import { PasStyleProps } from '../../../../../src/components/_PasStyle/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 import useUserExperienceCTX from '../../../../../src/hooks/useUserExperienceCTX'
 
@@ -91,6 +92,16 @@ const Selects = ({
             }
         })
     }
+
+    type Wopt = {
+        wOptions:string
+    }
+
+    const selectStyle : PasStyleProps<Wopt> = {
+        w:'33%',
+        wOptions:'16%',
+        transform:'translate(35px, 5px)'
+    }
     
     return(
         <>
@@ -98,11 +109,9 @@ const Selects = ({
             <PasStyle mg='15px'flex >
                 <Select 
                     title='tag :' 
-                    w='33%'
-                    wOptions='16%'
-                    transform='translate(30px, 5px)'
-                    onClick={() => open('tag')} 
+                    onClick={() => open('tag')}
                     open={globalOpen.formSelect.tag}
+                    {...selectStyle}
                 >
                     {tags.map((tag, index) =>
                         <Option 
@@ -116,11 +125,9 @@ const Selects = ({
                 </Select>
                 <Select
                     title='font-weight :'
-                    w='33%'
-                    wOptions='16%'
-                    transform='translate(30px, 5px)'
                     onClick={() => open('f_weight')} 
                     open={globalOpen.formSelect.f_weight}
+                    {...selectStyle}
                 >
                     {weights.map((weight, index) => 
                         <Option
@@ -133,11 +140,9 @@ const Selects = ({
                 </Select>
                 <Select
                     title='text-transform :'
-                    w='33%'
-                    wOptions='16%'
-                    transform='translate(30px, 5px)'
                     onClick={() => open('t_transform')} 
                     open={globalOpen.formSelect.t_transform}
+                    {...selectStyle}
                 >
                     {textTransform.map((transform, index) => 
                         <Option

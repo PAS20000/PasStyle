@@ -25,7 +25,6 @@ type ValueState = {
     formT_transform:string
 }
 
-
 const Select = ({
     title,
     children,
@@ -41,7 +40,6 @@ const Select = ({
     const items = 3
     const { theme } = useThemeCTX()
     const { globalOpen } = useUserExperienceCTX()
-    const { sequencial } = useWhoIam('option')
 
     const kid = (index?:number) => {
         return index ? children[index].props.value : children[0].props.value
@@ -59,8 +57,6 @@ const Select = ({
         final:items
     })
 
-    const [clientY, setClientY] = React.useState<number>()
-
     const options = () => {
         return arrayChildren.slice(pagination.init , pagination.final)
     }
@@ -72,14 +68,14 @@ const Select = ({
         const { navSelect } = globalOpen
 
         setValue({
-            navLang: navSelect ? html : navLang,
-            formF_weight:f_weight ? html : formF_weight,
-            formTag:tag ? html : formTag,
-            formT_transform:t_transform ? html : formT_transform,
+            navLang: navSelect && navLang,
+            formF_weight:f_weight && formF_weight,
+            formTag:tag && formTag,
+            formT_transform:t_transform && formT_transform,
         })
     }
 
-    const nextOpt = (e : React.MouseEvent) => {
+    const nextOpt = (e : React.MouseEvent | MouseEvent) => {
         const { length } = arrayChildren
         const { init, final } = pagination
 
@@ -96,7 +92,7 @@ const Select = ({
         }
     }
 
-    const backOpt = (e : React.MouseEvent) => {
+    const backOpt = (e : React.MouseEvent | MouseEvent) => {
         const { length } = arrayChildren
         const { init, final } = pagination
 
@@ -115,31 +111,8 @@ const Select = ({
 
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
-        const opt = document.getElementById(sequencial)
-
-
+      
         arrayOptions.map(opt => opt.addEventListener('click', () => TratamentSetValue(opt.innerHTML)))
-
-        open && opt ? (
-            opt.onmousedown = (eMouseDown) => {
-                eMouseDown.isTrusted && (
-                    console.log('click'),
-                    opt.onmousemove = (eMouseMove) => {
-                        eMouseMove.isTrusted && (
-                           setClientY(eMouseMove.clientY)
-                        )
-                    }
-                )
-            },
-            opt.onmouseup = (eMouseUp) => {
-                eMouseUp.isTrusted && (
-                    opt.onmousemove = () => {}
-                )
-            }
-            ) : opt && (
-                opt.onmousedown = () => {},
-                opt.onmousemove = () => {}
-            )
     }
 
     React.useEffect(() => {
@@ -244,7 +217,6 @@ const Select = ({
                     animation='show'
                     z='3'
                     w={wOptions}
-                    id={sequencial}
                 >
                     <PasStyle onClick={(e) => backOpt(e)}
                         tag='BUTTON'
