@@ -7,20 +7,20 @@ import Icons from '../../../../utils/Icons'
 import Button from './Button'
 
 type Props = {
-    setShowForm:SetState<boolean>
+    setState:SetState<boolean>
     setShow:SetState<ShowState>
 }
 
 
 const Config = ({
-    setShowForm,
+    setState,
     setShow
 } : Props ) => {
 
     const { theme } = useThemeCTX()
 
     const openCreate = () => {
-        setShowForm(true)
+        setState(true)
         setShow('create')
     }
     
@@ -35,7 +35,7 @@ const Config = ({
                 bg={theme.colors.darkGray}
                 t_align='center'
             >
-            <Button onClick={() => setShowForm(true)} title='edit props'>
+            <Button onClick={() => setState(true)} title='edit props'>
                 <Icons.Md.MdOutlineFormatColorFill />
             </Button>
             <Button onClick={() => {}} title='reset'>

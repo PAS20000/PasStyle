@@ -1,29 +1,36 @@
 import * as React from 'react'
 import { SetState } from '../../contexts/types'
 import PasStyle from '../_PasStyle'
+import usePopup from './hooks/usePopup'
 
 type Props = {
     children:React.ReactNode
-    setState:SetState<boolean>
+    state:[boolean, SetState<boolean>]
 }
 
 
 const Popup = ({
     children,
-    setState
+    state
 }: Props) => {
+
+    const close = () => state[1](false)
     
     return(
-    <>
-        <PasStyle
-            bg='#0000009d' 
-            w='100%' 
-            h='100vh' 
-            tag='DIV' 
-            position='fixed'
-            onClick={() => setState(false)}
-        />
-        {children}
+    <>  
+        {state[0] &&
+            <>
+                <PasStyle
+                    bg='#0000009d' 
+                    w='100%' 
+                    h='100vh' 
+                    tag='DIV' 
+                    position='fixed'
+                    onClick={() => close()}
+                />
+                {children}
+            </>
+        }
     </>
     )
 }

@@ -12,7 +12,7 @@ import { ShowState } from '../..'
 
 type Props = {
     showForm?:boolean
-    setShowForm?:SetState<boolean>
+    setState?:SetState<boolean>
     show:ShowState
     setShow:SetState<ShowState>
 }
@@ -20,7 +20,7 @@ type Props = {
 
 
 const Form = ({
-    setShowForm,
+    setState,
     showForm,
     show,
     setShow
@@ -40,7 +40,7 @@ const Form = ({
         transform='translate(50vh, 10vh)'
     >
             <PasStyle flex end>
-                <PasStyle onClick={() => setShowForm(false)}
+                <PasStyle onClick={() => setState(false)}
                     tag='BUTTON'
                     bg='transparent'
                     color={theme.colors.white}

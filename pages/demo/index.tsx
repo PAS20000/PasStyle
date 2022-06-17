@@ -15,6 +15,7 @@ import { Musics } from '../api/music'
 import { Users } from '../api/users'
 import { Langs } from '../api/langs'
 import Popup from '../../src/components/Popup'
+import usePopUp from '../../src/components/Popup/hooks/usePopup'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -65,6 +66,7 @@ const Demo = ({
     const { theme } = useThemeCTX()
     const [showForm, setShowForm] = React.useState(false)
     const [ show, setShow ] = React.useState<ShowState>('props')
+    const state = usePopUp()
 
     return(
         <>
@@ -75,16 +77,16 @@ const Demo = ({
            </Header>
             <Main>
                 {showForm && 
-                <Popup
-                    setState={setShowForm}
-                >
-                    <Form 
-                        showForm={showForm}
-                        setShowForm={setShowForm}
-                        setShow={setShow}
-                        show={show}
-                    />
-                </Popup>
+                    <Popup
+                        state={state}
+                    >
+                        <Form 
+                            showForm={showForm}
+                            setState={state[1]}
+                            setShow={setShow}
+                            show={show}
+                        />
+                    </Popup>
                 }
                <Container 
                     pd='50px' 
@@ -94,7 +96,7 @@ const Demo = ({
                     shadow='2px 2px 10px black'
                 >
                    <Config 
-                       setShowForm={setShowForm}
+                       setState={state[1]}
                        setShow={setShow}
                    />
                     {dataUsers.map(user =>  

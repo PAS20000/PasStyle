@@ -2,8 +2,6 @@ import * as React from 'react'
 import { GoKebabVertical } from 'react-icons/go'
 import Icons from '../../../utils/Icons'
 import useThemeCTX from '../../hooks/useThemeCTX'
-import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
-import useWhoIam from '../../hooks/useWhoIam'
 import PasStyle from '../_PasStyle'
 import { PasStyleProps } from '../_PasStyle/types'
 
@@ -39,7 +37,7 @@ const Select = ({
     const arrayChildren = React.Children.toArray(children)
     const items = 3
     const { theme } = useThemeCTX()
-    const { globalOpen } = useUserExperienceCTX()
+    
 
     const kid = (index?:number) => {
         return index ? children[index].props.value : children[0].props.value
@@ -115,28 +113,6 @@ const Select = ({
         Listener()
     }, [open])
       
-    const TratamentValue = (childrenValue : React.ReactNode) : React.ReactNode => {
-
-        const { formF_weight, formT_transform, formTag, navLang } = value
-        const { f_weight, t_transform, tag } = globalOpen.formSelect
-        const { navSelect } = globalOpen
-
-        if(navSelect){
-            return navLang
-        }
-        if(f_weight){
-            return formF_weight
-        }
-        if(t_transform){
-            return formT_transform
-        }
-        if(tag){
-            return formTag
-        }
-
-        return childrenValue
-       
-    }
 
     const btnStyle : PasStyleProps = {  
         bg:'transparent',
@@ -195,7 +171,7 @@ const Select = ({
                     <PasStyle f_size='0.8rem'
                         color={theme.colors.yellow}
                     >
-                       {TratamentValue(kid())}
+                       {children[0].props.value}
                     </PasStyle>
                     {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
                 </PasStyle>
