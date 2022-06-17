@@ -11,6 +11,7 @@ import Content from '../src/components/Layout/Content'
 import { Musics } from './api/music'
 import { Users } from './api/users'
 import { Langs } from './api/langs'
+import Popup from '../src/components/Popup'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     

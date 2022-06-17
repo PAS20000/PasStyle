@@ -8,7 +8,6 @@ import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
 import { dataMusics, dataLang, dataUsers } from '../api'
 import Avatar from './components/Avatar'
-import PasStyle from '../../src/components/_PasStyle'
 import Container from '../../src/components/Layout/Container'
 import Config from './components/Config'
 import { Musics } from '../api/music'
@@ -16,6 +15,7 @@ import { Users } from '../api/users'
 import { Langs } from '../api/langs'
 import Popup from '../../src/components/Popup'
 import usePopUp from '../../src/components/Popup/hooks/usePopup'
+import PopupBody from '../../src/components/Popup/PopupBody'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -64,7 +64,6 @@ const Demo = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const [showForm, setShowForm] = React.useState(false)
     const [ show, setShow ] = React.useState<ShowState>('props')
     const state = usePopUp()
 
@@ -76,18 +75,17 @@ const Demo = ({
                 />
            </Header>
             <Main>
-                {showForm && 
                     <Popup
                         state={state}
                     >
-                        <Form 
-                            showForm={showForm}
-                            setState={state[1]}
-                            setShow={setShow}
-                            show={show}
-                        />
+                       <PopupBody>
+                            <Form 
+                                setState={state[1]}
+                                setShow={setShow}
+                                show={show}
+                            />
+                       </PopupBody>
                     </Popup>
-                }
                <Container 
                     pd='50px' 
                     mg='50px'

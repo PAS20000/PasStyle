@@ -36,8 +36,6 @@ const Form = ({
         b_Radius='8px'
         shadow='2px 2px 10px black'
         bg={theme.colors.bg}
-        position='fixed' 
-        transform='translate(50vh, 10vh)'
     >
             <PasStyle flex end>
                 <PasStyle onClick={() => setState(false)}
