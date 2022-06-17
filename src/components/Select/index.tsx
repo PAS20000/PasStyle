@@ -61,17 +61,13 @@ const Select = ({
         return arrayChildren.slice(pagination.init , pagination.final)
     }
 
-    const TratamentSetValue = (html : any) => {
-
-        const { formF_weight, formT_transform, formTag, navLang } = value
-        const { f_weight, t_transform, tag } = globalOpen.formSelect
-        const { navSelect } = globalOpen
+    const TratamentSetValue = (innerHtml : any) => {
 
         setValue({
-            navLang: navSelect && navLang,
-            formF_weight:f_weight && formF_weight,
-            formTag:tag && formTag,
-            formT_transform:t_transform && formT_transform,
+            navLang:innerHtml,
+            formF_weight:innerHtml,
+            formTag:innerHtml,
+            formT_transform:innerHtml,
         })
     }
 

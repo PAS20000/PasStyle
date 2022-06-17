@@ -12,6 +12,7 @@ const Popup = ({
     children,
     setState
 }: Props) => {
+    
     return(
     <>
         <PasStyle

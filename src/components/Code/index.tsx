@@ -6,16 +6,19 @@ import PasStyle from "../_PasStyle"
 
 type Props = {
     children?:React.ReactNode
+    string?:string
     copyId?:string
 }
 
 const Code = ({
     children,
-    copyId
+    copyId,
 } : Props) => {
+    const arrayChildren = React.Children.toArray(children)
 
     const { theme } = useThemeCTX()
     const { closeAll } = useUserExperienceCTX()
+
     return(
         <>
             <PasStyle grid columns='96% 1fr'
@@ -29,7 +32,7 @@ const Code = ({
                 shadow='2px 2px 10px black'
                 onClick={() => closeAll()}
             >
-                <PasStyle  id={copyId}>
+                <PasStyle  id={copyId} title={children.toString()}>
                     {children}
                 </PasStyle>
                 {copyId && 

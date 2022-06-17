@@ -3,7 +3,7 @@ import { ShowState } from '../../..'
 import Select from '../../../../../src/components/Select'
 import Option from '../../../../../src/components/Select/Option'
 import PasStyle from '../../../../../src/components/_PasStyle'
-import { PasStyleProps } from '../../../../../src/components/_PasStyle/types'
+import { PasStyleProps, Tags } from '../../../../../src/components/_PasStyle/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 import useUserExperienceCTX from '../../../../../src/hooks/useUserExperienceCTX'
 
@@ -81,8 +81,13 @@ const Selects = ({
         })
     }
 
-    const OptionClick = (tag : any) => {
-        setStyle({...style, tag : tag})
+    const OptionClick = (tagName?:any, weight?:string, t_transformValue?:string) => {
+        const { t_transform, tag, f_weight } = style
+
+        setStyle({...style, tag: tagName ?? tag})
+        setStyle({...style, f_weight: weight ?? f_weight})
+        setStyle({...style, t_transform: t_transformValue ?? t_transform})
+
         setGlobalOpen({
             ...globalOpen,
             formSelect:{
@@ -133,6 +138,7 @@ const Selects = ({
                         <Option
                             key={index}
                             value={weight.toString()}
+                            onClick={() => OptionClick('', weight.toString())}
                         >
                             {weight}
                         </Option>
@@ -148,6 +154,7 @@ const Selects = ({
                         <Option
                             key={index}
                             value={transform}
+                            onClick={() => OptionClick('', '', transform)}
                         >
                             {transform}
                         </Option>

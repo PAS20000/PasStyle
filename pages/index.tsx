@@ -71,7 +71,6 @@ const Home = ({
                         tag='SECTION'
                         mg='50px'
                         pd='50px'
-                        left
                         key={content.id} 
                         titleContent={content.title} 
                         text={content.aside}

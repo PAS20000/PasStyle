@@ -10,13 +10,11 @@ type Props = {
     children:React.ReactNode
     titleContent:React.ReactNode
     text:React.ReactNode
-    right?:boolean
-    left?:boolean
 }
 
 const Content = (props:PasStyleProps<Props>) => {
 
-    const { children, titleContent, text, right, left } = props
+    const { children, titleContent, text } = props
    
     const { theme } = useThemeCTX()
 
@@ -24,11 +22,6 @@ const Content = (props:PasStyleProps<Props>) => {
         <Container {...props} grid columns='1fr 1fr'  
             animation='show'
         > 
-            {left &&
-                <Aside>
-                    {text}
-                </Aside>
-            }
             <Container 
                 tag='ARTICLE'
             >
@@ -37,11 +30,9 @@ const Content = (props:PasStyleProps<Props>) => {
                 </Title>
                 {children}
             </Container>
-            {right &&
-                <Aside>
-                    {text}
-                </Aside>
-            }
+            <Aside>
+                {text}
+            </Aside>
         </Container>
     )
 }
