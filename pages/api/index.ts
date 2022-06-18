@@ -3,7 +3,7 @@ import { Langs } from "./langs"
 import { Musics } from "./music"
 import { Users } from "./users"
 
-const id = (number ?: number) : number => {
+const id = () : number => {
 
     const max = 100000000000000
 
@@ -54,6 +54,49 @@ export const dataMusics : Array<Musics> = [
         createdAt: "2021-12-09T23:15:14.715Z",
     }
 ]
+
+export const dataLang : Array<Langs> = [{
+    pt:{   
+        content:[{
+            id:id(),
+            title:'início rápido',
+            codes:[
+                'npm passtyle',
+                'yarn passtyle'
+            ],
+            aside:'aside pt'
+        },
+        {
+            id:id(),
+            title:'Popup',
+            codes:[`
+                ????
+            `],
+            aside:'????'
+        }]
+    },
+    en:{
+        content:[{
+            id:id(),
+            title:'quick start',
+            codes:[
+                'npm passtyle',
+                'yarn passtyle',
+            ],
+            aside:'aside en'
+        },
+        {
+            id:id(),
+            title:'????',
+            codes:[`
+                ????
+            `
+            ],
+            aside:'????'
+        }
+    ]
+    }
+}]
 
 export const dataUsers : Array<Users> = [
     {
@@ -148,51 +191,8 @@ export const dataUsers : Array<Users> = [
     }
 ]
 
-export const dataLang : Array<Langs> = [{
-    pt:{   
-        content:[{
-            id:id(),
-            title:'início rápido',
-            codes:[
-                'npm passtyle',
-                'yarn passtyle'
-            ],
-            aside:'aside pt'
-        },
-        {
-            id:id(),
-            title:'Popup',
-            codes:[`
-                ????
-            `],
-            aside:'????'
-        }]
-    },
-    en:{
-        content:[{
-            id:id(),
-            title:'quick start',
-            codes:[
-                'npm passtyle',
-                'yarn passtyle',
-            ],
-            aside:'aside en'
-        },
-        {
-            id:id(),
-            title:'????',
-            codes:[`
-                ????
-            `
-            ],
-            aside:'????'
-        }
-    ]
-    }
-}]
 
 const datas = (req : NextApiRequest, res : NextApiResponse) => {
-
 
     return res.status(200).json({
         musics:dataMusics,

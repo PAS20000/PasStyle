@@ -30,31 +30,7 @@ const Form = ({
     
 
     return(
-    <PasStyle
-        mg='0px 30px 30px' 
-        pd='20px'
-        b_Radius='8px'
-        shadow='2px 2px 10px black'
-        bg={theme.colors.bg}
-    >
-            <PasStyle flex end>
-                <PasStyle onClick={() => setState(false)}
-                    tag='BUTTON'
-                    bg='transparent'
-                    color={theme.colors.white}
-                    f_size='18px'
-                    pd='10px'
-                    transform='translate(20px, -20px)'
-                    cursor='pointer'
-                    border='none'
-                    position='absolute'
-                    _hover={{
-                    transition: '1s',
-                    color: theme.colors.red,
-                }}> 
-                    <MdClose />
-                </PasStyle>
-            </PasStyle>
+    <>
         <Router 
             setShow={setShow}
             show={show}
@@ -76,7 +52,7 @@ const Form = ({
                   <Codes />
                 }
             </Container>
-        </PasStyle>
+        </>
     )
 }
 

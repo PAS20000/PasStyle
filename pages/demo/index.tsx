@@ -15,7 +15,8 @@ import { Users } from '../api/users'
 import { Langs } from '../api/langs'
 import Popup from '../../src/components/Popup'
 import usePopUp from '../../src/components/Popup/hooks/usePopup'
-import PopupBody from '../../src/components/Popup/PopupBody'
+import PasStyle from '../../src/components/_PasStyle'
+import PopupContainer from '../../src/components/Popup/PopupContainer'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -78,13 +79,21 @@ const Demo = ({
                     <Popup
                         state={state}
                     >
-                       <PopupBody>
-                            <Form 
+                        <PopupContainer 
+                            state={state}
+                            mg='0px 30px 30px' 
+                            b_Radius='8px'
+                            shadow='2px 2px 10px black'
+                            bg={theme.colors.bg}
+                            closeFooter
+                            closeHead
+                        >
+                            <Form
                                 setState={state[1]}
                                 setShow={setShow}
                                 show={show}
                             />
-                       </PopupBody>
+                        </PopupContainer>
                     </Popup>
                <Container 
                     pd='50px' 
