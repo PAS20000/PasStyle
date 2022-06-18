@@ -119,7 +119,7 @@ const Select = ({
         color: theme.colors.white,
         border: 'none',
         pd:'5px',
-        b_Radius:'8px',
+        b_radius:'8px',
         cursor: 'pointer',
         _hover:{
             transition: '1s',
@@ -141,7 +141,7 @@ const Select = ({
                 color={theme.colors.green}
                 transform='translateY(-10px)'
                 pd='0px 4px 0px'
-                b_Radius='8px'
+                b_radius='8px'
                 f_size='12px'
                 t_transform='capitalize'
                 
@@ -155,7 +155,7 @@ const Select = ({
                  pd='5px'
                  cursor='pointer'
                  t_decoration='none'
-                 b_Radius='8px'
+                 b_radius='8px'
                  border='solid 2px'
                  color={open ? theme.colors.green : theme.colors.white}
                  _hover={{
@@ -180,9 +180,9 @@ const Select = ({
                     bg={theme.colors.bg}
                     transform={transform}
                     pd='10px'
-                    b_Radius='8px'
+                    b_radius='8px'
                     border='solid 1px'
-                    b_Color={theme.colors.green}
+                    b_color={theme.colors.green}
                     t_align='center'
                     animation={{
                         name:'show',

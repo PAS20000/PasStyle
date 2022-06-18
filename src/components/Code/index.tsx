@@ -17,7 +17,7 @@ const Code = ({
     const arrayChildren = React.Children.toArray(children)
 
     const { theme } = useThemeCTX()
-    const { closeAll } = useUserExperienceCTX()
+    const { closeSelect } = useUserExperienceCTX()
 
     return(
         <>
@@ -30,7 +30,7 @@ const Code = ({
                 pd='15px'
                 mg='25px'
                 shadow='2px 2px 10px black'
-                onClick={() => closeAll()}
+                onClick={() => closeSelect.all()}
             >
                 <PasStyle  id={copyId} title={children.toString()}>
                     {children}

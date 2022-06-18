@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import CreateCss from "../CreateCss"
+import CreateCss from "../CreateCss/index.styles"
 import { Props, Styles } from "../types"
 
 export type TCreateStyle = Props
@@ -22,7 +22,7 @@ const CreateStyles = ({
     mg,
     grid,
     border,
-    b_Radius,
+    b_radius,
     animation,
     f_size,
     f_weight,
@@ -34,14 +34,14 @@ const CreateStyles = ({
     transition,
     op,
     color,
-    b_Color,
+    b_color,
     cursor,
     position,
     shadow,
     outline,
     outline_color,
     z,
-    b_Bottom,
+    b_bottom,
     unselectableText,
     _webkit,
     display,
@@ -49,46 +49,42 @@ const CreateStyles = ({
 } : Styles) => {
 
     const { 
-            unselect, 
-            keyframes, 
-            animations,
+            Unselect, 
+            Keyframes, 
+            Animations,
             pEvents,
+            Webkit,
+            Layout
         } = CreateCss
 
-    return `
-        ${keyframes()} 
-        ${animations(animation)}
-        ${unselect(unselectableText)}
-        ${pEvents(p_Events)};
-        ${display && `display: ${display}`};
-        ${_webkit && _webkit};
-        ${b_Bottom && ` border-bottom: ${b_Bottom}`};
+    return`
+        ${Keyframes()} 
+        ${Animations(animation)}
+        ${Unselect(unselectableText)}
+        ${pEvents(p_Events)}
+        ${Webkit(_webkit)}
+        ${Layout({
+            display,
+            flex,
+            between,
+            around,
+            evenly,
+            start,
+            center,
+            end,
+            column,
+            grid,
+            columns,
+            rows,
+        })}
+       
         ${outline && `outline: ${outline}`};
         ${outline_color && `outline-color: ${outline_color}`};
         ${t_align && `text-align: ${t_align}`};
-        ${flex && 'display: flex'};
-        ${flex && between && `justify-content: space-between`};
-        ${flex && around && `justify-content: space-around`};
-        ${flex && evenly && `justify-content: space-evenly`};
-        ${flex && start && `justify-content: start`};
-        ${flex && center && `justify-content: center`};
-        ${flex && end && `justify-content: end`};
-        ${grid && 'display: grid'};
-        ${grid && center && `align-self: center;` && `align-items: center;` && `justify-self: center`};
-        ${flex && 'flex-wrap: wrap'};
-        ${grid && columns && `grid-template-columns: ${columns}`};
-        ${grid && rows && `grid-template-rows: ${rows}`};
-        ${flex && column && 'flex-direction: column'};
         ${z && `z-index: ${z}`};
         ${position && `position: ${position}`};
         ${shadow && `box-shadow: ${shadow}`};
         ${border && `border: ${border}`};
-        ${b_Radius && `border-radius: ${b_Radius}`};
-        ${b_Color && `border-color: ${b_Color}`};
-        ${flex && 'display: flex'};
-        ${grid && 'display: grid'};
-        ${flex && 'flex-wrap: wrap'};
-        ${!flex && columns && `grid-template-columns: ${columns}`};
         ${bg && `background-color: ${bg}`};
         ${color && `color: ${color}`};
         ${w && `width:${w}`};
@@ -112,8 +108,6 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
 
     return`
 
-    ${CreateCss.keyframes()}
-
     ${tag === 'NEXTLINK' && `a{
 
             ${CreateStyles({...props})}
@@ -131,7 +125,6 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
     }
     ${tag !== 'NEXTIMG' && tag !== 'NEXTLINK' && `
         ${CreateStyles({...props})}
-        ${console.log(CreateStyles({...props}))}
     
         ${_hover && `:hover{
             ${CreateStyles({..._hover})}

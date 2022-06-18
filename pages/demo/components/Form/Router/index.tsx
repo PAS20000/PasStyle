@@ -26,7 +26,7 @@ const Router = ({
             <PasStyle
                 onClick={() => setShow('props')}
                 w='33%'
-                b_Bottom='solid 1px'
+                b_bottom='solid 1px'
                 color={show === 'props' ? theme.colors.green : theme.colors.white}
                 cursor='pointer'
                 f_size='18px'
@@ -41,7 +41,7 @@ const Router = ({
             <PasStyle
                onClick={() => setShow('hover')}
                w='33%'
-               b_Bottom='solid 1px'
+               b_bottom='solid 1px'
                color={show === 'hover' ? theme.colors.green : theme.colors.white}
                cursor='pointer'
                f_size='18px'
@@ -56,7 +56,7 @@ const Router = ({
             <PasStyle
                 w='33%'
                 onClick={() => setShow('css')}
-                b_Bottom='solid 1px'
+                b_bottom='solid 1px'
                 t_transform='uppercase'
                 color={show === 'css' ? theme.colors.green : theme.colors.white}
                 cursor='pointer'

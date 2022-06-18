@@ -28,7 +28,7 @@ const Button = ({
             border='none'
             bg={theme.colors.darkGray}
             color={theme.colors.white}
-            b_Radius='50%'
+            b_radius='50%'
             cursor='pointer'
             _hover={{
                 transition: '1s',

@@ -37,7 +37,7 @@ const Field = ({
                 color={theme.colors.green}
                 transform='translateY(-10px)'
                 pd='0px 4px 0px'
-                b_Radius='8px'
+                b_radius='8px'
                 f_size='14px'
                 t_transform='capitalize'
             >
@@ -59,10 +59,10 @@ const Field = ({
                     onClick={() => document.getElementById(random).click()}
                     bg={theme.colors.bg} 
                     border='solid 2px' 
-                    b_Color={theme.colors.cyan}
+                    b_color={theme.colors.cyan}
                     color={theme.colors.yellow}
                     pd='5px'
-                    b_Radius='8px'
+                    b_radius='8px'
                     f_size='14px'
                 >
                     <PasStyle tag='INPUT'
@@ -85,11 +85,11 @@ const Field = ({
                     onChange={onChange}
                     pd='10px'
                     w='90%'
-                    b_Radius='8px'
+                    b_radius='8px'
                     border='solid 2px'
                     bg={theme.colors.bg}
                     color={theme.colors.yellow}
-                    b_Color={theme.colors.cyan}
+                    b_color={theme.colors.cyan}
                     outline_color={theme.colors.yellow}
                     placeholder={placeholder}
                     type={type}

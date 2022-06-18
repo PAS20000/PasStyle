@@ -1,6 +1,5 @@
 import * as React from 'react'
 import useThemeCTX from '../../../hooks/useThemeCTX'
-import useUserExperienceCTX from '../../../hooks/useUserExperienceCTX'
 import PasStyle from '../../_PasStyle'
 
 type Props = {
@@ -12,7 +11,7 @@ const Main = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const {closeSelect} = useUserExperienceCTX()
+
     return(
         <PasStyle
             tag='MAIN' 

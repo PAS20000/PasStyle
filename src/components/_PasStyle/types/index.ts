@@ -80,8 +80,8 @@ export type Props = {
     src?:string
     href?:string
     border?:string
-    b_Radius?:string
-    b_Color?:string
+    b_radius?:string
+    b_color?:string
     target?:string
     className?:string
     id?:string
@@ -110,12 +110,15 @@ export type Props = {
     placeholder?:string
     type?:any
     z?:string
-    b_Bottom?:string
     unselectableText?:boolean
     _webkit?:string
     display?:string
     p_Events?:string
     value?:string
+    b_bottom?:string
+    b_left?:string
+    b_right?:string
+    b_top?:string
 }
 
 export type Styles = {
@@ -139,7 +142,6 @@ export type Styles = {
     src?:string
     href?:string
     border?:string
-    b_Radius?:string
     target?:string
     className?:string
     id?:string
@@ -154,14 +156,18 @@ export type Styles = {
     transition?:string
     op?:string,
     color?:string
-    b_Color?:string
+    b_color?:string
+    b_bottom?:string
+    b_left?:string
+    b_right?:string
+    b_top?:string
+    b_radius?:string
     cursor?:string
     position?:string
     shadow?:string
     outline?:string
     outline_color?:string
     z?:string
-    b_Bottom?:string
     unselectableText?:boolean
     _webkit?:string
     display?:string

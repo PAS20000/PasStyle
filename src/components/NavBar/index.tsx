@@ -98,7 +98,7 @@ const NavBar = ({
                     border='none'
                     t_transform='uppercase'
                     f_weight='300'
-                    b_Radius='8px'
+                    b_radius='8px'
                     _hover={{
                         transition: '1s',
                         color:theme.colors.yellow,
