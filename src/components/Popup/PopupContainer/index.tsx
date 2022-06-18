@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Icons from '../../../../utils/Icons'
 import { SetState } from '../../../contexts/types'
+import useThemeCTX from '../../../hooks/useThemeCTX'
 import PasStyle from '../../_PasStyle'
 import { PasStyleProps } from '../../_PasStyle/types'
 
@@ -30,6 +31,8 @@ const PopupContainer = (props : PasStyleProps<Props>) => {
         state[1](false)
     }
 
+    const { theme } = useThemeCTX()
+
     return(
         <PasStyle
             {...props}
@@ -43,7 +46,7 @@ const PopupContainer = (props : PasStyleProps<Props>) => {
                     <PasStyle onClick={close}
                         tag='BUTTON'
                         bg='transparent'
-                        color='white'
+                        color={theme.colors.white}
                         f_size='18px'
                         pd='10px'
                         cursor='pointer'
@@ -52,7 +55,7 @@ const PopupContainer = (props : PasStyleProps<Props>) => {
                         transform='translate(20px, -20px)'
                         _hover={{
                         transition: '1s',
-                        color: 'red'
+                        color: theme.colors.red
                     }}> 
                        {icon ??  <Icons.Md.MdClose />}
                     </PasStyle>
@@ -63,7 +66,7 @@ const PopupContainer = (props : PasStyleProps<Props>) => {
                 <PasStyle  onClick={close}
                     tag='BUTTON'
                     bg='transparent'
-                    color='white'
+                    color={theme.colors.white}
                     f_size='18px'
                     pd='10px'
                     mg='10px'
@@ -72,7 +75,7 @@ const PopupContainer = (props : PasStyleProps<Props>) => {
                     b_Radius='8px'
                     _hover={{
                     transition: '1s',
-                    color: 'red'
+                    color: theme.colors.red
                 }}
                 >
                     Close

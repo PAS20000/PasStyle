@@ -38,9 +38,23 @@ export type Tags = [
     'TEXTAREA'
 ]
 
-export type Animations = [
+export type AnimationName = [
     'show'
 ]
+
+export type TypeAnimation = [
+    'linear',
+    'ease',
+    'ease-in',
+    'ease-out',
+    'ease-in-out'
+]
+
+export type Animation = {
+    name:AnimationName[number]
+    time:number
+    type?:TypeAnimation[number]
+}
 
 export type Props = {
     children?:React.ReactNode
@@ -71,7 +85,7 @@ export type Props = {
     target?:string
     className?:string
     id?:string
-    animation?:Animations[number]
+    animation?:Animation
     f_size?:string
     f_weight?:string
     f_family?:string
@@ -129,7 +143,7 @@ export type Styles = {
     target?:string
     className?:string
     id?:string
-    animation?:Animations[number]
+    animation?:Animation
     f_size?:string
     f_weight?:string
     f_family?:string

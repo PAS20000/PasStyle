@@ -14,7 +14,7 @@ import { Musics } from '../api/music'
 import { Users } from '../api/users'
 import { Langs } from '../api/langs'
 import Popup from '../../src/components/Popup'
-import usePopUp from '../../src/components/Popup/hooks/usePopup'
+import usePopup from '../../src/components/Popup/hooks/usePopup'
 import PasStyle from '../../src/components/_PasStyle'
 import PopupContainer from '../../src/components/Popup/PopupContainer'
 
@@ -66,7 +66,7 @@ const Demo = ({
 
     const { theme } = useThemeCTX()
     const [ show, setShow ] = React.useState<ShowState>('props')
-    const state = usePopUp()
+    const state = usePopup()
 
     return(
         <>

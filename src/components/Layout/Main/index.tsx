@@ -12,7 +12,7 @@ const Main = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-
+    const {closeSelect} = useUserExperienceCTX()
     return(
         <PasStyle
             tag='MAIN' 

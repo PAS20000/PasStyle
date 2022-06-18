@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import CreateCss from "../CreateCss"
 import { Props, Styles } from "../types"
 
 export type TCreateStyle = Props
@@ -46,17 +47,19 @@ const CreateStyles = ({
     display,
     p_Events
 } : Styles) => {
-    return`
-      
-        ${unselectableText && `
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;   
-            -khtml-user-select: none;
-            -moz-user-select: none; 
-            -ms-user-select: none;
-            user-select: none;
-        `}
-        ${p_Events && `pointer-events: ${p_Events}`};
+
+    const { 
+            unselect, 
+            keyframes, 
+            animations,
+            pEvents,
+        } = CreateCss
+
+    return `
+        ${keyframes()} 
+        ${animations(animation)}
+        ${unselect(unselectableText)}
+        ${pEvents(p_Events)};
         ${display && `display: ${display}`};
         ${_webkit && _webkit};
         ${b_Bottom && ` border-bottom: ${b_Bottom}`};
@@ -73,8 +76,8 @@ const CreateStyles = ({
         ${grid && 'display: grid'};
         ${grid && center && `align-self: center;` && `align-items: center;` && `justify-self: center`};
         ${flex && 'flex-wrap: wrap'};
-        ${!flex && columns && `grid-template-columns: ${columns}`};
-        ${!flex && rows && `grid-template-rows: ${rows}`};
+        ${grid && columns && `grid-template-columns: ${columns}`};
+        ${grid && rows && `grid-template-rows: ${rows}`};
         ${flex && column && 'flex-direction: column'};
         ${z && `z-index: ${z}`};
         ${position && `position: ${position}`};
@@ -108,8 +111,10 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
     const { tag, _hover, _focus, _media } = props
 
     return`
-      
-        ${tag === 'NEXTLINK' && `a{
+
+    ${CreateCss.keyframes()}
+
+    ${tag === 'NEXTLINK' && `a{
 
             ${CreateStyles({...props})}
            
@@ -125,8 +130,8 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
         }`
     }
     ${tag !== 'NEXTIMG' && tag !== 'NEXTLINK' && `
-
         ${CreateStyles({...props})}
+        ${console.log(CreateStyles({...props}))}
     
         ${_hover && `:hover{
             ${CreateStyles({..._hover})}
@@ -143,5 +148,5 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
 export default CreateStyle
 
 export const Testes = styled.div`
-      opacity: 1;
+      animation-timing-function: linear;
 `

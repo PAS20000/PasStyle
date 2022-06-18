@@ -4,17 +4,13 @@ import { UserExperienceContext, UserExperienceCTX } from '../../contexts/UserExp
 const useUserExperienceCTX = () : UserExperienceCTX  => {
     const { globalOpen, 
             setGlobalOpen, 
-            closeAll, 
-            closeFormSelect, 
-            closeNavSelect 
+            closeSelect
     } = React.useContext(UserExperienceContext)
 
     return {
         globalOpen, 
         setGlobalOpen,
-        closeAll,
-        closeFormSelect,
-        closeNavSelect
+        closeSelect
     }
 }
 

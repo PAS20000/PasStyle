@@ -165,9 +165,7 @@ const Select = ({
                  }}
                 onClick={onClick}
             >
-                <PasStyle flex between
-                   
-                >
+                <PasStyle flex between>
                     <PasStyle f_size='0.8rem'
                         color={theme.colors.yellow}
                     >
@@ -186,7 +184,10 @@ const Select = ({
                     border='solid 1px'
                     b_Color={theme.colors.green}
                     t_align='center'
-                    animation='show'
+                    animation={{
+                        name:'show',
+                        time:1,
+                    }}
                     z='3'
                     w={wOptions}
                 >

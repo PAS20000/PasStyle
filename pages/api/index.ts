@@ -89,7 +89,27 @@ export const dataLang : Array<Langs> = [{
             id:id(),
             title:'????',
             codes:[`
-                ????
+                const state = usePopup()
+
+                <Popup
+                    state={state}
+                >
+                    <PopupContainer 
+                        state={state}
+                        mg='0px 30px 30px' 
+                        b_Radius='8px'
+                        shadow='2px 2px 10px black'
+                        bg={theme.colors.bg}
+                        closeFooter
+                        closeHead
+                    >
+                        <Form
+                            setState={state[1]}
+                            setShow={setShow}
+                            show={show}
+                        />
+                    </PopupContainer>
+                </Popup>
             `
             ],
             aside:'????'

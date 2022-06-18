@@ -60,6 +60,12 @@ type Props = {
     show:ShowState
 }
 
+type OptionReturn = {
+    tag:Function
+    weight:Function
+    transform:Function
+}
+
 const Selects = ({
     show
 } : Props) => {
@@ -81,12 +87,8 @@ const Selects = ({
         })
     }
 
-    const OptionClick = (tagName?:any, weight?:string, t_transformValue?:string) => {
+    const OptionClick = () : OptionReturn => {
         const { t_transform, tag, f_weight } = style
-
-        setStyle({...style, tag: tagName ?? tag})
-        setStyle({...style, f_weight: weight ?? f_weight})
-        setStyle({...style, t_transform: t_transformValue ?? t_transform})
 
         setGlobalOpen({
             ...globalOpen,
@@ -96,6 +98,18 @@ const Selects = ({
                 tag:false
             }
         })
+
+        return {
+            tag(tagName : any) {
+                setStyle({...style, tag: tagName ?? tag})
+            },
+            weight(weight : string) {
+                setStyle({...style, f_weight: weight ?? f_weight})
+            },
+            transform(t_transformValue : string) {
+                setStyle({...style, t_transform: t_transformValue ?? t_transform})
+            }
+        }
     }
 
     type Wopt = {
@@ -122,7 +136,7 @@ const Selects = ({
                         <Option 
                             key={index} 
                             value={style.tag ?? tag} 
-                            onClick={() => OptionClick(tag)}
+                            onClick={() => OptionClick().tag(tag)}
                         >
                             {tag}
                         </Option>
@@ -138,7 +152,7 @@ const Selects = ({
                         <Option
                             key={index}
                             value={weight.toString()}
-                            onClick={() => OptionClick('', weight.toString())}
+                            onClick={() => OptionClick().weight(weight)}
                         >
                             {weight}
                         </Option>
@@ -154,7 +168,7 @@ const Selects = ({
                         <Option
                             key={index}
                             value={transform}
-                            onClick={() => OptionClick('', '', transform)}
+                            onClick={() => OptionClick().transform(transform)}
                         >
                             {transform}
                         </Option>

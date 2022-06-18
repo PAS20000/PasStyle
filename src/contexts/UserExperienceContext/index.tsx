@@ -15,9 +15,11 @@ type SelectOpen = {
 export type UserExperienceCTX = {
     globalOpen:SelectOpen
     setGlobalOpen:SetState<SelectOpen>
-    closeAll:Function
-    closeNavSelect:Function
-    closeFormSelect:Function
+    closeSelect:{
+        all:Function
+        nav:Function
+        form:Function
+    }
 }
 
 export const UserExperienceContext = React.createContext<UserExperienceCTX>(null)
@@ -34,37 +36,37 @@ const UserExperienceProvider = ({
         navSelect:false
    })
 
-   const closeNavSelect = () : void => {
-        setGlobalOpen({
-            ...globalOpen,
-            navSelect:false
-        })       
-    }
-
-    const closeFormSelect = () : void => {
-        setGlobalOpen({
-            ...globalOpen,
-            formSelect:{
-                f_weight:false,
-                t_transform:false,
-                tag:false,
-            },
-        })
-    }
-
-   const closeAll = () : void => {
-        setGlobalOpen({
-            formSelect:{
-                f_weight:false,
-                t_transform:false,
-                tag:false,
-            },
-            navSelect:false
-        })
+   const closeSelect = {
+        all(){
+            setGlobalOpen({
+                formSelect:{
+                    f_weight:false,
+                    t_transform:false,
+                    tag:false,
+                },
+                navSelect:false
+            })
+        },
+        nav(){
+            setGlobalOpen({
+                ...globalOpen,
+                navSelect:false
+            })    
+        },
+        form(){
+            setGlobalOpen({
+                ...globalOpen,
+                formSelect:{
+                    f_weight:false,
+                    t_transform:false,
+                    tag:false,
+                },
+            }) 
+        }
    }
 
    return(
-        <UserExperienceContext.Provider value={{ globalOpen, setGlobalOpen, closeAll, closeFormSelect, closeNavSelect }}>
+        <UserExperienceContext.Provider value={{ globalOpen, setGlobalOpen, closeSelect }}>
             {children}
         </UserExperienceContext.Provider>
     )
