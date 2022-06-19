@@ -55,7 +55,10 @@ const Layout = function({
             ${flex && center && `justify-content: center`};
             ${flex && end && `justify-content: end`};
             ${grid && 'display: grid'};
-            ${grid && center && `align-self: center;` && `align-items: center;` && `justify-self: center`};
+            ${center && `align-items: center`};
+            ${end && `align-items: flex-end`};
+            ${start && `align-items: flex-start`};
+            ${grid && center && `align-self: center;` && `justify-self: center`};
             ${flex && 'flex-wrap: wrap'};
             ${grid && columns && `grid-template-columns: ${columns}`};
             ${grid && rows && `grid-template-rows: ${rows}`};
