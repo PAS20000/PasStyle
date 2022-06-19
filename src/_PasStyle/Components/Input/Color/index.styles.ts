@@ -4,14 +4,14 @@ import { PasStyleProps } from "../../../types"
 const Css = {
     default() : PasStyleProps {
         return {
-            pd:'10px',
-            w:'90%',
-            b_radius:'8px',
-            border:'solid 2px',
-            bg:Color.bg,
-            color:Color.yellow,
+            bg:Color.bg, 
+            border:'solid 2px', 
             b_color:Color.cyan,
-            outline_color:Color.yellow,
+            color:Color.yellow,
+            pd:'5px',
+            w:'95%',
+            b_radius:'8px',
+            f_size:'14px'
         }
     }
 }

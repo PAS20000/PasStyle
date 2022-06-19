@@ -31,13 +31,13 @@ const Input = (props:PasStyleProps<Props>) => {
     }
 
     return (
-        <>
+        <PasStyle mg='5px'>
             <Label htmlFor={label} {...props}>
                 {label}
             </Label>
             {typeVerify() && <Default {...props}/>}
             {type === 'color' && <Color {...props}/>}
-        </>
+        </PasStyle>
     )
 }
 export default Input

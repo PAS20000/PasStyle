@@ -1,7 +1,7 @@
 import * as React from 'react'
-import Field from '../../../../../src/components/Field'
 import { Styles } from '../../../../../src/_PasStyle/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
+import Input from '../../../../../src/_PasStyle/Components/Input'
 
 type Props = {
     _hover?:boolean
@@ -44,65 +44,65 @@ const Inputs = ({
 
     return(
         <>
-            <Field 
-                prop='background :'
+            <Input 
+                label='background :'
                 placeholder='bg='
                 onChange={(e:any) => changes({bg : e.target.value})}
                 value={values('bg')}
                 type='color'
             />                                                                                                        
-            <Field 
-                prop='padding :'
+            <Input 
+                label='padding :'
                 placeholder='pd='
                 onChange={(e:any) =>  changes({pd : e.target.value})}
                 value={values('pd')}
             />
-            <Field 
-                prop='color :'
+            <Input 
+                label='color :'
                 placeholder='color='
                 onChange={(e:any) =>  changes({color : e.target.value})}
                 value={values('color')}
                 type='color'
             />
-            <Field 
-                prop='border :'
+            <Input 
+                label='border :'
                 placeholder='border='
                 onChange={(e:any) =>  changes({border : e.target.value})}
                 value={values('border')}
             />
-            <Field 
-                prop='border-color :'
+            <Input 
+                label='border-color :'
                 placeholder='b_Color='
-                onChange={(e:any) =>  changes({b_Color : e.target.value})}
+                onChange={(e:any) =>  changes({b_color : e.target.value})}
                 value={values('b_Color')}
                 type='color'
             />
-            <Field 
-                prop='border-radius :'
+            <Input 
+                label='border-radius :'
                 placeholder='b_Radius='
-                onChange={(e:any) =>  changes({b_Radius : e.target.value})}
+                onChange={(e:any) =>  changes({b_radius : e.target.value})}
                 value={values('b_Radius')}
             />
-            <Field 
-                prop='margin :'
+            <Input 
+                label='margin :'
                 placeholder='mg='
                 onChange={(e:any) =>  changes({mg : e.target.value})}
                 value={values('mg')}
             />
-            <Field 
-                prop='box-shadow :'
+            <Input 
+                label='box-shadow :'
                 placeholder='shadow='
                 onChange={(e:any) =>  changes({shadow : e.target.value})}
                 value={values('shadow')}
             />
-            <Field 
-                prop='transform :'
+            <Input 
+                label='transform :'
                 placeholder='transform='
                 onChange={(e:any) =>  changes({transform : e.target.value})}
                 value={values('transform')}
             />
-            <Field 
-                prop='font-size :'
+            <Input 
+                label='font-size :'
                 placeholder='f_size='
                 onChange={(e:any) =>  changes({f_size : e.target.value})}
                 value={values('f_size')}

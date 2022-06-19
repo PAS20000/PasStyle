@@ -13,6 +13,7 @@ import { Users } from './api/users'
 import Popup from '../src/_PasStyle/Components/Popup'
 import PopupBody from '../src/_PasStyle/Components/Popup/PopupBody'
 import usePopup from '../src/_PasStyle/Components/Popup/hooks/usePopup'
+import Input from '../src/_PasStyle/Components/Input'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     

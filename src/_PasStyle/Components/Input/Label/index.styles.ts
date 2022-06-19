@@ -8,7 +8,6 @@ const Css = {
             h:'13px',
             position:'absolute',
             bg:Color.bg,
-            mg:'0px 10px 0px',
             color:Color.green,
             transform:'translateY(-10px)',
             pd:'0px 5px 0px',
