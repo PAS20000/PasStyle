@@ -1,18 +1,26 @@
 import { Return } from "../Types"
 
-type PropsLayout = {
-    display?:string
-    flex?:boolean
-    between?:boolean
-    around?:boolean
-    evenly?:boolean
-    start?:boolean
-    center?:boolean
-    end?:boolean
-    column?:boolean
-    grid?:boolean
-    columns?:string
-    rows?:string
+type Props = {
+    display:string
+    flex:boolean
+    between:boolean
+    around:boolean
+    evenly:boolean
+    start:boolean
+    center:boolean
+    end:boolean
+    column:boolean
+    grid:boolean
+    columns:string
+    rows:string
+    z:string
+    position:string
+    w:string
+    h:string
+    pd:string
+    mg:string
+    transform:string
+    bg:string
 }
 
 const Layout = function({
@@ -28,7 +36,15 @@ const Layout = function({
         grid,
         columns,
         rows,
-    } : PropsLayout) : Return {
+        z,
+        position,
+        w,
+        h,
+        pd,
+        mg,
+        transform,
+        bg
+    } : Props) : Return {
         return `
             ${display && `display: ${display}`};
             ${flex && 'display: flex'};
@@ -48,6 +64,14 @@ const Layout = function({
             ${grid && 'display: grid'};
             ${flex && 'flex-wrap: wrap'};
             ${!flex && columns && `grid-template-columns: ${columns}`};
+            ${z && `z-index: ${z}`};
+            ${position && `position: ${position}`};
+            ${w && `width:${w}`};
+            ${h && `height: ${h}`};
+            ${pd && `padding: ${pd}`};
+            ${mg && `margin: ${mg}`};
+            ${transform && `transform: ${transform}`};
+            ${bg && `background-color: ${bg}`};
         `
     }
 

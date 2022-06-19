@@ -22,6 +22,9 @@ const CreateStyles = ({
     mg,
     grid,
     border,
+    b_left,
+    b_right,
+    b_top,
     b_radius,
     animation,
     f_size,
@@ -52,54 +55,75 @@ const CreateStyles = ({
             Unselect, 
             Keyframes, 
             Animations,
-            pEvents,
+            Events,
             Webkit,
-            Layout
+            Layout,
+            Borders,
+            Fonts
         } = CreateCss
+
+    const propsLayout = {
+        display,
+        flex,
+        between,
+        around,
+        evenly,
+        start,
+        center,
+        end,
+        column,
+        grid,
+        columns,
+        rows,
+        z,
+        position,
+        transform,
+        w,
+        h,
+        pd,
+        mg,
+        bg
+    }
+    
+    const propsBorder = {
+        b_bottom,
+        b_color,
+        b_left,
+        b_radius,
+        b_right,
+        b_top,
+        border,
+        shadow
+    }
+
+    const propsFonts = {
+        f_size,
+        f_family,
+        f_weight,
+        t_align,
+        color,
+        t_transform,
+        t_decoration
+    }
+
+    const propsEvent = {
+        p_Events,
+        cursor
+    }
 
     return`
         ${Keyframes()} 
         ${Animations(animation)}
         ${Unselect(unselectableText)}
-        ${pEvents(p_Events)}
+        ${Events(propsEvent)}
         ${Webkit(_webkit)}
-        ${Layout({
-            display,
-            flex,
-            between,
-            around,
-            evenly,
-            start,
-            center,
-            end,
-            column,
-            grid,
-            columns,
-            rows,
-        })}
-       
+        ${Layout(propsLayout)}
+        ${Borders(propsBorder)}
+        ${Fonts(propsFonts)}
         ${outline && `outline: ${outline}`};
         ${outline_color && `outline-color: ${outline_color}`};
-        ${t_align && `text-align: ${t_align}`};
-        ${z && `z-index: ${z}`};
-        ${position && `position: ${position}`};
-        ${shadow && `box-shadow: ${shadow}`};
-        ${border && `border: ${border}`};
-        ${bg && `background-color: ${bg}`};
-        ${color && `color: ${color}`};
-        ${w && `width:${w}`};
-        ${h && `height: ${h}`};
-        ${pd && `padding: ${pd}`};
-        ${mg && `margin: ${mg}`};
-        ${f_size && `font-size: ${f_size}`};
-        ${f_family && `font-family: ${f_family}`};
-        ${f_weight && `font-weight: ${f_weight}`};
-        ${t_transform && `text-transform: ${t_transform}`};
-        ${t_decoration && `text-decoration: ${t_decoration}`};
-        ${transform && `transform: ${transform}`}; 
         ${transition && `transition: ${transition}`};
         ${op && `opacity: ${op}`};
-        ${cursor && ` cursor: ${cursor}`};
 `}
 
 const CreateStyle = (props: TCreateStyle) : string =>  {
@@ -123,6 +147,7 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
             }`}
         }`
     }
+
     ${tag !== 'NEXTIMG' && tag !== 'NEXTLINK' && `
         ${CreateStyles({...props})}
     

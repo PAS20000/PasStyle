@@ -1,22 +1,20 @@
-import { Return } from "./Types"
 import Layout from './Layout/index.styles'
 import Unselect from './Unselect/index.styles'
 import Webkit from './Webkit/index.styles'
 import Animations from './Animations/index.styles'
 import Keyframes from './Keyframes/index.styles'
+import Borders from './Borders/index.styles'
+import Fonts from './Fonts/index.styles'
+import Events from './Events/index.styles'
 
 
-const CreateCss = {
+export default {
     Layout,
     Unselect,
     Webkit,
     Animations,
     Keyframes,
-    pEvents(p_Events : string) : Return {
-        if(p_Events){
-            return `pointer-events: ${p_Events}`
-        }
-    },
+    Borders,
+    Fonts,
+    Events,
 }
-
-export default CreateCss

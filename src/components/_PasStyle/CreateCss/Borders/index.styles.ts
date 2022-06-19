@@ -8,6 +8,7 @@ type borders = {
     b_color:string
     b_radius:string
     border:string
+    shadow:string
 }
 
 const Borders = function({
@@ -17,7 +18,8 @@ const Borders = function({
     b_top,
     b_color,
     b_radius,
-    border
+    border,
+    shadow
 } : borders) : Return {
 
     return`
@@ -28,8 +30,8 @@ const Borders = function({
         ${b_top && `border-radius: ${b_top}`};
         ${b_right && `border-color: ${b_right}`};
         ${b_left && ` border-bottom: ${b_left}`};
+        ${shadow && `box-shadow: ${shadow}`};
     `
-
 }
 
 export default Borders
