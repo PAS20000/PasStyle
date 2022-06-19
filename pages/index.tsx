@@ -15,6 +15,7 @@ import PopupBody from '../src/_PasStyle/Components/Popup/PopupBody'
 import usePopup from '../src/_PasStyle/Components/Popup/hooks/usePopup'
 import Input from '../src/_PasStyle/Components/Input'
 import ButtonOpenPopup from '../src/_PasStyle/Components/Popup/ButtonOpenPopup'
+import Icons from '../src/_PasStyle/Components/Icons'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     

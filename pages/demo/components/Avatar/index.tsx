@@ -5,7 +5,7 @@ import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import { Users } from '../../../api/users'
 import Likes from './Likes'
 import Card from './Card'
-import Icons from '../../../../utils/Icons'
+import Icons from '../../../../src/_PasStyle/Components/Icons'
 import { useRouter } from 'next/router'
 
 type Props = {

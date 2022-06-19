@@ -1,18 +1,14 @@
 import * as React from 'react'
-import { GoKebabVertical } from 'react-icons/go'
-import Icons from '../../_PasStyle/Components/Icons'
-import useThemeCTX from '../../hooks/useThemeCTX'
-import PasStyle from '../../_PasStyle'
-import { PasStyleProps } from '../../_PasStyle/types'
+import PasStyle from '../..'
 
 type Props = {
     title:string
     children?:React.ReactNode
     icon?:React.ReactChild
     w?:string
+    open?:boolean
     wOptions?:string
     onClick?:React.MouseEventHandler
-    open?:boolean
     transform?:string
 }
 
@@ -28,15 +24,14 @@ const Select = ({
     children,
     icon,
     w,
-    open,
     onClick,
     transform,
-    wOptions
+    wOptions,
+    open
 } : Props) => {
 
     const arrayChildren = React.Children.toArray(children)
     const items = 3
-    const { theme } = useThemeCTX()
     
 
     const kid = (index?:number) => {
@@ -50,7 +45,7 @@ const Select = ({
         formT_transform:kid()
     })
 
-    const  [ pagination, setPagination ] = React.useState({
+    const [ pagination, setPagination ] = React.useState({
         init:0,
         final:items
     })
@@ -68,40 +63,43 @@ const Select = ({
             formT_transform:innerHtml,
         })
     }
-
-    const nextOpt = (e : React.MouseEvent | MouseEvent) => {
-        const { length } = arrayChildren
-        const { init, final } = pagination
-
-        if(final < length && e.isTrusted){
-            setPagination({
-                init:init + items,
-                final:final + items
-            })
-        } else {
-            setPagination({
-                init:0,
-                final:items
-            })
+    const action = {
+        next(e : React.MouseEvent | MouseEvent) {
+            const { length } = arrayChildren
+            const { init, final } = pagination
+    
+            if(final < length && e.isTrusted){
+                setPagination({
+                    init:init + items,
+                    final:final + items
+                })
+            } else {
+                setPagination({
+                    init:0,
+                    final:items
+                })
+            }
+        },
+        previous(e : React.MouseEvent | MouseEvent) {
+            const { length } = arrayChildren
+            const { init, final } = pagination
+    
+            if(init > (items - 1) && e.isTrusted){
+                setPagination({
+                    init:init - items,
+                    final:final - items
+                })
+            } else {
+                setPagination({
+                    init:length - items,
+                    final:length
+                })
+            }
         }
     }
+   
 
-    const backOpt = (e : React.MouseEvent | MouseEvent) => {
-        const { length } = arrayChildren
-        const { init, final } = pagination
-
-        if(init > (items - 1) && e.isTrusted){
-            setPagination({
-                init:init - items,
-                final:final - items
-            })
-        } else {
-            setPagination({
-                init:length - items,
-                final:length
-            })
-        }
-    }
+    
 
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
@@ -191,14 +189,14 @@ const Select = ({
                     z='3'
                     w={wOptions}
                 >
-                    <PasStyle onClick={(e) => backOpt(e)}
+                    <PasStyle onClick={(e) => action.next(e)}
                         tag='BUTTON'
                         {...btnStyle}
                     >
                         <Icons.Io.IoIosArrowUp />
                     </PasStyle>
                         {options()}
-                    <PasStyle onClick={(e) => nextOpt(e)} 
+                    <PasStyle onClick={(e) => action.previous(e)} 
                         tag='BUTTON'
                         {...btnStyle}
                     >

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Icons from '../../../../utils/Icons'
+import Icons from '../../../_PasStyle/Components/Icons'
 import { SetState } from '../../../contexts/types'
 import useThemeCTX from '../../../hooks/useThemeCTX'
 import PasStyle from '../../../_PasStyle'
