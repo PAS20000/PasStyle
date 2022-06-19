@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import GlobalProivider from '../src/contexts'
+import PasStyleProvider from '../src/_PasStyle/Contexts'
 import '../utils/fonts.css'
 
 
@@ -11,9 +12,11 @@ const App = ({
 
 
   return (
+    <PasStyleProvider>
       <GlobalProivider>
           <Component {...pageProps} />
       </GlobalProivider>
+    </PasStyleProvider>
   )
 }
 

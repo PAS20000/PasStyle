@@ -1,7 +1,6 @@
 import * as React from 'react'
-import useThemeCTX from '../../../hooks/useThemeCTX'
-import useUserExperienceCTX from '../../../hooks/useUserExperienceCTX'
 import PasStyle from "../../../_PasStyle"
+import useThemeCTX from '../../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
 import { PasStyleProps } from '../../../_PasStyle/utils/types'
 
 type Props = {

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import PasStyle from '../../../../../src/_PasStyle'
-import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
-import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
+import useThemeCTX from '../../../../../src/_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     title:string
@@ -22,7 +21,7 @@ const Card = ({
             pd='20px'
             mg='20px'
             shadow='2px 2px 10px black'
-            b_Radius='8px'
+            b_radius='8px'
             t_align='center'
             w='20%'
             bg={theme.colors.bg}

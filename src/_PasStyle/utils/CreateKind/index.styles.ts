@@ -1,11 +1,14 @@
 import { PasStyleProps } from "../types"
 
-
+type Props = {
+    kind:string
+    Css:Object
+}
 
 const CreateKind = ({
     kind,
     Css
-}) : PasStyleProps => {
+} : Props) : PasStyleProps => {
     return {...Css[kind ?? 'default']()}
 }
 

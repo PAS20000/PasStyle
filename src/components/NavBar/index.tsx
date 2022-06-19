@@ -1,5 +1,4 @@
 import * as React from 'react'
-import useThemeCTX from '../../hooks/useThemeCTX'
 import PasStyle from '../../_PasStyle'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import Router from './Router'
@@ -7,6 +6,7 @@ import Select from '../Select'
 import Option from '../Select/Option'
 import { useRouter } from 'next/router'
 import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
+import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     current?:'docs' | 'demo' | 'git'

@@ -3,8 +3,8 @@ import Aside from '../Aside'
 import Container from '../Container'
 import Title from '../../Title'
 import { PasStyleProps } from '../../../_PasStyle/utils/types'
-import useThemeCTX from '../../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../../hooks/useUserExperienceCTX'
+import useThemeCTX from '../../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     children:React.ReactNode

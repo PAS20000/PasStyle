@@ -4,7 +4,7 @@ import PasStyle from '../../../../../src/_PasStyle'
 import CreateStyle from '../../../../../src/_PasStyle/CreateStyle/index.styles'
 import { PasStyleProps } from '../../../../../src/_PasStyle/utils/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
-import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
+import useThemeCTX from '../../../../../src/_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Tratament = {
     tratamentProps:Array<string>

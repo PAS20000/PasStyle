@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { GoKebabVertical } from 'react-icons/go'
 import Icons from '../../_PasStyle/Components/Icons'
-import useThemeCTX from '../../hooks/useThemeCTX'
 import PasStyle from '../../_PasStyle'
 import { PasStyleProps } from '../../_PasStyle/utils/types'
+import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     title:string

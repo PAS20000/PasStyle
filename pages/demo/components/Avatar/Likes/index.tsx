@@ -31,7 +31,7 @@ const Likes = ({
                 <PasStyle
                     tag='IMG' 
                     src={thumb}
-                    b_Radius='8px'
+                    b_radius='8px'
                     w='80px'
                     h='80px'
                 />

@@ -1,9 +1,9 @@
 import * as React from 'react'
-import useThemeCTX from '../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
 import CopyClipBoard from '../CopyClipBoard'
 import PasStyle from "../../_PasStyle"
 import useWhoIam from '../../hooks/useWhoIam'
+import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     children?:React.ReactNode

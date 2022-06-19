@@ -1,5 +1,4 @@
 import * as React from 'react'
-import useThemeCTX from '../../../hooks/useThemeCTX'
 import PasStyle from '../../../_PasStyle'
 
 type Props = {
@@ -9,9 +8,6 @@ type Props = {
 const Header = ({
     children
 } : Props) => {
-
-    const { theme } = useThemeCTX()
-
     return(
         <PasStyle 
             tag='HEADER'

@@ -2,12 +2,9 @@ import * as React from 'react'
 import { ShowState } from '../..'
 import PasStyle from '../../../../src/_PasStyle'
 import { SetState } from '../../../../src/contexts/types'
-import useThemeCTX from '../../../../src/hooks/useThemeCTX'
 import Icons from '../../../../src/_PasStyle/Components/Icons'
 import Button from './Button'
-import Popup from '../../../../src/_PasStyle/Components/Popup'
-import PopupBody from '../../../../src/_PasStyle/Components/Popup/PopupBody'
-import Form from '../Form'
+import useThemeCTX from '../../../../src/_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     setState:SetState<boolean>

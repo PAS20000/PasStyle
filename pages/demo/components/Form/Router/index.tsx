@@ -2,7 +2,7 @@ import * as React from 'react'
 import { ShowState } from '../../..'
 import PasStyle from '../../../../../src/_PasStyle'
 import { SetState } from '../../../../../src/contexts/types'
-import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
+import useThemeCTX from '../../../../../src/_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     show:ShowState

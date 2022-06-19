@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { PasStyleThemeContext, ThemeCTX } from '../../contexts/ThemeContext'
+import { PasStyleThemeContext, ThemeCTX } from '..'
 
 
 const useThemeCTX = () : ThemeCTX  => {

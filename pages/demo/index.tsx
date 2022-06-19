@@ -5,7 +5,6 @@ import Footer from '../../src/components/Layout/Footer'
 import Header from '../../src/components/Layout/Header'
 import Main from '../../src/components/Layout/Main'
 import NavBar from '../../src/components/NavBar'
-import useThemeCTX from '../../src/hooks/useThemeCTX'
 import { dataMusics, dataUsers } from '../api'
 import Avatar from './components/Avatar'
 import Container from '../../src/components/Layout/Container'
@@ -15,6 +14,7 @@ import { Users } from '../api/users'
 import Popup from '../../src/_PasStyle/Components/Popup'
 import PopupBody from '../../src/_PasStyle/Components/Popup/PopupBody'
 import usePopup from '../../src/_PasStyle/Components/Popup/hooks/usePopup'
+import useThemeCTX from '../../src/_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     

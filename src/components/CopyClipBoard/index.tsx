@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FaCopy } from 'react-icons/fa'
-import useThemeCTX from '../../hooks/useThemeCTX'
 import PasStyle from '../../_PasStyle'
+import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
     id:string

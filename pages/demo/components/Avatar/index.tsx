@@ -1,5 +1,4 @@
 import * as React from 'react'
-import useThemeCTX from '../../../../src/hooks/useThemeCTX'
 import PasStyle from '../../../../src/_PasStyle'
 import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import { Users } from '../../../api/users'
@@ -7,6 +6,7 @@ import Likes from './Likes'
 import Card from './Card'
 import Icons from '../../../../src/_PasStyle/Components/Icons'
 import { useRouter } from 'next/router'
+import useThemeCTX from '../../../../src/_PasStyle/Contexts/ThemeContext/useThemeCTX'
 
 type Props = {
    
@@ -50,7 +50,7 @@ const Avatar = ({
                     w='50px'
                     h='50px'
                     mg='10px'
-                    b_Radius='50%'
+                    b_radius='50%'
                 />
                 <PasStyle 
                     tag='H2'

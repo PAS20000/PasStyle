@@ -1,5 +1,7 @@
 import * as React from 'react'
 import PasStyle from '../..'
+import useThemeCTX from '../../Contexts/ThemeContext/useThemeCTX'
+import Button from '../Button'
 import Icons from '../Icons'
 
 type Props = {
@@ -33,7 +35,7 @@ const Select = ({
 
     const arrayChildren = React.Children.toArray(children)
     const items = 3
-    
+    const {theme} = useThemeCTX()
 
     const kid = (index?:number) => {
         return index ? children[index].props.value : children[0].props.value
@@ -99,9 +101,6 @@ const Select = ({
             }
         }
     }
-   
-
-    
 
     const Listener = () => {
         const arrayOptions = Array.from(document.querySelectorAll('.option'))
@@ -129,8 +128,7 @@ const Select = ({
                 pd='0px 4px 0px'
                 b_radius='8px'
                 f_size='12px'
-                t_transform='capitalize'
-                
+                t_transform='capitalize'   
             >
                 {title}
             </PasStyle>
@@ -177,19 +175,13 @@ const Select = ({
                     z='3'
                     w={wOptions}
                 >
-                    <PasStyle onClick={(e) => action.next(e)}
-                        tag='BUTTON'
-                        {...btnStyle}
-                    >
+                    <Button  onClick={(e) => action.next(e)}> 
                         <Icons.Io.IoIosArrowUp />
-                    </PasStyle>
+                    </Button>
                         {options()}
-                    <PasStyle onClick={(e) => action.previous(e)} 
-                        tag='BUTTON'
-                        {...btnStyle}
-                    >
+                    <Button  onClick={(e) => action.previous(e)}> 
                         <Icons.Io.IoIosArrowDown />
-                    </PasStyle>
+                    </Button>
                 </PasStyle>
             }
         </PasStyle>
