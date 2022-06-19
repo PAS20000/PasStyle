@@ -1,3 +1,4 @@
+import Color from "../../../Color/index.styles"
 import { PasStyleProps } from "../../../types"
 
 const Css = {
@@ -7,10 +8,10 @@ const Css = {
             w:'90%',
             b_radius:'8px',
             border:'solid 2px',
-            bg:'gray',
-            color:'yellow',
-            b_color:'cyan',
-            outline_color:'yellow',
+            bg:Color.bg,
+            color:Color.yellow,
+            b_color:Color.cyan,
+            outline_color:Color.yellow,
         }
     }
 }

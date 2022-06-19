@@ -11,7 +11,7 @@ type Props = {
     css?:css[number]
 }
 
-const Text = (props:PasStyleProps<Props>) => {
+const Color = (props:PasStyleProps<Props>) => {
 
     const createCss = (css : css[number]) : PasStyleProps => {
         return {...Css[css ?? 'default']()}
@@ -20,4 +20,4 @@ const Text = (props:PasStyleProps<Props>) => {
     return <PasStyle {...createCss(props.css)} tag={props.tag ?? 'INPUT'} {...props} />
 }
 
-export default Text
+export default Color

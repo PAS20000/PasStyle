@@ -1,3 +1,4 @@
+import Color from "../../../Color/index.styles"
 import { PasStyleProps } from "../../../types"
 
 const Css = {
@@ -5,7 +6,7 @@ const Css = {
         return{
             transform:'translate(90vh, 25vh)',
             position:'fixed',
-            bg:'white',
+            bg:Color.bg,
             pd:'20px',
             z:'10'          
         }

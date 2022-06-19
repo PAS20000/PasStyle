@@ -16,10 +16,7 @@ const ButtonOpenPopup = (props:PasStyleProps<Props>) => {
         }
     }
 
-    return <Button 
-            {...props}
-            onClick={action.open}
-        />
+    return <Button {...props} onClick={action.open} />
 }
 
 export default ButtonOpenPopup
