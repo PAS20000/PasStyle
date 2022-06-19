@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { PropsCTXdefault, SetState } from '../types'
-import { Styles } from '../../_PasStyle/types'
+import { Styles } from '../../_PasStyle/utils/types'
 
 export type DemoCTX = {
     style:Styles
@@ -24,11 +24,11 @@ const DemoProvider = ({
                 bg:'#282a36',
                 pd:'10px',
                 mg:'10px',
-                b_Radius:'8px',
+                b_radius:'8px',
                 border:'solid 2px',
                 t_decoration:'none',
                 color:'#ffffff',
-                b_Color:'#ffffff',
+                b_color:'#ffffff',
                 cursor:'pointer',
                 t_transform:'capitalize',
     })
@@ -36,7 +36,7 @@ const DemoProvider = ({
     const [hover, setHover] = React.useState<Styles>({
         transition: '1s',
         bg:'#000000',
-        b_Color:'#000000',
+        b_color:'#000000',
         color:'#ffffff',
         op:'0.5',
     })

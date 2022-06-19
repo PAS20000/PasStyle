@@ -1,27 +1,25 @@
 import * as React from 'react'
 import PasStyle from '../../..'
-import { PasStyleProps } from '../../../types'
+import CreateKind from '../../../utils/CreateKind/index.styles'
+import { PasStyleProps } from '../../../utils/types'
 import Css from './index.styles'
 
-type css = [
+type Kind = [
     'default'
 ]
 
 type Props = {
-    css?:css[number]
+    kind?:Kind[number]
 }
 
 const Label = (props:PasStyleProps<Props>) => {
 
-    const { css } = props
+    const { kind } = props
 
-    const createCss = (css : css[number]) : PasStyleProps => {
-        return {...Css[css ?? 'default']()}
-    }
     return(
         <PasStyle mg='15px 10px 0px'>
             <PasStyle tag='LABEL'
-                {...createCss(css)}
+                {...CreateKind({kind, Css})}
                 {...props}
             />
         </PasStyle>

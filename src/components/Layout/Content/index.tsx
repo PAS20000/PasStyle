@@ -2,7 +2,7 @@ import * as React from 'react'
 import Aside from '../Aside'
 import Container from '../Container'
 import Title from '../../Title'
-import { PasStyleProps } from '../../../_PasStyle/types'
+import { PasStyleProps } from '../../../_PasStyle/utils/types'
 import useThemeCTX from '../../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../../hooks/useUserExperienceCTX'
 
@@ -20,7 +20,10 @@ const Content = (props:PasStyleProps<Props>) => {
 
     return(
         <Container {...props} grid columns='1fr 1fr'  
-            animation='show'
+            animation={{
+                name:'show',
+                time:1
+            }}
         > 
             <Container 
                 tag='ARTICLE'

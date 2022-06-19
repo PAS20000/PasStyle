@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Styles } from '../../../../../src/_PasStyle/types'
+import { Styles } from '../../../../../src/_PasStyle/utils/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 import Input from '../../../../../src/_PasStyle/Components/Input'
 

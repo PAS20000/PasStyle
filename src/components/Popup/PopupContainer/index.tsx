@@ -3,7 +3,7 @@ import Icons from '../../../_PasStyle/Components/Icons'
 import { SetState } from '../../../contexts/types'
 import useThemeCTX from '../../../hooks/useThemeCTX'
 import PasStyle from '../../../_PasStyle'
-import { PasStyleProps } from '../../../_PasStyle/types'
+import { PasStyleProps } from '../../../_PasStyle/utils/types'
 
 
 type Props = {

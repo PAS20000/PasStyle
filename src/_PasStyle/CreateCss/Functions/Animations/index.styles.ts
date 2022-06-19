@@ -1,4 +1,4 @@
-import { Animation } from "../../../types"
+import { Animation } from "../../../utils/types"
 import { Return } from "../../Types"
 
 type Props = {

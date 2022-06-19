@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SetState } from '../../contexts/types'
 import PasStyle from '../../_PasStyle'
-import { PasStyleProps } from '../../_PasStyle/types'
+import { PasStyleProps } from '../../_PasStyle/utils/types'
 
 type Props = {
     state:[boolean, SetState<boolean>]

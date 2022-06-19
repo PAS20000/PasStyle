@@ -3,7 +3,7 @@ import { ShowState } from '../../..'
 import Select from '../../../../../src/components/Select'
 import Option from '../../../../../src/components/Select/Option'
 import PasStyle from '../../../../../src/_PasStyle'
-import { PasStyleProps, Tags } from '../../../../../src/_PasStyle/types'
+import { PasStyleProps, Tags } from '../../../../../src/_PasStyle/utils/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 import useUserExperienceCTX from '../../../../../src/hooks/useUserExperienceCTX'
 

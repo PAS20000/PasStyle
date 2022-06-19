@@ -1,5 +1,6 @@
 import * as React from 'react'
 import PasStyle from '../..'
+import Icons from '../Icons'
 
 type Props = {
     title:string
@@ -63,6 +64,7 @@ const Select = ({
             formT_transform:innerHtml,
         })
     }
+
     const action = {
         next(e : React.MouseEvent | MouseEvent) {
             const { length } = arrayChildren
@@ -110,20 +112,6 @@ const Select = ({
     React.useEffect(() => {
         Listener()
     }, [open])
-      
-
-    const btnStyle : PasStyleProps = {  
-        bg:'transparent',
-        color: theme.colors.white,
-        border: 'none',
-        pd:'5px',
-        b_radius:'8px',
-        cursor: 'pointer',
-        _hover:{
-            transition: '1s',
-            bg:theme.colors.darkGray,
-        }
-    }
 
     return(
         <PasStyle
@@ -169,7 +157,7 @@ const Select = ({
                     >
                        {children[0].props.value}
                     </PasStyle>
-                    {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
+                    {icon ??  <Icons.Go.GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
                 </PasStyle>
             </PasStyle>
             {open &&

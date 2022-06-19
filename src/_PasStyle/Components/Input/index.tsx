@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PasStyle from '../..'
-import { PasStyleProps } from '../../types'
+import { PasStyleProps } from '../../utils/types'
 import Color from './Color'
 import Default from './Default'
 import Label from './Label'

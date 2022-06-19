@@ -2,7 +2,7 @@ import * as React from 'react'
 import Code from '../../../../../src/components/Code'
 import PasStyle from '../../../../../src/_PasStyle'
 import CreateStyle from '../../../../../src/_PasStyle/CreateStyle/index.styles'
-import { PasStyleProps } from '../../../../../src/_PasStyle/types'
+import { PasStyleProps } from '../../../../../src/_PasStyle/utils/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
 
@@ -46,7 +46,7 @@ const Codes = () => {
         mg:'5px',
         border:'none',
         cursor: 'pointer',
-        b_Radius: '8px',
+        b_radius: '8px',
         _hover:{
             transition: '1s',
             color:theme.colors.red,
@@ -75,7 +75,7 @@ const Codes = () => {
                 </PasStyle>
             </PasStyle>
             {show === 'props' &&
-                <Code copyId='css-props'>
+                <Code>
                     <PasStyle
                         tag='SPAN'
                         color={theme.colors.green}
@@ -103,7 +103,7 @@ const Codes = () => {
                 </Code>
             }
             {show === 'hover' &&   
-                <Code copyId='css-hover'>
+                <Code>
                     <PasStyle
                         tag='SPAN'
                         color={theme.colors.green}

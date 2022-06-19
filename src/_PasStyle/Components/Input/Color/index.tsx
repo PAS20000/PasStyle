@@ -1,7 +1,8 @@
 import * as React from 'react'
 import PasStyle from '../../..'
 import useWhoIam from '../../../../hooks/useWhoIam'
-import { PasStyleProps } from '../../../types'
+import CreateKind from '../../../utils/CreateKind/index.styles'
+import { PasStyleProps } from '../../../utils/types'
 import Css from './index.styles'
 
 type css = [
@@ -9,23 +10,19 @@ type css = [
 ]
 
 type Props = {
-    css?:css[number]
+    kind?:css[number]
 }
 
 const Color = (props:PasStyleProps<Props>) => {
 
-    const {type, onChange, placeholder, value, css} = props
+    const {type, onChange, placeholder, value, kind} = props
 
     const { random } = useWhoIam('color')
-
-    const createCss = (css : css[number]) : PasStyleProps => {
-        return {...Css[css ?? 'default']()}
-    }
 
     return (
         <PasStyle
             onClick={() => document.getElementById(random).click()}
-            {...createCss(css)}
+            {...CreateKind({kind, Css})}
             {...props}
         >
         <PasStyle 

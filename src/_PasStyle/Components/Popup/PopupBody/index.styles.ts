@@ -1,5 +1,5 @@
 import Color from "../../../Color/index.styles"
-import { PasStyleProps } from "../../../types"
+import { PasStyleProps } from "../../../utils/types"
 
 const Css = {
     default() : PasStyleProps{

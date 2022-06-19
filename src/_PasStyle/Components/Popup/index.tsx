@@ -1,7 +1,7 @@
 import * as React from 'react'
 import PasStyle from '../..'
 import { SetState } from '../../../contexts/types'
-import { PasStyleProps } from '../../types'
+import { PasStyleProps } from '../../utils/types'
 import Button from '../Button'
 import Css from './index.styles'
 
