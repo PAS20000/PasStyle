@@ -5,6 +5,9 @@ import { SetState } from '../../../../src/contexts/types'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
 import Icons from '../../../../utils/Icons'
 import Button from './Button'
+import Popup from '../../../../src/_PasStyle/Components/Popup'
+import PopupBody from '../../../../src/_PasStyle/Components/Popup/PopupBody'
+import Form from '../Form'
 
 type Props = {
     setState:SetState<boolean>
@@ -14,7 +17,7 @@ type Props = {
 
 const Config = ({
     setState,
-    setShow
+    setShow,
 } : Props ) => {
 
     const { theme } = useThemeCTX()
@@ -23,7 +26,6 @@ const Config = ({
         setState(true)
         setShow('create')
     }
-    
     return(
         <PasStyle
                 pd='10px'

@@ -12,6 +12,7 @@ import { Musics } from './api/music'
 import { Users } from './api/users'
 import Popup from '../src/_PasStyle/Components/Popup'
 import PopupBody from '../src/_PasStyle/Components/Popup/PopupBody'
+import usePopup from '../src/_PasStyle/Components/Popup/hooks/usePopup'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -54,6 +55,7 @@ const Home = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
+    const state = usePopup()
 
     return(
         <>
@@ -63,7 +65,7 @@ const Home = ({
                 />
            </Header>
             <Main>
-                <Popup>
+                <Popup state={state}>
                    <PopupBody>
                         <h1 style={{color:'black'}}>
                             teste
