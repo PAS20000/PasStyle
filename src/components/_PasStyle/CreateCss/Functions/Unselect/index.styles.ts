@@ -1,4 +1,4 @@
-import { Return } from "../Types"
+import { Return } from "../../Types"
 
 const Unselect =  function(unselectableText : boolean) : Return {
     if(unselectableText){

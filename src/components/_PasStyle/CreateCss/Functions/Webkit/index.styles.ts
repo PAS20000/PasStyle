@@ -1,4 +1,4 @@
-import { Return } from "../Types"
+import { Return } from "../../Types"
 
 const Webkit =  function(_webkit : string) : Return {
     if(_webkit){

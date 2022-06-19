@@ -1,4 +1,4 @@
-import { Return } from "../Types"
+import { Return } from "../../Types"
 
 type Props = {
     display:string
@@ -74,6 +74,5 @@ const Layout = function({
             ${bg && `background-color: ${bg}`};
         `
     }
-
 
 export default Layout

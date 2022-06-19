@@ -1,4 +1,4 @@
-import { Return } from "../Types"
+import { Return } from "../../Types"
 
 type Props = {
     f_size:string

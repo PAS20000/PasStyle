@@ -1,4 +1,4 @@
-import { Return } from "../Types"
+import { Return } from "../../Types"
 
 type createAnimation = {
     name:string

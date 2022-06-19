@@ -1,11 +1,11 @@
-import Layout from './Layout/index.styles'
-import Unselect from './Unselect/index.styles'
-import Webkit from './Webkit/index.styles'
-import Animations from './Animations/index.styles'
-import Keyframes from './Keyframes/index.styles'
-import Borders from './Borders/index.styles'
-import Fonts from './Fonts/index.styles'
-import Events from './Events/index.styles'
+import Layout from './Functions/Layout/index.styles'
+import Unselect from './Functions/Unselect/index.styles'
+import Webkit from './Functions/Webkit/index.styles'
+import Animations from './Functions/Animations/index.styles'
+import Keyframes from './Functions/Keyframes/index.styles'
+import Borders from './Functions/Borders/index.styles'
+import Fonts from './Functions/Fonts/index.styles'
+import Events from './Functions/Events/index.styles'
 
 
 export default {

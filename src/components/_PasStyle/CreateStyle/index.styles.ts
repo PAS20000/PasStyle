@@ -62,7 +62,7 @@ const CreateStyles = ({
             Fonts
         } = CreateCss
 
-    const propsLayout = {
+    const LayoutProps = {
         display,
         flex,
         between,
@@ -85,7 +85,7 @@ const CreateStyles = ({
         bg
     }
     
-    const propsBorder = {
+    const BorderProps = {
         b_bottom,
         b_color,
         b_left,
@@ -93,10 +93,12 @@ const CreateStyles = ({
         b_right,
         b_top,
         border,
-        shadow
+        shadow,
+        outline,
+        outline_color
     }
 
-    const propsFonts = {
+    const FontsProps = {
         f_size,
         f_family,
         f_weight,
@@ -106,24 +108,25 @@ const CreateStyles = ({
         t_decoration
     }
 
-    const propsEvent = {
+    const EventProps = {
         p_Events,
         cursor
+    }
+    const AnimationProps = {
+        animation,
+        transition,
+        op
     }
 
     return`
         ${Keyframes()} 
-        ${Animations(animation)}
+        ${Animations(AnimationProps)}
         ${Unselect(unselectableText)}
-        ${Events(propsEvent)}
+        ${Events(EventProps)}
         ${Webkit(_webkit)}
-        ${Layout(propsLayout)}
-        ${Borders(propsBorder)}
-        ${Fonts(propsFonts)}
-        ${outline && `outline: ${outline}`};
-        ${outline_color && `outline-color: ${outline_color}`};
-        ${transition && `transition: ${transition}`};
-        ${op && `opacity: ${op}`};
+        ${Layout(LayoutProps)}
+        ${Borders(BorderProps)}
+        ${Fonts(FontsProps)}
 `}
 
 const CreateStyle = (props: TCreateStyle) : string =>  {

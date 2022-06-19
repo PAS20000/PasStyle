@@ -1,4 +1,4 @@
-import { Return } from "../Types"
+import { Return } from "../../Types"
 
 type borders = {
     b_bottom:string
@@ -9,6 +9,8 @@ type borders = {
     b_radius:string
     border:string
     shadow:string
+    outline:string
+    outline_color:string
 }
 
 const Borders = function({
@@ -19,7 +21,9 @@ const Borders = function({
     b_color,
     b_radius,
     border,
-    shadow
+    shadow,
+    outline,
+    outline_color
 } : borders) : Return {
 
     return`
@@ -31,6 +35,8 @@ const Borders = function({
         ${b_right && `border-color: ${b_right}`};
         ${b_left && ` border-bottom: ${b_left}`};
         ${shadow && `box-shadow: ${shadow}`};
+        ${outline && `outline: ${outline}`};
+        ${outline_color && `outline-color: ${outline_color}`};
     `
 }
 
