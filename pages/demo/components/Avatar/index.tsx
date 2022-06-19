@@ -2,7 +2,6 @@ import * as React from 'react'
 import PasStyle from '../../../../src/_PasStyle'
 import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import { Users } from '../../../api/users'
-import Likes from './Likes'
 import Card from './Card'
 import Icons from '../../../../src/_PasStyle/Components/Icons'
 import { useRouter } from 'next/router'
@@ -100,13 +99,7 @@ const Avatar = ({
                     <PasStyle grid columns='1fr 1fr'
                        
                     >
-                        {likes.map(like => 
-                            <Likes key={like.id}
-                                thumb={like.thumb}
-                                name={like.name}
-                                link={like.link}
-                            />
-                        )}
+                       
                     </PasStyle>
                 </PasStyle>
             }

@@ -2,11 +2,11 @@ import * as React from 'react'
 import PasStyle from '../../_PasStyle'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import Router from './Router'
-import Select from '../Select'
-import Option from '../Select/Option'
 import { useRouter } from 'next/router'
 import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
 import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
+import Option from '../Select/Option'
+import Select from '../../_PasStyle/Components/Select'
 
 type Props = {
     current?:'docs' | 'demo' | 'git'
