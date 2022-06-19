@@ -3,6 +3,7 @@ import PasStyle from '../..'
 import { PasStyleProps } from '../../types'
 import Color from './Color'
 import Default from './Default'
+import Label from './Label'
 
 type css = [
     'default'
@@ -10,11 +11,12 @@ type css = [
 
 type Props = {
     css?:css[number]
+    label?:string
 }
 
 const Input = (props:PasStyleProps<Props>) => {
 
-    const { type } = props
+    const { type, label } = props
 
     const typeVerify = () : boolean => {
         return (
@@ -30,6 +32,9 @@ const Input = (props:PasStyleProps<Props>) => {
 
     return (
         <>
+            <Label htmlFor={label} {...props}>
+                {label}
+            </Label>
             {typeVerify() && <Default {...props}/>}
             {type === 'color' && <Color {...props}/>}
         </>

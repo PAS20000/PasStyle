@@ -88,7 +88,7 @@ const Home = ({
                     </Content>
             </Main>
             <Footer>
-                
+
             </Footer>
         </>
     )

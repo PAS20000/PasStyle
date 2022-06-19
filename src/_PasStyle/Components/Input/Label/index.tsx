@@ -1,6 +1,6 @@
 import * as React from 'react'
-import PasStyle from '../..'
-import { PasStyleProps } from '../../types'
+import PasStyle from '../../..'
+import { PasStyleProps } from '../../../types'
 import Css from './index.styles'
 
 type css = [

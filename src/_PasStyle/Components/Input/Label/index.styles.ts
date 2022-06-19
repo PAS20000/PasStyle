@@ -1,5 +1,5 @@
-import Color from "../../Color/index.styles"
-import { PasStyleProps } from "../../types"
+import Color from "../../../Color/index.styles"
+import { PasStyleProps } from "../../../types"
 
 
 const Css = {
@@ -11,7 +11,7 @@ const Css = {
             mg:'0px 10px 0px',
             color:Color.green,
             transform:'translateY(-10px)',
-            pd:'0px 4px 0px',
+            pd:'0px 5px 0px',
             b_radius:'8px',
             f_size:'14px',
             t_transform:'capitalize',
