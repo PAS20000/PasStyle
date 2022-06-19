@@ -72,7 +72,7 @@ const PopupContainer = (props : PasStyleProps<Props>) => {
                     mg='10px'
                     cursor='pointer'
                     border='solid 1px'
-                    b_Radius='8px'
+                    b_radius='8px'
                     _hover={{
                     transition: '1s',
                     color: theme.colors.red

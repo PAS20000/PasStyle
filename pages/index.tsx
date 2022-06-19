@@ -10,7 +10,8 @@ import { dataMusics, dataUsers } from './api'
 import Content from '../src/components/Layout/Content'
 import { Musics } from './api/music'
 import { Users } from './api/users'
-import Popup from '../src/components/Popup'
+import Popup from '../src/_PasStyle/Components/Popup'
+import PopupBody from '../src/_PasStyle/Components/Popup/PopupBody'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -62,6 +63,13 @@ const Home = ({
                 />
            </Header>
             <Main>
+                <Popup>
+                   <PopupBody>
+                        <h1 style={{color:'black'}}>
+                            teste
+                        </h1>
+                   </PopupBody>
+                </Popup>
                 <Content 
                         tag='SECTION'
                         mg='50px'

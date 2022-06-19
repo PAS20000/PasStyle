@@ -19,7 +19,7 @@ const Header = ({
             w='100%'
             transform='translateY(-2vh)'
             shadow='2px 2px 10px black'
-            z='3'
+            z='11'
         >
             {children}
         </PasStyle>
