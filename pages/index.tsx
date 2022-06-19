@@ -65,7 +65,7 @@ const Home = ({
                 />
            </Header>
             <Main>
-                <Popup state={state}>
+                <Popup state={state} bg='black'>
                    <PopupBody>
                         <h1 style={{color:'black'}}>
                             teste
