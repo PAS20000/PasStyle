@@ -1,18 +1,17 @@
 import * as React from 'react'
-import { GoKebabVertical } from 'react-icons/go'
-import Icons from '../../_PasStyle/Components/Icons'
-import PasStyle from '../../_PasStyle'
-import { PasStyleProps } from '../../_PasStyle/utils/types'
-import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
+import PasStyle from '../../..'
+import useThemeCTX from '../../Contexts/ThemeContext/useThemeCTX'
+import Button from '../Button'
+import Icons from '../Icons'
 
 type Props = {
     title:string
     children?:React.ReactNode
     icon?:React.ReactChild
     w?:string
+    open?:boolean
     wOptions?:string
     onClick?:React.MouseEventHandler
-    open?:boolean
     transform?:string
 }
 
@@ -28,16 +27,15 @@ const Select = ({
     children,
     icon,
     w,
-    open,
     onClick,
     transform,
-    wOptions
+    wOptions,
+    open
 } : Props) => {
 
     const arrayChildren = React.Children.toArray(children)
     const items = 3
-    const { theme } = useThemeCTX()
-    
+    const {theme} = useThemeCTX()
 
     const kid = (index?:number) => {
         return index ? children[index].props.value : children[0].props.value
@@ -50,7 +48,7 @@ const Select = ({
         formT_transform:kid()
     })
 
-    const  [ pagination, setPagination ] = React.useState({
+    const [ pagination, setPagination ] = React.useState({
         init:0,
         final:items
     })
@@ -69,37 +67,38 @@ const Select = ({
         })
     }
 
-    const nextOpt = (e : React.MouseEvent | MouseEvent) => {
-        const { length } = arrayChildren
-        const { init, final } = pagination
-
-        if(final < length && e.isTrusted){
-            setPagination({
-                init:init + items,
-                final:final + items
-            })
-        } else {
-            setPagination({
-                init:0,
-                final:items
-            })
-        }
-    }
-
-    const backOpt = (e : React.MouseEvent | MouseEvent) => {
-        const { length } = arrayChildren
-        const { init, final } = pagination
-
-        if(init > (items - 1) && e.isTrusted){
-            setPagination({
-                init:init - items,
-                final:final - items
-            })
-        } else {
-            setPagination({
-                init:length - items,
-                final:length
-            })
+    const action = {
+        next(e : React.MouseEvent | MouseEvent) {
+            const { length } = arrayChildren
+            const { init, final } = pagination
+    
+            if(final < length && e.isTrusted){
+                setPagination({
+                    init:init + items,
+                    final:final + items
+                })
+            } else {
+                setPagination({
+                    init:0,
+                    final:items
+                })
+            }
+        },
+        previous(e : React.MouseEvent | MouseEvent) {
+            const { length } = arrayChildren
+            const { init, final } = pagination
+    
+            if(init > (items - 1) && e.isTrusted){
+                setPagination({
+                    init:init - items,
+                    final:final - items
+                })
+            } else {
+                setPagination({
+                    init:length - items,
+                    final:length
+                })
+            }
         }
     }
 
@@ -112,20 +111,6 @@ const Select = ({
     React.useEffect(() => {
         Listener()
     }, [open])
-      
-
-    const btnStyle : PasStyleProps = {  
-        bg:'transparent',
-        color: theme.colors.white,
-        border: 'none',
-        pd:'5px',
-        b_radius:'8px',
-        cursor: 'pointer',
-        _hover:{
-            transition: '1s',
-            bg:theme.colors.darkGray,
-        }
-    }
 
     return(
         <PasStyle
@@ -143,8 +128,7 @@ const Select = ({
                 pd='0px 4px 0px'
                 b_radius='8px'
                 f_size='12px'
-                t_transform='capitalize'
-                
+                t_transform='capitalize'   
             >
                 {title}
             </PasStyle>
@@ -171,7 +155,7 @@ const Select = ({
                     >
                        {children[0].props.value}
                     </PasStyle>
-                    {icon ??  <GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
+                    {icon ??  <Icons.Go.GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
                 </PasStyle>
             </PasStyle>
             {open &&
@@ -191,19 +175,13 @@ const Select = ({
                     z='3'
                     w={wOptions}
                 >
-                    <PasStyle onClick={(e) => backOpt(e)}
-                        tag='BUTTON'
-                        {...btnStyle}
-                    >
+                    <Button  onClick={(e) => action.next(e)}> 
                         <Icons.Io.IoIosArrowUp />
-                    </PasStyle>
+                    </Button>
                         {options()}
-                    <PasStyle onClick={(e) => nextOpt(e)} 
-                        tag='BUTTON'
-                        {...btnStyle}
-                    >
+                    <Button  onClick={(e) => action.previous(e)}> 
                         <Icons.Io.IoIosArrowDown />
-                    </PasStyle>
+                    </Button>
                 </PasStyle>
             }
         </PasStyle>

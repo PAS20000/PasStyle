@@ -1,32 +1,41 @@
 import * as React from 'react'
-import { SetState } from '../../../../contexts/types'
+import { SetState } from '../../../../../src/contexts/types'
 
 type Props = {
 
 }
-type State = [boolean, SetState<boolean>]
+
+type State =  [boolean, SetState<boolean>]
 
 type Return = {
-    state: State
-    open: Function
-    close: Function
+    state:State
+    open:boolean
+    setOpen:SetState<boolean>
+    action: {
+        open:Function
+        close:Function
+    }
 }
 
-const usePopUp = () : Return => {
+const usePopup = () : Return => {
 
     const [open, setOpen] = React.useState<boolean>(false)
 
-    const PopUpState : State = [open, setOpen]
+    const PopupState : State = [open, setOpen]
 
     return {
-        state:PopUpState,
-        open(){
-            setOpen(true)
-        },
-        close(){
-            setOpen(false)
+        state:PopupState,
+        open,
+        setOpen,
+        action: {
+            open(){
+                setOpen(true)
+            },
+            close(){
+                setOpen(false)
+            }
         }
     }
 }
 
-export default usePopUp
+export default usePopup

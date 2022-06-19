@@ -1,18 +1,10 @@
 import * as React from 'react'
-import PasStyle from '../../../_PasStyle'
+import PasStyle from '../../../..'
+import { PasStyleProps } from '../../../../utils/types'
 
-type Props = {
-    children?:React.ReactNode
-}
+const Footer = (props : PasStyleProps) => {
 
-const Footer = ({
-    children
-} : Props) => {
-    return(
-        <PasStyle tag='FOOTER'>
-            {children}
-        </PasStyle>
-    )
+    return <PasStyle tag={props.tag ?? 'FOOTER'} {...props}/>
 }
 
 export default Footer

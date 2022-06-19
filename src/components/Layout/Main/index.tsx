@@ -1,27 +1,10 @@
 import * as React from 'react'
-import PasStyle from '../../../_PasStyle'
-import useThemeCTX from '../../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
+import PasStyle from '../../../..'
+import { PasStyleProps } from '../../../../utils/types'
 
-type Props = {
-    children?:React.ReactNode
-}
+const Main = (props : PasStyleProps) => {
 
-const Main = ({
-    children
-} : Props) => {
-
-    const { theme } = useThemeCTX()
-
-    return(
-        <PasStyle
-            tag='MAIN' 
-            pd='60px 0px 50px'
-            h='100%'
-            bg={theme.colors.darkGray}
-        >
-            {children}
-        </PasStyle>
-    )
+    return <PasStyle tag={props.tag ?? 'MAIN'} {...props}/>
 }
 
 export default Main

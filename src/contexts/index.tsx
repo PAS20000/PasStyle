@@ -1,25 +1,19 @@
 import * as React from 'react'
-import AuthProvider from './AuthContext'
-import DemoProvider from './DemoContext'
-import UserExperienceProvider from './UserExperienceContext'
+import PasStyleThemeProvider from './ThemeContext'
 
 type Props = {
     children:React.ReactNode
 }
 
-export const GlobalProvider = ({
+export const PasStyleProvider = ({
     children
 } : Props) => {
 
     return(
-        <DemoProvider>
-                <UserExperienceProvider>
-                    <AuthProvider>
-                        {children}
-                    </AuthProvider>
-                </UserExperienceProvider>
-        </DemoProvider>
+        <PasStyleThemeProvider>
+            {children}
+        </PasStyleThemeProvider>
     )
 }
 
-export default GlobalProvider
+export default PasStyleProvider

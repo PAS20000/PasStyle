@@ -1,32 +1,44 @@
 import * as React from 'react'
-import { SetState } from '../../contexts/types'
-import PasStyle from '../../_PasStyle'
-import { PasStyleProps } from '../../_PasStyle/utils/types'
+import PasStyle from '../../..'
+import { SetState } from '../../../src/contexts/types'
+import { PasStyleProps } from '../../../utils/types'
+import Button from '../Button'
+import Css from './index.styles'
+
+type css = [
+    'default'
+]
 
 type Props = {
-    state:[boolean, SetState<boolean>]
+   css?:css[number]
+   state:[boolean, SetState<boolean>]
 }
 
 const Popup = (props:PasStyleProps<Props>) => {
     
-    const {state, children, bg, tag, h, w, position, onClick} = props
+    const {children, css, state} = props
 
-    const close = () => state[1](false)
+    const action = {
+        open(){
+            state[1](true)
+        },
+        close(){
+            state[1](false)
+        }
+    }
+
+    const createCss = (css : css[number]) : PasStyleProps => {
+        return {...Css[css ?? 'default']()}
+    }
 
     return(
-    <>  
+    <>
         {state[0] &&
             <>
-                <PasStyle {...props}
-                    bg={bg ?? '#0000009d'} 
-                    w={w ?? '100%'}
-                    h={h ?? '100vh'}
-                    tag={tag ?? 'DIV'} 
-                    position={position ?? 'fixed'}
-                    onClick={(e) => {
-                        close()
-                        onClick && onClick(e)
-                    }}
+                <PasStyle
+                    {...createCss(css)}
+                    onClick={action.close}
+                    {...{...props, children:null}}
                 />
                 {children}
             </>
