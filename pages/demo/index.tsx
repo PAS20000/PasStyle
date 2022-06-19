@@ -61,7 +61,7 @@ const Demo = ({
 
     const { theme } = useThemeCTX()
     const [ show, setShow ] = React.useState<ShowState>('props')
-   const state = usePopup()
+   const {state} = usePopup()
 
     return(
         <>

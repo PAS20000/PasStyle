@@ -26,7 +26,9 @@ const Input = (props:PasStyleProps<Props>) => {
             type === 'email' ||
             type === 'password' ||
             type === 'tel' ||
-            type === 'url'
+            type === 'url' ||
+            type === 'date' ||
+            type === 'search'
         ) 
     }
 

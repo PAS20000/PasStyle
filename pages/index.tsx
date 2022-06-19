@@ -14,6 +14,7 @@ import Popup from '../src/_PasStyle/Components/Popup'
 import PopupBody from '../src/_PasStyle/Components/Popup/PopupBody'
 import usePopup from '../src/_PasStyle/Components/Popup/hooks/usePopup'
 import Input from '../src/_PasStyle/Components/Input'
+import ButtonOpenPopup from '../src/_PasStyle/Components/Popup/ButtonOpenPopup'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
     
@@ -56,7 +57,8 @@ const Home = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const state = usePopup()
+    const {state} = usePopup()
+    const {'state':state2} = usePopup()
 
     return(
         <>
@@ -66,10 +68,17 @@ const Home = ({
                 />
            </Header>
             <Main>
-                <Popup state={state} bg='black'>
+                <Popup state={state}>
                    <PopupBody>
                         <h1 style={{color:'black'}}>
-                            teste
+                            teste1
+                        </h1>
+                   </PopupBody>
+                </Popup>
+                <Popup state={state2}>
+                   <PopupBody>
+                        <h1 style={{color:'black'}}>
+                            teste2
                         </h1>
                    </PopupBody>
                 </Popup>
