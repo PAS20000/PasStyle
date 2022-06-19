@@ -6,16 +6,14 @@ import Header from '../../src/components/Layout/Header'
 import Main from '../../src/components/Layout/Main'
 import NavBar from '../../src/components/NavBar'
 import useThemeCTX from '../../src/hooks/useThemeCTX'
-import { dataMusics, dataLang, dataUsers } from '../api'
+import { dataMusics, dataUsers } from '../api'
 import Avatar from './components/Avatar'
 import Container from '../../src/components/Layout/Container'
 import Config from './components/Config'
 import { Musics } from '../api/music'
 import { Users } from '../api/users'
-import { Langs } from '../api/langs'
 import Popup from '../../src/components/Popup'
 import usePopup from '../../src/components/Popup/hooks/usePopup'
-import PasStyle from '../../src/components/_PasStyle'
 import PopupContainer from '../../src/components/Popup/PopupContainer'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
@@ -24,13 +22,12 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
         //const resp = await axiosConfig(`users/{params.id}/`)
         const respMusics = dataMusics
         const respUsers = dataUsers
-        const respLangs = dataLang
+
         return {
             props: {
               datas:{
                   Musics:respMusics,
                   users:respUsers,
-                  langs:respLangs
               },
             },
           }
@@ -42,7 +39,6 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
               datas:{
                   Musics:[{}],
                   users:[{}],
-                  langs:[{}]
               },
             },
             notFound:true
@@ -54,7 +50,6 @@ type Props = {
     datas:{
         Musics:Array<Musics>
         users:Array<Users>
-        langs:Array<Langs>
     }
 }
 
@@ -82,7 +77,7 @@ const Demo = ({
                         <PopupContainer 
                             state={state}
                             mg='0px 30px 30px' 
-                            b_Radius='8px'
+                            b_radius='8px'
                             shadow='2px 2px 10px black'
                             bg={theme.colors.bg}
                             closeFooter
@@ -99,7 +94,7 @@ const Demo = ({
                     pd='50px' 
                     mg='50px'
                     bg={theme.colors.bg}
-                    b_Radius='8px'
+                    b_radius='8px'
                     shadow='2px 2px 10px black'
                 >
                    <Config 

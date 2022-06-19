@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { PropsCTXdefault, SetState } from '../types'
-import { Styles } from '../../components/_PasStyle/types'
+import { Styles } from '../../_PasStyle/types'
 
 export type DemoCTX = {
     style:Styles

@@ -2,8 +2,8 @@ import * as React from 'react'
 import Icons from '../../../../utils/Icons'
 import { SetState } from '../../../contexts/types'
 import useThemeCTX from '../../../hooks/useThemeCTX'
-import PasStyle from '../../_PasStyle'
-import { PasStyleProps } from '../../_PasStyle/types'
+import PasStyle from '../../../_PasStyle'
+import { PasStyleProps } from '../../../_PasStyle/types'
 
 
 type Props = {

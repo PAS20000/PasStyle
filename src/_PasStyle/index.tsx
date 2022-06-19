@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Emotion from './index.styles'
-import NextImage from '../../Contracts/NextImage'
-import NextLink from '../../Contracts/NextLink'
+import NextImage from '../Contracts/NextImage'
+import NextLink from '../Contracts/NextLink'
 import { PasStyleProps } from './types'
 
 const PasStyle = (props:PasStyleProps) => {

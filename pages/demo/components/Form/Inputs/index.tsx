@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Field from '../../../../../src/components/Field'
-import { Styles } from '../../../../../src/components/_PasStyle/types'
+import { Styles } from '../../../../../src/_PasStyle/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 
 type Props = {

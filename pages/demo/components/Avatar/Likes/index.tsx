@@ -1,5 +1,5 @@
 import * as React from 'react'
-import PasStyle from '../../../../../src/components/_PasStyle'
+import PasStyle from '../../../../../src/_PasStyle'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 
 type Props = {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useThemeCTX from '../../../hooks/useThemeCTX'
-import PasStyle from '../../_PasStyle'
+import PasStyle from '../../../_PasStyle'
 
 type Props = {
     children?:React.ReactNode

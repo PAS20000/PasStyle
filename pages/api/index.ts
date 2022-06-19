@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { Langs } from "./langs"
 import { Musics } from "./music"
 import { Users } from "./users"
 
@@ -54,69 +53,6 @@ export const dataMusics : Array<Musics> = [
         createdAt: "2021-12-09T23:15:14.715Z",
     }
 ]
-
-export const dataLang : Array<Langs> = [{
-    pt:{   
-        content:[{
-            id:id(),
-            title:'início rápido',
-            codes:[
-                'npm passtyle',
-                'yarn passtyle'
-            ],
-            aside:'aside pt'
-        },
-        {
-            id:id(),
-            title:'Popup',
-            codes:[`
-                ????
-            `],
-            aside:'????'
-        }]
-    },
-    en:{
-        content:[{
-            id:id(),
-            title:'quick start',
-            codes:[
-                'npm passtyle',
-                'yarn passtyle',
-            ],
-            aside:'aside en'
-        },
-        {
-            id:id(),
-            title:'????',
-            codes:[`
-                const state = usePopup()
-
-                <Popup
-                    state={state}
-                >
-                    <PopupContainer 
-                        state={state}
-                        mg='0px 30px 30px' 
-                        b_Radius='8px'
-                        shadow='2px 2px 10px black'
-                        bg={theme.colors.bg}
-                        closeFooter
-                        closeHead
-                    >
-                        <Form
-                            setState={state[1]}
-                            setShow={setShow}
-                            show={show}
-                        />
-                    </PopupContainer>
-                </Popup>
-            `
-            ],
-            aside:'????'
-        }
-    ]
-    }
-}]
 
 export const dataUsers : Array<Users> = [
     {
@@ -217,7 +153,6 @@ const datas = (req : NextApiRequest, res : NextApiResponse) => {
     return res.status(200).json({
         musics:dataMusics,
         users:dataUsers,
-        langs:dataLang
     })
 }
 

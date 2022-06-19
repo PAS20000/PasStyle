@@ -1,4 +1,5 @@
-import { Return } from "../Types"
+import { Return } from "../../Types"
+
 
 type Props = {
     p_Events:string

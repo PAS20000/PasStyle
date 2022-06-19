@@ -6,11 +6,10 @@ import Header from '../src/components/Layout/Header'
 import Main from '../src/components/Layout/Main'
 import NavBar from '../src/components/NavBar'
 import useThemeCTX from '../src/hooks/useThemeCTX'
-import { dataMusics, dataUsers, dataLang } from './api'
+import { dataMusics, dataUsers } from './api'
 import Content from '../src/components/Layout/Content'
 import { Musics } from './api/music'
 import { Users } from './api/users'
-import { Langs } from './api/langs'
 import Popup from '../src/components/Popup'
 
 export const getStaticProps : GetStaticProps = async (ctx) => {
@@ -19,13 +18,11 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
         //const resp = await axiosConfig(`users/{params.id}/`)
         const respMusics = dataMusics
         const respUsers = dataUsers
-        const respLangs = dataLang
         return {
             props: {
               datas:{
                   Musics:respMusics,
                   users:respUsers,
-                  langs:respLangs
               },
             },
           }
@@ -37,7 +34,6 @@ export const getStaticProps : GetStaticProps = async (ctx) => {
               datas:{
                   Musics:[{}],
                   users:[{}],
-                  langs:[{}]
               },
             },
             notFound:true
@@ -49,7 +45,6 @@ type Props = {
     datas:{
         musics:Array<Musics>
         users:Array<Users>
-        langs:Array<Langs>
     }
 }
 
@@ -67,25 +62,20 @@ const Home = ({
                 />
            </Header>
             <Main>
-            {datas.langs.map(lang => lang.en.content.map(content => 
-                    <Content 
+                <Content 
                         tag='SECTION'
                         mg='50px'
-                        pd='50px'
-                        key={content.id} 
-                        titleContent={content.title} 
-                        text={content.aside}
+                        pd='50px' 
+                        titleContent={'quick start'} 
+                        text={'blá blá'}
                     >
-                        {content.codes.map((code, index) => 
-                            <Code 
-                                key={index}
-                                copyId={code}
-                            >
-                                {code}
+                            <Code>
+                                npm i passtyle
                             </Code>
-                        )}
+                            <Code>
+                                yarn i passtyle
+                            </Code>
                     </Content>
-                ))}
             </Main>
             <Footer>
                 

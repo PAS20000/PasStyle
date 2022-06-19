@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
-import PasStyle from "../../../../src/components/_PasStyle"
+import PasStyle from "../../../../src/_PasStyle"
 import { SetState } from '../../../../src/contexts/types'
 import Container from '../../../../src/components/Layout/Container'
 import { MdClose } from 'react-icons/md'

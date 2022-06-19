@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Code from '../../../../../src/components/Code'
-import PasStyle from '../../../../../src/components/_PasStyle'
-import CreateStyle from '../../../../../src/components/_PasStyle/CreateStyle/index.styles'
-import { PasStyleProps } from '../../../../../src/components/_PasStyle/types'
+import PasStyle from '../../../../../src/_PasStyle'
+import CreateStyle from '../../../../../src/_PasStyle/CreateStyle/index.styles'
+import { PasStyleProps } from '../../../../../src/_PasStyle/types'
 import useDemoCTX from '../../../../../src/hooks/useDemoCTX'
 import useThemeCTX from '../../../../../src/hooks/useThemeCTX'
 

@@ -2,28 +2,27 @@ import * as React from 'react'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../hooks/useUserExperienceCTX'
 import CopyClipBoard from '../CopyClipBoard'
-import PasStyle from "../_PasStyle"
+import PasStyle from "../../_PasStyle"
+import useWhoIam from '../../hooks/useWhoIam'
 
 type Props = {
     children?:React.ReactNode
-    string?:string
-    copyId?:string
 }
 
 const Code = ({
-    children,
-    copyId,
+    children
 } : Props) => {
     const arrayChildren = React.Children.toArray(children)
 
     const { theme } = useThemeCTX()
     const { closeSelect } = useUserExperienceCTX()
+    const { sequencial } = useWhoIam('code')
 
     return(
         <>
             <PasStyle grid columns='96% 1fr'
                 tag='CODE'
-                b_Radius='8px'
+                b_radius='8px'
                 bg={theme.colors.bg}
                 color={theme.colors.green}
                 f_size='16px'
@@ -32,11 +31,11 @@ const Code = ({
                 shadow='2px 2px 10px black'
                 onClick={() => closeSelect.all()}
             >
-                <PasStyle  id={copyId} title={children.toString()}>
+                <PasStyle  id={sequencial} title={children.toString()}>
                     {children}
                 </PasStyle>
-                {copyId && 
-                   <CopyClipBoard id={copyId}/>
+                {sequencial && 
+                   <CopyClipBoard id={sequencial}/>
                 }  
             </PasStyle>
         </>

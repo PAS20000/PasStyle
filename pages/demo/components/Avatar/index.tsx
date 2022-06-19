@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useThemeCTX from '../../../../src/hooks/useThemeCTX'
-import PasStyle from '../../../../src/components/_PasStyle'
+import PasStyle from '../../../../src/_PasStyle'
 import useDemoCTX from '../../../../src/hooks/useDemoCTX'
 import { Users } from '../../../api/users'
 import Likes from './Likes'

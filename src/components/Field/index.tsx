@@ -1,8 +1,8 @@
 import * as React from 'react'
 import useThemeCTX from '../../hooks/useThemeCTX'
 import useWhoIam from '../../hooks/useWhoIam'
-import PasStyle from '../_PasStyle'
-import { Styles } from '../_PasStyle/types'
+import PasStyle from '../../_PasStyle'
+import { Styles } from '../../_PasStyle/types'
 
 type Props = {
     icon?:React.ReactNode

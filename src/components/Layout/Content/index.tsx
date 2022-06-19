@@ -2,7 +2,7 @@ import * as React from 'react'
 import Aside from '../Aside'
 import Container from '../Container'
 import Title from '../../Title'
-import { PasStyleProps } from '../../_PasStyle/types'
+import { PasStyleProps } from '../../../_PasStyle/types'
 import useThemeCTX from '../../../hooks/useThemeCTX'
 import useUserExperienceCTX from '../../../hooks/useUserExperienceCTX'
 
