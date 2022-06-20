@@ -1,6 +1,7 @@
 import * as React from 'react'
-import PasStyle from '../../_PasStyle'
-import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
+import PasStyle from '../../..'
+import useThemeCTX from '../../../Contexts/ThemeContext/useThemeCTX'
+import Icons from '../../Icons'
 
 type Props = {
     id:string
@@ -31,11 +32,10 @@ const CopyClipBoard = ({
     }
 
     return( 
-    <PasStyle>
-        <PasStyle 
+    <PasStyle.Div>
+        <PasStyle.Button
             onClick={Action.Copy}
             type='button' 
-            tag='BUTTON'
             bg={theme.colors.bg}
             color={theme.colors.white}
             border='none'
@@ -46,7 +46,7 @@ const CopyClipBoard = ({
         >
            <Icons.Fa.FaCopy />
         {copy && 
-            <PasStyle 
+            <PasStyle.Div
                 position='absolute'
                 bg={theme.colors.green}
                 color={theme.colors.darkGray}
@@ -64,10 +64,10 @@ const CopyClipBoard = ({
                 }}
             >
                 {copy}
-            </PasStyle>
+            </PasStyle.Div>
         }
-        </PasStyle>
-    </PasStyle>
+        </PasStyle.Button>
+    </PasStyle.Div>
 )
 }
 

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import PasStyle from '../../..'
-import useWhoIam from '../../../../hooks/useWhoIam'
-import CreateKind from '../../../utils/CreateKind/index.styles'
-import { PasStyleProps } from '../../../utils/types'
+import CreateKind from '../../../../utils/CreateKind/index.styles'
+import { PasStyleProps } from '../../../../utils/types'
+import useWhoIam from '../../../Hooks/useWhoIam'
 import Css from './index.styles'
 
 type css = [
@@ -20,13 +20,12 @@ const Color = (props:PasStyleProps<Props>) => {
     const { random } = useWhoIam('color')
 
     return (
-        <PasStyle
+        <PasStyle.Div
             onClick={() => document.getElementById(random).click()}
             {...CreateKind({kind, Css})}
             {...props}
         >
-        <PasStyle 
-            tag='INPUT'
+        <PasStyle.Input
             id={random}
             type={type} 
             bg='transparent' 
@@ -37,10 +36,10 @@ const Color = (props:PasStyleProps<Props>) => {
             w='25px'
             value={value}
         />
-        <PasStyle tag='SPAN' position='absolute' pd='2px'>
+        <PasStyle.Span position='absolute' pd='2px'>
             {value}
-        </PasStyle>
-    </PasStyle>
+        </PasStyle.Span>
+    </PasStyle.Div>
     )
 }
 

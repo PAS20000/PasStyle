@@ -1,8 +1,8 @@
 import * as React from 'react'
 import PasStyle from '../../..'
+import CreateKind from '../../../../utils/CreateKind/index.styles'
+import { PasStyleProps } from '../../../../utils/types'
 import { SetState } from '../../../Contexts/types'
-import CreateKind from '../../../utils/CreateKind/index.styles'
-import { PasStyleProps } from '../../../utils/types'
 import Css from './index.styles'
 
 type Kind = [
@@ -31,7 +31,7 @@ const Popup = (props:PasStyleProps<Props>) => {
     <>
         {state[0] &&
             <>
-                <PasStyle
+                <PasStyle.Div
                     {...CreateKind({kind, Css})}
                     onClick={action.close}
                     {...{...props, children:null}}

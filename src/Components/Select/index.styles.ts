@@ -1,13 +1,16 @@
-import Color from "../../Color/index.styles"
-import { PasStyleProps } from "../../utils/types"
+import { PasStyleProps } from "../../../utils/types"
+import useThemeCTX from "../../Contexts/ThemeContext/useThemeCTX"
 
 const Css = {
     default() : PasStyleProps {
+
+        const {theme} = useThemeCTX()
+
         return {
-            bg:Color.bg, 
+            bg:theme.colors.bg, 
             border:'solid 2px', 
-            b_color:Color.cyan,
-            color:Color.yellow,
+            b_color:theme.colors.cyan,
+            color:theme.colors.yellow,
             pd:'5px',
             w:'95%',
             b_radius:'8px',

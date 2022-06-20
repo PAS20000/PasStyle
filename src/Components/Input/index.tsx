@@ -1,45 +1,36 @@
 import * as React from 'react'
 import PasStyle from '../..'
-import { PasStyleProps } from '../../utils/types'
+import { PasStyleProps } from '../../../utils/types'
 import Color from './Color'
 import Default from './Default'
 import Label from './Label'
 
-type css = [
+type Kind = [
     'default'
 ]
 
 type Props = {
-    css?:css[number]
+    kind?:Kind[number]
     label?:string
 }
 
-const Input = (props:PasStyleProps<Props>) => {
+const Input = {
+    Text(props:PasStyleProps<Props>) {
 
-    const { type, label } = props
+        const {label} = props
 
-    const typeVerify = () : boolean => {
-        return (
-            !type ||
-            type === 'text' ||
-            type === 'number' ||
-            type === 'email' ||
-            type === 'password' ||
-            type === 'tel' ||
-            type === 'url' ||
-            type === 'date' ||
-            type === 'search'
-        ) 
+        return(
+            <PasStyle.Div mg='5px'>
+                <Label htmlFor={label} {...props}>
+                    {label}
+                </Label>
+                <Default {...props} type='text'/>
+            </PasStyle.Div>
+        )
     }
-
-    return (
-        <PasStyle mg='5px'>
-            <Label htmlFor={label} {...props}>
-                {label}
-            </Label>
-            {typeVerify() && <Default {...props}/>}
-            {type === 'color' && <Color {...props}/>}
-        </PasStyle>
-    )
 }
+   
+
+
+
 export default Input

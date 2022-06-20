@@ -1,8 +1,8 @@
 import * as React from 'react'
-import CopyClipBoard from '../CopyClipBoard'
-import PasStyle from "../../_PasStyle"
-import useWhoIam from '../../hooks/useWhoIam'
-import useThemeCTX from '../../_PasStyle/Contexts/ThemeContext/useThemeCTX'
+import PasStyle from '../..'
+import useThemeCTX from '../../Contexts/ThemeContext/useThemeCTX'
+import useWhoIam from '../../Hooks/useWhoIam'
+import CopyClipBoard from './CopyClipBoard'
 
 type Props = {
     children?:React.ReactNode

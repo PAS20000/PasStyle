@@ -1,43 +1,5 @@
 import * as React from 'react'
 
-export type Tags = [
-    'ARTICLE', 
-    'SECTION', 
-    'ASIDE',
-    'HEADER',
-    'BODY',
-    'DIV',
-    'FORM',
-    'NAV',
-    'FOOTER',
-    'BUTTON',
-    'MAIN',
-    'SPAN',
-    'H1',
-    'H2',
-    'H3',
-    'H4',
-    'H5',
-    'H6',
-    'INPUT',
-    'P',
-    'TD',
-    'TR',
-    'TH',
-    'THEAD',
-    'TBODY',
-    'TFOOT',
-    'TABLE',
-    'A',
-    'IMG',
-    'NEXTLINK',
-    'NEXTIMG',
-    'CODE',
-    'LABEL',
-    'IFRAME',
-    'TEXTAREA'
-]
-
 export type AnimationName = [
     'show'
 ]
@@ -77,7 +39,6 @@ export type Props = {
     w?:string
     h?:string
     mg?:string
-    tag?:Tags[number]
     src?:string
     href?:string
     border?:string
@@ -139,7 +100,6 @@ export type Styles = {
     w?:string
     h?:string
     mg?:string
-    tag?:Tags[number]
     src?:string
     href?:string
     border?:string

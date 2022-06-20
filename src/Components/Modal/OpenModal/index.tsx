@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { SetState } from '../../../../contexts/types'
-import { PasStyleProps } from '../../../utils/types'
+import { PasStyleProps } from '../../../../utils/types'
+import { SetState } from '../../../Contexts/types'
 import Button from '../../Button'
 
 type Props = {

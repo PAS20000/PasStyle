@@ -1,6 +1,6 @@
 import * as React from 'react'
+import PasStyle from '../..'
 import { PropsCTXdefault } from '../types'
-import PasStyle from '../../index'
 
 export type PortalCTX = {
    
@@ -17,9 +17,8 @@ const PortalProvider = ({
 
    return(
         <PortalContext.Provider value={{}}>
-            <PasStyle 
+            <PasStyle.Span
                 id='PasStyle-Portal'
-                tag='SPAN'
             />
             {children}
         </PortalContext.Provider>

@@ -1,131 +1,104 @@
 import * as React from 'react'
 import Emotion from './index.styles'
-import NextImage from '../Contracts/NextImage'
-import NextLink from '../Contracts/NextLink'
 import { PasStyleProps } from '../utils/types'
 
-const PasStyle = (props:PasStyleProps) => {
-    const [genStyle, setGenStyle] = React.useState<'emotion' | 'css-in-js'>('emotion')
-
-    const { tag } = props
-
-    if(!tag || tag === 'DIV'){
+const PasStyle = {
+    Div(props:PasStyleProps) {
         return <Emotion.StyleDiv {...props} />
-    }
-    if(tag === 'INPUT'){
+    },
+    Input(props:PasStyleProps) {
         return <Emotion.StyleInput {...props} />
-    }
-    if(tag === 'ARTICLE'){
+    },
+    Article(props:PasStyleProps) {
         return <Emotion.StyleArticle {...props} />
-    }
-    if(tag === 'ASIDE'){
+    },
+    Aside(props:PasStyleProps) {
         return <Emotion.StyleAside {...props} />
-    } 
-    if(tag === 'HEADER'){
+    },
+    Header(props:PasStyleProps) {
         return <Emotion.StyleHeader {...props} />
-    }
-    if(tag === 'BODY'){
-        return <Emotion.StyleBody {...props} />
-    }
-    if(tag === 'FORM'){
-        return <Emotion.StyleForm {...props} />
-    }
-    if(tag === 'NAV'){
-        return <Emotion.StyleNav {...props} />
-    }
-    if(tag === 'FOOTER'){
-        return <Emotion.StyleFooter {...props} />
-    }
-    if(tag === 'BUTTON'){
-        return <Emotion.StyleButton {...props} />
-    }
-    if(tag === 'MAIN'){
+    },
+    Main(props:PasStyleProps) {
         return <Emotion.StyleMain {...props} />
-    }
-    if(tag === 'SECTION'){
+    },
+    Footer(props:PasStyleProps) {
+        return <Emotion.StyleFooter {...props} />
+    },
+    Body(props:PasStyleProps) {
+        return <Emotion.StyleBody {...props} />
+    },
+    Form(props:PasStyleProps) {
+        return <Emotion.StyleForm {...props} />
+    },
+    Section(props:PasStyleProps) {
         return <Emotion.StyleSection {...props} />
-    }
-    if(tag === 'SPAN'){
+    },
+    Button(props:PasStyleProps) {
+        return <Emotion.StyleButton {...props} />
+    },
+    Nav(props:PasStyleProps) {
+        return <Emotion.StyleNav {...props} />
+    },
+    Span(props:PasStyleProps) {
         return <Emotion.StyleSpan {...props} />
-    }
-    if(tag === 'H1'){
+    },
+    H1(props:PasStyleProps) {
         return <Emotion.StyleH1 {...props} />
-    }
-    if(tag === 'H2'){
+    },
+    H2(props:PasStyleProps) {
         return <Emotion.StyleH2 {...props} />
-    }
-    if(tag === 'H3'){
+    },
+    H3(props:PasStyleProps) {
         return <Emotion.StyleH3 {...props} />
-    }
-    if(tag === 'H4'){
+    },
+    H4(props:PasStyleProps) {
         return <Emotion.StyleH4 {...props} />
-    }
-    if(tag === 'H5'){
+    },
+    H5(props:PasStyleProps) {
         return <Emotion.StyleH5 {...props} />
-    }
-    if(tag === 'H6'){
+    },
+    H6(props:PasStyleProps) {
         return <Emotion.StyleH6 {...props} />
-    }
-    if(tag === 'P'){
+    },
+    P(props:PasStyleProps) {
         return <Emotion.StyleP {...props} />
-    }
-    if(tag === 'TABLE'){
+    },
+    Table(props:PasStyleProps) {
         return <Emotion.StyleTable {...props} />
-    }
-    if(tag === 'THEAD'){
+    },
+    Thead(props:PasStyleProps) {
         return <Emotion.StyleThead {...props} />
-    }
-    if(tag === 'TBODY'){
+    },
+    Tbody(props:PasStyleProps) {
         return <Emotion.StyleTbody {...props} />
-    }   
-    if(tag === 'TFOOT'){
+    },
+    Tfoot(props:PasStyleProps) {
         return <Emotion.StyleTfoot {...props} />
-    }
-    if(tag === 'TR'){
+    },
+    Tr(props:PasStyleProps) {
         return <Emotion.StyleTr {...props} />
-    }
-    if(tag === 'TD'){
+    },
+    Td(props:PasStyleProps) {
         return <Emotion.StyleTd {...props} />
-    }
-    if(tag === 'TH'){
+    },
+    Th(props:PasStyleProps) {
         return <Emotion.StyleTh {...props} />
-    }
-    if(tag === 'IMG'){
+    },
+    Img(props:PasStyleProps) {
         return <Emotion.StyleImg {...props} />
-    }
-    if(tag === 'A'){
+    },
+    A(props:PasStyleProps) {
         return <Emotion.StyleA {...props} />
-    }
-    if(tag === 'CODE'){
+    },
+    Code(props:PasStyleProps) {
         return <Emotion.StyleCode {...props} />
-    }
-    if(tag === 'LABEL'){
+    },
+    Label(props:PasStyleProps) {
         return <Emotion.StyleLabel {...props} />
-    }
-    if(tag === 'IFRAME'){
+    },
+    Iframe(props:PasStyleProps) {
         return <Emotion.StyleIframe {...props} />
-    }
-    if(tag === 'NEXTLINK'){
-        return (
-            <Emotion.StyleDiv {...props} >
-                <NextLink href={props.href} target={props.target}>
-                    {props.children}
-                </NextLink>
-            </Emotion.StyleDiv>
-        )
-    }
-    if(tag === 'NEXTIMG'){
-        return (
-            <Emotion.StyleDiv {...props}>
-                <NextImage
-                    alt={props.alt}
-                    src={props.src}
-                    height={props.h}
-                    width={props.w}
-                />
-            </Emotion.StyleDiv>
-        )
-    }
+    },
 }
 
 export default PasStyle
