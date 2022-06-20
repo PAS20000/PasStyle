@@ -36,7 +36,7 @@ const CopyClipBoard = ({
         <PasStyle.Button
             onClick={Action.Copy}
             type='button' 
-            bg={theme.colors.bg}
+            bg={theme.colors.gray[600]}
             color={theme.colors.white}
             border='none'
             b_radius='8px'
@@ -48,8 +48,8 @@ const CopyClipBoard = ({
         {copy && 
             <PasStyle.Div
                 position='absolute'
-                bg={theme.colors.green}
-                color={theme.colors.darkGray}
+                bg={theme.colors.green[300]}
+                color={theme.colors.gray[400]}
                 b_radius='8px'
                 pd='5px'
                 transform='translate(-10px, 5px)'
@@ -60,7 +60,7 @@ const CopyClipBoard = ({
                 }}
                 _hover={{
                     transition:'1s',
-                    bg:theme.colors.darkGray
+                    bg:theme.colors.gray[400]
                 }}
             >
                 {copy}

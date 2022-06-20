@@ -1,19 +1,22 @@
 import * as React from 'react'
 import { Theme, ThemeProvider } from '@emotion/react'
 import { PropsCTXdefault, SetState } from '../types'
-import Themes from '../../../utils/Theme/index.styles'
+import theme from '../../../utils/theme/index.styles'
+import { Colors } from './useThemeCTX'
 
-type mode = 'dark' | 'light'
+export type mode = 'dark' | 'light'
 
-export type ThemeCTX = {
-    mode:mode
-    setMode:SetState<mode>
-    theme:Theme
-    setTheme:SetState<Theme>
-    changeMode:Function
+export type Params = {
+  
 }
 
-
+export type ThemeCTX = {
+    theme:Theme
+    mode:mode
+    setMode:SetState<mode>
+    changeMode:Function
+    useChangeColorByTheme:Function
+}
 
 export const PasStyleThemeContext = React.createContext<ThemeCTX>(null)
 
@@ -21,20 +24,32 @@ const PasStyleThemeProvider = ({
     children
 } : PropsCTXdefault) => {
 
-    const [mode, setMode] = React.useState<mode>('dark')
-
-    const [theme, setTheme] = React.useState(Themes.dark)
-
-        React.useEffect(() => {
-            setTheme(mode === 'dark' ? Themes.dark : Themes.light)
-        }, [mode])
-
-        const changeMode = () : void => {
+    const [mode, setMode] = React.useState<mode>('light')
+    
+        const changeMode = () => {
             setMode(mode === 'dark' ? 'light' : 'dark')
         }
 
+        const useChangeColorByTheme = (Light : Colors[number], Dark : Colors[number]) => {
+
+            const {colors} = theme
+    
+           if(mode === 'dark') {
+            
+                const dark = Dark.split('.')
+                return colors[dark[0]][dark[1]]
+            }
+            if(mode === 'light'){
+
+                const light = Light.split('.')
+                return colors[light[0]][light[1]]
+
+            } else {
+                console.error('Error useChangeColorByTheme')
+            }
+       }
    return(
-        <PasStyleThemeContext.Provider value={{mode, setMode, theme, setTheme, changeMode}}>
+        <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, useChangeColorByTheme}}>
             <ThemeProvider theme={theme}>
                 {children}
             </ThemeProvider>

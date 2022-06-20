@@ -19,8 +19,8 @@ const Code = ({
         <>
             <PasStyle.Code grid columns='96% 1fr'
                 b_radius='8px'
-                bg={theme.colors.bg}
-                color={theme.colors.green}
+                bg={theme.colors.gray[600]}
+                color={theme.colors.green[300]}
                 f_size='16px'
                 pd='15px'
                 mg='25px'

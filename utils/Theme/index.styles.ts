@@ -1,57 +1,142 @@
 import '@emotion/react'
 import { Theme } from '@emotion/react'
 
+export type ColorVariants = {
+    100:string
+    200:string
+    300:string
+    400:string
+    500:string
+    600:string
+    700:string
+    800:string
+    900:string
+}
+export type ColorObj = {
+    purple:ColorVariants
+    yellow:ColorVariants
+    green:ColorVariants
+    gray:ColorVariants
+    orange:ColorVariants
+    black:string 
+    cyan:ColorVariants
+    blue:ColorVariants
+    red:ColorVariants
+    white:string
+    pink:ColorVariants
+}
+
 declare module '@emotion/react' {
     export interface Theme {
-        colors?: {
-            purple:string
-            yellow:string
-            green:string
-            darkGray:string 
-            cyan:string
-            blue:string
-            red:string
-            bg:string
-            white:string
-            pink:string
-        }
+            colors: ColorObj
     }
 }
 
-export interface IThemes {
-    light:Theme
-    dark:Theme
-}
-
-const Themes : IThemes = {
-    light:{
-        colors: {
-            purple:'',
-            yellow:'',
-            green:'',
-            darkGray:'', 
-            cyan:'',
-            blue:'',
-            red:'',
-            white:'#f8f8f2',
-            pink:'#ff79c6',
-            bg:'#21202c'
-        }
-    },
-    dark:{
-        colors: {
-            purple:'#bd93f9',
-            yellow:'#f1fa8c',
-            green:'#50fa7b',
-            darkGray:'#282a36', 
-            cyan:'#8be9fd',
-            blue:'#6272a4',
-            red:'#ff5555',
-            white:'#f8f8f2',
-            pink:'#ff79c6',
-            bg:'#21202c'
-        }
+const theme : Theme = {
+    colors:{
+        black:'#00000',
+        white:'#fffff',
+        gray:{
+            "100":'',
+            "200":'',
+            "300":'',
+            "400":'#44475a',
+            "500":'',
+            "600":'#282a36',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        orange:{
+            "100":'',
+            "200":'',
+            "300":'',
+            "400":'',
+            "500":'',
+            "600":'',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        purple:{
+            "100":'',
+            "200":'',
+            "300":'#bd93f9',
+            "400":'',
+            "500":'',
+            "600":'',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        yellow:{
+            "100":'',
+            "200":'',
+            "300":'#f1fa8c',
+            "400":'',
+            "500":'',
+            "600":'',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        green:{
+            "100":'',
+            "200":'',
+            "300":'#50fa7b',
+            "400":'',
+            "500":'',
+            "600":'#008000',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        cyan:{
+            "100":'',
+            "200":'',
+            "300":'#8be9fd',
+            "400":'',
+            "500":'',
+            "600":'',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        blue:{
+            "100":'',
+            "200":'',
+            "300":'',
+            "400":'',
+            "500":'',
+            "600":'',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        red:{
+            "100":'',
+            "200":'',
+            "300":'#ff5555',
+            "400":'',
+            "500":'',
+            "600":'',
+            "700":'',
+            "800":'',
+            "900":''
+        },
+        pink:{
+            "100":'',
+            "200":'',
+            "300":'#ff79c6',
+            "400":'',
+            "500":'',
+            "600":'',
+            "700":'',
+            "800":'',
+            "900":''
+        },
     }
+    
 }
 
-export default Themes
+export default theme
