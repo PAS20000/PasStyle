@@ -6,7 +6,7 @@ const PasStyle = {
     Div(props:PasStyleProps) {
         return <Emotion.StyleDiv {...props} />
     },
-    Input(props:PasStyleProps) {
+    Input(props:PasStyleProps<React.InputHTMLAttributes<any>>) {
         return <Emotion.StyleInput {...props} />
     },
     Article(props:PasStyleProps) {
@@ -27,13 +27,13 @@ const PasStyle = {
     Body(props:PasStyleProps) {
         return <Emotion.StyleBody {...props} />
     },
-    Form(props:PasStyleProps) {
+    Form(props:PasStyleProps<React.FormHTMLAttributes<any>>) {
         return <Emotion.StyleForm {...props} />
     },
     Section(props:PasStyleProps) {
         return <Emotion.StyleSection {...props} />
     },
-    Button(props:PasStyleProps) {
+    Button(props:PasStyleProps<React.ButtonHTMLAttributes<any>>) {
         return <Emotion.StyleButton {...props} />
     },
     Nav(props:PasStyleProps) {
@@ -63,7 +63,7 @@ const PasStyle = {
     P(props:PasStyleProps) {
         return <Emotion.StyleP {...props} />
     },
-    Table(props:PasStyleProps) {
+    Table(props:PasStyleProps<React.TableHTMLAttributes<any>>) {
         return <Emotion.StyleTable {...props} />
     },
     Thead(props:PasStyleProps) {
@@ -75,29 +75,32 @@ const PasStyle = {
     Tfoot(props:PasStyleProps) {
         return <Emotion.StyleTfoot {...props} />
     },
-    Tr(props:PasStyleProps) {
+    Tr(props:PasStyleProps<React.TrackHTMLAttributes<any>>) {
         return <Emotion.StyleTr {...props} />
     },
-    Td(props:PasStyleProps) {
+    Td(props:PasStyleProps<React.TdHTMLAttributes<any>>) {
         return <Emotion.StyleTd {...props} />
     },
-    Th(props:PasStyleProps) {
+    Th(props:PasStyleProps<React.ThHTMLAttributes<any>>) {
         return <Emotion.StyleTh {...props} />
     },
-    Img(props:PasStyleProps) {
+    Img(props:PasStyleProps<React.ImgHTMLAttributes<any>>) {
         return <Emotion.StyleImg {...props} />
     },
-    A(props:PasStyleProps) {
+    A(props:PasStyleProps<React.AnchorHTMLAttributes<any>>) {
         return <Emotion.StyleA {...props} />
     },
     Code(props:PasStyleProps) {
         return <Emotion.StyleCode {...props} />
     },
-    Label(props:PasStyleProps) {
+    Label(props:PasStyleProps<React.LabelHTMLAttributes<any>>) {
         return <Emotion.StyleLabel {...props} />
     },
-    Iframe(props:PasStyleProps) {
+    Iframe(props:PasStyleProps<React.IframeHTMLAttributes<any>>) {
         return <Emotion.StyleIframe {...props} />
+    },
+    TextArea(props:PasStyleProps<React.TextareaHTMLAttributes<any>>) {
+        return <Emotion.StyleTextArea {...props} />
     },
 }
 

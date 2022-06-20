@@ -13,6 +13,7 @@ const Home = () => {
             Change Theme
          </Button.Default>
          <Input.File label='Upload' onChange={(e) => console.log(e)}/>
+         <Input.File multiple label='Uploads'/>
       </>
     )
 }

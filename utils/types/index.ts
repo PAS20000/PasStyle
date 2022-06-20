@@ -20,9 +20,7 @@ export type Animation = {
 
 export type PasProps = {
     children?:React.ReactNode
-    htmlFor?:string
     name?:string
-    alt?:string
     grid?:boolean
     flex?:boolean
     between?:boolean
@@ -69,8 +67,6 @@ export type PasProps = {
     position?:string
     outline?:string
     outline_color?:string
-    placeholder?:string
-    type?:any
     z?:string
     unselectableText?:boolean
     _webkit?:string
@@ -135,4 +131,4 @@ export type Styles = {
     p_Events?:string
 }
 
-export type PasStyleProps<T = {}> = T & Styles & PasProps & React.HTMLAttributes<any>
+export type PasStyleProps<T = {}> = T & Styles & PasProps &  React.AllHTMLAttributes<any>
