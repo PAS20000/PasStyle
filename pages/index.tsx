@@ -1,26 +1,16 @@
 import * as React from 'react'
 import Input from '../src/Components/Input'
 import Container from '../src/Components/Layout/Container'
-import Footer from '../src/Components/Layout/Footer'
-import Header from '../src/Components/Layout/Header'
-import Main from '../src/Components/Layout/Main'
+import useThemeCTX from '../src/Contexts/ThemeContext/useThemeCTX'
 
 const Home = () => {
 
+   const {theme} = useThemeCTX()
+
     return(
-       <>
-          <Header>
-
-          </Header>
-          <Main>
-             <Container.Div>
-                <Input.Text />
-             </Container.Div>
-          </Main>
-          <Footer>
-
-          </Footer>
-       </>
+       <Container.Div bg={theme.colors.bg} pd='10px'>
+          <Input.File label='Upload'/>
+       </Container.Div>
     )
 }
 

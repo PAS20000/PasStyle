@@ -1,8 +1,8 @@
 import * as React from 'react'
-import PasStyle from '../../..'
-import CreateKind from '../../../../utils/CreateKind/index.styles'
-import { PasStyleProps } from '../../../../utils/types'
-import { SetState } from '../../../Contexts/types'
+import PasStyle from '../../../..'
+import CreateKind from '../../../../../utils/CreateKind/index.styles'
+import { PasStyleProps } from '../../../../../utils/types'
+import { SetState } from '../../../../Contexts/types'
 import Css from './index.styles'
 
 type Kind = [

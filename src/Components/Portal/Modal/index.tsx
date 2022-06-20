@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { SetState } from '../../Contexts/types'
+import { SetState } from '../../../Contexts/types'
 import Popup from './Popup'
 
 type Props = {

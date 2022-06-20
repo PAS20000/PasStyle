@@ -19,7 +19,7 @@ const Button = (props:PasStyleProps<Props>) => {
 
     return(
         <PasStyle.Button
-            {...CreateKind({ kind, Css })}
+            {...Css.default}
             {...{...props, children:null}}>
             {icon}
             {children}

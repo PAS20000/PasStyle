@@ -18,7 +18,7 @@ export type Animation = {
     type?:TypeAnimation[number]
 }
 
-export type Props = {
+export type PasProps = {
     children?:React.ReactNode
     htmlFor?:string
     name?:string
@@ -135,4 +135,4 @@ export type Styles = {
     p_Events?:string
 }
 
-export type PasStyleProps<T = {}> = T & Styles & Props & React.HTMLAttributes<any>
+export type PasStyleProps<T = {}> = T & Styles & PasProps & React.HTMLAttributes<any>

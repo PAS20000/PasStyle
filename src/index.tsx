@@ -101,4 +101,5 @@ const PasStyle = {
     },
 }
 
+
 export default PasStyle

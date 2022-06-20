@@ -113,11 +113,11 @@ const Select = ({
     }, [open])
 
     return(
-        <PasStyle
+        <PasStyle.Div
             w={w} 
             unselectableText
         >
-            <PasStyle tag='LABEL'
+            <PasStyle.Label
                 onClick={onClick}
                 h='11px'
                 position='absolute'
@@ -131,8 +131,8 @@ const Select = ({
                 t_transform='capitalize'   
             >
                 {title}
-            </PasStyle>
-            <PasStyle 
+            </PasStyle.Label>
+            <PasStyle.Div
                  f_size='12px'
                  t_transform='capitalize'
                  mg='0px 20px 0px'
@@ -149,17 +149,17 @@ const Select = ({
                  }}
                 onClick={onClick}
             >
-                <PasStyle flex between>
-                    <PasStyle f_size='0.8rem'
+                <PasStyle.Div flex between>
+                    <PasStyle.Div f_size='0.8rem'
                         color={theme.colors.yellow}
                     >
                        {children[0].props.value}
-                    </PasStyle>
+                    </PasStyle.Div>
                     {icon ??  <Icons.Go.GoKebabVertical  style={{marginTop:'3px', fontSize:'14px'}}/>}
-                </PasStyle>
-            </PasStyle>
+                </PasStyle.Div>
+            </PasStyle.Div>
             {open &&
-                <PasStyle grid
+                <PasStyle.Div grid
                     position='absolute'
                     bg={theme.colors.bg}
                     transform={transform}
@@ -182,9 +182,9 @@ const Select = ({
                     <Button  onClick={(e) => action.previous(e)}> 
                         <Icons.Io.IoIosArrowDown />
                     </Button>
-                </PasStyle>
+                </PasStyle.Div>
             }
-        </PasStyle>
+        </PasStyle.Div>
     )
 }
 

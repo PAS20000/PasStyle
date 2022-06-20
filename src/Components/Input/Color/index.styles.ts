@@ -12,7 +12,6 @@ const Css = {
             b_color:theme.colors.cyan,
             color:theme.colors.yellow,
             pd:'5px',
-            w:'95%',
             b_radius:'8px',
             f_size:'14px'
         }
