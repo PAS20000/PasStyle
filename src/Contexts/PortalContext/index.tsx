@@ -2,13 +2,13 @@ import * as React from 'react'
 import { PropsCTXdefault } from '../types'
 import PasStyle from '../../index'
 
-export type PopupCTX = {
+export type PortalCTX = {
    
 }
 
 
 
-export const PortalContext = React.createContext<PopupCTX>(null)
+export const PortalContext = React.createContext<PortalCTX>(null)
 
 const PortalProvider = ({
     children
@@ -18,7 +18,8 @@ const PortalProvider = ({
    return(
         <PortalContext.Provider value={{}}>
             <PasStyle 
-                id='PasStyle-Portal' 
+                id='PasStyle-Portal'
+                tag='SPAN'
             />
             {children}
         </PortalContext.Provider>

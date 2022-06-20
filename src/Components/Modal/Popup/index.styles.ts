@@ -8,7 +8,7 @@ const Css = {
             h:'100vh',
             tag:'DIV',
             position:'fixed',
-            z:'9'
+            z:'9999'
         }
     }
 }

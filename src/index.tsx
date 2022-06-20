@@ -2,7 +2,7 @@ import * as React from 'react'
 import Emotion from './index.styles'
 import NextImage from '../Contracts/NextImage'
 import NextLink from '../Contracts/NextLink'
-import { PasStyleProps } from './utils/types'
+import { PasStyleProps } from '../utils/types'
 
 const PasStyle = (props:PasStyleProps) => {
     const [genStyle, setGenStyle] = React.useState<'emotion' | 'css-in-js'>('emotion')
