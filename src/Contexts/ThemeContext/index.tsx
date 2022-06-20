@@ -15,7 +15,7 @@ export type ThemeCTX = {
     mode:mode
     setMode:SetState<mode>
     changeMode:Function
-    useChangeColorByTheme:Function
+    useChangeColorByTheme:(Light : Colors[number], Dark : Colors[number]) => string
 }
 
 export const PasStyleThemeContext = React.createContext<ThemeCTX>(null)
@@ -48,6 +48,8 @@ const PasStyleThemeProvider = ({
                 console.error('Error useChangeColorByTheme')
             }
        }
+
+       
    return(
         <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, useChangeColorByTheme}}>
             <ThemeProvider theme={theme}>
