@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
 import CreateCss from "../CreateCss/index.styles"
-import { Props, Styles } from "../../utils/types"
+import { PasProps, PasStyleProps, Styles } from "../../utils/types"
 
-export type TCreateStyle = Props
+export type TCreateStyle = any
 
 const CreateStyles = ({
     flex,
