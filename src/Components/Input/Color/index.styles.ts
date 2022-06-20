@@ -4,10 +4,10 @@ import useThemeCTX from "../../../Contexts/ThemeContext/useThemeCTX"
 const Css = {
     default() : PasStyleProps {
 
-        const {theme , useChangeColorByTheme} = useThemeCTX()
+        const {theme , ChangeColorByTheme} = useThemeCTX()
 
         return {
-            bg:useChangeColorByTheme('gray.300', 'gray.600'), 
+            bg:ChangeColorByTheme('gray.300', 'gray.600'), 
             border:'solid 2px', 
             b_color:theme.colors.cyan[300],
             color:theme.colors.yellow[300],

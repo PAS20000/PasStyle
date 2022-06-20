@@ -3,7 +3,6 @@ import PasStyle from '../../..'
 import { PasStyleProps } from '../../../../utils/types'
 import useWhoIam from '../../../Hooks/useWhoIam'
 import Button from '../../Button'
-import Css from '../index.styles'
 
 type Props = {
     label?:string
@@ -29,9 +28,9 @@ const File = {
         }
         return(
             <PasStyle.Div>
-                <Button onClick={Action.sendFile}>
+                <Button.Default onClick={Action.sendFile}>
                     {label}
-                </Button>
+                </Button.Default>
                 {file &&
                     <PasStyle.Div>
                         <PasStyle.Img src={URL.createObjectURL(file)}

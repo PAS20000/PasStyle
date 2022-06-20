@@ -6,16 +6,12 @@ import { Colors } from './useThemeCTX'
 
 export type mode = 'dark' | 'light'
 
-export type Params = {
-  
-}
-
 export type ThemeCTX = {
     theme:Theme
     mode:mode
     setMode:SetState<mode>
-    changeMode:Function
-    useChangeColorByTheme:(Light : Colors[number], Dark : Colors[number]) => string
+    changeMode:() => void
+    ChangeColorByTheme:(Light : Colors[number], Dark : Colors[number]) => string
 }
 
 export const PasStyleThemeContext = React.createContext<ThemeCTX>(null)
@@ -30,7 +26,7 @@ const PasStyleThemeProvider = ({
             setMode(mode === 'dark' ? 'light' : 'dark')
         }
 
-        const useChangeColorByTheme = (Light : Colors[number], Dark : Colors[number]) => {
+        const ChangeColorByTheme = (Light : Colors[number], Dark : Colors[number]) => {
 
             const {colors} = theme
     
@@ -45,13 +41,13 @@ const PasStyleThemeProvider = ({
                 return colors[light[0]][light[1]]
 
             } else {
-                console.error('Error useChangeColorByTheme')
+                console.error('Error ChangeColorByTheme')
             }
        }
 
        
    return(
-        <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, useChangeColorByTheme}}>
+        <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, ChangeColorByTheme}}>
             <ThemeProvider theme={theme}>
                 {children}
             </ThemeProvider>

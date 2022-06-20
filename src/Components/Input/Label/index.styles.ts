@@ -5,13 +5,13 @@ import useThemeCTX from "../../../Contexts/ThemeContext/useThemeCTX"
 const Css = {
     default() : PasStyleProps {
 
-        const { theme } = useThemeCTX()
+        const { ChangeColorByTheme } = useThemeCTX()
 
         return {
             h:'13px',
             position:'absolute',
-            bg:theme.colors.bg,
-            color:theme.colors.green,
+            bg:ChangeColorByTheme('gray.300', 'gray.600'),
+            color:ChangeColorByTheme('green.600', 'green.300'),
             transform:'translateY(-10px)',
             pd:'0px 5px 0px',
             b_radius:'8px',
