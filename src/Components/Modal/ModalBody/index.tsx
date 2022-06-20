@@ -9,14 +9,14 @@ type Kind = [
 ]
 
 type Props = {
-    kind?:Kind[number]
+   kind?:Kind[number]
 }
 
-const Default = (props:PasStyleProps<Props>) => {
-
+const ModalBody = (props:PasStyleProps<Props>) => {
     const {kind} = props
 
-    return <PasStyle {...CreateKind({ kind, Css })} tag={props.tag ?? 'INPUT'} {...props} />
+
+    return <PasStyle {...CreateKind({kind, Css})} {...props}/>
 }
 
-export default Default
+export default ModalBody

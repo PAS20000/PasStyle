@@ -1,5 +1,5 @@
 import * as React from 'react'
-import PasStyle from '../../..'
+import PasStyle from '../..'
 import useThemeCTX from '../../Contexts/ThemeContext/useThemeCTX'
 import Button from '../Button'
 import Icons from '../Icons'

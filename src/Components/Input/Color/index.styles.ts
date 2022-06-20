@@ -1,5 +1,5 @@
 import useThemeCTX from "../../../Contexts/ThemeContext/useThemeCTX"
-import { PasStyleProps } from "../../../../utils/types"
+import { PasStyleProps } from "../../../utils/types"
 
 const Css = {
     default() : PasStyleProps {

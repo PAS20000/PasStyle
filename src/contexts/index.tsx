@@ -1,4 +1,5 @@
 import * as React from 'react'
+import PortalProvider from './PortalContext'
 import PasStyleThemeProvider from './ThemeContext'
 
 type Props = {
@@ -11,7 +12,9 @@ export const PasStyleProvider = ({
 
     return(
         <PasStyleThemeProvider>
-            {children}
+            <PortalProvider>
+                {children}
+            </PortalProvider>
         </PasStyleThemeProvider>
     )
 }

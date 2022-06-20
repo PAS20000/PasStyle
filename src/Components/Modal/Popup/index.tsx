@@ -1,22 +1,22 @@
 import * as React from 'react'
 import PasStyle from '../../..'
-import { SetState } from '../../../src/contexts/types'
+import { SetState } from '../../../Contexts/types'
+import CreateKind from '../../../utils/CreateKind/index.styles'
 import { PasStyleProps } from '../../../utils/types'
-import Button from '../Button'
 import Css from './index.styles'
 
-type css = [
+type Kind = [
     'default'
 ]
 
 type Props = {
-   css?:css[number]
+    kind?:Kind[number]
    state:[boolean, SetState<boolean>]
 }
 
 const Popup = (props:PasStyleProps<Props>) => {
     
-    const {children, css, state} = props
+    const {children, kind, state} = props
 
     const action = {
         open(){
@@ -27,16 +27,12 @@ const Popup = (props:PasStyleProps<Props>) => {
         }
     }
 
-    const createCss = (css : css[number]) : PasStyleProps => {
-        return {...Css[css ?? 'default']()}
-    }
-
     return(
     <>
         {state[0] &&
             <>
                 <PasStyle
-                    {...createCss(css)}
+                    {...CreateKind({kind, Css})}
                     onClick={action.close}
                     {...{...props, children:null}}
                 />
