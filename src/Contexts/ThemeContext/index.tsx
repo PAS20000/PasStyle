@@ -3,7 +3,6 @@ import { Theme, ThemeProvider } from '@emotion/react'
 import { PropsCTXdefault, SetState } from '../types'
 import Themes from '../../../utils/Theme/index.styles'
 
-
 type mode = 'dark' | 'light'
 
 export type ThemeCTX = {

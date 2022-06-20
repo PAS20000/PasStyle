@@ -11,10 +11,6 @@ type Return = {
     state:State
     open:boolean
     setOpen:SetState<boolean>
-    action: {
-        open:Function
-        close:Function
-    }
 }
 
 const useModal = () : Return => {
@@ -27,14 +23,6 @@ const useModal = () : Return => {
         state:PopupState,
         open,
         setOpen,
-        action: {
-            open(){
-                setOpen(true)
-            },
-            close(){
-                setOpen(false)
-            }
-        }
     }
 }
 

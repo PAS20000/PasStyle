@@ -17,8 +17,7 @@ const Code = ({
 
     return(
         <>
-            <PasStyle grid columns='96% 1fr'
-                tag='CODE'
+            <PasStyle.Code grid columns='96% 1fr'
                 b_radius='8px'
                 bg={theme.colors.bg}
                 color={theme.colors.green}
@@ -27,13 +26,13 @@ const Code = ({
                 mg='25px'
                 shadow='2px 2px 10px black'
             >
-                <PasStyle  id={sequencial} title={children.toString()}>
+                <PasStyle.Div  id={sequencial} title={children.toString()}>
                     {children}
-                </PasStyle>
+                </PasStyle.Div>
                 {sequencial && 
                    <CopyClipBoard id={sequencial}/>
                 }  
-            </PasStyle>
+            </PasStyle.Code>
         </>
     )
 }

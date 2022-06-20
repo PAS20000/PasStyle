@@ -11,7 +11,7 @@ const Css = {
             position:'fixed',
             bg:theme.colors.bg,
             pd:'20px',
-            z:'10'          
+            z:'99999'          
         }
     }
 }

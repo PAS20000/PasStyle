@@ -1,6 +1,7 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
 import PasStyleProvider from '../src/Contexts'
+import '../utils/css/reset.css'
 
 
 const App = ({ 
@@ -10,7 +11,7 @@ const App = ({
 
   return (
     <PasStyleProvider>
-       <Component {...pageProps} />
+      <Component {...pageProps} />
     </PasStyleProvider>
   )
 }
