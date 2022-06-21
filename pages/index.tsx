@@ -20,7 +20,7 @@ const Home = () => {
              console.log('upload2: '),
               files[0] && console.log(files)
          }}/>
-          <Input.File label='Upload3' maxFiles={3} getFiles={(files) => {
+          <Input.File label='Upload3' maxFiles={3} maxSize={80} getFiles={(files) => {
              console.log('upload3: '),
               files[0] && console.log(files)
          }}/>

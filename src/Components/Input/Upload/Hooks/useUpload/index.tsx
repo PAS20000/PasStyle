@@ -96,14 +96,12 @@ const useUpload = ({
                     if(maxFiles === 1){
                         return setFiles(files)
                     }
-
-                    setFiles(prev => prev ? prev.concat(filterMaxSize):filterMaxSize)
                 }
             }
+            if(maxFiles === 1 || !maxFiles){
+                setFiles(files)
+            }
             if(maxFiles){
-                if(maxFiles === 1){
-                    setFiles(ArrayFiles)
-                }
                 if(ArrayFiles.length > maxFiles && maxFiles !== 1){
                     setFiles(filterMaxSize.slice(0, maxFiles))
                     setError({
