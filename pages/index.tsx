@@ -12,7 +12,8 @@ const Home = () => {
          <Button onClick={changeMode}>
             Change Theme
          </Button>
-         <Input.File label='Upload' maxFiles={1} change={(files) => {
+         <Input.File label='Upload' maxFiles={1}
+         change={(files) => {
             console.log('Upload1 :')
             console.log(files)
          }}/>

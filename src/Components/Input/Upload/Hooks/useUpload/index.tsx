@@ -26,17 +26,22 @@ const useUpload = ({
         },
         addFile(e : any) {
             change(files)
+            const ArrayFiles : Array<File> = Array.from(e.target.files)
             if(maxFiles){
                 if(maxFiles === 1){
-                    setFiles((Array.from(e.target.files)))
+                    setFiles(ArrayFiles)
+                }
+                if(ArrayFiles.length > maxFiles || files.length > maxFiles && maxFiles !== 1){
+                    setFiles(ArrayFiles.splice(0, maxFiles))
+                    return alert(`Exceeded Files ${maxFiles}`)
                 }
                 setFiles(prev => prev.length < maxFiles ? 
-                        [...prev].concat(Array.from(e.target.files)) 
+                        [...prev].concat(ArrayFiles) 
                         : 
                         [...prev].slice(0 , maxFiles)
                     )
             } else {
-                setFiles(prev => [...prev].concat(Array.from(e.target.files)))
+                setFiles(prev => [...prev].concat(ArrayFiles))
             }
         },
         removeFile(index:number){
