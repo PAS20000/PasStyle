@@ -1,20 +1,16 @@
 import * as React from 'react'
+import { Error } from '../..'
 import useWhoIam from '../../../../../Hooks/useWhoIam'
 
 type Props = {
-    getFiles?:(files : Array<File>) => void
+    get?:(files : Array<File>, error : Error) => void
     id:string
     maxFiles?:number
     maxSize?:number
 }
 
-type Error = {
-    type?:'maxFiles' | 'maxSize'
-    files?:File[]
-}
-
 const useUpload = ({
-    getFiles,
+    get,
     id,
     maxFiles,
     maxSize
@@ -25,10 +21,10 @@ const useUpload = ({
     const [error, setError] = React.useState<Error>({})
 
     React.useEffect(() => {
-        if(getFiles){
-            getFiles(files)
+        if(get){
+            get(files, error)
         }
-    }, [files])
+    }, [files, error])
 
     const typeSize = {
         kb(FileSize : number){
@@ -80,8 +76,8 @@ const useUpload = ({
             document.getElementById(random).click()
         },
         addFile(e : any) {
-            if(getFiles){
-                getFiles(files)
+            if(get){
+                get(files, error)
             }
             const ArrayFiles : Array<File> = Array.from(e.target.files) 
             const filterMaxSize = ArrayFiles.filter(file => typeSize.kb(file.size).size < maxSize)
@@ -91,7 +87,8 @@ const useUpload = ({
                 if(existMaxSize[0]){
                     setError({
                         type:'maxSize',
-                        files: existMaxSize,
+                        files:ArrayFiles,
+                        approvedFiles: files,
                     })
                     if(maxFiles === 1){
                         return setFiles(files)
@@ -106,14 +103,16 @@ const useUpload = ({
                     setFiles(filterMaxSize.slice(0, maxFiles))
                     setError({
                         type:'maxFiles',
-                        files:ArrayFiles
+                        files:ArrayFiles,
+                        approvedFiles:filterMaxSize.slice(0, maxFiles),
                     })
                 } 
                 const ExceededFiles = (prev : File[]) : boolean => {
                     if(prev.length >= maxFiles){
-                        maxFiles !== 1 && setError({
+                        maxFiles !== 1 &&  setError({
                             type:'maxFiles',
-                            files:ArrayFiles
+                            files:ArrayFiles,
+                            approvedFiles:filterMaxSize.slice(0, maxFiles),
                         })
                         return true
                     } else {

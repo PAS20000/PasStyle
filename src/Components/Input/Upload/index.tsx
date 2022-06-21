@@ -3,21 +3,27 @@ import PasStyle, { PasStyleProps } from '../../..'
 import Button from '../../Button'
 import useUpload from './Hooks/useUpload'
 
+export type Error = {
+    type?:'maxFiles' | 'maxSize'
+    approvedFiles?: File[]
+    files?:File[]
+}
+
 type Props = {
     label?:string
     maxFiles?:number
     maxSize?:number
-    getFiles?:(files : Array<File>) => void
+    get?:(files : Array<File>, error : Error ) => void
 }
 
 export type InputFile = Props
 
 const Upload = (props:PasStyleProps<Props>) => {
-            const {label, maxFiles, accept, id, getFiles, maxSize} = props
+            const {label, maxFiles, accept, id, get, maxSize} = props
 
             const { sendFile, addFile, fileSize, useWhoIam_id, files, error } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
-                getFiles,
+                get,
                 maxFiles,
                 maxSize,
             })
