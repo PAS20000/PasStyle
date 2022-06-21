@@ -8,6 +8,11 @@ type Props = {
     maxSize?:number
 }
 
+type Error = {
+    type?:'maxFiles' | 'maxSize'
+    files?:File[]
+}
+
 const useUpload = ({
     getFiles,
     id,
@@ -17,7 +22,7 @@ const useUpload = ({
     
     const { random } = useWhoIam(id)
     const [files, setFiles] = React.useState<Array<File>>([])
-    const [error, setError] = React.useState<'maxFiles' | 'maxSize'>()
+    const [error, setError] = React.useState<Error>({})
 
     React.useEffect(() => {
         if(getFiles){
@@ -78,15 +83,21 @@ const useUpload = ({
             if(getFiles){
                 getFiles(files)
             }
-            const ArrayFiles : Array<File> = Array.from(e.target.files)
+            const ArrayFiles : Array<File> = Array.from(e.target.files) 
+            const filterMaxSize = ArrayFiles.filter(file => typeSize.kb(file.size).size < maxSize)
+            const existMaxSize = ArrayFiles.filter(file => typeSize.kb(file.size).size > maxSize)
+
             if(maxSize){
-                const filter = ArrayFiles.filter(file => typeSize.kb(file.size).size < maxSize)
-                const existMaxSize = ArrayFiles.filter(file => typeSize.kb(file.size).size > maxSize)
-
-                setFiles(filter)
-
                 if(existMaxSize[0]){
-                    alert(`Exceeded File Size ${maxSize}`)
+                    setError({
+                        type:'maxSize',
+                        files: existMaxSize,
+                    })
+                    if(maxFiles === 1){
+                        return setFiles(files)
+                    }
+
+                    setFiles(prev => prev ? prev.concat(filterMaxSize):filterMaxSize)
                 }
             }
             if(maxFiles){
@@ -94,25 +105,29 @@ const useUpload = ({
                     setFiles(ArrayFiles)
                 }
                 if(ArrayFiles.length > maxFiles && maxFiles !== 1){
-                    setFiles(ArrayFiles.splice(0, maxFiles))
-                    alert(`Exceeded Files ${maxFiles}`)
+                    setFiles(filterMaxSize.slice(0, maxFiles))
+                    setError({
+                        type:'maxFiles',
+                        files:ArrayFiles
+                    })
                 } 
                 const ExceededFiles = (prev : File[]) : boolean => {
                     if(prev.length >= maxFiles){
-                        maxFiles !== 1 && alert(`Exceeded Files ${maxFiles}`)
+                        maxFiles !== 1 && setError({
+                            type:'maxFiles',
+                            files:ArrayFiles
+                        })
                         return true
                     } else {
                         return false
                     }
                 }
-                setFiles(prev => !ExceededFiles(prev) ? 
-                    [...prev].concat(ArrayFiles) 
-                    : 
+                setFiles(prev => ExceededFiles(prev) ? 
                     [...prev].slice(0 , maxFiles)
+                    : 
+                    [...prev].concat(filterMaxSize) 
                 )
                
-            } else {
-                setFiles(prev => [...prev].concat(ArrayFiles))
             }
         },
         removeFile(index:number){
@@ -129,6 +144,7 @@ const useUpload = ({
         files,
         setFiles,
         useWhoIam_id:random,
+        error,
     }
 }
 

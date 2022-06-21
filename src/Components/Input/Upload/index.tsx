@@ -15,12 +15,21 @@ export type InputFile = Props
 const Upload = (props:PasStyleProps<Props>) => {
             const {label, maxFiles, accept, id, getFiles, maxSize} = props
 
-            const { sendFile, addFile, fileSize, useWhoIam_id, files } = useUpload({
+            const { sendFile, addFile, fileSize, useWhoIam_id, files, error } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
                 getFiles,
                 maxFiles,
                 maxSize,
             })
+
+            React.useEffect(() => {
+                if(error.type === 'maxSize'){
+                    alert(`Exceeded File Size ${maxSize}`)
+                }
+                if(error.type === 'maxFiles'){
+                    alert(`Exceeded Files ${maxFiles}`)
+                }
+            }, [error])
             
             return(
                 <PasStyle.Div>

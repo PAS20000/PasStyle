@@ -20,7 +20,6 @@ export type Animation = {
 
 export type PasProps = {
     children?:React.ReactNode
-    name?:string
     grid?:boolean
     flex?:boolean
     between?:boolean
@@ -37,14 +36,10 @@ export type PasProps = {
     w?:string
     h?:string
     mg?:string
-    src?:string
-    href?:string
     border?:string
     b_radius?:string
     b_color?:string
     target?:string
-    className?:string
-    id?:string
     animation?:Animation
     f_size?:string
     f_weight?:string
@@ -72,7 +67,6 @@ export type PasProps = {
     _webkit?:string
     display?:string
     p_Events?:string
-    value?:string
     b_bottom?:string
     b_left?:string
     b_right?:string
@@ -80,14 +74,15 @@ export type PasProps = {
 }
 
 export type Styles = {
+    children?:React.ReactNode
     grid?:boolean
     flex?:boolean
     between?:boolean
-    end?:boolean
     around?:boolean
     evenly?:boolean
     start?:boolean
     center?:boolean
+    end?:boolean
     column?:boolean
     columns?:string
     rows?:string
@@ -96,12 +91,10 @@ export type Styles = {
     w?:string
     h?:string
     mg?:string
-    src?:string
-    href?:string
     border?:string
+    b_radius?:string
+    b_color?:string
     target?:string
-    className?:string
-    id?:string
     animation?:Animation
     f_size?:string
     f_weight?:string
@@ -112,21 +105,18 @@ export type Styles = {
     transform?:string
     transition?:string
     op?:string,
+    shadow?:string
     color?:string
-    b_color?:string
-    b_bottom?:string
-    b_left?:string
-    b_right?:string
-    b_top?:string
-    b_radius?:string
     cursor?:string
     position?:string
-    shadow?:string
     outline?:string
     outline_color?:string
     z?:string
     unselectableText?:boolean
-    _webkit?:string
     display?:string
     p_Events?:string
+    b_bottom?:string
+    b_left?:string
+    b_right?:string
+    b_top?:string
 }
