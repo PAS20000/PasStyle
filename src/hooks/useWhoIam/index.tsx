@@ -1,21 +1,31 @@
 import * as React from 'react'
 
-type TReturn = {
-    random:string
-}
-const useWhoIam = (addString?:string) : TReturn => {
+const letters = [
+     'a',
+     'b',
+     'c',
+     'd',
+     'e',
+     'f',
+     'g',
+     'h',
+     'i',
+]
+
+const useWhoIam = (addString?:string) => {
     const [ random, setRandom ] = React.useState<string>()
 
+    const arrayNumbers = random && random.split('-')[0].replace('.', '').split('')
+
+    const hash = random && `${arrayNumbers.map(number => letters[number]).filter(letter => letter).toString().replaceAll(',','')}-${addString}`
+
     React.useEffect(() => {
-        if(addString){
-            setRandom(`${Math.random()}-${addString}`)
-        } else {
-            setRandom(Math.random().toString())
-        }
+        setRandom(`${Math.random() * 16}-${addString}`)
     }, [])
 
     return {
-        random:random,
+        random,
+        hash
     }
 }
 

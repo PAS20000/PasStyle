@@ -16,7 +16,7 @@ const useUpload = ({
     maxSize
 } : Props) => {
     
-    const { random } = useWhoIam(id)
+    const { hash } = useWhoIam(id)
     const [files, setFiles] = React.useState<Array<File>>([])
     const [error, setError] = React.useState<Error>({})
 
@@ -73,7 +73,7 @@ const useUpload = ({
 
     const Action = {
         sendFile() {
-            document.getElementById(random).click()
+            document.getElementById(hash).click()
         },
         addFile(e : any) {
             if(get){
@@ -137,7 +137,7 @@ const useUpload = ({
         fileSize,
         files,
         setFiles,
-        useWhoIam_id:random,
+        useWhoIam_id:hash,
         error,
     }
 }
