@@ -6,15 +6,17 @@ import useUpload from './Hooks/useUpload'
 type Props = {
     label?:string
     maxFiles?:number
-    change?:(files : Array<File>) => void
+    getFiles?:(files : Array<File>) => void
 }
 
+export type InputFile = Props
+
 const Upload = (props:PasStyleProps<Props>) => {
-            const {label, maxFiles, accept, id, change} = props
+            const {label, maxFiles, accept, id, getFiles} = props
 
             const { Action, useWhoIam_id, files } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
-                change,
+                getFiles,
                 maxFiles,
             })
             

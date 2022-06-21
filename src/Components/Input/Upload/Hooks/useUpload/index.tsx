@@ -2,13 +2,13 @@ import * as React from 'react'
 import useWhoIam from '../../../../../Hooks/useWhoIam'
 
 type Props = {
-    change?:(files : Array<File>) => void
+    getFiles?:(files : Array<File>) => void
     id:string
     maxFiles?:number
 }
 
 const useUpload = ({
-    change,
+    getFiles,
     id,
     maxFiles
 } : Props) => {
@@ -17,7 +17,9 @@ const useUpload = ({
     const [files, setFiles] = React.useState<Array<File>>([])
 
     React.useEffect(() => {
-        change(files)
+        if(getFiles){
+            getFiles(files)
+        }
     }, [files])
 
     const Action = {
@@ -25,7 +27,9 @@ const useUpload = ({
             document.getElementById(random).click()
         },
         addFile(e : any) {
-            change(files)
+            if(getFiles){
+                getFiles(files)
+            }
             const ArrayFiles : Array<File> = Array.from(e.target.files)
             if(maxFiles){
                 if(maxFiles === 1){
@@ -37,7 +41,7 @@ const useUpload = ({
                 } 
                 const ExceededFiles = (prev : File[]) : boolean => {
                     if(prev.length >= maxFiles){
-                        alert(`Exceeded Files ${maxFiles}`)
+                        maxFiles !== 1 && alert(`Exceeded Files ${maxFiles}`)
                         return true
                     } else {
                         return false

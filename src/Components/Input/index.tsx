@@ -6,16 +6,11 @@ import Label from './Label'
 import Password from './Password'
 import Text from './Text'
 import Url from './Url'
-import Upload from './Upload'
+import Upload, { InputFile } from './Upload'
 import { PasStyleProps } from '../..'
 
 type Props = {
     label?:string
-}
-
-type PropsFile = {
-   maxFiles?:number
-   change?:(files : Array<File>) => void
 }
 
 const Input = {
@@ -91,7 +86,7 @@ const Input = {
             </Url>
         )
     },
-    File(props:PasStyleProps<Props & PropsFile>) {
+    File(props:PasStyleProps<Props & InputFile>) {
         return <Upload {...props}/>
     },
 }
