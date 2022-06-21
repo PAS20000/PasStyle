@@ -6,23 +6,25 @@ import useUpload from './Hooks/useUpload'
 type Props = {
     label?:string
     maxFiles?:number
+    maxSize?:number
     getFiles?:(files : Array<File>) => void
 }
 
 export type InputFile = Props
 
 const Upload = (props:PasStyleProps<Props>) => {
-            const {label, maxFiles, accept, id, getFiles} = props
+            const {label, maxFiles, accept, id, getFiles, maxSize} = props
 
-            const { Action, useWhoIam_id, files } = useUpload({
+            const { sendFile, addFile, fileSize, useWhoIam_id, files } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
                 getFiles,
                 maxFiles,
+                maxSize,
             })
             
             return(
                 <PasStyle.Div>
-                    <Button onClick={Action.sendFile}>
+                    <Button onClick={sendFile}>
                         {label}
                     </Button>
                     {files && files.map((file, i) => 
@@ -32,7 +34,7 @@ const Upload = (props:PasStyleProps<Props>) => {
                                 h='50px'
                             />
                             <PasStyle.Span>
-                                {file.name}-{Action.fileSize(file)}
+                                {file.name}-{fileSize(file)}
                             </PasStyle.Span>
                         </PasStyle.Div>
                     )}
@@ -40,7 +42,7 @@ const Upload = (props:PasStyleProps<Props>) => {
                         type='file' 
                         multiple={maxFiles === 1 ? false : true}
                         w='0px'
-                        onChange={(e) => Action.addFile(e)}
+                        onChange={(e) => addFile(e)}
                         id={useWhoIam_id}
                         accept={accept}
                     />

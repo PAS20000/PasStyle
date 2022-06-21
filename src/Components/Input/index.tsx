@@ -16,75 +16,26 @@ type Props = {
 const Input = {
     Text(props:PasStyleProps<Props>) {
 
-        const { label } = props
-
-        return(
-            <Text {...props}>
-                <Label htmlFor={label} {...props}>
-                    {label}
-                </Label>
-            </Text>
-        )
+        return <Text {...props}/>
     },
     Color(props:PasStyleProps<Props>) {
 
-        const { label } = props
-
-        return (
-            <Color {...props}>
-                <Label htmlFor={label} {...props}>
-                    {label}
-                </Label>
-            </Color>
-        )
+        return <Color {...props}/>
     },
     Date(props:PasStyleProps<Props>) {
 
-        const { label } = props
-
-        return (
-            <Date {...props}>
-                <Label htmlFor={label} {...props}>
-                    {label}
-                </Label>
-            </Date>
-        )
+        return <Date {...props}/>
     },
     Passowrd(props:PasStyleProps<Props>) {
 
-        const { label } = props
-
-        return (
-            <Password {...props}>
-                <Label htmlFor={label} {...props}>
-                    {label}
-                </Label>
-            </Password>
-        )
+        return <Password {...props}/>
     },
     Email(props:PasStyleProps<Props>) {
 
-        const { label } = props
-
-        return (
-            <Email {...props}>
-                <Label htmlFor={label} {...props}>
-                    {label}
-                </Label>
-            </Email>
-        )
+        return <Email {...props}/>
     },
     Url(props:PasStyleProps<Props>) {
-
-        const { label } = props
-
-        return (
-            <Url {...props}>
-                <Label htmlFor={label} {...props}>
-                    {label}
-                </Label>
-            </Url>
-        )
+        return <Url {...props} />
     },
     File(props:PasStyleProps<Props & InputFile>) {
         return <Upload {...props}/>

@@ -2,17 +2,20 @@ import * as React from 'react'
 import PasStyle from '../../..'
 import { PasStyleProps } from '../../../../utils/types'
 import useWhoIam from '../../../Hooks/useWhoIam'
+import Label from '../Label'
 import Css from './index.styles'
 
 const Color = (props:PasStyleProps) => {
 
-    const {onChange, placeholder, value, children} = props
+    const {onChange, placeholder, value, label} = props
 
     const { random } = useWhoIam('color')
 
     return (
         <PasStyle.Div mg='5px'>
-            {children}
+            <Label htmlFor={label} {...props}>
+                {label}
+            </Label>
             <PasStyle.Div
                 onClick={() => document.getElementById(random).click()}
                 {...Css.default()}

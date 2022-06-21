@@ -20,7 +20,7 @@ import * as Ti from 'react-icons/ti'
 import * as Vsc from 'react-icons/vsc'
 import * as Wi from 'react-icons/wi'
 
-export default {
+const Icons =  {
     Fa,
     Ai,
     Md,
@@ -43,3 +43,5 @@ export default {
     Vsc,
     Wi
 }
+
+export default Icons

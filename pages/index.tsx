@@ -12,11 +12,11 @@ const Home = () => {
          <Button onClick={changeMode}>
             Change Theme
          </Button>
-         <Input.File label='Upload1' maxFiles={1} getFiles={(any) => {
+         <Input.File label='Upload1' maxFiles={1} maxSize={80} getFiles={(any) => {
              console.log('upload1: '),
              any[0] && console.log(any)
          }}/>
-         <Input.File label='Upload2' maxFiles={2} getFiles={(files) => {
+         <Input.File label='Upload2' maxFiles={2} maxSize={80} getFiles={(files) => {
              console.log('upload2: '),
               files[0] && console.log(files)
          }}/>

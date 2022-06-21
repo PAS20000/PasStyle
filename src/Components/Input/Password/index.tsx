@@ -1,7 +1,9 @@
 import * as React from 'react'
 import PasStyle from '../../..'
+import Remove from '../../../../utils/Remove'
 import { PasStyleProps } from '../../../../utils/types'
 import Css from '../index.styles'
+import Label from '../Label'
 
 type Props = {
   
@@ -9,12 +11,14 @@ type Props = {
 
 const Password = (props:PasStyleProps<Props>) => {
 
-    const { children } = props
+    const { children, label } = props
 
     return(
         <PasStyle.Div mg='5px'>
-            {children}
-            <PasStyle.Input {...{...props, children:null}} {...Css.default()} type='password'/>
+             <Label htmlFor={label} {...props}>
+                {label}
+            </Label>
+            <PasStyle.Input {...Remove.children(props)} {...Css.default()} type='password'/>
         </PasStyle.Div>
     )
 }
