@@ -29,7 +29,7 @@ const PasStyleThemeProvider = ({
         const ChangeColorByTheme = (Light : Colors[number], Dark : Colors[number]) => {
 
             const {colors} = theme
-    
+
            if(mode === 'dark') {
             
                 const dark = Dark.split('.')
