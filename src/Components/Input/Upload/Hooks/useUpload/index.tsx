@@ -31,15 +31,24 @@ const useUpload = ({
                 if(maxFiles === 1){
                     setFiles(ArrayFiles)
                 }
-                if(ArrayFiles.length > maxFiles || files.length > maxFiles && maxFiles !== 1){
+                if(ArrayFiles.length > maxFiles && maxFiles !== 1){
                     setFiles(ArrayFiles.splice(0, maxFiles))
-                    return alert(`Exceeded Files ${maxFiles}`)
+                    alert(`Exceeded Files ${maxFiles}`)
+                } 
+                const ExceededFiles = (prev : File[]) : boolean => {
+                    if(prev.length >= maxFiles){
+                        alert(`Exceeded Files ${maxFiles}`)
+                        return true
+                    } else {
+                        return false
+                    }
                 }
-                setFiles(prev => prev.length < maxFiles ? 
-                        [...prev].concat(ArrayFiles) 
-                        : 
-                        [...prev].slice(0 , maxFiles)
-                    )
+                setFiles(prev => !ExceededFiles(prev) ? 
+                    [...prev].concat(ArrayFiles) 
+                    : 
+                    [...prev].slice(0 , maxFiles)
+                )
+               
             } else {
                 setFiles(prev => [...prev].concat(ArrayFiles))
             }
