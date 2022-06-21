@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { InputPropsMethod } from '..'
 import PasStyle, { PasStyleProps } from '../../..'
 import Css from '../index.styles'
 import Label from '../Label'
@@ -7,9 +8,9 @@ type Props = {
   
 }
 
-const Url = (props:PasStyleProps<Props>) => {
+const Url = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
-    const { children, label } = props
+    const { label } = props
 
     return(
         <PasStyle.Div mg='5px'>

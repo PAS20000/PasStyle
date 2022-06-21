@@ -87,8 +87,7 @@ const useUpload = ({
                 if(existMaxSize[0]){
                     setError({
                         type:'maxSize',
-                        files:ArrayFiles,
-                        approvedFiles: files,
+                        rejectedFiles:existMaxSize,
                     })
                     if(maxFiles === 1){
                         return setFiles(files)
@@ -100,19 +99,17 @@ const useUpload = ({
             }
             if(maxFiles){
                 if(ArrayFiles.length > maxFiles && maxFiles !== 1){
-                    setFiles(filterMaxSize.slice(0, maxFiles))
+                    setFiles(filterMaxSize.splice(0, maxFiles))
                     setError({
                         type:'maxFiles',
-                        files:ArrayFiles,
-                        approvedFiles:filterMaxSize.slice(0, maxFiles),
+                        rejectedFiles:existMaxSize,
                     })
                 } 
                 const ExceededFiles = (prev : File[]) : boolean => {
                     if(prev.length >= maxFiles){
                         maxFiles !== 1 &&  setError({
                             type:'maxFiles',
-                            files:ArrayFiles,
-                            approvedFiles:filterMaxSize.slice(0, maxFiles),
+                            rejectedFiles:existMaxSize,
                         })
                         return true
                     } else {
@@ -120,7 +117,7 @@ const useUpload = ({
                     }
                 }
                 setFiles(prev => ExceededFiles(prev) ? 
-                    [...prev].slice(0 , maxFiles)
+                    [...prev].splice(0 , maxFiles)
                     : 
                     [...prev].concat(filterMaxSize) 
                 )

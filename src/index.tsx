@@ -2,7 +2,7 @@ import * as React from 'react'
 import { PasProps, Styles } from '../utils/types'
 import Emotion from './index.styles'
 
-export type AllAttr <T = {}> =  React.AllHTMLAttributes<T>
+export type AllAttr =  React.HTMLAttributes<any>
 
 export type PasStyleProps <T = {}> = T & Styles & PasProps & AllAttr
 
@@ -34,7 +34,7 @@ const PasStyle = {
     Div(props:PasStyleProps) {
         return <Emotion.StyleDiv {...props} />
     },
-    Input(props:PasStyleProps) {
+    Input(props:PasStyleProps<InputAttr>) {
         return <Emotion.StyleInput {...props} />
     },
     Article(props:PasStyleProps) {

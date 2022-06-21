@@ -1,16 +1,15 @@
 import * as React from 'react'
+import { InputPropsMethod } from '..'
 import PasStyle, { PasStyleProps } from '../../..'
 import Button from '../../Button'
 import useUpload from './Hooks/useUpload'
 
 export type Error = {
     type?:'maxFiles' | 'maxSize'
-    approvedFiles?: File[]
-    files?:File[]
+    rejectedFiles?:File[]
 }
 
 type Props = {
-    label?:string
     maxFiles?:number
     maxSize?:number
     get?:(files : Array<File>, error : Error ) => void
@@ -18,7 +17,7 @@ type Props = {
 
 export type InputFile = Props
 
-const Upload = (props:PasStyleProps<Props>) => {
+const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
             const {label, maxFiles, accept, id, get, maxSize} = props
 
             const { sendFile, addFile, fileSize, useWhoIam_id, files, error } = useUpload({

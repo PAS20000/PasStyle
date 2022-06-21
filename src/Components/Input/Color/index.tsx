@@ -1,11 +1,15 @@
 import * as React from 'react'
-import PasStyle from '../../..'
-import { PasStyleProps } from '../../../../utils/types'
+import { InputPropsMethod } from '..'
+import PasStyle, { InputAttr, PasStyleProps } from '../../..'
 import useWhoIam from '../../../Hooks/useWhoIam'
 import Label from '../Label'
 import Css from './index.styles'
 
-const Color = (props:PasStyleProps) => {
+type Props = {
+
+}
+
+const Color = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
     const {onChange, placeholder, value, label} = props
 

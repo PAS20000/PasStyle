@@ -1,8 +1,9 @@
 import styled from "@emotion/styled"
 import CreateCss from "../CreateCss/index.styles"
+import { PasStyleProps } from ".."
 import { PasProps, Styles } from "../../utils/types"
 
-export type TCreateStyle = PasProps
+export type TCreateStyle = PasProps & Styles
 
 const CreateStyles = ({
     flex,
@@ -49,7 +50,7 @@ const CreateStyles = ({
     _webkit,
     display,
     p_Events
-} : Styles) => {
+} : TCreateStyle) => {
 
     const { 
             Unselect, 
@@ -131,27 +132,9 @@ const CreateStyles = ({
 
 const CreateStyle = (props: TCreateStyle) : string =>  {
     
-    const { tag, _hover, _focus, _media } = props
+    const { _hover, _focus, _media } = props
 
-    return`
-
-    ${tag === 'NEXTLINK' && `a{
-
-            ${CreateStyles({...props})}
-           
-            ${_hover && `:hover{
-                ${CreateStyles({..._hover})}
-            }`}
-            ${_focus && `:focus{
-                ${CreateStyles({..._focus})}
-            }`}
-            ${_media && _media.max && `:@media (max-width: ${_media.max[0]}px){
-                ${CreateStyles({..._media.max[1]})}
-            }`}
-        }`
-    }
-
-    ${tag !== 'NEXTIMG' && tag !== 'NEXTLINK' && `
+    return `
         ${CreateStyles({...props})}
     
         ${_hover && `:hover{
@@ -163,8 +146,8 @@ const CreateStyle = (props: TCreateStyle) : string =>  {
         ${_media && _media.max && `:@media (max-width: ${_media.max[0]}px){
             ${CreateStyles({..._media.max[1]})}
         }`}
-    `}
-`}
+    `
+}
 
 export default CreateStyle
 

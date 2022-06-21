@@ -1,7 +1,7 @@
 import * as React from 'react'
-import PasStyle from '../../..'
+import { InputPropsMethod } from '..'
+import PasStyle, { PasStyleProps } from '../../..'
 import Remove from '../../../../utils/Remove'
-import { PasStyleProps } from '../../../../utils/types'
 import Css from '../index.styles'
 import Label from '../Label'
 
@@ -9,7 +9,7 @@ type Props = {
   
 }
 
-const Date = (props:PasStyleProps<Props>) => {
+const Date = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
     const { label } = props
 
