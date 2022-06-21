@@ -130,5 +130,3 @@ export type Styles = {
     display?:string
     p_Events?:string
 }
-
-export type PasStyleProps<T = {}> = T & Styles & PasProps &  React.AllHTMLAttributes<any>

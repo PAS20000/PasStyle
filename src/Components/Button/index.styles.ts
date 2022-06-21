@@ -1,4 +1,5 @@
-import { PasStyleProps } from "../../../utils/types"
+
+import { PasStyleProps } from "../.."
 import useThemeCTX from "../../Contexts/ThemeContext/useThemeCTX"
 
 const Css = {
@@ -20,7 +21,7 @@ const Css = {
             }
         }
     },
-    select() : PasStyleProps {
+    circle() : PasStyleProps {
 
         const { theme } = useThemeCTX()
 

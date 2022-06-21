@@ -9,11 +9,21 @@ const Home = () => {
 
     return(
       <>
-         <Button.Default onClick={changeMode}>
+         <Button onClick={changeMode}>
             Change Theme
-         </Button.Default>
-         <Input.File label='Upload' onChange={(e) => console.log(e)}/>
-         <Input.File multiple label='Uploads'/>
+         </Button>
+         <Input.File label='Upload' maxFiles={1} change={(files) => {
+            console.log('Upload1 :')
+            console.log(files)
+         }}/>
+         <Input.File label='Upload2' maxFiles={2} change={(files) => {
+            console.log('Upload2 :')
+            console.log(files)
+         }}/>
+          <Input.File label='Upload3' maxFiles={3} change={(files) => {
+            console.log('Upload3 :')
+            console.log(files)
+         }}/>
       </>
     )
 }

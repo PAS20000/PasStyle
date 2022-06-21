@@ -1,20 +1,21 @@
 import * as React from 'react'
-import { PasStyleProps } from '../../../utils/types'
 import Color from './Color'
 import Date from './Date'
 import Email from './Email'
-import File from './File'
 import Label from './Label'
 import Password from './Password'
 import Text from './Text'
 import Url from './Url'
+import Upload from './Upload'
+import { PasStyleProps } from '../..'
 
 type Props = {
     label?:string
 }
 
 type PropsFile = {
-    multiple?:boolean
+   maxFiles?:number
+   change?:(files : Array<File>) => void
 }
 
 const Input = {
@@ -91,18 +92,7 @@ const Input = {
         )
     },
     File(props:PasStyleProps<Props & PropsFile>) {
-
-         const { multiple } = props 
-
-        return (
-            <>
-                {multiple ? 
-                    <File.Multiple {...props}/> 
-                    : 
-                    <File.Single {...props}/>
-                }
-            </>
-        )
+        return <Upload {...props}/>
     },
 }
    

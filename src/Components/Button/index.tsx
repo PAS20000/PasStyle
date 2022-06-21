@@ -1,23 +1,22 @@
 import * as React from 'react'
-import PasStyle from '../..'
-import { PasStyleProps } from '../../../utils/types'
+import PasStyle, { PasStyleProps } from '../..'
 import Css from './index.styles'
 
 type Props = {
-    
+    kind?:[
+        'circle'
+    ][number]
 }
 
-const Button = {
-    Default(props:PasStyleProps<Props>) {
+const Button = (props:PasStyleProps<Props>) => {
 
-        const { children } = props
+        const { children, kind } = props
 
         return(
-            <PasStyle.Button {...Css.default()} {...props}>
+            <PasStyle.Button {...Css[kind ?? 'default']()} {...props}>
                 {children}
             </PasStyle.Button>
         )
     }
-}
 
 export default Button
