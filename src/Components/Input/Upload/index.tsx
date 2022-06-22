@@ -10,7 +10,7 @@ export type Error = {
 }
 
 type Props = {
-    maxFiles?:number
+    maxFiles:number
     maxSize?:number
     get?:(files : Array<File>, error : Error ) => void
 }

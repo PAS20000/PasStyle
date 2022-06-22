@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SetState } from '../../../../../Contexts/types'
+import { SetState } from '../../Contexts/types'
 
 type Props = {
 
@@ -13,7 +13,7 @@ type Return = {
     setOpen:SetState<boolean>
 }
 
-const useModal = () : Return => {
+const usePopup = () : Return => {
 
     const [open, setOpen] = React.useState<boolean>(false)
 
@@ -26,4 +26,4 @@ const useModal = () : Return => {
     }
 }
 
-export default useModal
+export default usePopup

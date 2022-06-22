@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { PasStyleProps } from '../../../../../utils/types'
-import { SetState } from '../../../../Contexts/types'
-import Button from '../../../Button'
+import { PasStyleProps } from '../../../../utils/types'
+import { SetState } from '../../../Contexts/types'
+import Button from '../../Button'
 
 type Props = {
     state:[boolean, SetState<boolean>]

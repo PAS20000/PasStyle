@@ -14,23 +14,18 @@ export type InputPropsMethod<T = {}> = T & {
 
 const Input = {
     Text(props:PasStyleProps<InputPropsMethod>) {
-
         return <Text {...props}/>
     },
     Color(props:PasStyleProps<InputPropsMethod>) {
-
         return <Color {...props}/>
     },
     Date(props:PasStyleProps<InputPropsMethod>) {
-
         return <Date {...props}/>
     },
     Passowrd(props:PasStyleProps<InputPropsMethod>) {
-
         return <Password {...props}/>
     },
     Email(props:PasStyleProps<InputPropsMethod>) {
-
         return <Email {...props}/>
     },
     Url(props:PasStyleProps<InputPropsMethod>) {
@@ -40,8 +35,5 @@ const Input = {
         return <Upload {...props}/>
     },
 }
-   
-
-
 
 export default Input

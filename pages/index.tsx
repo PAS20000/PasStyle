@@ -1,11 +1,14 @@
 import * as React from 'react'
+import Alert from '../src/Components/Alert'
 import Button from '../src/Components/Button'
 import Input from '../src/Components/Input'
 import useThemeCTX from '../src/Contexts/ThemeContext/useThemeCTX'
+import usePopup from '../src/Hooks/usePopup'
 
 const Home = () => {
 
       const { changeMode } = useThemeCTX()
+      const { state } = usePopup()
 
     return(
       <>
@@ -27,6 +30,14 @@ const Home = () => {
              console.log(files)
              console.log(error)
          }}/>
+         <button onClick={() => state[1](true)}>
+            Open Alert
+         </button>
+         <Alert.Info state={state} bg='red'>
+            <h1>
+              Alert
+            </h1>
+         </Alert.Info>
       </>
     )
 }
