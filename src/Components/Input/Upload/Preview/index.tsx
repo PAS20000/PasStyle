@@ -1,16 +1,16 @@
 import * as React from 'react'
 import PasStyle from '../../../..'
+import useFileSize from '../Hooks/useFileSize'
 
 type Props = {
     file:File
-    fileSize:(file:File) => string
 }
 
 const Preview = ({
     file,
-    fileSize
 } : Props) => {
 
+    const { fileSize } = useFileSize()
 
     return(
         <PasStyle.Div>

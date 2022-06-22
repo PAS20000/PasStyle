@@ -31,7 +31,7 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
             const {label, maxFiles, accept, id, get, maxSize, value} = props
 
-            const { sendFile, addFile, useWhoIam_id, fileSize, files, } = useUpload({
+            const { sendFile, addFile, useWhoIam_id, files, } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
                 get,
                 maxFiles,
@@ -47,7 +47,6 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
                         <Preview 
                             key={i}
                             file={file}
-                            fileSize={fileSize}
                         />
                     )}
                     <PasStyle.Input 
