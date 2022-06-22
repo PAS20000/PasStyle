@@ -14,7 +14,7 @@ export type InputPropsMethod<T = {}> = T & {
 
 const Input = {
     Text(props:PasStyleProps<InputPropsMethod>) {
-        return <Text {...props}/>
+        return <Text {...props} />
     },
     Color(props:PasStyleProps<InputPropsMethod>) {
         return <Color {...props}/>
@@ -31,8 +31,8 @@ const Input = {
     Url(props:PasStyleProps<InputPropsMethod>) {
         return <Url {...props} />
     },
-    File(props:PasStyleProps<InputPropsMethod<InputFile>>) {
-        return <Upload {...props}/>
+    File(props:PasStyleProps<InputPropsMethod & InputFile>) {
+        return <Upload {...props} />
     },
 }
 

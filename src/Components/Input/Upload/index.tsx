@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { InputPropsMethod } from '..'
 import PasStyle, { PasStyleProps } from '../../..'
+import Remove from '../../../../utils/Remove'
 import Button from '../../Button'
 import useUpload from './Hooks/useUpload'
+import Preview from './Preview'
 
 export type Error = {
     type?:'maxFiles' | 'maxSize'
@@ -10,9 +12,13 @@ export type Error = {
 }
 
 type Props = {
+    kind?:[
+        'Gallery'
+    ][number]
     maxFiles:number
     maxSize?:number
     get?:(files : Array<File>, error : Error ) => void
+    icon?:React.ReactNode
 }
 
 export type InputFile = Props
@@ -20,7 +26,7 @@ export type InputFile = Props
 const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
             const {label, maxFiles, accept, id, get, maxSize} = props
 
-            const { sendFile, addFile, fileSize, useWhoIam_id, files, error } = useUpload({
+            const { sendFile, addFile, useWhoIam_id, fileSize, files, error } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
                 get,
                 maxFiles,
@@ -38,19 +44,15 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
             
             return(
                 <PasStyle.Div>
-                    <Button onClick={sendFile}>
+                    <Button onClick={sendFile} {...Remove.children(props)}>
                         {label}
                     </Button>
                     {files && files.map((file, i) => 
-                        <PasStyle.Div key={file.name + i}>
-                            <PasStyle.Img src={URL.createObjectURL(file)}
-                                w='50px'
-                                h='50px'
-                            />
-                            <PasStyle.Span>
-                                {file.name}-{fileSize(file)}
-                            </PasStyle.Span>
-                        </PasStyle.Div>
+                        <Preview 
+                            key={i}
+                            file={file}
+                            fileSize={fileSize}
+                        />
                     )}
                     <PasStyle.Input 
                         type='file' 

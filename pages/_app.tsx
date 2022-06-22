@@ -10,9 +10,11 @@ const App = ({
 } : AppProps & any) => {
 
   return (
-    <PasStyleProvider>
-      <Component {...pageProps} />
-    </PasStyleProvider>
+    <React.StrictMode>
+      <PasStyleProvider>
+        <Component {...pageProps} />
+      </PasStyleProvider>
+    </React.StrictMode>
   )
 }
 

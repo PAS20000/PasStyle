@@ -137,6 +137,10 @@ const StyleIframe = styled.iframe<TCreateStyle>`
   ${props => CreateStyle({...props})}
 `
 
+const StyleDialog = styled.dialog<TCreateStyle>`
+  ${props => CreateStyle({...props})}
+`
+
 export default  {
     StyleArticle,
     StyleAside,
@@ -172,5 +176,6 @@ export default  {
     StyleCode,
     StyleLabel,
     StyleIframe,
+    StyleDialog,
     CreateStyle,
 }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SetState } from '../../Contexts/types'
 import ModalBody from '../Modal/ModalBody'
-import Popup from '../Modal/Popup'
+import Popup from '../Popup'
 import CreatePortal from '../CreatePortal'
 import { PasStyleProps } from '../..'
 

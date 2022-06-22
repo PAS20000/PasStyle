@@ -89,13 +89,13 @@ const useUpload = ({
                         type:'maxSize',
                         rejectedFiles:existMaxSize,
                     })
-                    if(maxFiles === 1){
-                        return setFiles(files)
-                    }
+                }
+                if(maxFiles === 1){
+                    return setFiles(prev => filterMaxSize[0] ? filterMaxSize:prev)
                 }
             }
             if(maxFiles === 1 || !maxFiles){
-                setFiles(files)
+                setFiles(prev => filterMaxSize[0] ? filterMaxSize:prev)
             }
             if(maxFiles){
                 if(ArrayFiles.length > maxFiles && maxFiles !== 1){

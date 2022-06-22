@@ -28,6 +28,8 @@ export type LabelAttr <T = {}> = React.LabelHTMLAttributes<T>
 
 export type IframeAttr <T = {}> = React.IframeHTMLAttributes<T>
 
+export type DialogAttr <T = {}> = React.DialogHTMLAttributes<T>
+
 export type TextareaAttr <T = {}> = React.TextareaHTMLAttributes<T>
 
 const PasStyle = {
@@ -130,6 +132,9 @@ const PasStyle = {
     TextArea(props:PasStyleProps<TextareaAttr>) {
         return <Emotion.StyleTextArea {...props} />
     },
+    Dialog(props:PasStyleProps<DialogAttr>){
+        return <Emotion.StyleDialog {...props} />
+    }
 }
 
 export default PasStyle
