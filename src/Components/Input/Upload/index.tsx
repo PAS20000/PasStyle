@@ -15,7 +15,7 @@ type Props = {
     kind?:[
         'Gallery'
     ][number]
-    maxFiles:number
+    maxFiles?:number
     maxSize?:number
     get?:(files : Array<File>, error : Error ) => void
     icon?:React.ReactNode
@@ -56,7 +56,7 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
                     )}
                     <PasStyle.Input 
                         type='file' 
-                        multiple={maxFiles === 1 ? false : true}
+                        multiple={maxFiles === 1 || !maxFiles ? false : true}
                         w='0px'
                         onChange={(e) => addFile(e)}
                         id={useWhoIam_id}

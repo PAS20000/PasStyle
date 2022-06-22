@@ -79,37 +79,38 @@ const useUpload = ({
             if(get){
                 get(files, error)
             }
+            const maxItems = maxFiles ?? 1
             const ArrayFiles : Array<File> = Array.from(e.target.files) 
-            const filterMaxSize = ArrayFiles.filter(file => typeSize.kb(file.size).size < maxSize)
-            const existMaxSize = ArrayFiles.filter(file => typeSize.kb(file.size).size > maxSize)
+            const rejectMaxSize = ArrayFiles.filter((f) => typeSize.kb(f.size).size > maxSize)
+            const filterMaxSize = ArrayFiles.filter(f => typeSize.kb(f.size).size < maxSize)
 
             if(maxSize){
-                if(existMaxSize[0]){
+                if(rejectMaxSize[0]){
                     setError({
                         type:'maxSize',
-                        rejectedFiles:existMaxSize,
+                        rejectedFiles:rejectMaxSize,
                     })
                 }
-                if(maxFiles === 1){
+                if(maxItems === 1){
                     return setFiles(prev => filterMaxSize[0] ? filterMaxSize:prev)
                 }
             }
-            if(maxFiles === 1 || !maxFiles){
+            if(maxItems === 1){
                 setFiles(prev => filterMaxSize[0] ? filterMaxSize:prev)
             }
-            if(maxFiles){
-                if(ArrayFiles.length > maxFiles && maxFiles !== 1){
-                    setFiles(filterMaxSize.splice(0, maxFiles))
+            if(maxItems){
+                if(ArrayFiles.length > maxItems && maxItems !== 1){
+                    setFiles(filterMaxSize.splice(0, maxItems))
                     setError({
                         type:'maxFiles',
-                        rejectedFiles:existMaxSize,
+                        rejectedFiles:rejectMaxSize,
                     })
                 } 
                 const ExceededFiles = (prev : File[]) : boolean => {
-                    if(prev.length >= maxFiles){
-                        maxFiles !== 1 &&  setError({
+                    if(prev.length >= maxItems){
+                        maxItems !== 1 &&  setError({
                             type:'maxFiles',
-                            rejectedFiles:existMaxSize,
+                            rejectedFiles:rejectMaxSize,
                         })
                         return true
                     } else {
@@ -117,7 +118,7 @@ const useUpload = ({
                     }
                 }
                 setFiles(prev => ExceededFiles(prev) ? 
-                    [...prev].splice(0 , maxFiles)
+                    [...prev].splice(0 , maxItems)
                     : 
                     [...prev].concat(filterMaxSize) 
                 )

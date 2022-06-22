@@ -16,7 +16,7 @@ const Home = () => {
          <Button onClick={changeMode}>
             Change Theme
          </Button>
-         <Input.File label='Upload1' bg='red' maxFiles={1} maxSize={80} get={(files, error) => {
+         <Input.File label='Upload1' bg='red' maxSize={80} get={(files, error) => {
              console.log('upload1: '),
              console.log(files)
              console.log(error)
