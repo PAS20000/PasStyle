@@ -4,10 +4,12 @@ import ModalBody from '../Modal/ModalBody'
 import Popup from '../Popup'
 import CreatePortal from '../CreatePortal'
 import { PasStyleProps } from '../..'
+import Remove from '../../../utils/Remove'
 
 type Props = {
     state:[boolean, SetState<boolean>]
     children?:React.ReactNode
+    message?:React.ReactNode
 }
 
 const Alert = {
@@ -34,12 +36,14 @@ const Alert = {
         )
     },
     Error(props:PasStyleProps<Props>){
-        const { state } = props
+        const { state, message } = props
         
         return(
             <CreatePortal error='Not Found Alert.Error'>
                 <Popup state={state}>
-                    <ModalBody transform='translate(100vh, 87vh)'  {...props} />
+                    <ModalBody transform='translate(100vh, 87vh)' {...props}>
+                        {message}
+                    </ModalBody>
                 </Popup>
             </CreatePortal>
         )

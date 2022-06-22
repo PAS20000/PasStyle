@@ -5,24 +5,23 @@ type Props = {
 
 }
 
-type State =  [boolean, SetState<boolean>]
+type State = [boolean, SetState<boolean>]
 
-type Return = {
-    state:State
-    open:boolean
-    setOpen:SetState<boolean>
-}
+const usePopup = ()  => {
 
-const usePopup = () : Return => {
+    const [isClosed, setIsClosed] = React.useState<boolean>(false)
+    const [isOpen , setIsOpen] = React.useState<boolean>(true)
 
-    const [open, setOpen] = React.useState<boolean>(false)
-
-    const PopupState : State = [open, setOpen]
+    const ClosedStart : State = [isClosed, setIsClosed]
+    const OpenStart : State = [isOpen , setIsOpen]
 
     return {
-        state:PopupState,
-        open,
-        setOpen,
+        ClosedStart,
+        OpenStart,
+        isClosed,
+        setIsClosed,
+        isOpen,
+        setIsOpen,
     }
 }
 

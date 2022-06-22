@@ -2,14 +2,18 @@ import * as React from 'react'
 import { InputPropsMethod } from '..'
 import PasStyle, { PasStyleProps } from '../../..'
 import Remove from '../../../../utils/Remove'
+import usePopup from '../../../Hooks/usePopup'
+import Alert from '../../Alert'
 import Button from '../../Button'
 import useUpload from './Hooks/useUpload'
 import Preview from './Preview'
 
 export type Error = {
-    type?:'maxFiles' | 'maxSize'
+    exist?:boolean
     rejectedFiles?:File[]
 }
+
+export type Get = (files : Array<File>, error : Error & {reset : () => void }) => void
 
 type Props = {
     kind?:[
@@ -17,31 +21,23 @@ type Props = {
     ][number]
     maxFiles?:number
     maxSize?:number
-    get?:(files : Array<File>, error : Error ) => void
+    get?:Get
     icon?:React.ReactNode
 }
 
 export type InputFile = Props
 
 const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
-            const {label, maxFiles, accept, id, get, maxSize} = props
 
-            const { sendFile, addFile, useWhoIam_id, fileSize, files, error } = useUpload({
+            const {label, maxFiles, accept, id, get, maxSize, value} = props
+
+            const { sendFile, addFile, useWhoIam_id, fileSize, files, } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
                 get,
                 maxFiles,
                 maxSize,
             })
 
-            React.useEffect(() => {
-                if(error.type === 'maxSize'){
-                    alert(`Exceeded File Size ${maxSize}`)
-                }
-                if(error.type === 'maxFiles'){
-                    alert(`Exceeded Files ${maxFiles}`)
-                }
-            }, [error])
-            
             return(
                 <PasStyle.Div>
                     <Button onClick={sendFile} {...Remove.children(props)}>
@@ -61,6 +57,7 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
                         onChange={(e) => addFile(e)}
                         id={useWhoIam_id}
                         accept={accept}
+                        value={value}
                     />
                 </PasStyle.Div>
             )

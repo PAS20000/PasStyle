@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Error } from '../..'
+import { Error, Get } from '../..'
 import useWhoIam from '../../../../../Hooks/useWhoIam'
 
 type Props = {
-    get?:(files : Array<File>, error : Error) => void
+    get?:Get
     id:string
     maxFiles?:number
     maxSize?:number
@@ -20,11 +20,21 @@ const useUpload = ({
     const [files, setFiles] = React.useState<Array<File>>([])
     const [error, setError] = React.useState<Error>({})
 
-    React.useEffect(() => {
+    const GetInit = () => {
         if(get){
-            get(files, error)
+            get(files, {
+                ...error,
+                reset() {
+                    setError({})
+                },
+            })
         }
+    }
+
+    React.useEffect(() => {
+        GetInit()
     }, [files, error])
+
 
     const typeSize = {
         kb(FileSize : number){
@@ -76,14 +86,25 @@ const useUpload = ({
             document.getElementById(hash).click()
         },
         addFile(e : any) {
-            if(get){
-                get(files, error)
-            }
+            GetInit()
             const maxItems = maxFiles ?? 1
-            const ArrayFiles : Array<File> = Array.from(e.target.files) 
-            const rejectMaxSize = ArrayFiles.filter((f) => typeSize.kb(f.size).size > maxSize)
-            const filterMaxSize = ArrayFiles.filter(f => typeSize.kb(f.size).size < maxSize)
+            const maxSizeFile = maxSize ?? 1024 * 1000
+            const ArrayFiles : Array<File> = Array.from(e.target.files)
 
+            const rejectedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size > maxSizeFile || i > maxItems )
+
+            const approvedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size < maxSizeFile && i <= maxItems )
+            
+
+            setFiles(approvedFiles)
+
+            setError({
+                exist:!!rejectedFiles,
+                rejectedFiles
+            })
+
+            /*const rejectMaxSize = ArrayFiles.filter(f => typeSize.kb(f.size).size > maxSize)
+            const filterMaxSize = ArrayFiles.filter(f => typeSize.kb(f.size).size < maxSize)
             if(maxSize){
                 if(rejectMaxSize[0]){
                     setError({
@@ -123,7 +144,7 @@ const useUpload = ({
                     [...prev].concat(filterMaxSize) 
                 )
                
-            }
+            }*/
         },
         removeFile(index:number){
             setFiles(prev => prev.filter((f , i) => f && i !== index))
