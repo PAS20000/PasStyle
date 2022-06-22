@@ -20,7 +20,7 @@ const useUpload = ({
     const [files, setFiles] = React.useState<Array<File>>([])
     const [error, setError] = React.useState<Error>({})
 
-    const GetInit = () => {
+    const Methods = () => {
         if(get){
             get(files, {
                 ...error,
@@ -32,7 +32,7 @@ const useUpload = ({
     }
 
     React.useEffect(() => {
-        GetInit()
+        Methods()
     }, [files, error])
 
 
@@ -86,65 +86,19 @@ const useUpload = ({
             document.getElementById(hash).click()
         },
         addFile(e : any) {
-            GetInit()
+            Methods()
             const maxItems = maxFiles ?? 1
             const maxSizeFile = maxSize ?? 1024 * 1000
             const ArrayFiles : Array<File> = Array.from(e.target.files)
-
             const rejectedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size > maxSizeFile || i > maxItems )
-
             const approvedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size < maxSizeFile && i <= maxItems )
             
-
-            setFiles(approvedFiles)
+            setFiles(prev => prev.length < maxItems ? prev.concat(approvedFiles) : approvedFiles )
 
             setError({
-                exist:!!rejectedFiles,
+                exist:!!rejectedFiles.length,
                 rejectedFiles
             })
-
-            /*const rejectMaxSize = ArrayFiles.filter(f => typeSize.kb(f.size).size > maxSize)
-            const filterMaxSize = ArrayFiles.filter(f => typeSize.kb(f.size).size < maxSize)
-            if(maxSize){
-                if(rejectMaxSize[0]){
-                    setError({
-                        type:'maxSize',
-                        rejectedFiles:rejectMaxSize,
-                    })
-                }
-                if(maxItems === 1){
-                    return setFiles(prev => filterMaxSize[0] ? filterMaxSize:prev)
-                }
-            }
-            if(maxItems === 1){
-                setFiles(prev => filterMaxSize[0] ? filterMaxSize:prev)
-            }
-            if(maxItems){
-                if(ArrayFiles.length > maxItems && maxItems !== 1){
-                    setFiles(filterMaxSize.splice(0, maxItems))
-                    setError({
-                        type:'maxFiles',
-                        rejectedFiles:rejectMaxSize,
-                    })
-                } 
-                const ExceededFiles = (prev : File[]) : boolean => {
-                    if(prev.length >= maxItems){
-                        maxItems !== 1 &&  setError({
-                            type:'maxFiles',
-                            rejectedFiles:rejectMaxSize,
-                        })
-                        return true
-                    } else {
-                        return false
-                    }
-                }
-                setFiles(prev => ExceededFiles(prev) ? 
-                    [...prev].splice(0 , maxItems)
-                    : 
-                    [...prev].concat(filterMaxSize) 
-                )
-               
-            }*/
         },
         removeFile(index:number){
             setFiles(prev => prev.filter((f , i) => f && i !== index))
