@@ -1,4 +1,4 @@
-import { PasStyleProps } from "../../../../utils/types"
+import { PasStyleProps } from "../.."
 
 const Css = {
     default() : PasStyleProps {

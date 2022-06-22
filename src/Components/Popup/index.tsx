@@ -1,7 +1,7 @@
 import * as React from 'react'
-import PasStyle from '../../..'
-import { PasStyleProps } from '../../../../utils/types'
-import { SetState } from '../../../Contexts/types'
+import PasStyle, { PasStyleProps } from '../..'
+import Remove from '../../../utils/Remove'
+import { SetState } from '../../Contexts/types'
 import Css from './index.styles'
 
 type Props = {
@@ -28,7 +28,7 @@ const Popup = (props:PasStyleProps<Props>) => {
                 <PasStyle.Div
                     {...Css.default()}
                     onClick={action.close}
-                    {...{...props, children:null}}
+                    {...Remove.children(props)}
                 />
                 {children}
             </>
