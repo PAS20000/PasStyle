@@ -44,11 +44,21 @@ const Preview = {
             }
         }
 
-        const icon = iconFile[type1 ?? type0] ? iconFile[type1 ?? type0]() : iconFile['default']()
+        const icon = () : JSX.Element => {
+            if(iconFile[type1]){
+                return iconFile[type1]()
+            }
+            if(iconFile[type0]){
+                return iconFile[type0]()
+            }
+            else{
+                return iconFile['default']()
+            }
+        } 
 
         return(
             <PasStyle.Div key={key} pd='10px'>
-                {icon} 
+                {icon()} 
                 <PasStyle.Span>
                     {file.name} {fileSize(file)}
                 </PasStyle.Span>

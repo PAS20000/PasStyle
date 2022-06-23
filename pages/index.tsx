@@ -29,7 +29,7 @@ const Home = () => {
              console.log(error)
              error.exist && error.reset
          }}/>
-          <Input.File label='Upload3' maxFiles={3} get={(files, error) => {
+          <Input.File label='Upload max : 20' maxFiles={20} get={(files, error) => {
              console.log('upload3: '),
              console.log(files)
              console.log(error)
