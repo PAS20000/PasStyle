@@ -1,5 +1,5 @@
 import * as React from 'react'
-import PasStyle, { LabelAttr, PasStyleProps } from '../../..'
+import PasStyle, { LabelAttr, PasStyleProps } from '../../../..'
 import Css from './index.styles'
 
 const Label = (props:PasStyleProps<LabelAttr>) => {

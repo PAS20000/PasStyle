@@ -1,5 +1,5 @@
-import { PasStyleProps } from "../../.."
-import useThemeCTX from "../../../Contexts/ThemeContext/useThemeCTX"
+import { PasStyleProps } from "../../../.."
+import useThemeCTX from "../../../../Contexts/ThemeContext/useThemeCTX"
 
 
 const Css = {

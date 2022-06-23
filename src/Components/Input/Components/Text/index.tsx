@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { InputPropsMethod } from '..'
-import PasStyle, { PasStyleProps } from '../../..'
-import Remove from '../../../../utils/Remove'
-import Css from '../index.styles'
+import { InputPropsMethod } from '../..'
+import PasStyle, { PasStyleProps } from '../../../..'
+import Remove from '../../../../../utils/Remove'
+import Css from '../../index.styles'
 import Label from '../Label'
+
 
 type Props = {
   

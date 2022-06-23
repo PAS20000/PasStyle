@@ -1,12 +1,10 @@
 import * as React from 'react'
-import { InputPropsMethod } from '..'
-import PasStyle, { PasStyleProps } from '../../..'
-import Remove from '../../../../utils/Remove'
-import usePopup from '../../../Hooks/usePopup'
-import Alert from '../../Alert'
-import Button from '../../Button'
 import useUpload from './Hooks/useUpload'
-import Preview from './Preview'
+import Preview from './Components/Preview'
+import PasStyle, { PasStyleProps } from '../../../..'
+import { InputPropsMethod } from '../..'
+import Remove from '../../../../../utils/Remove'
+import Button from '../../../Button'
 
 export type Error = {
     exist?:boolean
@@ -29,7 +27,7 @@ export type InputFile = Props
 
 const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
-            const {label, maxFiles, accept, id, get, maxSize, value, kind} = props
+            const { label, maxFiles, accept, id, get, maxSize, value, kind } = props
 
             const { sendFile, addFile, removeFile, useWhoIam_id, files, } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
@@ -43,7 +41,7 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
                     <Button onClick={sendFile} {...Remove.children(props)}>
                         {label}
                     </Button>
-                    {files && files.map((file, i) => 
+                    {files.map((file, i) => 
                         Preview[kind ?? 'default']({
                             key:i,
                             file,

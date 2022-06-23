@@ -1,7 +1,8 @@
 import * as React from 'react'
-import PasStyle from '../../../..'
-import Icons from '../../../Icons'
-import useFileSize from '../Hooks/useFileSize'
+import PasStyle from '../../../../../..'
+import Icons from '../../../../../Icons'
+import useFileSize from '../../Hooks/useFileSize'
+import Controls from './Components/Controls'
 import useIconQuery from './Hooks/useIconQuery'
 
 type Props = {
@@ -27,14 +28,17 @@ const Preview = {
                     {response()} 
                 </PasStyle.Span>
                 {file.name} {fileSize(file)}
-                <Icons.Fa.FaEye />
-                <Icons.Fa.FaTrash onClick={() => removeFile(key)}/> 
+                <Controls 
+                    index={key} 
+                    removeFile={removeFile}
+                />
             </PasStyle.Div>
         )
     },
     gallery({
         file,
-        key
+        key,
+        removeFile
     } : Props ) {
 
         const { fileSize } = useFileSize()
@@ -48,6 +52,10 @@ const Preview = {
                 <PasStyle.Span>
                     {file.name} {fileSize(file)}
                 </PasStyle.Span>
+                <Controls 
+                    index={key} 
+                    removeFile={removeFile}
+                />
             </PasStyle.Div>
         )
     }

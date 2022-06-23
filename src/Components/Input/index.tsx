@@ -1,12 +1,12 @@
 import * as React from 'react'
-import Color from './Color'
-import Date from './Date'
-import Email from './Email'
-import Password from './Password'
-import Text from './Text'
-import Url from './Url'
-import Upload, { InputFile } from './Upload'
 import { InputAttr, PasStyleProps } from '../..'
+import Color from './Components/Color'
+import Date from './Components/Date'
+import Email from './Components/Email'
+import Password from './Components/Password'
+import Text from './Components/Text'
+import Upload, { InputFile } from './Components/Upload'
+import Url from './Components/Url'
 
 export type InputPropsMethod<T = {}> = T & {
     label?:string
