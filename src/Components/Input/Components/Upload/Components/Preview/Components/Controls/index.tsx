@@ -19,8 +19,11 @@ const Controls = ({
 
     return (
         <PasStyle.Div>
-            {response()}
-            <Icons.Fa.FaEye onClick={() => window.open(URL.createObjectURL(file))}/>
+            {response.isDownload ?  
+                <Icons.Fa.FaDownload onClick={() => window.open(URL.createObjectURL(file))}/>
+                : 
+                <Icons.Fa.FaEye onClick={() => window.open(URL.createObjectURL(file))}/>
+            }
             <Icons.Fa.FaTrash onClick={() => removeFile(index)}/> 
         </PasStyle.Div>
     )

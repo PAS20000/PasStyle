@@ -49,7 +49,19 @@ const useUpload = ({
             const rejectedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size > maxSizeFile || i > maxItems )
             const approvedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size < maxSizeFile && i < maxItems )
             
-            setFiles(prev => prev.length < maxItems ? prev.concat(approvedFiles) : approvedFiles )
+            const setFileConditions = (currentFiles : Array<File>) => {
+                if(currentFiles.length < maxItems){
+                    if(approvedFiles.length < maxItems){
+                        return currentFiles.concat(approvedFiles)
+                    } else {
+                        return approvedFiles.splice(0 , currentFiles.length)
+                    }
+                } else {
+                    return approvedFiles
+                }
+            }
+
+            setFiles(prev => setFileConditions(prev))
 
             setError({
                 exist:!!rejectedFiles.length,

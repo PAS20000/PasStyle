@@ -24,7 +24,7 @@ const Preview = {
             <PasStyle.Div key={key} pd='10px' flex>
                 <PasStyle.Span>
                     <Icons.Fi.FiPaperclip />
-                    {response()} 
+                    {response.icon} 
                 </PasStyle.Span>
                 <FileInformation 
                     file={file}

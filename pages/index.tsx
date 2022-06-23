@@ -13,7 +13,7 @@ const Home = () => {
       console.log('Eu sou o File', file)
       
     return(
-      <Main bg='#00000072' w='100%' h='100vh'>
+      <Main bg='#00000072' w='100%' h='100%'>
          <Button onClick={changeMode}>
             Change Theme
          </Button>
@@ -29,7 +29,7 @@ const Home = () => {
              console.log(error)
              error.exist && error.reset
          }}/>
-          <Input.File label='Upload max : 20' maxFiles={20} get={(files, error) => {
+          <Input.File label='Upload max : 3' maxFiles={3} get={(files, error) => {
              console.log('upload3: '),
              console.log(files)
              console.log(error)

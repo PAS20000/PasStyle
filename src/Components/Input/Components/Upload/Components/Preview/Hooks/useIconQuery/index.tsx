@@ -90,18 +90,26 @@ const useIconQuery = (file : File) => {
         const IconJSX = ArrayPreview[0]
         const isDownload = !!ArrayDownload[0]
 
-        console.log(isDownload)
-
         if(IconJSX){
-            return IconJSX
+            return {
+                isDownload,
+                icon:IconJSX,
+                name:IconJSX.type.name
+            }
         } 
         if(icon()){
-            return icon()
+            return {
+                isDownload,
+                icon:icon(),
+                name:icon().type.name
+            }
         }
     }
+
+    console.log(response())
     
     return {
-        response,
+        response:response(),
         icon,
         iconFile,
         Include,
