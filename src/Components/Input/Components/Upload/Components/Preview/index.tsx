@@ -1,8 +1,8 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
 import Icons from '../../../../../Icons'
-import useFileSize from '../../Hooks/useFileSize'
 import Controls from './Components/Controls'
+import FileInformation from './Components/FileInformation'
 import useIconQuery from './Hooks/useIconQuery'
 
 type Props = {
@@ -18,7 +18,6 @@ const Preview = {
         removeFile
     }: Props) {
 
-        const { fileSize } = useFileSize()
         const { response } = useIconQuery(file)
 
         return(
@@ -27,8 +26,11 @@ const Preview = {
                     <Icons.Fi.FiPaperclip />
                     {response()} 
                 </PasStyle.Span>
-                {file.name} {fileSize(file)}
+                <FileInformation 
+                    file={file}
+                />
                 <Controls 
+                    file={file}
                     index={key} 
                     removeFile={removeFile}
                 />
@@ -41,8 +43,6 @@ const Preview = {
         removeFile
     } : Props ) {
 
-        const { fileSize } = useFileSize()
-
         return(
             <PasStyle.Div key={key}>
                 <PasStyle.Img src={URL.createObjectURL(file)}
@@ -50,9 +50,12 @@ const Preview = {
                     h='50px'
                 />
                 <PasStyle.Span>
-                    {file.name} {fileSize(file)}
                 </PasStyle.Span>
+                <FileInformation 
+                    file={file}
+                />
                 <Controls 
+                    file={file}
                     index={key} 
                     removeFile={removeFile}
                 />

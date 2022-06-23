@@ -37,27 +37,29 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
             })
 
             return(
-                <PasStyle.Div>
-                    <Button onClick={sendFile} {...Remove.children(props)}>
-                        {label}
-                    </Button>
-                    {files.map((file, i) => 
-                        Preview[kind ?? 'default']({
-                            key:i,
-                            file,
-                            removeFile
-                        })
-                    )}
-                    <PasStyle.Input 
-                        type='file' 
-                        multiple={maxFiles === 1 || !maxFiles ? false : true}
-                        w='0px'
-                        onChange={(e) => addFile(e)}
-                        id={useWhoIam_id}
-                        accept={accept}
-                        value={value}
-                    />
-                </PasStyle.Div>
+                <>
+                    <PasStyle.Div>
+                        <Button onClick={sendFile} {...Remove.children(props)}>
+                            {label}
+                        </Button>
+                        {files.map((file, i) => 
+                            Preview[kind ?? 'default']({
+                                key:i,
+                                file,
+                                removeFile
+                            })
+                        )}
+                        <PasStyle.Input 
+                            type='file' 
+                            multiple={maxFiles === 1 || !maxFiles ? false : true}
+                            w='0px'
+                            onChange={(e) => addFile(e)}
+                            id={useWhoIam_id}
+                            accept={accept}
+                            value={value}
+                        />
+                    </PasStyle.Div>
+                </>
             )
         }
 

@@ -19,38 +19,38 @@ const useIconQuery = (file : File) => {
             return <Icons.Ai.AiOutlineFileUnknown title='unknown icon'/>
         },
         pdf(){
-            return <Icons.Vsc.VscFilePdf />
+            return <Icons.Vsc.VscFilePdf title='pdf icon'/>
         },
         json(){
-            return <Icons.Vsc.VscJson />
+            return <Icons.Vsc.VscJson title='json icon'/>
         },
         application(){
-            return <Icons.Vsc.VscExtensions />
+            return <Icons.Vsc.VscExtensions title='application icon'/>
         },
         zip(){
-            return <Icons.Si.SiBookstack />
+            return <Icons.Si.SiBookstack title='zip icon'/>
         },
         gif(){
-            return <Icons.Ai.AiOutlineGif />
+            return <Icons.Ai.AiOutlineGif title='gif icon'/>
         },
         icon(){
-            return <Icons.Ai.AiFillStar />
+            return <Icons.Ai.AiFillStar title='favicon icon'/>
         },
         image(){
-            return <Icons.Fa.FaImage />
+            return <Icons.Fa.FaImage title='image icon'/>
         },
         svg(){
-            return <Icons.Im.ImSvg />
+            return <Icons.Im.ImSvg title='svg icon'/>
         },
         audio(){
-            return <Icons.Fa.FaFileAudio />
+            return <Icons.Fa.FaFileAudio title='audio icon'/>
         },
         text(){
-            return <Icons.Fi.FiFileText />
+            return <Icons.Fi.FiFileText title='text icon'/>
         }
     }
 
-    const include = (string : string) : JSX.Element | undefined => {
+    const includeIconFile = (string : string) : JSX.Element | undefined => {
         if(split2.includes(string)){
             return iconFile[string]()
         }
@@ -72,17 +72,24 @@ const useIconQuery = (file : File) => {
     }
 
     const response = () => {
-        const arrayIcons = [
-            include('zip'), 
-            include('icon'),
-            include('svg')
+        const ArrayPreview = [
+            includeIconFile('zip'), 
+            includeIconFile('icon'),
+            includeIconFile('svg')
         ].filter(Icon => Icon)
 
-        const IconJSX = arrayIcons[0]
+        const ArrayDownload  = [
+            includeIconFile('unknown'),
+            includeIconFile('zip'), 
+        ].filter(icon => icon)
+
+        const IconJSX = ArrayPreview[0]
+        const isDownload = !!ArrayDownload[0]
 
         if(IconJSX){
             return IconJSX
-        } else {
+        } 
+        if(icon()){
             return icon()
         }
     }
@@ -91,7 +98,7 @@ const useIconQuery = (file : File) => {
         response,
         icon,
         iconFile,
-        include,
+        includeIconFile,
     }
 }
 

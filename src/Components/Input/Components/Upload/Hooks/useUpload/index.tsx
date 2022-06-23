@@ -58,7 +58,7 @@ const useUpload = ({
         },
         removeFile(index:number){
             setFiles(prev => prev.filter((f , i) => f && i !== index))
-        },
+        }
     }
 
     return {
