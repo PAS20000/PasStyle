@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { InputPropsMethod } from '..'
-import PasStyle, { InputAttr, PasStyleProps } from '../../..'
+import PasStyle, { PasStyleProps } from '../../..'
 import useWhoIam from '../../../Hooks/useWhoIam'
 import Label from '../Label'
 import Css from './index.styles'

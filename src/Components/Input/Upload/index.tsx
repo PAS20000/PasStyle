@@ -17,7 +17,7 @@ export type Get = (files : Array<File>, error : Error & {reset : () => void }) =
 
 type Props = {
     kind?:[
-        'Gallery'
+        'gallery'
     ][number]
     maxFiles?:number
     maxSize?:number
@@ -29,7 +29,7 @@ export type InputFile = Props
 
 const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
-            const {label, maxFiles, accept, id, get, maxSize, value} = props
+            const {label, maxFiles, accept, id, get, maxSize, value, kind} = props
 
             const { sendFile, addFile, useWhoIam_id, files, } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
@@ -44,10 +44,10 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
                         {label}
                     </Button>
                     {files && files.map((file, i) => 
-                        <Preview 
-                            key={i}
-                            file={file}
-                        />
+                        Preview[kind ?? 'default']({
+                            key:i,
+                            file
+                        })
                     )}
                     <PasStyle.Input 
                         type='file' 

@@ -5,7 +5,7 @@ const useFileSize = () => {
             const convert = FileSize / 1000
     
             return {
-                string:`${convert.toFixed(0)}KB`,
+                string:`${convert.toFixed(2)}KB`,
                 isKB:convert < 1000,
                 size:convert
             }
@@ -14,7 +14,7 @@ const useFileSize = () => {
             const convert = FileSize / 1000 / 1000
     
             return {
-                string:`${convert.toFixed(0)}MB`,
+                string:`${convert.toFixed(2)}MB`,
                 isMB:convert < 1000,
                 size:convert
             }
@@ -23,7 +23,7 @@ const useFileSize = () => {
             const convert = FileSize / 1000 / 1000 / 1000
     
             return {
-                string:`${convert.toFixed(0)}GB`,
+                string:`${convert.toFixed(2)}GB`,
                 isGB:convert < 1000,
                 size:convert
             }

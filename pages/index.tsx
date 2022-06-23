@@ -23,12 +23,13 @@ const Home = () => {
              console.log(error)
              setFile(files[0])
          }}/>
-         <Input.File label='Upload2' maxFiles={2} maxSize={80} get={(files, error) => {
+         <Input.File kind='gallery' label='Upload2' maxFiles={2} get={(files, error) => {
              console.log('upload2: '),
              console.log(files)
              console.log(error)
+             error.exist && error.reset
          }}/>
-          <Input.File label='Upload3' maxFiles={3} maxSize={80} get={(files, error) => {
+          <Input.File label='Upload3' maxFiles={3} get={(files, error) => {
              console.log('upload3: '),
              console.log(files)
              console.log(error)

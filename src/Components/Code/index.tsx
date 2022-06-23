@@ -13,7 +13,7 @@ const Code = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const { sequencial } = useWhoIam('code')
+    const { hash } = useWhoIam('code')
 
     return(
         <>
@@ -26,11 +26,11 @@ const Code = ({
                 mg='25px'
                 shadow='2px 2px 10px black'
             >
-                <PasStyle.Div  id={sequencial} title={children.toString()}>
+                <PasStyle.Div  id={hash} title={children.toString()}>
                     {children}
                 </PasStyle.Div>
-                {sequencial && 
-                   <CopyClipBoard id={sequencial}/>
+                {hash && 
+                   <CopyClipBoard id={hash}/>
                 }  
             </PasStyle.Code>
         </>

@@ -37,6 +37,24 @@ const Css = {
                 bg:theme.colors.gray[400]
             }
         }
+    },
+    gallery() : PasStyleProps {
+
+        const { ChangeColorByTheme, theme } = useThemeCTX()
+
+        return{
+            bg:ChangeColorByTheme('green.600','green.300'),
+            border: 'dotted 1px',
+            mg:'10px',
+            pd:'50px',
+            b_radius:'8px',
+            color:ChangeColorByTheme('black','white'),
+            cursor: 'pointer',
+            _hover:{
+                transition: '1s',
+                bg:theme.colors.gray[400]
+            }
+        }
     }
 }
 

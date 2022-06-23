@@ -4,12 +4,12 @@ import { PropsCTXdefault, SetState } from '../types'
 import theme from '../../../utils/theme/index.styles'
 import { Colors } from './useThemeCTX'
 
-export type mode = 'dark' | 'light'
+export type Mode = 'dark' | 'light'
 
 export type ThemeCTX = {
     theme:Theme
-    mode:mode
-    setMode:SetState<mode>
+    mode:Mode
+    setMode:SetState<Mode>
     changeMode:() => void
     ChangeColorByTheme:(Light : Colors[number], Dark : Colors[number]) => string
 }
@@ -20,7 +20,7 @@ const PasStyleThemeProvider = ({
     children
 } : PropsCTXdefault) => {
 
-    const [mode, setMode] = React.useState<mode>('light')
+    const [mode, setMode] = React.useState<Mode>('light')
     
         const changeMode = () => {
             setMode(mode === 'dark' ? 'light' : 'dark')
@@ -30,7 +30,7 @@ const PasStyleThemeProvider = ({
 
             const {colors} = theme
 
-           if(mode === 'dark') {
+            if(mode === 'dark') {
             
                 const dark = Dark.split('.')
                 return colors[dark[0]][dark[1]]

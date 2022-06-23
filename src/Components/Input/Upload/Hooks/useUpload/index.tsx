@@ -47,7 +47,7 @@ const useUpload = ({
             const maxSizeFile = maxSize ?? 10 * 1000 * 1000 // 10gb
             const ArrayFiles : Array<File> = Array.from(e.target.files)
             const rejectedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size > maxSizeFile || i > maxItems )
-            const approvedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size < maxSizeFile && i <= maxItems )
+            const approvedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size < maxSizeFile && i < maxItems )
             
             setFiles(prev => prev.length < maxItems ? prev.concat(approvedFiles) : approvedFiles )
 
