@@ -7,12 +7,14 @@ import useIconQuery from './Hooks/useIconQuery'
 type Props = {
     file:File
     key:React.Key
+    removeFile:(index : React.Key) => void
 }
 
 const Preview = {
     default({
         file,
-        key
+        key,
+        removeFile
     }: Props) {
 
         const { fileSize } = useFileSize()
@@ -21,11 +23,12 @@ const Preview = {
         return(
             <PasStyle.Div key={key} pd='10px' flex>
                 <PasStyle.Span>
+                    <Icons.Fi.FiPaperclip />
                     {response()} 
                 </PasStyle.Span>
                 {file.name} {fileSize(file)}
                 <Icons.Fa.FaEye />
-                <Icons.Fa.FaTrash /> 
+                <Icons.Fa.FaTrash onClick={() => removeFile(key)}/> 
             </PasStyle.Div>
         )
     },

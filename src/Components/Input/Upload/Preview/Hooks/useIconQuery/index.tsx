@@ -15,8 +15,8 @@ const useIconQuery = (file : File) => {
     const split3 = createSplit(1, '+')
 
     const iconFile = {
-        default(){
-            return <Icons.Fi.FiPaperclip />
+        unknown(){
+            return <Icons.Ai.AiOutlineFileUnknown title='unknown icon'/>
         },
         pdf(){
             return <Icons.Vsc.VscFilePdf />
@@ -40,7 +40,7 @@ const useIconQuery = (file : File) => {
             return <Icons.Fa.FaImage />
         },
         svg(){
-            return <Icons.Fa.FaUser />
+            return <Icons.Im.ImSvg />
         },
         audio(){
             return <Icons.Fa.FaFileAudio />
@@ -67,7 +67,7 @@ const useIconQuery = (file : File) => {
             return iconFile[type0]()
         }
         else{
-            return iconFile['default']()
+            return iconFile['unknown']()
         }
     }
 
@@ -77,8 +77,6 @@ const useIconQuery = (file : File) => {
             include('icon'),
             include('svg')
         ].filter(Icon => Icon)
-
-        console.log(arrayIcons)
 
         const IconJSX = arrayIcons[0]
 
