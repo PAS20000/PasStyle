@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import PasStyle from '../..'
-import useWhoIam from '../../Hooks/useWhoIam'
+import useWhoIam from '../../Hooks/useId'
 
 type Props = {
     children:React.ReactNode

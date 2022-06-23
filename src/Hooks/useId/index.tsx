@@ -12,21 +12,24 @@ const letters = [
      'i',
 ]
 
-const useWhoIam = (addString?:string) => {
+const useId = (addString?:string) => {
     const [ random, setRandom ] = React.useState<string>('')
 
     const arrayNumbers = random && random.split('-')[0].replace('.', '').split('')
 
-    const hash = random && `${arrayNumbers.map(number => letters[number]).filter(letter => letter).toString().replaceAll(',','')}-${addString}`
+    const create = {
+        hash(){
+            return random && `${arrayNumbers.map(number => letters[number]).filter((letter) => letter).toString().replaceAll(',','')}-${addString}`
+        }
+    }
 
     React.useEffect(() => {
         setRandom(`${Math.random() * 16}-${addString}`)
     }, [])
 
     return {
-        random,
-        hash
+        hash:create.hash(),
     }
 }
 
-export default useWhoIam
+export default useId

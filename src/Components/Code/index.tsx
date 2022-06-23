@@ -1,7 +1,7 @@
 import * as React from 'react'
 import PasStyle from '../..'
 import useThemeCTX from '../../Contexts/ThemeContext/useThemeCTX'
-import useWhoIam from '../../Hooks/useWhoIam'
+import useId from '../../Hooks/useId'
 import CopyClipBoard from './CopyClipBoard'
 
 type Props = {
@@ -13,7 +13,7 @@ const Code = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const { hash } = useWhoIam('code')
+    const { hash } = useId('code')
 
     return(
         <>

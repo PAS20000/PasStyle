@@ -29,7 +29,7 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
             const { label, maxFiles, accept, id, get, maxSize, value, kind } = props
 
-            const { sendFile, addFile, removeFile, useWhoIam_id, files, } = useUpload({
+            const { sendFile, addFile, removeFile, useId, files, } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
                 get,
                 maxFiles,
@@ -54,7 +54,7 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
                             multiple={maxFiles === 1 || !maxFiles ? false : true}
                             w='0px'
                             onChange={(e) => addFile(e)}
-                            id={useWhoIam_id}
+                            id={useId}
                             accept={accept}
                             value={value}
                         />

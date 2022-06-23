@@ -7,12 +7,14 @@ const useIconQuery = (file : File) => {
     const type0 = initSplit[0]
     const type1 = initSplit[1]
 
-    const createSplit = (index : number, string : string) => {
-        return initSplit[index] ? initSplit[index].split(string) : []
+    const Create = {
+        split(index : number, string : string){
+            return initSplit[index] ? initSplit[index].split(string) : []
+        }
     }
 
-    const split2 = createSplit(1, '-')
-    const split3 = createSplit(1, '+')
+    const split2 = Create.split(1, '-')
+    const split3 = Create.split(1, '+')
 
     const iconFile = {
         unknown(){
@@ -49,13 +51,15 @@ const useIconQuery = (file : File) => {
             return <Icons.Fi.FiFileText title='text icon'/>
         }
     }
-
-    const includeIconFile = (string : string) : JSX.Element | undefined => {
-        if(split2.includes(string)){
-            return iconFile[string]()
-        }
-        if(split3.includes(string)){
-            return iconFile[string]()
+    
+    const Include = {
+        IconFile(string : string) : JSX.Element | undefined{
+            if(split2.includes(string)){
+                return iconFile[string]()
+            }
+            if(split3.includes(string)){
+                return iconFile[string]()
+            }
         }
     }
 
@@ -73,18 +77,20 @@ const useIconQuery = (file : File) => {
 
     const response = () => {
         const ArrayPreview = [
-            includeIconFile('zip'), 
-            includeIconFile('icon'),
-            includeIconFile('svg')
+            Include.IconFile('zip'), 
+            Include.IconFile('icon'),
+            Include.IconFile('svg')
         ].filter(Icon => Icon)
 
         const ArrayDownload  = [
-            includeIconFile('unknown'),
-            includeIconFile('zip'), 
+            Include.IconFile('unknown'),
+            Include.IconFile('zip'), 
         ].filter(icon => icon)
 
         const IconJSX = ArrayPreview[0]
         const isDownload = !!ArrayDownload[0]
+
+        console.log(isDownload)
 
         if(IconJSX){
             return IconJSX
@@ -98,7 +104,7 @@ const useIconQuery = (file : File) => {
         response,
         icon,
         iconFile,
-        includeIconFile,
+        Include,
     }
 }
 

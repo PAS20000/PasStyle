@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Error, Get } from '../..'
-import useWhoIam from '../../../../../../Hooks/useWhoIam'
+import useId from '../../../../../../Hooks/useId'
 import useFileSize from '../useFileSize'
 
 type Props = {
@@ -17,7 +17,7 @@ const useUpload = ({
     maxSize
 } : Props) => {
     
-    const { hash } = useWhoIam(id)
+    const { hash } = useId(id)
     const { typeSize } = useFileSize()
     const [files, setFiles] = React.useState<Array<File>>([])
     const [error, setError] = React.useState<Error>({})
@@ -68,7 +68,7 @@ const useUpload = ({
         removeFile:Action.removeFile,
         files,
         setFiles,
-        useWhoIam_id:hash,
+        useId:hash,
         error,
     }
 }
