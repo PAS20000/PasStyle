@@ -9,7 +9,7 @@ import Upload, { InputFile } from './Components/Upload'
 import Url from './Components/Url'
 
 export type InputPropsMethod<T = {}> = T & {
-    label?:string
+    label?:React.ReactNode
 } & InputAttr
 
 const Input = {

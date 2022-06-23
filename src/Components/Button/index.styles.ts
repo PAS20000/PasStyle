@@ -9,7 +9,7 @@ const Css = {
 
         return{
             pd:'10px',
-            bg:ChangeColorByTheme('green.600','green.300'),
+            bg:ChangeColorByTheme('orange.100','green.300'),
             border: 'none',
             mg:'10px',
             b_radius:'8px',
