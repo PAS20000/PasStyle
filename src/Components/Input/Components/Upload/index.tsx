@@ -42,13 +42,15 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
                         <Button onClick={sendFile} {...Remove.children(props)}>
                             {label}
                         </Button>
-                        {files.map((file, i) => 
-                            Preview[kind ?? 'default']({
-                                key:i,
-                                file,
-                                removeFile
-                            })
-                        )}
+                        <PasStyle.Div flex>
+                            {files.map((file, i) => 
+                                Preview[kind ?? 'default']({
+                                    key:i,
+                                    file,
+                                    removeFile
+                                })
+                            )}
+                        </PasStyle.Div>
                         <PasStyle.Input 
                             type='file' 
                             multiple={maxFiles === 1 || !maxFiles ? false : true}

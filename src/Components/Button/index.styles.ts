@@ -1,4 +1,3 @@
-
 import { PasStyleProps } from "../.."
 import useThemeCTX from "../../Contexts/ThemeContext/useThemeCTX"
 

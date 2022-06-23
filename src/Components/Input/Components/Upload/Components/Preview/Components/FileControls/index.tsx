@@ -20,8 +20,8 @@ const FileControls = ({
     const { response } = useIconQuery(file)
 
     return(
-        <PasStyle.Div flex>
-            <PasStyle.H4>
+        <PasStyle.Div flex center>
+            <PasStyle.H4 color='white'>
                 {file.name} &nbsp;
                 {fileSize(file)}
             </PasStyle.H4>

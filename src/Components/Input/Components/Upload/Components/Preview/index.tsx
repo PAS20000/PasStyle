@@ -1,5 +1,6 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
+import useThemeCTX from '../../../../../../Contexts/ThemeContext/useThemeCTX'
 import Icons from '../../../../../Icons'
 import FileControls from './Components/FileControls'
 import useIconQuery from './Hooks/useIconQuery'
@@ -39,12 +40,21 @@ const Preview = {
         removeFile
     } : Props ) {
 
-        return(
-            <PasStyle.Div key={key} flex>
+        return( 
+            <PasStyle.Div flex
+                key={key} 
+                mg='10px'
+                border='solid 2px' 
+                b_radius='8px'
+            >
                 <PasStyle.Img src={URL.createObjectURL(file)}
-                    w='10%'
-                    h='10%'
+                    w='100px'
+                    h='100px'
                     b_radius='8px'
+                    mg='10px'
+                    border='solid 2px'
+                    b_color={'white'}
+                    shadow='2px 2px 10px'
                 />
                 <FileControls 
                     file={file}
