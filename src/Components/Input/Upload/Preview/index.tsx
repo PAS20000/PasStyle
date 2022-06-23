@@ -2,6 +2,7 @@ import * as React from 'react'
 import PasStyle from '../../../..'
 import Icons from '../../../Icons'
 import useFileSize from '../Hooks/useFileSize'
+import useIconQuery from './Hooks/useIconQuery'
 
 type Props = {
     file:File
@@ -15,50 +16,13 @@ const Preview = {
     }: Props) {
 
         const { fileSize } = useFileSize()
-
-        const split = file.type.split('/')
-        const type0 =  split[0]
-        const type1 = split[1]
-
-        const iconFile = {
-            default(){
-                return <Icons.Fi.FiPaperclip />
-            },
-            pdf(){
-                return <Icons.Vsc.VscFilePdf />
-            },
-            json(){
-                return <Icons.Vsc.VscJson />
-            },
-            application(){
-                return <Icons.Vsc.VscExtensions />
-            },
-            image(){
-                return <Icons.Fa.FaImage />
-            },
-            audio(){
-                return <Icons.Fa.FaFileAudio />
-            },
-            text(){
-                return <Icons.Fi.FiFileText />
-            }
-        }
-
-        const icon = () : JSX.Element => {
-            if(iconFile[type1]){
-                return iconFile[type1]()
-            }
-            if(iconFile[type0]){
-                return iconFile[type0]()
-            }
-            else{
-                return iconFile['default']()
-            }
-        } 
+        const response = useIconQuery(file)
 
         return(
             <PasStyle.Div key={key} pd='10px'>
-                {icon()} 
+                <PasStyle.Span>
+                    {response()} 
+                </PasStyle.Span>
                 <PasStyle.Span>
                     {file.name} {fileSize(file)}
                 </PasStyle.Span>
