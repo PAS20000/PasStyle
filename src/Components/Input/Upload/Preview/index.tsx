@@ -16,16 +16,16 @@ const Preview = {
     }: Props) {
 
         const { fileSize } = useFileSize()
-        const response = useIconQuery(file)
+        const { response } = useIconQuery(file)
 
         return(
-            <PasStyle.Div key={key} pd='10px'>
+            <PasStyle.Div key={key} pd='10px' flex>
                 <PasStyle.Span>
                     {response()} 
                 </PasStyle.Span>
-                <PasStyle.Span>
-                    {file.name} {fileSize(file)}
-                </PasStyle.Span>
+                {file.name} {fileSize(file)}
+                <Icons.Fa.FaEye />
+                <Icons.Fa.FaTrash /> 
             </PasStyle.Div>
         )
     },
@@ -33,6 +33,7 @@ const Preview = {
         file,
         key
     } : Props ) {
+
         const { fileSize } = useFileSize()
 
         return(

@@ -3,10 +3,16 @@ import Icons from "../../../../../Icons"
 
 const useIconQuery = (file : File) => {
 
-    const split1 = file.type.split('/')
-    const split2 = split1[1] ? split1[1].split('-') : []
-    const type0 = split1[0]
-    const type1 = split1[1]
+    const initSplit = file.type.split('/')
+    const type0 = initSplit[0]
+    const type1 = initSplit[1]
+
+    const createSplit = (index : number, string : string) => {
+        return initSplit[index] ? initSplit[index].split(string) : []
+    }
+
+    const split2 = createSplit(1, '-')
+    const split3 = createSplit(1, '+')
 
     const iconFile = {
         default(){
@@ -33,6 +39,9 @@ const useIconQuery = (file : File) => {
         image(){
             return <Icons.Fa.FaImage />
         },
+        svg(){
+            return <Icons.Fa.FaUser />
+        },
         audio(){
             return <Icons.Fa.FaFileAudio />
         },
@@ -42,7 +51,12 @@ const useIconQuery = (file : File) => {
     }
 
     const include = (string : string) : JSX.Element | undefined => {
-        return split2.includes(string) && iconFile[string]()
+        if(split2.includes(string)){
+            return iconFile[string]()
+        }
+        if(split3.includes(string)){
+            return iconFile[string]()
+        }
     }
 
     const icon = () : JSX.Element => {
@@ -60,8 +74,12 @@ const useIconQuery = (file : File) => {
     const response = () => {
         const arrayIcons = [
             include('zip'), 
-            include('icon')
+            include('icon'),
+            include('svg')
         ].filter(Icon => Icon)
+
+        console.log(arrayIcons)
+
         const IconJSX = arrayIcons[0]
 
         if(IconJSX){
@@ -71,7 +89,12 @@ const useIconQuery = (file : File) => {
         }
     }
     
-    return response
+    return {
+        response,
+        icon,
+        iconFile,
+        include,
+    }
 }
 
 export default useIconQuery
