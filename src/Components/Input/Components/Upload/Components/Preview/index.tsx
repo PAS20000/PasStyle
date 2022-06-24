@@ -1,14 +1,18 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
-import useThemeCTX from '../../../../../../Contexts/ThemeContext/useThemeCTX'
 import Icons from '../../../../../Icons'
-import FileControls from './Components/FileControls'
+import useFileSize from '../../Hooks/useFileSize'
+import Controls from './Components/Controls'
+import Metadata from './Components/Metadata'
 import useIconQuery from './Hooks/useIconQuery'
 
 type Props = {
-    file:File
     key:React.Key
     removeFile:(index : React.Key) => void
+}
+
+export type GlobalProps<T = {}> = T & {
+    file:File
 }
 
 const Preview = {
@@ -16,7 +20,7 @@ const Preview = {
         file,
         key,
         removeFile
-    }: Props) {
+    }: GlobalProps<Props>) {
 
         const { response } = useIconQuery(file)
 
@@ -26,9 +30,12 @@ const Preview = {
                     <Icons.Fi.FiPaperclip />
                     {response.icon} 
                 </PasStyle.Span>
-                <FileControls 
+                <Metadata 
                     file={file}
-                    index={key} 
+                />
+                <Controls
+                    file={file}
+                    index={key}
                     removeFile={removeFile}
                 />
             </PasStyle.Div>
@@ -38,7 +45,12 @@ const Preview = {
         file,
         key,
         removeFile
-    } : Props ) {
+    } : GlobalProps<Props>) {
+        
+        const { fileSize } = useFileSize()
+        const { response } = useIconQuery(file)
+
+        const FileMetadata = `${file.name} ${fileSize(file)}`
 
         return( 
             <PasStyle.Div flex
@@ -47,7 +59,11 @@ const Preview = {
                 border='solid 2px' 
                 b_radius='8px'
             >
-                <PasStyle.Img src={URL.createObjectURL(file)}
+                {response.icon}
+                <PasStyle.Img 
+                    src={URL.createObjectURL(file)}
+                    alt={FileMetadata}
+                    title={FileMetadata}
                     w='100px'
                     h='100px'
                     b_radius='8px'
@@ -56,9 +72,9 @@ const Preview = {
                     b_color={'white'}
                     shadow='2px 2px 10px'
                 />
-                <FileControls 
+                <Controls 
                     file={file}
-                    index={key} 
+                    index={key}
                     removeFile={removeFile}
                 />
             </PasStyle.Div>

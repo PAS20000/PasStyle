@@ -1,18 +1,20 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import PasStyle from '../..'
-import useWhoIam from '../../Hooks/useId'
+import useId from '../../Hooks/useId'
 
 type Props = {
     children:React.ReactNode
     error?:string
+    targetId?:string
 }
 
 const CreatePortal = ({
     children,
-    error
+    error,
+    targetId
 }: Props) => {
-    const { hash } = useWhoIam('Error')
+    const { hash } = useId('PasStyle-CreatePortal-Error')
     const [doc, setDoc] = React.useState<HTMLElement>()
 
     React.useEffect(() => {
@@ -22,7 +24,7 @@ const CreatePortal = ({
     if(doc){
         return ReactDOM.createPortal(
             <>{children}</>, 
-            document.getElementById('PasStyle-Portal')
+            document.getElementById(targetId ?? 'PasStyle-Portal')
         )
     } else {
         return(
