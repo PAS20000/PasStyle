@@ -6,17 +6,21 @@ import Preview from "../../src/Components/Input/Components/Upload/Components/Pre
 export default function Upload () {
 
     const [files, setFile] = React.useState<File[]>()
+
+   
     
     return(
         <>
             <Input.File maxFiles={8} get={(files, error) => {
                 setFile(files)
+                console.log(error)
             }}>
                 <Button.Upload>
                     Upload
                 </Button.Upload>
                 <Preview.Generic files={files}/>
             </Input.File>
+            <button onClick={() => console.log(files)}>Send</button>
         </>
     )
 }

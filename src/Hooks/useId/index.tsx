@@ -7,7 +7,7 @@ const useId = (addString?:string) => {
         return Math.floor(Math.random() * max)
     }
 
-    const [ random, setRandom ] = React.useState<string>('')
+    const [ random, setRandom ] = React.useState<string>()
 
     const arrayNumbers = random && random.split('-')[0].replace('.', '').split('')
 
