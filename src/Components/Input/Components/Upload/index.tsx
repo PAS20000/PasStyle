@@ -11,12 +11,29 @@ export type Error = {
     rejectedFiles?:File[]
 }
 
+type Arts = [
+    'add'
+][number]
+
+type CustomArt = {
+    Button:{
+        Art:'add',
+        style:{
+
+        }
+    },
+    Preview:{
+        Art:'Gallery',
+        style:{
+            
+        }
+    }
+}
+
 export type Get = (files : Array<File>, error : Error & {reset : () => void }) => void
 
 type Props = {
-    kind?:[
-        'gallery'
-    ][number]
+    Art?:Arts
     maxFiles?:number
     maxSize?:number
     get?:Get
@@ -25,9 +42,9 @@ type Props = {
 
 export type InputFile = Props
 
-const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
+const Upload = (props:InputPropsMethod & Props) => {
 
-            const { label, maxFiles, accept, id, get, maxSize, value, kind } = props
+            const { label, maxFiles, accept, id, get, maxSize, value, Art } = props
 
             const { sendFile, addFile, removeFile, useId, files, } = useUpload({
                 id:`${id ? id + '-':''}PasStyle-Upload`,
@@ -39,12 +56,12 @@ const Upload = (props:PasStyleProps<InputPropsMethod & Props>) => {
             return(
                 <>
                     <PasStyle.Div>
-                        <Button onClick={sendFile} {...Remove.children(props)}>
+                        <Button Art={Art} onClick={sendFile} {...Remove.children(props)}>
                             {label}
                         </Button>
                         <PasStyle.Div flex>
                             {files.map((file, i) => 
-                                Preview[kind ?? 'default']({
+                                Preview[Art ?? 'default']({
                                     key:i,
                                     file,
                                     removeFile

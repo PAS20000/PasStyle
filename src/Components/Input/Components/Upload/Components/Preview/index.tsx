@@ -1,9 +1,11 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
+import useId from '../../../../../../Hooks/useId'
 import Icons from '../../../../../Icons'
 import useFileSize from '../../Hooks/useFileSize'
 import Controls from './Components/Controls'
 import Metadata from './Components/Metadata'
+import useHover from './Hooks/useHover'
 import useIconQuery from './Hooks/useIconQuery'
 
 type Props = {
@@ -46,9 +48,10 @@ const Preview = {
         key,
         removeFile
     } : GlobalProps<Props>) {
-        
+
         const { fileSize } = useFileSize()
         const { response } = useIconQuery(file)
+        const random = Math.random().toString()
 
         const FileMetadata = `${file.name} ${fileSize(file)}`
 
@@ -60,7 +63,7 @@ const Preview = {
                 b_radius='8px'
             >
                 {response.icon}
-                <PasStyle.Img 
+                <PasStyle.Img id={random}
                     src={URL.createObjectURL(file)}
                     alt={FileMetadata}
                     title={FileMetadata}
@@ -71,11 +74,17 @@ const Preview = {
                     border='solid 2px'
                     b_color={'white'}
                     shadow='2px 2px 10px'
+
+                    _hover={{
+                        transition: '1s',
+                        op:'0.6',
+                    }}
                 />
                 <Controls 
                     file={file}
                     index={key}
                     removeFile={removeFile}
+                    idImg={random}
                 />
             </PasStyle.Div>
         )

@@ -22,20 +22,7 @@ const useUpload = ({
     const [files, setFiles] = React.useState<Array<File>>([])
     const [error, setError] = React.useState<Error>({})
 
-    const Methods = () => {
-        if(get){
-            get(files, {
-                ...error,
-                reset() {
-                    setError({})
-                },
-            })
-        }
-    }
-
-    React.useEffect(() => {
-        Methods()
-    }, [files, error])
+   
 
     const Action = {
         sendFile() {
@@ -72,6 +59,21 @@ const useUpload = ({
             setFiles(prev => prev.filter((f , i) => f && i !== index))
         }
     }
+
+    const Methods = () => {
+        if(get){
+            get(files, {
+                ...error,
+                reset() {
+                    setError({})
+                },
+            })
+        }
+    }
+
+    React.useEffect(() => {
+        Methods()
+    }, [files, error])
 
     return {
         Action,
