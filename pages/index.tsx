@@ -14,15 +14,14 @@ const Home = () => {
 
     return(
       <Main bg={ChangeColorByTheme('gray.300', 'gray.900')} w='100%' h='100%'>
-         <Button onClick={changeMode}>
+         <Button.Generic onClick={changeMode}>
             Change Theme
-         </Button>
-         <Input.File Art='gallery' bg='red'label='Upload max : 10' maxFiles={10} get={(files, error) => {
-             console.log('upload2: '),
-             console.log(files)
-             console.log(error)
-             error.exist && error.reset
-          }}/>
+         </Button.Generic>
+          <Input.File>
+              <Button.Upload>
+                Upload
+              </Button.Upload>
+          </Input.File>
       </Main>
     )
 }

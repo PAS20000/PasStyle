@@ -17,7 +17,7 @@ const useUpload = ({
     maxSize
 } : Props) => {
     
-    const { hash } = useId(id)
+    const { "hash":InputHash } = useId(id)
     const { typeSize } = useFileSize()
     const [files, setFiles] = React.useState<Array<File>>([])
     const [error, setError] = React.useState<Error>({})
@@ -26,7 +26,10 @@ const useUpload = ({
 
     const Action = {
         sendFile() {
-            document.getElementById(hash).click()
+            if(InputHash){
+                const input = document.getElementById(InputHash) as HTMLElement 
+                input.click()
+            }
         },
         addFile(e : any) {
             Methods()
@@ -82,7 +85,7 @@ const useUpload = ({
         removeFile:Action.removeFile,
         files,
         setFiles,
-        useId:hash,
+        inputId:InputHash,
         error,
     }
 }
