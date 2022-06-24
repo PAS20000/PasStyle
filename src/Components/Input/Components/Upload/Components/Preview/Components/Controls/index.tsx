@@ -2,23 +2,25 @@ import * as React from 'react'
 import { GlobalProps } from '../..'
 import PasStyle from '../../../../../../../..'
 import Icons from '../../../../../../../Icons'
+import useUpload from '../../../../Hooks/useUpload'
 import useHover from '../../Hooks/useHover'
 import useIconQuery from '../../Hooks/useIconQuery'
 
 type Props = {
-    index:React.Key
-    removeFile:(index : React.Key) => void
+    index?:number
     idImg?:string
+    removeFile: Function
 }
 
 const Controls = ({
     file,
-    removeFile,
+    idImg,
     index,
-    idImg
+    removeFile
 } : GlobalProps<Props>) => {
     const { hover, enter, leave   } = useHover()
     const { response } = useIconQuery(file)
+    
     const Icon = response.isDownload ? 
         <Icons.Fa.FaDownload onClick={() => window.open(URL.createObjectURL(file))}/>
         : 
@@ -31,9 +33,12 @@ const Controls = ({
             img.addEventListener('mouseleave', leave)
         }
     }
+
     React.useEffect(() => {
         Listener()
     }, [])
+
+    console.log(removeFile, index)
 
     return(
         <PasStyle.Div>

@@ -5,7 +5,7 @@ import useFileSize from '../useFileSize'
 
 type Props = {
     get?:Get
-    id:string
+    id?:string
     maxFiles?:number
     maxSize?:number
 }
@@ -21,8 +21,6 @@ const useUpload = ({
     const { typeSize } = useFileSize()
     const [files, setFiles] = React.useState<Array<File>>([])
     const [error, setError] = React.useState<Error>({})
-
-   
 
     const Action = {
         sendFile() {

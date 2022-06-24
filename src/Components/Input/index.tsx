@@ -1,5 +1,6 @@
 import * as React from 'react'
 import PasStyle, { InputAttr, PasStyleProps } from '../..'
+import useId from '../../Hooks/useId'
 import Color from './Components/Color'
 import Date from './Components/Date'
 import Email from './Components/Email'
@@ -36,35 +37,30 @@ const Input = {
 
         const { label, maxFiles, accept, id, get, maxSize, value, children, Art } = props
 
-        const { addFile, sendFile, removeFile, inputId } = useUpload({
+        //const arrayChildren = React.Children.toArray(children)
+
+        const { addFile, sendFile, removeFile, files, inputId } = useUpload({
             id:'PasStyle.input.File',
             get,
             maxFiles,
             maxSize,
         })
-
-        const Create = {
-            id(string : string){
-                return `${inputId}.${string}`
-            },
-            class(string : string){
-                return string
-            }
-        }
-
-        const divId = Create.id('Div')
+        const { hash } = useId('Input.File.Div')
 
         const listener = () => {
-            const ButtonUpload = document.querySelector('.PasStyle.Upload.Div > button')
-            ButtonUpload.addEventListener('click', sendFile)
+            const div = document.getElementById(hash) as HTMLElement
+            if(div){
+                const Buttons = Array.from(div.children)
+                Buttons.map(button => button.addEventListener('click', sendFile))
+            }
         }
 
         React.useEffect(() => {
             listener()
-        }, [inputId])
+        }, [hash])
 
         return(
-            <PasStyle.Div className='PasStyle Upload Div'>
+            <PasStyle.Div id={hash}>
                 {children}
                 <PasStyle.Input 
                     type='file' 

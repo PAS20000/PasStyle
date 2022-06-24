@@ -1,16 +1,15 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
-import useId from '../../../../../../Hooks/useId'
 import Icons from '../../../../../Icons'
 import useFileSize from '../../Hooks/useFileSize'
+import useUpload from '../../Hooks/useUpload'
 import Controls from './Components/Controls'
 import Metadata from './Components/Metadata'
-import useHover from './Hooks/useHover'
 import useIconQuery from './Hooks/useIconQuery'
 
 type Props = {
-    key:React.Key
-    removeFile:(index : React.Key) => void
+    key?:React.Key
+    removeFile?:(index : React.Key) => void
 }
 
 export type GlobalProps<T = {}> = T & {
@@ -18,55 +17,68 @@ export type GlobalProps<T = {}> = T & {
 }
 
 const Preview = {
-    default({
-        file,
-        key,
-        removeFile
-    }: GlobalProps<Props>) {
+    Generic({
+        files,
+    } : {files : File[]}) {
 
-        const { response } = useIconQuery(file)
+        const Icon = (file : File) => {
+            const { response } = useIconQuery(file)
 
-        return(
-            <PasStyle.Div key={key} pd='10px' flex>
-                <PasStyle.Span>
-                    <Icons.Fi.FiPaperclip />
-                    {response.icon} 
-                </PasStyle.Span>
-                <Metadata 
-                    file={file}
-                />
-                <Controls
-                    file={file}
-                    index={key}
-                    removeFile={removeFile}
-                />
-            </PasStyle.Div>
-        )
+            return response.icon
+        }
+
+       if(files){
+            return(
+                <>
+                    {files.map((file, index) =>  
+                        <PasStyle.Div pd='10px' flex
+                            className='Preview Generic'
+                            key={index}
+                        >
+                            <PasStyle.Span>
+                                <Icons.Fi.FiPaperclip />
+                                {Icon(file)} 
+                            </PasStyle.Span>
+                            <Metadata 
+                                file={file}
+                            />
+                        </PasStyle.Div>
+                    )}
+                </>
+            )
+                
+       } else {
+            return <></>
+       }
     },
-    gallery({
+    Gallery({
         file,
         key,
         removeFile
-    } : GlobalProps<Props>) {
+    }) {
 
         const { fileSize } = useFileSize()
         const { response } = useIconQuery(file)
         const random = Math.random().toString()
 
-        const FileMetadata = `${file.name} ${fileSize(file)}`
+        const FileMetadata = (file : File) => {
+            return `${file.name} ${fileSize(file)}`
+        }
+
+       
 
         return( 
-            <PasStyle.Div flex
-                key={key} 
+            <PasStyle.Div flex 
                 mg='10px'
                 border='solid 2px' 
                 b_radius='8px'
+                className='Preview Gallery'
             >
                 {response.icon}
                 <PasStyle.Img id={random}
                     src={URL.createObjectURL(file)}
-                    alt={FileMetadata}
-                    title={FileMetadata}
+                    alt={FileMetadata(file)}
+                    title={FileMetadata(file)}
                     w='100px'
                     h='100px'
                     b_radius='8px'
@@ -83,7 +95,6 @@ const Preview = {
                 <Controls 
                     file={file}
                     index={key}
-                    removeFile={removeFile}
                     idImg={random}
                 />
             </PasStyle.Div>
