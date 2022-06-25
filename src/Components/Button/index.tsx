@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PasStyle, { PasStyleProps } from '../..'
-import useId from '../../Hooks/useId'
+import useGeneration from '../../Hooks/useGeneration'
 import Css from './index.styles'
 
 type ArtButton = [
@@ -14,22 +14,22 @@ type Props = {
 const Button = {
     Generic(props:PasStyleProps<Props>){
 
+        const { POST } = useGeneration()
+
         const { children, Art } = props
 
         return(
-            <PasStyle.Button {...Css[Art ?? 'default']()} {...props}>
-                {children}
-            </PasStyle.Button>
+            <PasStyle.Button  {...POST.Art({Css, Art})} {...props} className={POST.class({ father:'button', kid:'generic' })} />
         )
     },
     Upload(props:PasStyleProps<Props>){
 
+        const { POST } = useGeneration()
+
         const { children, Art } = props
 
         return(
-            <PasStyle.Button {...Css[Art ?? 'default']()} {...props} className='BUTTON UPLOAD'>
-                {children}
-            </PasStyle.Button>
+            <PasStyle.Button {...POST.Art({Css, Art})} {...props} className={POST.class({ father:'button', kid:'upload' })} />
         )
     },
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
-import useId from '../../../../../../Hooks/useId'
+import useId from '../../../../../../Hooks/useGeneration'
 import Create from '../../../../../Create'
 import Icons from '../../../../../Icons'
 import useFileSize from '../../Hooks/useFileSize'
@@ -27,7 +27,7 @@ const Preview = {
         }
 
         return(
-            <Create.Preview files={files}>  
+            <Create.Generic items={files}>  
                 {files.map((file, index) =>  
                     <PasStyle.Div pd='10px' flex
                         className='Preview Generic'
@@ -42,7 +42,7 @@ const Preview = {
                         />
                     </PasStyle.Div>
                 )}
-            </Create.Preview>
+            </Create.Generic>
         )
     },
     Gallery({
@@ -62,7 +62,7 @@ const Preview = {
         }
 
         return( 
-            <Create.Preview files={files}>
+            <Create.Generic items={files}>  
                 {files.map((file, index) => 
                     <PasStyle.Div flex
                         key={index} 
@@ -95,7 +95,7 @@ const Preview = {
                         />
                     </PasStyle.Div>
                 )}
-            </Create.Preview>
+            </Create.Generic>
         )
     }
     

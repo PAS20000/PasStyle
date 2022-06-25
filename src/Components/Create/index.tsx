@@ -1,40 +1,80 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import PasStyle from '../..'
-import useId from '../../Hooks/useId'
+import useGeneration from '../../Hooks/useGeneration'
 
 type Props = {
-    children:React.ReactNode
     error?:string
     targetId?:string
 }
 
-type PreviewProps = {
-    files:File[]
+type GenericProps = {
+    items:Array<File>
+    Listener?:Function
+}
+
+type ReactChildren<T = {}> = T & {
     children:React.ReactNode
 }
 
 const Create = {
+    Generic({
+        items,
+        children,
+    } : ReactChildren<GenericProps>){
+
+        if(!!items){
+            return(
+                <>
+                    {children}
+                </>
+            )
+        } else {
+            return<></>
+        }
+    },
+    Container({
+        children,
+        Listener
+    } : ReactChildren<{error?:string, id?:string, Listener?:Function}>){
+
+        const { POST } = useGeneration()
+
+        React.useEffect(() => {
+            if(Listener){
+                Listener()
+            }
+        }, [Listener])
+
+        return (
+            <PasStyle.Div className={POST.class({father:'create', kid:'container'})}>
+              {children}
+            </PasStyle.Div>
+        )
+    },
     Portal({
         children,
         error,
         targetId
-    }: Props) {
-        const { hash } = useId('PasStyle-CreatePortal-Error')
+    } : ReactChildren<Props>) {
         const [doc, setDoc] = React.useState<HTMLElement>()
 
+        const { GET } = useGeneration()
+
+        const TargetID = GET.id(targetId)
+
         React.useEffect(() => {
-            setDoc(document.getElementById(targetId ?? 'PasStyle-Portal') as HTMLElement)
+            setDoc(document.querySelector(TargetID ?? GET.id('portal')) as HTMLElement)
         }, [])
 
         if(doc){
             return ReactDOM.createPortal(
                 <>{children}</>, 
-                document.getElementById(targetId ?? 'PasStyle-Portal')
+                document.querySelector(TargetID ?? GET.id('portal'))
             )
         } else {
             return(
-                <PasStyle.Span id={hash}>
+                <PasStyle.Span>
                     {error ?? 'Not Found'}
                 </PasStyle.Span>
             )
@@ -44,8 +84,7 @@ const Create = {
         children,
         error,
         targetId
-    } : Props){
-        const { hash } = useId('PasStyle-Render-Error')
+    } : ReactChildren<Props>){
         const [doc, setDoc] = React.useState<HTMLElement>()
 
         React.useEffect(() => {
@@ -61,42 +100,12 @@ const Create = {
             return<></>
         } else {
             return(
-                <PasStyle.Span id={hash}>
+                <PasStyle.Span>
                     {error ?? 'Not Found'}
                 </PasStyle.Span>
             )
         }
     },
-    Preview({
-        files,
-        children
-    } : PreviewProps){
-
-        if(!!files){
-            return(
-                <>
-                    {children}
-                </>
-            )
-        } else {
-            return<></>
-        }
-    },
-    Controls({
-        files,
-        children
-    } : PreviewProps){
-
-        if(!!files){
-            return(
-                <>
-                    {children}
-                </>
-            )
-        } else {
-            return<></>
-        }
-    }
 }
 
 export default Create

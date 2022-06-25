@@ -16,19 +16,19 @@ export default function Upload ({
 
     const [files, setFile] = React.useState<File[]>([])
 
-    const Component = useCreateComponent()
+    const { Preview } = useCreateComponent()
 
     return(
         <>
-            <Input.File maxFiles={maxFiles ?? 3} get={(files) => {
+            <Input.Upload maxFiles={maxFiles ?? 3} get={(files) => {
                 setFile(files)
             }}>
                 <Button.Upload>
                     Upload
                 </Button.Upload>
-                <Component.Preview Type={Type} files={files}/>
+                <Preview Type={Type} files={files}/>
                 <Controls.Generic files={files}/>
-            </Input.File>
+            </Input.Upload>
             <button onClick={() => console.log(files)}>Send</button>
         </>
     )

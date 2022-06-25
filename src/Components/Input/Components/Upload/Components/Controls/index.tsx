@@ -36,7 +36,7 @@ const Controls = {
         }, [])
         
         return(
-            <Create.Controls files={files}>
+            <Create.Generic items={files}>
                 {files.map((file, index) => 
                     <PasStyle.Div key={index}>
                         {!hover && 
@@ -47,7 +47,7 @@ const Controls = {
                         }
                     </PasStyle.Div>
                 )}
-            </Create.Controls>
+            </Create.Generic>
         )
     }
 }

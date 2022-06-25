@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Get } from '../..'
-import useId from '../../../../../../Hooks/useId'
+import useId from '../../../../../../Hooks/useGeneration'
 import useFileSize from '../useFileSize'
 
 type Props = {
@@ -33,12 +33,6 @@ const useUpload = ({
                     array.map(file => file['status'] = obj)
                 },
             }
-
-            console.table({
-                received:receivedFiles.length,
-                current:currentFiles.length,
-                maxItems,
-            })
 
             if(typeSize.kb(f.size).size < maxSizeFile){
                 create.status({
@@ -77,8 +71,8 @@ const useUpload = ({
 
     const Action = {
         sendFile() {
-            if(InputHash){
-                const input = document.getElementById(InputHash) as HTMLElement 
+            if(InputHash()){
+                const input = document.getElementById(InputHash()) as HTMLElement 
                 input.click()
             }
         },
