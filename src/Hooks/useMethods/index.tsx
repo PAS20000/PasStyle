@@ -13,7 +13,7 @@ type Art = {
 
 
 
-const useGeneration = () => { 
+const useMethods = () => { 
 
     const range = (max : number) => { 
         return Math.floor(Math.random() * max).toString()
@@ -33,7 +33,7 @@ const useGeneration = () => {
             return `🌲PasStyle🌲 🍁${father}🍁 🌸${kid}🌸`.toUpperCase()
         },
         id(id : string){
-            return `🔑PasStyle🔑 ${hash}-${id}`.toUpperCase()
+            return `🔑PasStyle🔑-${hash}-${id}`.toUpperCase()
         },
         Art({
             Css,
@@ -48,10 +48,23 @@ const useGeneration = () => {
             father,
             kid,
         }: ClassNames){
-            return `.🌲PasStyle🌲.🍁${father}🍁.🌸${kid}🌸`.toUpperCase()
+
+            const className = `.🌲PasStyle🌲.🍁${father}🍁.🌸${kid}🌸`.toUpperCase()
+
+            return {
+                query:document.querySelector(className),
+                queryAll:Array.from(document.querySelectorAll(className)),
+                getElements:document.getElementsByClassName(className.replaceAll('.',' '))
+            }
         },
         id(id : string){
-            return `#🔑PasStyle🔑 ${hash}-${id}`.toUpperCase()
+
+            const ID = `#🔑PasStyle🔑-${hash}-${id}`.toUpperCase()            
+
+            return {
+                query:document.querySelector(ID),
+                getElement:document.getElementsByClassName(ID.replaceAll('#',''))
+            }
         },
     }
     
@@ -61,4 +74,4 @@ const useGeneration = () => {
     }
 }
 
-export default useGeneration
+export default useMethods

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import PasStyle from '../..'
-import useGeneration from '../../Hooks/useGeneration'
+import useMethods from '../../Hooks/useMethods'
 
 type Props = {
     error?:string
@@ -38,7 +38,7 @@ const Create = {
         Listener
     } : ReactChildren<{error?:string, id?:string, Listener?:Function}>){
 
-        const { POST } = useGeneration()
+        const { POST } = useMethods()
 
         React.useEffect(() => {
             if(Listener){
@@ -59,18 +59,16 @@ const Create = {
     } : ReactChildren<Props>) {
         const [doc, setDoc] = React.useState<HTMLElement>()
 
-        const { GET } = useGeneration()
-
-        const TargetID = GET.id(targetId)
+        const { GET } = useMethods()
 
         React.useEffect(() => {
-            setDoc(document.querySelector(TargetID ?? GET.id('portal')) as HTMLElement)
+            setDoc(GET.id('portal').query as HTMLElement)
         }, [])
 
         if(doc){
             return ReactDOM.createPortal(
                 <>{children}</>, 
-                document.querySelector(TargetID ?? GET.id('portal'))
+                GET.id('portal').query
             )
         } else {
             return(

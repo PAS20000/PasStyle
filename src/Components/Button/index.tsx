@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PasStyle, { PasStyleProps } from '../..'
-import useGeneration from '../../Hooks/useGeneration'
+import useMethods from '../../Hooks/useMethods'
 import Css from './index.styles'
 
 type ArtButton = [
@@ -14,7 +14,7 @@ type Props = {
 const Button = {
     Generic(props:PasStyleProps<Props>){
 
-        const { POST } = useGeneration()
+        const { POST } = useMethods()
 
         const { children, Art } = props
 
@@ -24,7 +24,7 @@ const Button = {
     },
     Upload(props:PasStyleProps<Props>){
 
-        const { POST } = useGeneration()
+        const { POST } = useMethods()
 
         const { children, Art } = props
 

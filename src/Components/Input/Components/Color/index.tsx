@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { InputPropsMethod } from '../..'
 import PasStyle, { PasStyleProps } from '../../../..'
-import useWhoIam from '../../../../Hooks/useGeneration'
+import useMethods from '../../../../Hooks/useMethods'
 import Label from '../Label'
 import Css from './index.styles'
 
@@ -13,7 +13,7 @@ const Color = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
     const {onChange, placeholder, value, label} = props
 
-    const { random } = useWhoIam('color')
+    const { random } = useMethods()
 
     return (
         <PasStyle.Div mg='5px'>

@@ -3,7 +3,7 @@ import PasStyle from '../../../..'
 import { InputPropsMethod } from '../..'
 import useUpload from './Hooks/useUpload'
 import Create from '../../../Create'
-import useGeneration from '../../../../Hooks/useGeneration'
+import useMethods from '../../../../Hooks/useMethods'
 
 type Arts = [
     'add'
@@ -27,18 +27,17 @@ const Upload = (props:InputPropsMethod & Props) => {
 
     //const arrayChildren = React.Children.toArray(children)
 
-    const { addFile, sendFile, removeFile, files, inputId } = useUpload({
+    const { addFile, sendFile, removeFile, files } = useUpload({
         id:'PasStyle.input.File',
         get,
         maxFiles,
         maxSize,
     })
-    //const { hash } = useId('Input.File.Div')
 
-    const { GET } = useGeneration()
+    const { GET } = useMethods()
 
     const Listener = () => {
-       console.log(Array.from(document.querySelectorAll(GET.class({ father:'button', kid:'upload' }))))
+        console.log(GET.class({ father:'button', kid:'upload' }).queryAll)
     }
 
     return(
