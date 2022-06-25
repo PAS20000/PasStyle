@@ -49,7 +49,7 @@ const Input = {
 
         const listener = () => {
             const div = document.getElementById(hash) as HTMLElement
-            if(div){
+            if(div) {
                 const Buttons = Array.from(div.children)
                 Buttons.map(button => button.addEventListener('click', sendFile))
             }

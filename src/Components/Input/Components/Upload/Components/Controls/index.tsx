@@ -1,15 +1,14 @@
 import * as React from 'react'
-import { GlobalProps } from '../..'
-import PasStyle from '../../../../../../../..'
-import Icons from '../../../../../../../Icons'
-import useUpload from '../../../../Hooks/useUpload'
-import useHover from '../../Hooks/useHover'
-import useIconQuery from '../../Hooks/useIconQuery'
+import PasStyle from '../../../../../..'
+import Icons from '../../../../../Icons'
+import useHover from '../Preview/Hooks/useHover'
+import useIconQuery from '../Preview/Hooks/useIconQuery'
 
 type Props = {
+    file?:File
     index?:number
     idImg?:string
-    removeFile: Function
+    removeFile?:Function
 }
 
 const Controls = ({
@@ -17,7 +16,7 @@ const Controls = ({
     idImg,
     index,
     removeFile
-} : GlobalProps<Props>) => {
+} : Props) => {
     const { hover, enter, leave   } = useHover()
     const { response } = useIconQuery(file)
     
@@ -37,9 +36,7 @@ const Controls = ({
     React.useEffect(() => {
         Listener()
     }, [])
-
-    console.log(removeFile, index)
-
+    
     return(
         <PasStyle.Div>
             {hover && Icon}

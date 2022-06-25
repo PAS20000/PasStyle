@@ -1,15 +1,14 @@
 import * as React from 'react'
-import { GlobalProps } from '../..'
 import PasStyle from '../../../../../../../..'
 import useFileSize from '../../../../Hooks/useFileSize'
 
 type Props = {
-    
+    file:File
 }
 
 const Metadata = ({
     file,
-} : GlobalProps<Props>) => {
+} : Props) => {
 
     const { fileSize } = useFileSize()
     

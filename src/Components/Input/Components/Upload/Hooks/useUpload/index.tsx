@@ -34,30 +34,57 @@ const useUpload = ({
             const maxItems = maxFiles ?? 1
             const maxSizeFile = maxSize ?? 10 * 1000 * 1000 // 10gb
             const ArrayFiles : Array<File> = Array.from(e.target.files)
-            const rejectedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size > maxSizeFile || i > maxItems )
-            const approvedFiles = ArrayFiles.filter((f, i) => typeSize.kb(f.size).size < maxSizeFile && i < maxItems )
-            
-            const setFileConditions = (currentFiles : Array<File>) => {
-                if(currentFiles.length < maxItems && maxItems !== 1){
-                    if(approvedFiles.length < maxItems){
-                        return currentFiles.concat(approvedFiles)
-                    } else {
-                        return approvedFiles.splice(0 , currentFiles.length)
+
+            const setFileConditions = (currentFiles : File[]) => {
+
+                const FilterFiles = (f:File, i:number, array:Array<File>) => {
+
+                    const create = {
+                        status(obj : {maxSize?:string, maxFiles?:string}){
+                            array.map(file => file['status'] = obj)
+                        }
                     }
+    
+                    if(typeSize.kb(f.size).size < maxSizeFile){
+                        create.status({
+                            ...f['status'], 
+                            maxSize:'approved',
+                        })
+                    } else {
+                        create.status({
+                            ...f['status'], 
+                            maxSize:'rejected',
+                        })
+                    }
+                    if(i > maxItems){
+                        array.splice(0, maxItems)
+                    }
+                    if(currentFiles.length < maxItems){
+                       create.status({
+                            ...f['status'], 
+                            maxFiles:'approved',
+                        })
+                    } else {
+                        create.status({
+                            ...f['status'], 
+                            maxFiles:'rejected',
+                        })
+                    }
+    
+                    return array
+                }
+
+                if(currentFiles.length){
+                    return currentFiles.concat(ArrayFiles.filter((f, i ,a) => FilterFiles(f, i, a)))
                 } else {
-                    return approvedFiles
+                    return ArrayFiles.filter((f, i ,a) => FilterFiles(f, i, a))
                 }
             }
 
-            setFiles(prev => setFileConditions(prev))
-
-            setError({
-                exist:!!rejectedFiles.length,
-                rejectedFiles
-            })
+            setFiles(currentFiles => setFileConditions(currentFiles))
         },
         removeFile(index:number){
-            setFiles(prev => prev.filter((f , i) => f && i !== index))
+            setFiles(currentFiles => currentFiles.filter((f , i) => f && i !== index))
         }
     }
 

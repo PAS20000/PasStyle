@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { SetState } from '../../Contexts/types'
-import CreatePortal from '../CreatePortal'
+import Create from '../Create'
 import Popup from '../Popup'
 
 type Props = {
@@ -13,11 +13,11 @@ const Modal = ({
     children
 } : Props) => {
     return(
-        <CreatePortal error='Not Found Modal'>
+        <Create.Portal error='Not Found Modal'>
              <Popup state={state}>
                 {children}
             </Popup>,
-        </CreatePortal>
+        </Create.Portal>
     )
 }
 

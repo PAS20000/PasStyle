@@ -27,7 +27,7 @@ const Button = {
         const { children, Art } = props
 
         return(
-            <PasStyle.Button {...Css[Art ?? 'default']()} {...props}>
+            <PasStyle.Button {...Css[Art ?? 'default']()} {...props} className='BUTTON UPLOAD'>
                 {children}
             </PasStyle.Button>
         )
