@@ -1,15 +1,6 @@
 import * as React from 'react'
-import useUpload from './Hooks/useUpload'
-import Preview from './Components/Preview'
-import PasStyle, { PasStyleProps } from '../../../..'
+import PasStyle from '../../../..'
 import { InputPropsMethod } from '../..'
-import Remove from '../../../../../utils/Remove'
-import Button from '../../../Button'
-
-export type Error = {
-    exist?:boolean
-    rejectedFiles?:File[]
-}
 
 type Arts = [
     'add'
@@ -30,7 +21,7 @@ type CustomArt = {
     }
 }
 
-export type Get = (files : Array<File>, error : Error & {reset : () => void }) => void
+export type Get = (files : Array<File>) => void
 
 type Props = {
     Art?:Arts

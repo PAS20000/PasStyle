@@ -4,9 +4,13 @@ import Input from "../../src/Components/Input"
 import Preview from "../../src/Components/Input/Components/Upload/Components/Preview"
 import useCreateComponent from '../../src/Hooks/useCreateComponent'
 
+type Props = {
+    Type?:string
+}
+
 export default function Upload ({
     Type
-}) {
+} : Props) {
 
     const [files, setFile] = React.useState<File[]>([])
 
@@ -15,7 +19,7 @@ export default function Upload ({
     
     return(
         <>
-            <Input.File maxFiles={3} get={(files, error) => {
+            <Input.File maxFiles={3} get={(files) => {
                 setFile(files)
             }}>
                 <Button.Upload>

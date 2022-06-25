@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Error, Get } from '../..'
+import { Get } from '../..'
 import useId from '../../../../../../Hooks/useId'
 import useFileSize from '../useFileSize'
 
@@ -20,7 +20,57 @@ const useUpload = ({
     const { "hash":InputHash } = useId(id)
     const { typeSize } = useFileSize()
     const [files, setFiles] = React.useState<Array<File>>([])
-    const [error, setError] = React.useState<Error>({})
+
+    const maxItems = maxFiles ?? 1
+    const maxSizeFile = maxSize ?? 10 * 1000 * 1000 // 10gb
+
+    const setFileConditions = (currentFiles:File[], receivedFiles:File[]) => {
+
+        const FilterFiles = (f:File, i:number, array:Array<File>) => {
+
+            const create = {
+                status(obj : {maxSize?:string, maxFiles?:string}){
+                    array.map(file => file['status'] = obj)
+                }
+            }
+
+            if(typeSize.kb(f.size).size < maxSizeFile){
+                create.status({
+                    ...f['status'], 
+                    maxSize:'approved',
+                })
+            } else {
+                create.status({
+                    ...f['status'], 
+                    maxSize:'rejected',
+                })
+            }
+            if(i > maxItems){
+                array.splice(0, maxItems)
+            }
+            if(currentFiles.length < maxItems){
+               create.status({
+                    ...f['status'], 
+                    maxFiles:'approved',
+                })
+            } else {
+                create.status({
+                    ...f['status'], 
+                    maxFiles:'rejected',
+                })
+            }
+
+            return array
+        }
+
+        const ApprovedFiles = receivedFiles.filter((f, i ,a) => FilterFiles(f, i, a))
+
+        if(currentFiles.length){
+            return currentFiles.concat(ApprovedFiles)
+        } else {
+            return ApprovedFiles
+        }
+    }
 
     const Action = {
         sendFile() {
@@ -31,57 +81,9 @@ const useUpload = ({
         },
         addFile(e : any) {
             Methods()
-            const maxItems = maxFiles ?? 1
-            const maxSizeFile = maxSize ?? 10 * 1000 * 1000 // 10gb
             const ArrayFiles : Array<File> = Array.from(e.target.files)
 
-            const setFileConditions = (currentFiles : File[]) => {
-
-                const FilterFiles = (f:File, i:number, array:Array<File>) => {
-
-                    const create = {
-                        status(obj : {maxSize?:string, maxFiles?:string}){
-                            array.map(file => file['status'] = obj)
-                        }
-                    }
-    
-                    if(typeSize.kb(f.size).size < maxSizeFile){
-                        create.status({
-                            ...f['status'], 
-                            maxSize:'approved',
-                        })
-                    } else {
-                        create.status({
-                            ...f['status'], 
-                            maxSize:'rejected',
-                        })
-                    }
-                    if(i > maxItems){
-                        array.splice(0, maxItems)
-                    }
-                    if(currentFiles.length < maxItems){
-                       create.status({
-                            ...f['status'], 
-                            maxFiles:'approved',
-                        })
-                    } else {
-                        create.status({
-                            ...f['status'], 
-                            maxFiles:'rejected',
-                        })
-                    }
-    
-                    return array
-                }
-
-                if(currentFiles.length){
-                    return currentFiles.concat(ArrayFiles.filter((f, i ,a) => FilterFiles(f, i, a)))
-                } else {
-                    return ArrayFiles.filter((f, i ,a) => FilterFiles(f, i, a))
-                }
-            }
-
-            setFiles(currentFiles => setFileConditions(currentFiles))
+            setFiles(currentFiles => setFileConditions(currentFiles, ArrayFiles))
         },
         removeFile(index:number){
             setFiles(currentFiles => currentFiles.filter((f , i) => f && i !== index))
@@ -90,18 +92,13 @@ const useUpload = ({
 
     const Methods = () => {
         if(get){
-            get(files, {
-                ...error,
-                reset() {
-                    setError({})
-                },
-            })
+            get(files)
         }
     }
 
     React.useEffect(() => {
         Methods()
-    }, [files, error])
+    }, [files])
 
     return {
         Action,
@@ -111,7 +108,6 @@ const useUpload = ({
         files,
         setFiles,
         inputId:InputHash,
-        error,
     }
 }
 
