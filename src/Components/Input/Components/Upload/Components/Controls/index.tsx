@@ -1,48 +1,55 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
+import Create from '../../../../../Create'
 import Icons from '../../../../../Icons'
 import useHover from '../Preview/Hooks/useHover'
 import useIconQuery from '../Preview/Hooks/useIconQuery'
 
 type Props = {
-    file?:File
+    files?:File[]
     index?:number
-    idImg?:string
-    removeFile?:Function
 }
 
-const Controls = ({
-    file,
-    idImg,
-    index,
-    removeFile
-} : Props) => {
-    const { hover, enter, leave   } = useHover()
-    const { response } = useIconQuery(file)
-    
-    const Icon = response.isDownload ? 
-        <Icons.Fa.FaDownload onClick={() => window.open(URL.createObjectURL(file))}/>
-        : 
-        <Icons.Fa.FaEye onClick={() => window.open(URL.createObjectURL(file))}/>
+const Controls = {
+    Generic({
+        files,
+        index,
+    } : Props) {
+        const { hover, enter, leave   } = useHover()
 
-    const Listener = () => {
-        const img = document.getElementById(idImg)
-        if(img){
-            img.addEventListener('mouseenter', enter)
-            img.addEventListener('mouseleave', leave)
+        const Icon = (file : File) => {
+            const { response } = useIconQuery(file)
+
+            if(response.isDownload){
+                return <Icons.Fa.FaDownload onClick={() => window.open(URL.createObjectURL(file))}/>
+            } else {
+               return <Icons.Fa.FaEye onClick={() => window.open(URL.createObjectURL(file))}/>
+            }
         }
-    }
 
-    React.useEffect(() => {
-        Listener()
-    }, [])
-    
-    return(
-        <PasStyle.Div>
-            {hover && Icon}
-            <Icons.Fa.FaTrash onClick={() => removeFile(index)}/>
-        </PasStyle.Div>
-    )
+        const Listener = () => {
+        
+        }
+
+        React.useEffect(() => {
+            Listener()
+        }, [])
+        
+        return(
+            <Create.Controls files={files}>
+                {files.map((file, index) => 
+                    <PasStyle.Div key={index}>
+                        {!hover && 
+                            <>
+                                {Icon(file)}
+                                <Icons.Fa.FaTrash />
+                            </>
+                        }
+                    </PasStyle.Div>
+                )}
+            </Create.Controls>
+        )
+    }
 }
 
 export default Controls

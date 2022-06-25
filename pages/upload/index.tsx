@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Button from "../../src/Components/Button"
 import Input from "../../src/Components/Input"
-import Preview from "../../src/Components/Input/Components/Upload/Components/Preview"
+import Controls from '../../src/Components/Input/Components/Upload/Components/Controls'
 import useCreateComponent from '../../src/Hooks/useCreateComponent'
 
 type Props = {
@@ -27,6 +27,7 @@ export default function Upload ({
                     Upload
                 </Button.Upload>
                 <Component.Preview Type={Type} files={files}/>
+                <Controls.Generic files={files}/>
             </Input.File>
             <button onClick={() => console.log(files)}>Send</button>
         </>

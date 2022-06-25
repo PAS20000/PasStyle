@@ -1,5 +1,7 @@
 import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import PasStyle, { PasStyleProps } from '../../..'
+import Create from '../../Create'
 
 const Container = {
     Div(props:PasStyleProps) {
@@ -22,6 +24,14 @@ const Container = {
     },
     Nav(props:PasStyleProps) {
         return <PasStyle.Nav {...props}/>
+    },
+    Body(props:PasStyleProps) {
+
+        return (
+            <Create.Render>
+                <PasStyle.Body {...props}/>
+            </Create.Render>
+        )
     },
 }
 

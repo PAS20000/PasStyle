@@ -24,7 +24,7 @@ const Create = {
         const [doc, setDoc] = React.useState<HTMLElement>()
 
         React.useEffect(() => {
-            setDoc(document.getElementById('PasStyle-Portal') as HTMLElement)
+            setDoc(document.getElementById(targetId ?? 'PasStyle-Portal') as HTMLElement)
         }, [])
 
         if(doc){
@@ -40,7 +40,49 @@ const Create = {
             )
         }
     },
+    Render({
+        children,
+        error,
+        targetId
+    } : Props){
+        const { hash } = useId('PasStyle-Render-Error')
+        const [doc, setDoc] = React.useState<HTMLElement>()
+
+        React.useEffect(() => {
+            setDoc(document.getElementById(targetId ?? '__next') as HTMLElement)
+        }, [])
+
+        if(doc){
+            ReactDOM.render(
+                <>{children}</>, 
+                document.getElementById(targetId ?? '__next')
+            )
+
+            return<></>
+        } else {
+            return(
+                <PasStyle.Span id={hash}>
+                    {error ?? 'Not Found'}
+                </PasStyle.Span>
+            )
+        }
+    },
     Preview({
+        files,
+        children
+    } : PreviewProps){
+
+        if(!!files){
+            return(
+                <>
+                    {children}
+                </>
+            )
+        } else {
+            return<></>
+        }
+    },
+    Controls({
         files,
         children
     } : PreviewProps){
