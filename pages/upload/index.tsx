@@ -6,20 +6,21 @@ import useCreateComponent from '../../src/Hooks/useCreateComponent'
 
 type Props = {
     Type?:string
+    maxFiles?:number
 }
 
 export default function Upload ({
-    Type
+    Type,
+    maxFiles
 } : Props) {
 
     const [files, setFile] = React.useState<File[]>([])
 
     const Component = useCreateComponent()
-   
-    
+
     return(
         <>
-            <Input.File maxFiles={3} get={(files) => {
+            <Input.File maxFiles={maxFiles ?? 3} get={(files) => {
                 setFile(files)
             }}>
                 <Button.Upload>

@@ -31,8 +31,14 @@ const useUpload = ({
             const create = {
                 status(obj : {maxSize?:string, maxFiles?:string}){
                     array.map(file => file['status'] = obj)
-                }
+                },
             }
+
+            console.table({
+                received:receivedFiles.length,
+                current:currentFiles.length,
+                maxItems,
+            })
 
             if(typeSize.kb(f.size).size < maxSizeFile){
                 create.status({
@@ -44,9 +50,6 @@ const useUpload = ({
                     ...f['status'], 
                     maxSize:'rejected',
                 })
-            }
-            if(i > maxItems){
-                array.splice(0, maxItems)
             }
             if(currentFiles.length < maxItems){
                create.status({
@@ -63,7 +66,7 @@ const useUpload = ({
             return array
         }
 
-        const ApprovedFiles = receivedFiles.filter((f, i ,a) => FilterFiles(f, i, a))
+        const ApprovedFiles = receivedFiles.filter((f, i ,a)  => FilterFiles(f, i, a))
 
         if(currentFiles.length){
             return currentFiles.concat(ApprovedFiles)
@@ -81,7 +84,7 @@ const useUpload = ({
         },
         addFile(e : any) {
             Methods()
-            const ArrayFiles : Array<File> = Array.from(e.target.files)
+            const ArrayFiles = Array.from(e.target.files).filter((f, i) => f && i < maxItems) as Array<File>
 
             setFiles(currentFiles => setFileConditions(currentFiles, ArrayFiles))
         },

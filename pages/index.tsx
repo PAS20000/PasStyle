@@ -16,7 +16,7 @@ const Home = () => {
             Change Theme
          </Button.Generic>
           <Upload Type='Gallery'/>
-          <Upload />
+          <Upload maxFiles={6}/>
       </Main>
     )
 }

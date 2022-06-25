@@ -6,7 +6,7 @@ import Date from './Components/Date'
 import Email from './Components/Email'
 import Password from './Components/Password'
 import Text from './Components/Text'
-import Upload, { InputFile } from './Components/Upload'
+import { InputFile } from './Components/Upload'
 import useUpload from './Components/Upload/Hooks/useUpload'
 import Url from './Components/Url'
 
