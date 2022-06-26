@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { PasProps, Styles } from '../utils/types'
-import Emotion from './index.styles'
+import useEvents from './index.styles'
 
 export type AllAttr =  React.HTMLAttributes<any>
 
@@ -32,202 +32,212 @@ export type DialogAttr <T = {}> = React.DialogHTMLAttributes<T>
 
 export type TextareaAttr <T = {}> = React.TextareaHTMLAttributes<T>
 
-const useEvents = (props:PasStyleProps, tag:string) => {
-
-    const [hover, setHover] = React.useState<boolean>(false)
-    const [focus, setFocus] = React.useState<boolean>(false)
-
-    const { grid, 
-            flex,
-            evenly,
-            around,
-            between,
-            start, 
-            end,
-            center,
-            column, 
-            columns,
-            rows,
-            bg,
-            shadow,
-            b_bottom, 
-            b_color, 
-            b_left, 
-            b_top, 
-            b_radius,
-            b_right,
-            pd,
-            pd_bottom,  
-            pd_left, 
-            pd_top, 
-            pd_radius,
-            pd_right,
-            mg,
-            mg_bottom,  
-            mg_left, 
-            mg_top, 
-            mg_radius,
-            mg_right,
-            _hover,
-            _focus,
-            _media 
-        } = props
-
-    const defaultCSS = {
-        display: grid ? 'grid':'flex',
-        flexWrap:'wrap',
-        flexDirection:'row' ?? 'row',
-        gridTemplateColumns: '',
-        gridTemplateRows: '',
-        animation: 'show 1s ease-in',
-    } as React.CSSProperties
-
-    const hoverCSS = {
-        ...defaultCSS,
-        ..._hover,
-    }
-
-    const focusCSS = {
-        ...defaultCSS,
-        ..._focus,
-    }
-
-    const Style = () => {
-        if(!focus && !hover){
-            return defaultCSS
-        }
-        if(focus){
-            return focusCSS
-        }
-        if(hover){
-            return hoverCSS
-        }
-    }
-
-    React.useEffect(() => {
-        const element = document.querySelector(`[data-passtyle=${tag}]`) as HTMLElement
-        element.addEventListener('mouseenter', () => setHover(true))
-        element.addEventListener('mouseleave', () => setHover(false))
-        element.addEventListener('click', () => setFocus(true))
-
-        return () => {
-            element.removeEventListener('mouseenter', () => setHover(true))
-            element.removeEventListener('mouseenter', () => setHover(false))
-            element.removeEventListener('click', () => setFocus(true))
-        }
-    }, [])
-
-    return {
-        Style:Style()
-    }
-
-}
-
 const PasStyle = {
     Div(props:PasStyleProps) {
 
         const { Style } = useEvents({...props}, 'DIV')
 
-        return <div {...props} data-passtyle='DIV' style={Style}/>
+        const { _focus, _hover, _media, b_bottom} = props
+
+        return <div {...props} data-passtyle='DIV' style={Style} />
     },
     Input(props:PasStyleProps<InputAttr>) {
-        return <input {...props} data-passtyle='INPUT' />
+
+        const { Style } = useEvents({...props}, 'INPUT')
+
+        return <input {...props} data-passtyle='INPUT' style={Style} />
     },
     Article(props:PasStyleProps) {
-        return <article {...props} data-passtyle='ARTICLE' />
+
+        const { Style } = useEvents({...props}, 'ARTICLE')
+
+        return <article {...props} data-passtyle='ARTICLE' style={Style} />
     },
     Aside(props:PasStyleProps) {
-        return <aside {...props} data-passtyle='ASIDE' />
+
+        const { Style } = useEvents({...props}, 'ASIDE')
+
+        return <aside {...props} data-passtyle='ASIDE' style={Style} />
     },
     Header(props:PasStyleProps) {
-        return <header {...props} data-passtyle='HEADER' />
+
+        const { Style } = useEvents({...props}, 'HEADER')
+
+        return <header {...props} data-passtyle='HEADER' style={Style} />
     },
     Main(props:PasStyleProps) {
-        return <main {...props} data-passtyle='MAIN' />
+
+        const { Style } = useEvents({...props}, 'MAIN')
+
+        return <main {...props} data-passtyle='MAIN' style={Style} />
     },
     Footer(props:PasStyleProps) {
-        return <footer {...props} data-passtyle='FOOTER' />
+
+        const { Style } = useEvents({...props}, 'FOOTER')
+
+        return <footer {...props} data-passtyle='FOOTER' style={Style} />
     },
     Body(props:PasStyleProps) {
-        return <body {...props} data-passtyle='BODY' />
+
+        const { Style } = useEvents({...props}, 'BODY')
+
+        return <body {...props} data-passtyle='BODY' style={Style} />
     },
     Form(props:PasStyleProps<FormAttr>) {
-        return <form {...props} data-passtyle='FORM' />
+
+        const { Style } = useEvents({...props}, 'FORM')
+
+        return <form {...props} data-passtyle='FORM' style={Style} />
     },
     Section(props:PasStyleProps) {
-        return <section {...props} data-passtyle='SECTION' />
+
+        const { Style } = useEvents({...props}, 'SECTION')
+
+        return <section {...props} data-passtyle='SECTION' style={Style} />
     },
     Button(props:PasStyleProps<ButtonAttr>) {
-        return <button {...props} data-passtyle='BUTTON'/>
+
+        const { Style } = useEvents({...props}, 'BUTTON')
+
+        return <button {...props} data-passtyle='BUTTON'style={Style} />
     },
     Nav(props:PasStyleProps) {
-        return <nav {...props} data-passtyle='NAV' />
+
+        const { Style } = useEvents({...props}, 'NAV')
+
+        return <nav {...props} data-passtyle='NAV' style={Style} />
     },
     Span(props:PasStyleProps) {
-        return <span {...props} data-passtyle='SPAN' />
+
+        const { Style } = useEvents({...props}, 'SPAN')
+
+        return <span {...props} data-passtyle='SPAN' style={Style} />
     },
     H1(props:PasStyleProps) {
-        return <h1 {...props} data-passtyle='H1' />
+
+        const { Style } = useEvents({...props}, 'H1')
+
+        return <h1 {...props} data-passtyle='H1' style={Style} />
     },
     H2(props:PasStyleProps) {
-        return <h2 {...props} data-passtyle='H2' />
+
+        const { Style } = useEvents({...props}, 'H2')
+
+        return <h2 {...props} data-passtyle='H2' style={Style} />
     },
     H3(props:PasStyleProps) {
-        return <h3 {...props} data-passtyle='H3' />
+
+        const { Style } = useEvents({...props}, 'H3')
+
+        return <h3 {...props} data-passtyle='H3' style={Style} />
     },
     H4(props:PasStyleProps) {
-        return <h4 {...props} data-passtyle='H4' />
+
+        const { Style } = useEvents({...props}, 'H4')
+
+        return <h4 {...props} data-passtyle='H4' style={Style} />
     },
     H5(props:PasStyleProps) {
-        return <h5 {...props} data-passtyle='H5' />
+
+        const { Style } = useEvents({...props}, 'H5')
+
+        return <h5 {...props} data-passtyle='H5' style={Style} />
     },
     H6(props:PasStyleProps) {
-        return <h6 {...props} data-passtyle='H6' />
+
+        const { Style } = useEvents({...props}, 'H6')
+
+        return <h6 {...props} data-passtyle='H6' style={Style} />
     },
     P(props:PasStyleProps) {
-        return <p {...props} data-passtyle='P' />
+
+        const { Style } = useEvents({...props}, 'P')
+
+        return <p {...props} data-passtyle='P' style={Style} />
     },
     Table(props:PasStyleProps<TableAttr>) {
-        return <table {...props} data-passtyle='TABLE' />
+
+        const { Style } = useEvents({...props}, 'TABLE')
+
+        return <table {...props} data-passtyle='TABLE' style={Style} />
     },
     Thead(props:PasStyleProps) {
-        return <thead {...props} data-passtyle='THEAD' />
+
+        const { Style } = useEvents({...props}, 'THEAD')
+
+        return <thead {...props} data-passtyle='THEAD' style={Style} />
     },
     Tbody(props:PasStyleProps) {
-        return <tbody {...props} data-passtyle='TABODY' />
+
+        const { Style } = useEvents({...props}, 'TBODY')
+
+        return <tbody {...props} data-passtyle='TBODY' style={Style} />
     },
     Tfoot(props:PasStyleProps) {
-        return <tfoot {...props} data-passtyle='TFOOT' />
+
+        const { Style } = useEvents({...props}, 'TFOOT')
+
+        return <tfoot {...props} data-passtyle='TFOOT' style={Style} />
     },
     Tr(props:PasStyleProps<TrAttr>) {
-        return <tr {...props} data-passtyle='TR' />
+
+        const { Style } = useEvents({...props}, 'TR')
+
+        return <tr {...props} data-passtyle='TR' style={Style} />
     },
     Td(props:PasStyleProps<TdAttr>) {
-        return <td {...props} data-passtyle='TD' />
+
+        const { Style } = useEvents({...props}, 'TD')
+
+        return <td {...props} data-passtyle='TD' style={Style} />
     },
     Th(props:PasStyleProps<ThAttr>) {
-        return <th {...props} data-passtyle='TH' />
+
+        const { Style } = useEvents({...props}, 'TH')
+
+        return <th {...props} data-passtyle='TH' style={Style} />
     },
     Img(props:PasStyleProps<ImgAttr>) {
-        return <img {...props} data-passtyle='IMG' />
+
+        const { Style } = useEvents({...props}, 'IMG')
+
+        return <img {...props} data-passtyle='IMG' style={Style} />
     },
     A(props:PasStyleProps<AnchorAttr>) {
-        return <a {...props} data-passtyle='A' />
+
+        const { Style } = useEvents({...props}, 'A')
+
+        return <a {...props} data-passtyle='A' style={Style} />
     },
     Code(props:PasStyleProps) {
-        return <code {...props} data-passtyle='CODE' />
+
+        const { Style } = useEvents({...props}, 'CODE')
+
+        return <code {...props} data-passtyle='CODE' style={Style} />
     },
     Label(props:PasStyleProps<LabelAttr>) {
-        return <label {...props} data-passtyle='LABEL' />
+
+        const { Style } = useEvents({...props}, 'LABEL')
+
+        return <label {...props} data-passtyle='LABEL' style={Style} />
     },
     Iframe(props:PasStyleProps<IframeAttr>) {
-        return <iframe {...props} data-passtyle='IFRAME' />
+
+        const { Style } = useEvents({...props}, 'IFRAME')
+
+        return <iframe {...props} data-passtyle='IFRAME' style={Style} />
     },
     TextArea(props:PasStyleProps<TextareaAttr>) {
-        return <textarea {...props} data-passtyle='TEXTAREA' />
+
+        const { Style } = useEvents({...props}, 'TEXTAREA')
+
+        return <textarea {...props} data-passtyle='TEXTAREA' style={Style} />
     },
     Dialog(props:PasStyleProps<DialogAttr>){
-        return <dialog {...props} data-passtyle='DIALOG' />
+
+        const { Style } = useEvents({...props}, 'DIALOG')
+
+        return <dialog {...props} data-passtyle='DIALOG' style={Style} />
     }
 }
 

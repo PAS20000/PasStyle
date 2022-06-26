@@ -1,181 +1,175 @@
-import styled from "@emotion/styled";
-import CreateStyle, { TCreateStyle } from "./CreateStyle/index.styles";
+import * as React from 'react'
+import { PasStyleProps } from "."
 
-const StyleDiv = styled.div<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+const useEvents = (props:PasStyleProps, tag:string) => {
 
-const StyleCode = styled.code<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  const [hover, setHover] = React.useState<boolean>(false)
+  const [focus, setFocus] = React.useState<boolean>(false)
 
-const StyleInput = styled.input<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  const {_hover, _focus} = props
 
-const StyleForm = styled.form<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  const layout = (css : PasStyleProps) : React.CSSProperties | void => {
 
-const StyleArticle = styled.article<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+      const {
+          grid,
+          flex,
+          evenly,
+          around,
+          between,
+          start, 
+          end,
+          center,
+          column, 
+          columns,
+          rows,
+      } = css
 
-const StyleSection = styled.section<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+      const defaultFlex = {
+          display: 'flex',
+          flexWrap:'wrap',
+          flexDirection:column ? 'column':'row'
+      } as React.CSSProperties
+      if(grid){
+          if(columns){
+              return {
+                  display: 'grid',
+                  gridTemplateColumns:columns,
+             }
+          }
+          if(rows){
+              return {
+                  display: 'grid',
+                  gridTemplateRows:columns,
+             }
+          }
+         return {
+              display: 'grid',
+         }
+      }
+      if(flex){            
+          if(around){
+              return {
+                  ...defaultFlex,
+                  justifyContent:'space-around'
+              }
+          }
+          if(between){
+              return {
+                  ...defaultFlex,
+                  justifyContent:'space-between'
+              }
+          }
+          if(evenly){
+              return {
+                  ...defaultFlex,
+                  justifyContent:'space-evenly'
+              }
+          }
+          if(center){
+              return {
+                  ...defaultFlex,
+                  justifyContent:'center'
+              }
+          }
+          if(start){
+              return {
+                  ...defaultFlex,
+                  justifyContent:'flex-start'
+              }
+          }
+          if(end){
+              return {
+                  ...defaultFlex,
+                  justifyContent:'flex-end'
+              }
+          } 
+      }
+  }
+  const createCSS = (css : PasStyleProps) => {
 
-const StyleAside = styled.aside<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+      const {
+          h,
+          w,
+          bg,
+          shadow,
+          b_bottom, 
+          b_color, 
+          b_left, 
+          b_top, 
+          b_radius,
+          b_right,
+          pd,
+          pd_bottom,  
+          pd_left, 
+          pd_top, 
+          pd_right,
+          mg,
+          mg_bottom,  
+          mg_left, 
+          mg_top, 
+          mg_right,
+      } = css
 
-const StyleNav = styled.nav<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+      return {
+          ...layout(css),
+          width: w,
+          height: h,
+          padding: pd,
+          paddingLeft: pd_left,
+          paddingBottom: pd_bottom,
+          paddingTop:pd_top,
+          paddingRight:pd_right,
+          margin: mg,
+          marginLeft: mg_left,
+          marginRight: mg_right,
+          marginTop:mg_top,
+          marginBottom:mg_bottom,
+          borderBottom:b_bottom,
+          borderTop:b_top,
+          borderRight:b_right,
+          borderLeft:b_left,
+          borderColor:b_color,
+          boxShadow: shadow,
+          borderRadius:b_radius,
+          background: bg,
+      }
+  }
+  const defaultCSS = createCSS({...props})
 
-const StyleMenu = styled.menu<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  const hoverCSS = createCSS({...props, ..._hover})
 
-const StyleHeader = styled.header<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  const focusCSS = createCSS({...props, ..._focus})
 
-const StyleMain = styled.main<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  const Style = () => {
+      if(focus){
+          return focusCSS
+      }
+      if(hover){
+          return hoverCSS
+      }
 
-const StyleBody = styled.body<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+      return defaultCSS
+  }
 
-const StyleFooter = styled.footer<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  React.useEffect(() => {
+      const element = document.querySelector(`[data-passtyle=${tag}]`) as HTMLElement
+      element.addEventListener('mouseenter', () => setHover(true))
+      element.addEventListener('mouseleave', () => setHover(false))
+      element.addEventListener('mousedown', () => setFocus(true))
+      element.addEventListener('mouseup', () => setFocus(false))
 
-const StyleButton = styled.button<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+      return () => {
+          element.removeEventListener('mouseenter', () => setHover(true))
+          element.removeEventListener('mouseenter', () => setHover(false))
+          element.removeEventListener('mousedown', () => setFocus(true))
+          element.removeEventListener('mouseup', () => setFocus(false))
+      }
+  }, [])
 
-const StyleSpan = styled.span<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
+  return {
+      Style:Style()
+  }
 
-const StyleH1 = styled.h1<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleH2 = styled.h2<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleH3 = styled.h3<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleH4 = styled.h4<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleH5 = styled.h5<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleH6 = styled.h6<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleP = styled.p<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleTable = styled.thead<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleThead = styled.thead<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleTbody = styled.tbody<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleTfoot = styled.tfoot<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleTr = styled.tr<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleTd = styled.td<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleTh = styled.th<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleImg = styled.img<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleA = styled.a<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleTextArea = styled.textarea<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleLabel = styled.label<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleIframe = styled.iframe<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-const StyleDialog = styled.dialog<TCreateStyle>`
-  ${props => CreateStyle({...props})}
-`
-
-export default  {
-    StyleArticle,
-    StyleAside,
-    StyleBody,
-    StyleDiv,
-    StyleButton,
-    StyleFooter,
-    StyleForm,
-    StyleHeader,
-    StyleMain,
-    StyleMenu,
-    StyleNav,
-    StyleSection,
-    StyleSpan,
-    StyleH1,
-    StyleH2,
-    StyleH3,
-    StyleH4,
-    StyleH5,
-    StyleH6,
-    StyleP,
-    StyleThead,
-    StyleTbody,
-    StyleTfoot,
-    StyleTd,
-    StyleTr,
-    StyleTh,
-    StyleTable,
-    StyleA,
-    StyleImg,
-    StyleInput,
-    StyleTextArea,
-    StyleCode,
-    StyleLabel,
-    StyleIframe,
-    StyleDialog,
-    CreateStyle,
 }
+
+export default useEvents
