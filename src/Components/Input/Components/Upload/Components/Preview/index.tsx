@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
-import useId from '../../../../../../Hooks/useGeneration'
 import Create from '../../../../../Create'
 import Icons from '../../../../../Icons'
 import useFileSize from '../../Hooks/useFileSize'

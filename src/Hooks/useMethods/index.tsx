@@ -4,6 +4,7 @@ import Keys from './Keys'
 type ClassNames = {
     father:string
     kid:string
+    custom?:string
 }
 
 type Art = {
@@ -29,17 +30,18 @@ const useMethods = () => {
         class({
             father,
             kid,
+            custom
         } : ClassNames){
-            return `🌲PasStyle🌲 🍁${father}🍁 🌸${kid}🌸`.toUpperCase()
+            return `🌲PasStyle🌲 🍁${father}🍁 🌸${kid}🌸`.toUpperCase() + (custom ?? '')
         },
-        id(id : string){
-            return `🔑PasStyle🔑-${hash}-${id}`.toUpperCase()
+        id(id : string, custom ?: string){
+            return `${id}-${hash}🔑PasStyle🔑`.toUpperCase() + (custom ?? '')          
         },
         Art({
             Css,
             Art
         } : Art){
-            return {...Css[Art ?? 'default']()}
+            return Css[Art ?? 'default']()
         }
     }
 
@@ -47,25 +49,34 @@ const useMethods = () => {
         class({
             father,
             kid,
+            custom
         }: ClassNames){
 
-            const className = `.🌲PasStyle🌲.🍁${father}🍁.🌸${kid}🌸`.toUpperCase()
+            const className = `.🌲PasStyle🌲.🍁${father}🍁.🌸${kid}🌸`.toUpperCase() + (custom ?? '')
 
             return {
-                query:document.querySelector(className),
-                queryAll:Array.from(document.querySelectorAll(className)),
+                query:document.querySelector(className) as HTMLElement,
+                queryAll:Array.from(document.querySelectorAll(className)) as HTMLElement[],
                 getElements:document.getElementsByClassName(className.replaceAll('.',' '))
             }
         },
-        id(id : string){
+        id(id : string, custom ?: string){
 
-            const ID = `#🔑PasStyle🔑-${hash}-${id}`.toUpperCase()            
+            const ID = `#${id}-${hash}🔑PasStyle🔑`.toUpperCase() + (custom ?? '')   
 
             return {
-                query:document.querySelector(ID),
+                query:document.querySelector(ID) as HTMLElement ,
                 getElement:document.getElementsByClassName(ID.replaceAll('#',''))
             }
         },
+        tag(tag:string){
+
+            return {
+                query:document.querySelector(tag) as HTMLElement,
+                queryAll:Array.from(document.querySelectorAll(tag)) as HTMLElement[],
+                getElements:document.getElementsByName(tag)
+            }
+        }
     }
     
     return {

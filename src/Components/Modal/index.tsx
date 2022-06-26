@@ -8,17 +8,19 @@ type Props = {
     children?:React.ReactNode
 }
 
-const Modal = ({
-    state,
-    children
-} : Props) => {
-    return(
-        <Create.Portal error='Not Found Modal'>
-             <Popup state={state}>
-                {children}
-            </Popup>,
-        </Create.Portal>
-    )
+const Modal ={
+    Body({
+        state,
+        children
+    } : Props) {
+        return(
+            <Create.Portal error='Not Found Modal'>
+                <Popup state={state}>
+                    {children}
+                </Popup>,
+            </Create.Portal>
+        )
+}
 }
 
 export default Modal

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PasStyle from '../..'
-import useGeneration from '../../Hooks/useGeneration'
+import useGeneration from '../../Hooks/useMethods'
 import { PropsCTXdefault } from '../types'
 
 export type PortalCTX = {

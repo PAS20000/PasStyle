@@ -40,12 +40,6 @@ const Create = {
 
         const { POST } = useMethods()
 
-        React.useEffect(() => {
-            if(Listener){
-                Listener()
-            }
-        }, [Listener])
-
         return (
             <PasStyle.Div className={POST.class({father:'create', kid:'container'})}>
               {children}

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import PasStyle from '../..'
 import useThemeCTX from '../../Contexts/ThemeContext/useThemeCTX'
-import useId from '../../Hooks/useGeneration'
+import useId from '../../Hooks/useMethods'
 import CopyClipBoard from './CopyClipBoard'
 
 type Props = {

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Get } from '../..'
+import useMethods from '../../../../../../Hooks/useMethods'
 import useFileSize from '../useFileSize'
 
 type Props = {
@@ -16,7 +17,7 @@ const useUpload = ({
     maxSize
 } : Props) => {
     
-    //const { "hash":InputHash } = useId(id)
+    const { POST, GET } = useMethods()
     const { typeSize } = useFileSize()
     const [files, setFiles] = React.useState<Array<File>>([])
 
@@ -69,16 +70,15 @@ const useUpload = ({
     }
 
     const Action = {
-        sendFile() {
-            if(''){
-                const input = document.getElementById('') as HTMLElement 
-                input.click()
+        sendFile(e : MouseEvent, index : number) {
+            if(e.isTrusted){
+                const inputs = GET.class({father:'input', kid:'upload'}).queryAll
+                inputs[index].click()
             }
         },
         addFile(e : any) {
             Methods()
             const ArrayFiles = Array.from(e.target.files).filter((f, i) => f && i < maxItems) as Array<File>
-
             setFiles(currentFiles => setFileConditions(currentFiles, ArrayFiles))
         },
         removeFile(index:number){
@@ -103,6 +103,7 @@ const useUpload = ({
         removeFile:Action.removeFile,
         files,
         setFiles,
+        inputClass:POST.class({father:'input', kid:'upload'})
     }
 }
 
