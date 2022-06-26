@@ -49,7 +49,17 @@ export type PasProps = {
     t_align?:string
     transform?:string
     transition?:string
-    op?:string,
+    op?:string
+    pd_bottom?:string  
+    pd_left?:string 
+    pd_top?:string 
+    pd_radius?:string 
+    pd_right?:string
+    mg_bottom?:string  
+    mg_left?:string  
+    mg_top?:string   
+    mg_radius?:string  
+    mg_right?:string  
     shadow?:string
     _media?:{
         max?:[number, Styles]

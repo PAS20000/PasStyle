@@ -13,20 +13,21 @@ const Color = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
     const {onChange, placeholder, value, label} = props
 
-    const { random } = useMethods()
+    const { POST, GET } = useMethods()
+
+    POST.PasStyle('input', 'color', 'input')
 
     return (
         <PasStyle.Div mg='5px'>
-            <Label htmlFor={label} {...props}>
+            <Label htmlFor={label.toString()} {...props}>
                 {label}
             </Label>
             <PasStyle.Div
-                onClick={() => document.getElementById(random).click()}
+                onClick={() => GET.PasStyle('input', 'color').query.click()}
                 {...Css.default()}
                 {...props}
             >
                 <PasStyle.Input
-                    id={random}
                     type='color' 
                     bg='transparent' 
                     border='none'

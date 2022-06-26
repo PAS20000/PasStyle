@@ -10,9 +10,23 @@ const Home = () => {
 
     return(
       <Main bg={ChangeColorByTheme('gray.900', 'gray.300')} w='100%' h='100%'>
-         <Button.Generic onClick={changeMode} className='ASDJAIDJASIDJASIDJDASDIASJ'>
+         <Button.Generic onClick={changeMode}>
             Change Theme
          </Button.Generic>
+          <Upload Type='Gallery'/>
+          <Upload maxFiles={6}/>
+          <Upload Type='Gallery'/>
+          <Upload maxFiles={6}/>
+          <Upload Type='Gallery'/>
+          <Upload maxFiles={6}/>
+          <Upload Type='Gallery'/>
+          <Upload maxFiles={6}/>
+          <Upload Type='Gallery'/>
+          <Upload maxFiles={6}/>
+          <Upload Type='Gallery'/>
+          <Upload maxFiles={6}/>
+          <Upload Type='Gallery'/>
+          <Upload maxFiles={6}/>
           <Upload Type='Gallery'/>
           <Upload maxFiles={6}/>
       </Main>

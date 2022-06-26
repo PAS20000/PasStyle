@@ -35,13 +35,14 @@ const Create = {
     },
     Container({
         children,
-        Listener
     } : ReactChildren<{error?:string, id?:string, Listener?:Function}>){
 
         const { POST } = useMethods()
 
+        POST.PasStyle('create', 'container', 'div')
+
         return (
-            <PasStyle.Div className={POST.class({father:'create', kid:'container'})}>
+            <PasStyle.Div>
               {children}
             </PasStyle.Div>
         )
@@ -56,13 +57,13 @@ const Create = {
         const { GET } = useMethods()
 
         React.useEffect(() => {
-            setDoc(GET.id('portal').query as HTMLElement)
+            setDoc(GET.PasStyle('provider', 'portal').query as HTMLElement)
         }, [])
 
         if(doc){
             return ReactDOM.createPortal(
                 <>{children}</>, 
-                GET.id('portal').query
+                GET.PasStyle('provider', 'portal').query
             )
         } else {
             return(

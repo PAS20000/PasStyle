@@ -2,7 +2,7 @@ import * as React from 'react'
 import Button from "../../src/Components/Button"
 import Input from "../../src/Components/Input"
 import Controls from '../../src/Components/Input/Components/Upload/Components/Controls'
-import useCreateComponent from '../../src/Hooks/useCreateComponent'
+import Preview from '../../src/Components/Input/Components/Upload/Components/Preview'
 
 type Props = {
     Type?:string
@@ -16,7 +16,10 @@ export default function Upload ({
 
     const [files, setFile] = React.useState<File[]>([])
 
-    const { Preview } = useCreateComponent()
+    React.useEffect(() => {
+        document.querySelector('.BB').setAttribute('style', 'background:red;border-radius:8px;padding:10px;')
+        document.querySelector('.BB').removeAttribute('style')
+    }, [])
 
     return(
         <>
@@ -26,10 +29,10 @@ export default function Upload ({
                 <Button.Upload>
                     Upload
                 </Button.Upload>
-                <Preview Type={Type} files={files}/>
+                <Preview.Gallery files={files}/>
                 <Controls.Generic files={files}/>
             </Input.Upload>
-            <button onClick={() => console.log(files)}>Send</button>
+            <button className='BB' onClick={() => console.log(files)}>Send</button>
         </>
     )
 }

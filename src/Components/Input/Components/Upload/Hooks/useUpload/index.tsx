@@ -17,7 +17,7 @@ const useUpload = ({
     maxSize
 } : Props) => {
     
-    const { POST, GET } = useMethods()
+    const { GET } = useMethods()
     const { typeSize } = useFileSize()
     const [files, setFiles] = React.useState<Array<File>>([])
 
@@ -72,7 +72,7 @@ const useUpload = ({
     const Action = {
         sendFile(e : MouseEvent, index : number) {
             if(e.isTrusted){
-                const inputs = GET.class({father:'input', kid:'upload'}).queryAll
+                const inputs = GET.PasStyle('input', 'upload').queryAll
                 inputs[index].click()
             }
         },
@@ -102,8 +102,7 @@ const useUpload = ({
         addFile:Action.addFile,
         removeFile:Action.removeFile,
         files,
-        setFiles,
-        inputClass:POST.class({father:'input', kid:'upload'})
+        setFiles
     }
 }
 

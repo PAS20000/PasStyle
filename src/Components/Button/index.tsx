@@ -14,22 +14,25 @@ type Props = {
 const Button = {
     Generic(props:PasStyleProps<Props>){
 
-        const { POST } = useMethods()
-
+        const { POST, GET } = useMethods()
         const { children, Art } = props
 
+        POST.PasStyle('button','generic', 'button')
+
         return(
-            <PasStyle.Button  {...POST.Art({Css, Art})} {...props} className={POST.class({ father:'button', kid:'generic' })} />
+            <PasStyle.Button {...POST.Art({Css, Art})} {...props} />
         )
     },
     Upload(props:PasStyleProps<Props>){
 
-        const { POST } = useMethods()
+        const { POST, GET } = useMethods()
 
         const { children, Art } = props
 
+        POST.PasStyle('button','upload', 'button')
+
         return(
-            <PasStyle.Button {...POST.Art({Css, Art})} {...props} className={POST.class({ father:'button', kid:'upload' })} />
+            <PasStyle.Button {...POST.Art({Css, Art})} {...props}/>
         )
     },
 }

@@ -15,7 +15,7 @@ const Url = (props:PasStyleProps<InputPropsMethod & Props>) => {
 
     return(
         <PasStyle.Div mg='5px'>
-            <Label htmlFor={label} {...props}>
+            <Label htmlFor={label.toString()} {...props}>
                 {label}
             </Label>
             <PasStyle.Input {...Remove.children(props)} {...Css.default()} type='url'/>

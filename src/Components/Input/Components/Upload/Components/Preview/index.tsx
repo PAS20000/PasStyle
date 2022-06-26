@@ -1,8 +1,9 @@
 import * as React from 'react'
 import PasStyle from '../../../../../..'
+import useMethods from '../../../../../../Hooks/useMethods'
 import Create from '../../../../../Create'
 import Icons from '../../../../../Icons'
-import useFileSize from '../../Hooks/useFileSize'
+import Card from './Components/Card'
 import Metadata from './Components/Metadata'
 import useIconQuery from './Hooks/useIconQuery'
 
@@ -29,7 +30,6 @@ const Preview = {
             <Create.Generic items={files}>  
                 {files.map((file, index) =>  
                     <PasStyle.Div pd='10px' flex
-                        className='Preview Generic'
                         key={index}
                     >
                         <PasStyle.Span>
@@ -48,51 +48,13 @@ const Preview = {
         files,
     } : GlobalProps) {
 
-        const { fileSize } = useFileSize()
-
-        const Icon = (file : File) => {
-            const { response } = useIconQuery(file)
-
-            return response.icon
-        }
-
-        const FileMetadata = (file : File) => {
-            return `${file.name} ${fileSize(file)}`
-        }
-
         return( 
             <Create.Generic items={files}>  
                 {files.map((file, index) => 
-                    <PasStyle.Div flex
+                    <Card.Gallery
                         key={index} 
-                        mg='10px'
-                        border='solid 2px' 
-                        b_radius='8px'
-                        className='Preview Gallery'
-                    >
-                        {Icon(file)}
-                        <PasStyle.Img
-                            src={URL.createObjectURL(file)}
-                            alt={FileMetadata(file)}
-                            title={FileMetadata(file)}
-                            w='100px'
-                            h='100px'
-                            b_radius='8px'
-                            mg='10px'
-                            border='solid 2px'
-                            b_color={'white'}
-                            shadow='2px 2px 10px'
-                            animation={{
-                                name:'show',
-                                time:1,
-                                type:'ease-in'
-                            }}
-                            _hover={{
-                                transition: '1s',
-                                op:'0.6',
-                            }}
-                        />
-                    </PasStyle.Div>
+                        file={file}
+                    />
                 )}
             </Create.Generic>
         )

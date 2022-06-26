@@ -27,23 +27,25 @@ const Upload = (props:InputPropsMethod & Props) => {
 
     //const arrayChildren = React.Children.toArray(children)
 
-    const { addFile, sendFile, removeFile, inputClass } = useUpload({
+    const { addFile, sendFile, removeFile } = useUpload({
         id:'PasStyle.input.File',
         get,
         maxFiles,
         maxSize,
     })
 
-    const { GET } = useMethods()
+    const { GET, POST } = useMethods()
 
     const Listener = () => {
-        const btns = GET.class({ father:'button', kid:'upload' }).queryAll
+        const btns = GET.PasStyle('button', 'upload').queryAll
         btns.map((b, i) => b.onclick = (e) => sendFile(e , i))
     }
 
     React.useEffect(() => {
         Listener()
     }, [])
+
+    POST.PasStyle('input', 'upload', 'input')
 
     return(
         <Create.Container>
@@ -53,7 +55,6 @@ const Upload = (props:InputPropsMethod & Props) => {
                 multiple={maxFiles === 1 || !maxFiles ? false : true}
                 w='0px'
                 onChange={(e) => addFile(e)}
-                className={inputClass}
                 accept={accept}
                 value={value}
             />

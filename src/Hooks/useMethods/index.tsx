@@ -4,6 +4,7 @@ import Keys from './Keys'
 type ClassNames = {
     father:string
     kid:string
+    art?:string
     custom?:string
 }
 
@@ -16,26 +17,30 @@ type Art = {
 
 const useMethods = () => { 
 
-    const range = (max : number) => { 
-        return Math.floor(Math.random() * max).toString()
-    }
-    
     const [hash, setHash] = React.useState<string>()
+    
+    const Create = {
+        Family(father:string, kid:string, art?:string) {
+            return `🍎${father}🍎 🌱${kid}🌱 🎨${art ?? 'default'}🎨`.toUpperCase()
+        },
+        Range(max : number) { 
+            return Math.floor(Math.random() * max).toString()
+        }
+    }
 
     React.useEffect(() => {
-        setHash(range(1000000000000000))
+        setHash(Create.Range(1000000000000000))
     }, [])
 
     const POST = {
-        class({
-            father,
-            kid,
-            custom
-        } : ClassNames){
-            return `🌲PasStyle🌲 🍁${father}🍁 🌸${kid}🌸`.toUpperCase() + (custom ?? '')
-        },
-        id(id : string, custom ?: string){
-            return `${id}-${hash}🔑PasStyle🔑`.toUpperCase() + (custom ?? '')          
+        PasStyle(father:string, kid:string, PasStyleTAG:string, art?:string){
+            
+            const pasTag = PasStyleTAG.toUpperCase()
+
+            React.useEffect(() => {
+                const element = document.querySelector(`[data-passtyle="${pasTag}"]`)
+                element && element.setAttribute('data-passtyle', Create.Family(father, kid, art))
+            }, [])
         },
         Art({
             Css,
@@ -46,27 +51,12 @@ const useMethods = () => {
     }
 
     const GET = {
-        class({
-            father,
-            kid,
-            custom
-        }: ClassNames){
-
-            const className = `.🌲PasStyle🌲.🍁${father}🍁.🌸${kid}🌸`.toUpperCase() + (custom ?? '')
+        PasStyle(father:string, kid:string, art?:string){
+            const content =  `[data-passtyle="${Create.Family(father, kid, art)}"]`
 
             return {
-                query:document.querySelector(className) as HTMLElement,
-                queryAll:Array.from(document.querySelectorAll(className)) as HTMLElement[],
-                getElements:document.getElementsByClassName(className.replaceAll('.',' '))
-            }
-        },
-        id(id : string, custom ?: string){
-
-            const ID = `#${id}-${hash}🔑PasStyle🔑`.toUpperCase() + (custom ?? '')   
-
-            return {
-                query:document.querySelector(ID) as HTMLElement ,
-                getElement:document.getElementsByClassName(ID.replaceAll('#',''))
+                query:document.querySelector(content) as HTMLElement,
+                queryAll:Array.from(document.querySelectorAll(content)) as HTMLElement[],
             }
         },
         tag(tag:string){

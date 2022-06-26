@@ -1,8 +1,11 @@
 import * as React from 'react'
-import { Theme, ThemeProvider } from '@emotion/react'
+import { css, Theme, ThemeProvider } from '@emotion/react'
 import { PropsCTXdefault, SetState } from '../types'
 import theme from '../../../utils/theme/index.styles'
 import { Colors } from './useThemeCTX'
+import useMethods from '../../Hooks/useMethods'
+import PasStyle from '../..'
+import { Styles } from '../../../utils/types'
 
 export type Mode = 'dark' | 'light'
 
@@ -20,6 +23,7 @@ const PasStyleThemeProvider = ({
     children
 } : PropsCTXdefault) => {
 
+    const { GET } = useMethods()
     const [mode, setMode] = React.useState<Mode>('light')
     
         const changeMode = () => {
@@ -45,7 +49,11 @@ const PasStyleThemeProvider = ({
             }
        }
 
-       
+       React.useEffect(() => {
+        const body = GET.tag('body').query
+        body.setAttribute('css', 'BODY')
+       }, [])
+
    return(
         <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, ChangeColorByTheme}}>
             <ThemeProvider theme={theme}>

@@ -32,108 +32,202 @@ export type DialogAttr <T = {}> = React.DialogHTMLAttributes<T>
 
 export type TextareaAttr <T = {}> = React.TextareaHTMLAttributes<T>
 
+const useEvents = (props:PasStyleProps, tag:string) => {
+
+    const [hover, setHover] = React.useState<boolean>(false)
+    const [focus, setFocus] = React.useState<boolean>(false)
+
+    const { grid, 
+            flex,
+            evenly,
+            around,
+            between,
+            start, 
+            end,
+            center,
+            column, 
+            columns,
+            rows,
+            bg,
+            shadow,
+            b_bottom, 
+            b_color, 
+            b_left, 
+            b_top, 
+            b_radius,
+            b_right,
+            pd,
+            pd_bottom,  
+            pd_left, 
+            pd_top, 
+            pd_radius,
+            pd_right,
+            mg,
+            mg_bottom,  
+            mg_left, 
+            mg_top, 
+            mg_radius,
+            mg_right,
+            _hover,
+            _focus,
+            _media 
+        } = props
+
+    const defaultCSS = {
+        display: grid ? 'grid':'flex',
+        flexWrap:'wrap',
+        flexDirection:'row' ?? 'row',
+        gridTemplateColumns: '',
+        gridTemplateRows: '',
+        animation: 'show 1s ease-in',
+    } as React.CSSProperties
+
+    const hoverCSS = {
+        ...defaultCSS,
+        ..._hover,
+    }
+
+    const focusCSS = {
+        ...defaultCSS,
+        ..._focus,
+    }
+
+    const Style = () => {
+        if(!focus && !hover){
+            return defaultCSS
+        }
+        if(focus){
+            return focusCSS
+        }
+        if(hover){
+            return hoverCSS
+        }
+    }
+
+    React.useEffect(() => {
+        const element = document.querySelector(`[data-passtyle=${tag}]`) as HTMLElement
+        element.addEventListener('mouseenter', () => setHover(true))
+        element.addEventListener('mouseleave', () => setHover(false))
+        element.addEventListener('click', () => setFocus(true))
+
+        return () => {
+            element.removeEventListener('mouseenter', () => setHover(true))
+            element.removeEventListener('mouseenter', () => setHover(false))
+            element.removeEventListener('click', () => setFocus(true))
+        }
+    }, [])
+
+    return {
+        Style:Style()
+    }
+
+}
+
 const PasStyle = {
     Div(props:PasStyleProps) {
-        return <Emotion.StyleDiv {...props} />
+
+        const { Style } = useEvents({...props}, 'DIV')
+
+        return <div {...props} data-passtyle='DIV' style={Style}/>
     },
     Input(props:PasStyleProps<InputAttr>) {
-        return <Emotion.StyleInput {...props} />
+        return <input {...props} data-passtyle='INPUT' />
     },
     Article(props:PasStyleProps) {
-        return <Emotion.StyleArticle {...props} />
+        return <article {...props} data-passtyle='ARTICLE' />
     },
     Aside(props:PasStyleProps) {
-        return <Emotion.StyleAside {...props} />
+        return <aside {...props} data-passtyle='ASIDE' />
     },
     Header(props:PasStyleProps) {
-        return <Emotion.StyleHeader {...props} />
+        return <header {...props} data-passtyle='HEADER' />
     },
     Main(props:PasStyleProps) {
-        return <Emotion.StyleMain {...props} />
+        return <main {...props} data-passtyle='MAIN' />
     },
     Footer(props:PasStyleProps) {
-        return <Emotion.StyleFooter {...props} />
+        return <footer {...props} data-passtyle='FOOTER' />
     },
     Body(props:PasStyleProps) {
-        return <Emotion.StyleBody {...props} />
+        return <body {...props} data-passtyle='BODY' />
     },
     Form(props:PasStyleProps<FormAttr>) {
-        return <Emotion.StyleForm {...props} />
+        return <form {...props} data-passtyle='FORM' />
     },
     Section(props:PasStyleProps) {
-        return <Emotion.StyleSection {...props} />
+        return <section {...props} data-passtyle='SECTION' />
     },
     Button(props:PasStyleProps<ButtonAttr>) {
-        return <Emotion.StyleButton {...props} />
+        return <button {...props} data-passtyle='BUTTON'/>
     },
     Nav(props:PasStyleProps) {
-        return <Emotion.StyleNav {...props} />
+        return <nav {...props} data-passtyle='NAV' />
     },
     Span(props:PasStyleProps) {
-        return <Emotion.StyleSpan {...props} />
+        return <span {...props} data-passtyle='SPAN' />
     },
     H1(props:PasStyleProps) {
-        return <Emotion.StyleH1 {...props} />
+        return <h1 {...props} data-passtyle='H1' />
     },
     H2(props:PasStyleProps) {
-        return <Emotion.StyleH2 {...props} />
+        return <h2 {...props} data-passtyle='H2' />
     },
     H3(props:PasStyleProps) {
-        return <Emotion.StyleH3 {...props} />
+        return <h3 {...props} data-passtyle='H3' />
     },
     H4(props:PasStyleProps) {
-        return <Emotion.StyleH4 {...props} />
+        return <h4 {...props} data-passtyle='H4' />
     },
     H5(props:PasStyleProps) {
-        return <Emotion.StyleH5 {...props} />
+        return <h5 {...props} data-passtyle='H5' />
     },
     H6(props:PasStyleProps) {
-        return <Emotion.StyleH6 {...props} />
+        return <h6 {...props} data-passtyle='H6' />
     },
     P(props:PasStyleProps) {
-        return <Emotion.StyleP {...props} />
+        return <p {...props} data-passtyle='P' />
     },
     Table(props:PasStyleProps<TableAttr>) {
-        return <Emotion.StyleTable {...props} />
+        return <table {...props} data-passtyle='TABLE' />
     },
     Thead(props:PasStyleProps) {
-        return <Emotion.StyleThead {...props} />
+        return <thead {...props} data-passtyle='THEAD' />
     },
     Tbody(props:PasStyleProps) {
-        return <Emotion.StyleTbody {...props} />
+        return <tbody {...props} data-passtyle='TABODY' />
     },
     Tfoot(props:PasStyleProps) {
-        return <Emotion.StyleTfoot {...props} />
+        return <tfoot {...props} data-passtyle='TFOOT' />
     },
     Tr(props:PasStyleProps<TrAttr>) {
-        return <Emotion.StyleTr {...props} />
+        return <tr {...props} data-passtyle='TR' />
     },
     Td(props:PasStyleProps<TdAttr>) {
-        return <Emotion.StyleTd {...props} />
+        return <td {...props} data-passtyle='TD' />
     },
     Th(props:PasStyleProps<ThAttr>) {
-        return <Emotion.StyleTh {...props} />
+        return <th {...props} data-passtyle='TH' />
     },
     Img(props:PasStyleProps<ImgAttr>) {
-        return <Emotion.StyleImg {...props} />
+        return <img {...props} data-passtyle='IMG' />
     },
     A(props:PasStyleProps<AnchorAttr>) {
-        return <Emotion.StyleA {...props} />
+        return <a {...props} data-passtyle='A' />
     },
     Code(props:PasStyleProps) {
-        return <Emotion.StyleCode {...props} />
+        return <code {...props} data-passtyle='CODE' />
     },
     Label(props:PasStyleProps<LabelAttr>) {
-        return <Emotion.StyleLabel {...props} />
+        return <label {...props} data-passtyle='LABEL' />
     },
     Iframe(props:PasStyleProps<IframeAttr>) {
-        return <Emotion.StyleIframe {...props} />
+        return <iframe {...props} data-passtyle='IFRAME' />
     },
     TextArea(props:PasStyleProps<TextareaAttr>) {
-        return <Emotion.StyleTextArea {...props} />
+        return <textarea {...props} data-passtyle='TEXTAREA' />
     },
     Dialog(props:PasStyleProps<DialogAttr>){
-        return <Emotion.StyleDialog {...props} />
+        return <dialog {...props} data-passtyle='DIALOG' />
     }
 }
 

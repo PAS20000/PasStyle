@@ -1,7 +1,7 @@
 import * as React from 'react'
 import PasStyle from '../..'
 import useThemeCTX from '../../Contexts/ThemeContext/useThemeCTX'
-import useId from '../../Hooks/useMethods'
+import useMethods from '../../Hooks/useMethods'
 import CopyClipBoard from './CopyClipBoard'
 
 type Props = {
@@ -13,7 +13,7 @@ const Code = ({
 } : Props) => {
 
     const { theme } = useThemeCTX()
-    const { hash } = useId('code')
+    const { POST } = useMethods()
 
     return(
         <>
@@ -26,11 +26,11 @@ const Code = ({
                 mg='25px'
                 shadow='2px 2px 10px black'
             >
-                <PasStyle.Div  id={hash} title={children.toString()}>
+                <PasStyle.Div  id={'12313'} title={children.toString()}>
                     {children}
                 </PasStyle.Div>
-                {hash && 
-                   <CopyClipBoard id={hash}/>
+                {'12313' && 
+                   <CopyClipBoard id={'12313'}/>
                 }  
             </PasStyle.Code>
         </>

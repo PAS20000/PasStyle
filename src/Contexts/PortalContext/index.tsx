@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PasStyle from '../..'
-import useGeneration from '../../Hooks/useMethods'
 import { PropsCTXdefault } from '../types'
 
 export type PortalCTX = {
@@ -15,12 +14,10 @@ const PortalProvider = ({
     children
 } : PropsCTXdefault) => {
 
-    const { POST } = useGeneration()
-
    return(
         <PortalContext.Provider value={{}}>
             <PasStyle.Span
-                id={POST.id('Portal')}
+                id='PASSTYLE-PORTAL'
             />
             {children}
         </PortalContext.Provider>
