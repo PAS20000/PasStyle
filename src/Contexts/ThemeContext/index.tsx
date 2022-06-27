@@ -12,6 +12,7 @@ export type ThemeCTX = {
     setMode:SetState<Mode>
     changeMode:() => void
     ChangeColorByTheme:(Light : Colors[number], Dark : Colors[number]) => string
+    ChangeColorCustom:(Light:string, Dark:string) => string
 }
 
 export const PasStyleThemeContext = React.createContext<ThemeCTX>(null)
@@ -46,13 +47,35 @@ const PasStyleThemeProvider = ({
             }
        }
 
-       React.useEffect(() => {
+       const ChangeColorCustom = (Light:string, Dark:string) => {
+            if(mode === 'dark') {
+                return Dark
+            }
+            if(mode === 'light'){
+                return Light
+
+            } else {
+                console.error('Error ChangeColorCustom')
+            }
+       }
+
+    const css = {
+        background:ChangeColorByTheme('gray.700', 'gray.900'),
+        padding:'0px',
+        margin:'0px',
+    } as CSSStyleDeclaration
+
+    React.useEffect(() => {
         const body = GET.tag('body').query
-        body.setAttribute('css', 'BODY')
-       }, [])
+        body && body.setAttribute('style', `
+            background:${ChangeColorByTheme('gray.900', 'black')};
+            padding:0px;
+            margin:0px;
+        `.trim())
+    }, [mode])
 
    return(
-        <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, ChangeColorByTheme}}>
+        <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, ChangeColorCustom, ChangeColorByTheme}}>
             {children}
         </PasStyleThemeContext.Provider>
     )

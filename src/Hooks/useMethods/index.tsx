@@ -39,7 +39,8 @@ const useMethods = () => {
 
             React.useEffect(() => {
                 const element = document.querySelector(`[data-passtyle="${pasTag}"]`)
-                element && element.setAttribute('data-passtyle', Create.Family(father, kid, art))
+                element.setAttribute('data-passtyle', Create.Family(father, kid, art))
+                //element.removeAttribute('data-passtyle')
             }, [father, kid, art])
         },
         Art({

@@ -97,7 +97,8 @@ const useThemeCTX = () : ThemeCTX  => {
             setMode, 
             changeMode, 
             theme, 
-            ChangeColorByTheme 
+            ChangeColorByTheme,
+            ChangeColorCustom
         } = React.useContext(PasStyleThemeContext)
         
     return {
@@ -105,7 +106,8 @@ const useThemeCTX = () : ThemeCTX  => {
         setMode,
         changeMode,
         theme,
-        ChangeColorByTheme
+        ChangeColorByTheme,
+        ChangeColorCustom
     }
 }
 
