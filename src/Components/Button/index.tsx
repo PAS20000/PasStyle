@@ -26,13 +26,12 @@ const Button = {
     Upload(props:PasStyleProps<Props>){
 
         const { POST, GET } = useMethods()
-
         const { children, Art } = props
 
         POST.PasStyle('button','upload', 'button')
 
         return(
-            <PasStyle.Button {...POST.Art({Css, Art})} {...props}/>
+            <PasStyle.Button {...POST.Art({Css, Art})} {...props} />
         )
     },
 }

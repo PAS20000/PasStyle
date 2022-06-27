@@ -15,7 +15,7 @@ const Css = {
             color:ChangeColorByTheme('black','white'),
             cursor: 'pointer',
             _hover:{
-                transition: '1s',
+                transition: '0.5s',
                 bg:theme.colors.gray[400]
             }
         }
@@ -32,7 +32,7 @@ const Css = {
             b_radius:'8px',
             cursor: 'pointer',
             _hover:{
-                transition: '1s',
+                transition: '0.5s',
                 bg:theme.colors.gray[400]
             }
         }
@@ -50,7 +50,7 @@ const Css = {
             color:ChangeColorByTheme('black','white'),
             cursor: 'pointer',
             _hover:{
-                transition: '1s',
+                transition: '0.5s',
                 bg:theme.colors.gray[400]
             }
         }

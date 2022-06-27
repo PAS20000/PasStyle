@@ -84,7 +84,7 @@ const passtylePropsOBJ : PasStyleProps = {
     unselectableText:undefined,
     _webkit:undefined,
     display:undefined,
-    p_Events:undefined,
+    p_events:undefined,
     b_bottom:undefined,
     b_left:undefined,
     b_right:undefined,

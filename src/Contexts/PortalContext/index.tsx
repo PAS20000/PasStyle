@@ -1,5 +1,6 @@
 import * as React from 'react'
 import PasStyle from '../..'
+import useMethods from '../../Hooks/useMethods'
 import { PropsCTXdefault } from '../types'
 
 export type PortalCTX = {
@@ -14,11 +15,11 @@ const PortalProvider = ({
     children
 } : PropsCTXdefault) => {
 
+    const { POST } = useMethods()
+
    return(
         <PortalContext.Provider value={{}}>
-            <PasStyle.Span
-                id='PASSTYLE-PORTAL'
-            />
+            <PasStyle.Div id='PASSTYLE-PORTAL'/>
             {children}
         </PortalContext.Provider>
     )

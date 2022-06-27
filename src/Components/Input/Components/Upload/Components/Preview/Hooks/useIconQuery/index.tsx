@@ -15,7 +15,7 @@ const useIconQuery = (file : File) => {
 
     const split2 = Create.split(1, '-')
     const split3 = Create.split(1, '+')
-
+  
     const iconFile = {
         unknown(){
             return <Icons.Ai.AiOutlineFileUnknown title='unknown icon'/>

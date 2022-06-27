@@ -5,28 +5,34 @@ import Controls from '../../src/Components/Input/Components/Upload/Components/Co
 import Preview from '../../src/Components/Input/Components/Upload/Components/Preview'
 
 type Props = {
-    Type?:string
+    kind?:string
     maxFiles?:number
+    maxSize?:number
 }
 
 export default function Upload ({
-    Type,
-    maxFiles
+    kind,
+    maxFiles,
+    maxSize
 } : Props) {
 
     const [files, setFile] = React.useState<File[]>([])
 
-    console.log(files)
+    React.useEffect(() => {
+        console.log(files)
+    }, [])
 
     return(
         <>
-            <Input.Upload maxFiles={maxFiles ?? 3} get={(fs) => {
+            <Input.Upload maxFiles={maxFiles ?? 3} maxSize={maxSize} get={(fs) => {
                setFile(fs)
             }}>
                 <Button.Upload>
                     Upload
                 </Button.Upload>
-                <Preview.Gallery files={files}/>
+                {Preview[kind ?? 'Generic']({
+                    files:files,
+                })}
                 <Controls.Generic files={files}/>
             </Input.Upload>
         </>

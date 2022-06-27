@@ -68,7 +68,7 @@ const PasStyleThemeProvider = ({
     React.useEffect(() => {
         const body = GET.tag('body').query
         body && body.setAttribute('style', `
-            background:${ChangeColorByTheme('gray.900', 'black')};
+            background:${ChangeColorByTheme('gray.900', 'blue.200')};
             padding:0px;
             margin:0px;
         `.trim())

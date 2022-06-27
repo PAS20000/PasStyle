@@ -8,7 +8,7 @@ const useEvents = (props:PasStyleProps, tag:string) => {
 
   const {_hover, _focus} = props
 
-  const layout = (css : PasStyleProps) : React.CSSProperties | void => {
+  const layout = (css : PasStyleProps) : React.CSSProperties => {
 
       const {
           grid,
@@ -29,6 +29,7 @@ const useEvents = (props:PasStyleProps, tag:string) => {
           flexWrap:'wrap',
           flexDirection:column ? 'column':'row'
       } as React.CSSProperties
+
       if(grid){
           if(columns){
               return {
@@ -108,6 +109,11 @@ const useEvents = (props:PasStyleProps, tag:string) => {
           mg_left, 
           mg_top, 
           mg_right,
+          transition,
+          border,
+          cursor,
+          color,
+          p_Events,
       } = css
 
       return {
@@ -132,7 +138,12 @@ const useEvents = (props:PasStyleProps, tag:string) => {
           boxShadow: shadow,
           borderRadius:b_radius,
           background: bg,
-      }
+          pointerEvents:p_Events,
+          transition,
+          border,
+          cursor,
+          color,
+      } as React.CSSProperties
   }
   const defaultCSS = createCSS({...props})
 

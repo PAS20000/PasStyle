@@ -74,7 +74,7 @@ export type PasProps = {
     unselectableText?:boolean
     _webkit?:string
     display?:string
-    p_Events?:string
+    p_events?:string
     b_bottom?:string
     b_left?:string
     b_right?:string

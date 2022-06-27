@@ -9,10 +9,16 @@ const Home = () => {
       const { changeMode, ChangeColorByTheme } = useThemeCTX()
 
     return(
-      <Main bg={ChangeColorByTheme('gray.900', 'gray.300')} w='100%' h='100%'>
+      <Main>
          <Button.Generic onClick={changeMode}>
             Change Theme
          </Button.Generic>
+          <Upload />
+          <Upload kind='Gallery'/>
+          <Upload />
+          <Upload kind='Gallery'/>
+          <Upload />
+          <Upload kind='Gallery'/>
           <Upload />
       </Main>
     )
