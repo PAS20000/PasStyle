@@ -13,8 +13,8 @@ export type TypeAnimation = [
 ]
 
 export type Animation = {
-    name:AnimationName[number]
-    time:number
+    name?:AnimationName[number]
+    time?:number
     type?:TypeAnimation[number]
 }
 
@@ -82,7 +82,6 @@ export type PasProps = {
 }
 
 export type Styles = {
-    children?:React.ReactNode
     grid?:boolean
     flex?:boolean
     between?:boolean
