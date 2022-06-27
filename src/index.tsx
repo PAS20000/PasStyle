@@ -91,214 +91,248 @@ const passtylePropsOBJ : PasStyleProps = {
     b_top:undefined,
 }
 
-const clearProps = (props:PasStyleProps) : Object => {
-    return {...props, ...passtylePropsOBJ}
+const useClear = (props:PasStyleProps) => {
+    const [ClearProps, setClearProps] = React.useState<Object>({})
+
+    React.useMemo(() => {
+        setClearProps({...props, ...passtylePropsOBJ})
+    }, [])
+
+    return ClearProps
 }
 
 const PasStyle = {
     Div(props:PasStyleProps) {
-
+        const Clear = useClear(props)
         const { Style } = useEvents({...props}, 'DIV')
 
-        return <div {...clearProps(props)} data-passtyle='DIV' style={Style} />
+        return <div {...Clear} data-passtyle='DIV' style={Style} />
     },
     Input(props:PasStyleProps<InputAttr>) {
-
+        const Clear = useClear(props)
         const { Style } = useEvents({...props}, 'INPUT')
 
-        return <input  {...clearProps(props)} data-passtyle='INPUT' style={Style} />
+        return <input  {...Clear} data-passtyle='INPUT' style={Style} />
     },
     Article(props:PasStyleProps) {
-
+        const Clear = useClear(props)
         const { Style } = useEvents({...props}, 'ARTICLE')
 
-        return <article {...clearProps(props)} data-passtyle='ARTICLE' style={Style} />
+        return <article {...Clear} data-passtyle='ARTICLE' style={Style} />
     },
     Aside(props:PasStyleProps) {
-
+        const Clear = useClear(props)
         const { Style } = useEvents({...props}, 'ASIDE')
 
-        return <aside {...clearProps(props)} data-passtyle='ASIDE' style={Style} />
+        return <aside {...Clear} data-passtyle='ASIDE' style={Style} />
     },
     Header(props:PasStyleProps) {
-
+        const Clear = useClear(props)
         const { Style } = useEvents({...props}, 'HEADER')
 
-        return <header {...clearProps(props)} data-passtyle='HEADER' style={Style} />
+        return <header {...Clear} data-passtyle='HEADER' style={Style} />
     },
     Main(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'MAIN')
 
-        return <main {...clearProps(props)} data-passtyle='MAIN' style={Style} />
+        return <main {...Clear} data-passtyle='MAIN' style={Style} />
     },
     Footer(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'FOOTER')
 
-        return <footer {...clearProps(props)} data-passtyle='FOOTER' style={Style} />
+        return <footer {...Clear} data-passtyle='FOOTER' style={Style} />
     },
     Body(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'BODY')
 
-        return <body {...clearProps(props)} data-passtyle='BODY' style={Style} />
+        return <body {...Clear} data-passtyle='BODY' style={Style} />
     },
     Form(props:PasStyleProps<FormAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'FORM')
 
-        return <form {...clearProps(props)} data-passtyle='FORM' style={Style} />
+        return <form {...Clear} data-passtyle='FORM' style={Style} />
     },
     Section(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'SECTION')
 
-        return <section {...clearProps(props)} data-passtyle='SECTION' style={Style} />
+        return <section {...Clear} data-passtyle='SECTION' style={Style} />
     },
     Button(props:PasStyleProps<ButtonAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'BUTTON')
 
-        return <button {...clearProps(props)} data-passtyle='BUTTON'style={Style} />
+        return <button {...Clear} data-passtyle='BUTTON'style={Style} />
     },
     Nav(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'NAV')
 
-        return <nav {...clearProps(props)} data-passtyle='NAV' style={Style} />
+        return <nav {...Clear} data-passtyle='NAV' style={Style} />
     },
     Span(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'SPAN')
 
-        return <span {...clearProps(props)} data-passtyle='SPAN' style={Style} />
+        return <span {...Clear} data-passtyle='SPAN' style={Style} />
     },
     H1(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'H1')
 
-        return <h1 {...clearProps(props)} data-passtyle='H1' style={Style} />
+        return <h1 {...Clear} data-passtyle='H1' style={Style} />
     },
     H2(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'H2')
 
-        return <h2 {...clearProps(props)} data-passtyle='H2' style={Style} />
+        return <h2 {...Clear} data-passtyle='H2' style={Style} />
     },
     H3(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'H3')
 
-        return <h3 {...clearProps(props)} data-passtyle='H3' style={Style} />
+        return <h3 {...Clear} data-passtyle='H3' style={Style} />
     },
     H4(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'H4')
 
-        return <h4 {...clearProps(props)} data-passtyle='H4' style={Style} />
+        return <h4 {...Clear} data-passtyle='H4' style={Style} />
     },
     H5(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'H5')
 
-        return <h5 {...clearProps(props)} data-passtyle='H5' style={Style} />
+        return <h5 {...Clear} data-passtyle='H5' style={Style} />
     },
     H6(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'H6')
 
-        return <h6 {...clearProps(props)} data-passtyle='H6' style={Style} />
+        return <h6 {...Clear} data-passtyle='H6' style={Style} />
     },
     P(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'P')
 
-        return <p {...clearProps(props)} data-passtyle='P' style={Style} />
+        return <p {...Clear} data-passtyle='P' style={Style} />
     },
     Table(props:PasStyleProps<TableAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'TABLE')
 
-        return <table {...clearProps(props)} data-passtyle='TABLE' style={Style} />
+        return <table {...Clear} data-passtyle='TABLE' style={Style} />
     },
     Thead(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'THEAD')
 
-        return <thead {...clearProps(props)} data-passtyle='THEAD' style={Style} />
+        return <thead {...Clear} data-passtyle='THEAD' style={Style} />
     },
     Tbody(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'TBODY')
 
-        return <tbody {...clearProps(props)} data-passtyle='TBODY' style={Style} />
+        return <tbody {...Clear} data-passtyle='TBODY' style={Style} />
     },
     Tfoot(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'TFOOT')
 
-        return <tfoot {...clearProps(props)} data-passtyle='TFOOT' style={Style} />
+        return <tfoot {...Clear} data-passtyle='TFOOT' style={Style} />
     },
     Tr(props:PasStyleProps<TrAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'TR')
 
-        return <tr {...clearProps(props)} data-passtyle='TR' style={Style} />
+        return <tr {...Clear} data-passtyle='TR' style={Style} />
     },
     Td(props:PasStyleProps<TdAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'TD')
 
-        return <td {...clearProps(props)} data-passtyle='TD' style={Style} />
+        return <td {...Clear} data-passtyle='TD' style={Style} />
     },
     Th(props:PasStyleProps<ThAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'TH')
 
-        return <th {...clearProps(props)} data-passtyle='TH' style={Style} />
+        return <th {...Clear} data-passtyle='TH' style={Style} />
     },
     Img(props:PasStyleProps<ImgAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'IMG')
 
-        return <img {...clearProps(props)} data-passtyle='IMG' style={Style} />
+        return <img {...Clear} data-passtyle='IMG' style={Style} />
     },
     A(props:PasStyleProps<AnchorAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'A')
 
-        return <a {...clearProps(props)} data-passtyle='A' style={Style} />
+        return <a {...Clear} data-passtyle='A' style={Style} />
     },
     Code(props:PasStyleProps) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'CODE')
 
-        return <code {...clearProps(props)} data-passtyle='CODE' style={Style} />
+        return <code {...Clear} data-passtyle='CODE' style={Style} />
     },
     Label(props:PasStyleProps<LabelAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'LABEL')
 
-        return <label {...clearProps(props)} data-passtyle='LABEL' style={Style} />
+        return <label {...Clear} data-passtyle='LABEL' style={Style} />
     },
     Iframe(props:PasStyleProps<IframeAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'IFRAME')
 
-        return <iframe {...clearProps(props)} data-passtyle='IFRAME' style={Style} />
+        return <iframe {...Clear} data-passtyle='IFRAME' style={Style} />
     },
     TextArea(props:PasStyleProps<TextareaAttr>) {
+        const Clear = useClear(props)
 
         const { Style } = useEvents({...props}, 'TEXTAREA')
 
-        return <textarea {...clearProps(props)} data-passtyle='TEXTAREA' style={Style} />
+        return <textarea {...Clear} data-passtyle='TEXTAREA' style={Style} />
     },
     Dialog(props:PasStyleProps<DialogAttr>){
-
+        const Clear = useClear(props)
         const { Style } = useEvents({...props}, 'DIALOG')
 
-        return <dialog {...clearProps(props)} data-passtyle='DIALOG' style={Style} />
+        return <dialog {...Clear} data-passtyle='DIALOG' style={Style} />
     }
 }
 

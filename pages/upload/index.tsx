@@ -16,11 +16,6 @@ export default function Upload ({
 
     const [files, setFile] = React.useState<File[]>([])
 
-    React.useEffect(() => {
-        document.querySelector('.BB').setAttribute('style', 'background:red;border-radius:8px;padding:10px;')
-        document.querySelector('.BB').removeAttribute('style')
-    }, [])
-
     return(
         <>
             <Input.Upload maxFiles={maxFiles ?? 3} get={(files) => {
@@ -32,7 +27,9 @@ export default function Upload ({
                 <Preview.Gallery files={files}/>
                 <Controls.Generic files={files}/>
             </Input.Upload>
-            <button className='BB' onClick={() => console.log(files)}>Send</button>
+            <Button.Generic onClick={() => console.log(files)}>
+                Send
+            </Button.Generic>
         </>
     )
 }
