@@ -23,11 +23,11 @@ export type InputFile = Props
 
 const Upload = (props:InputPropsMethod & Props) => {
 
-    const { label, maxFiles, accept, id, get, maxSize, value, children, Art } = props
+    const { maxFiles, accept, get, maxSize, value, children } = props
 
     //const arrayChildren = React.Children.toArray(children)
 
-    const { addFile, sendFile, removeFile } = useUpload({
+    const { addFile, sendFile, removeFile, files } = useUpload({
         id:'PasStyle.input.File',
         get,
         maxFiles,
@@ -56,7 +56,7 @@ const Upload = (props:InputPropsMethod & Props) => {
                 w='0px'
                 onChange={(e) => addFile(e)}
                 accept={accept}
-                value={value}
+                value=''
             />
         </Create.Container>
     )

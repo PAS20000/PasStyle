@@ -1,11 +1,8 @@
 import * as React from 'react'
-import { css, Theme, ThemeProvider } from '@emotion/react'
 import { PropsCTXdefault, SetState } from '../types'
-import theme from '../../../utils/theme/index.styles'
+import theme, { Theme } from '../../../utils/theme/index.styles'
 import { Colors } from './useThemeCTX'
 import useMethods from '../../Hooks/useMethods'
-import PasStyle from '../..'
-import { Styles } from '../../../utils/types'
 
 export type Mode = 'dark' | 'light'
 
@@ -56,9 +53,7 @@ const PasStyleThemeProvider = ({
 
    return(
         <PasStyleThemeContext.Provider value={{mode, setMode, changeMode, theme, ChangeColorByTheme}}>
-            <ThemeProvider theme={theme}>
-                {children}
-            </ThemeProvider>
+            {children}
         </PasStyleThemeContext.Provider>
     )
 }

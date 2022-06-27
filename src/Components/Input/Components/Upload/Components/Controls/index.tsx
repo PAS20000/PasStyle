@@ -26,14 +26,6 @@ const Controls = {
                return <Icons.Fa.FaEye onClick={() => window.open(URL.createObjectURL(file))}/>
             }
         }
-
-        const Listener = () => {
-        
-        }
-
-        React.useEffect(() => {
-            Listener()
-        }, [])
         
         return(
             <Create.Generic items={files}>
@@ -42,7 +34,9 @@ const Controls = {
                         {!hover && 
                             <>
                                 {Icon(file)}
-                                <Icons.Fa.FaTrash />
+                                <PasStyle.Span>
+                                    <Icons.Fa.FaTrash />
+                                </PasStyle.Span>
                             </>
                         }
                     </PasStyle.Div>

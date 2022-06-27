@@ -16,10 +16,12 @@ export default function Upload ({
 
     const [files, setFile] = React.useState<File[]>([])
 
+    console.log(files)
+
     return(
         <>
-            <Input.Upload maxFiles={maxFiles ?? 3} get={(files) => {
-                setFile(files)
+            <Input.Upload maxFiles={maxFiles ?? 3} get={(fs) => {
+               setFile(fs)
             }}>
                 <Button.Upload>
                     Upload
@@ -27,9 +29,6 @@ export default function Upload ({
                 <Preview.Gallery files={files}/>
                 <Controls.Generic files={files}/>
             </Input.Upload>
-            <Button.Generic onClick={() => console.log(files)}>
-                Send
-            </Button.Generic>
         </>
     )
 }

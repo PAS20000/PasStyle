@@ -12,7 +12,7 @@ const Card = {
     Gallery({
     file
     } : Props) {
-        
+      
         const { fileSize } = useFileSize()
         const { POST } = useMethods()
 
@@ -34,7 +34,6 @@ const Card = {
                 mg='10px'
                 border='solid 2px' 
                 b_radius='8px'
-                className='Preview Gallery'
             >
                 {Icon(file)}
                 <PasStyle.Img

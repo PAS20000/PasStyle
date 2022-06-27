@@ -91,12 +91,12 @@ const passtylePropsOBJ : PasStyleProps = {
     b_top:undefined,
 }
 
-const useClear = (props:PasStyleProps) => {
+const useClear = (props:PasStyleProps) : Object => {
     const [ClearProps, setClearProps] = React.useState<Object>({})
 
     React.useMemo(() => {
         setClearProps({...props, ...passtylePropsOBJ})
-    }, [])
+    }, [props, passtylePropsOBJ])
 
     return ClearProps
 }
@@ -112,7 +112,7 @@ const PasStyle = {
         const Clear = useClear(props)
         const { Style } = useEvents({...props}, 'INPUT')
 
-        return <input  {...Clear} data-passtyle='INPUT' style={Style} />
+        return <input {...Clear} data-passtyle='INPUT' style={Style} />
     },
     Article(props:PasStyleProps) {
         const Clear = useClear(props)

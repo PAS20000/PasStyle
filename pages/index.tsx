@@ -13,22 +13,7 @@ const Home = () => {
          <Button.Generic onClick={changeMode}>
             Change Theme
          </Button.Generic>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
-          <Upload Type='Gallery'/>
-          <Upload maxFiles={6}/>
+          <Upload />
       </Main>
     )
 }

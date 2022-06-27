@@ -69,6 +69,16 @@ const useUpload = ({
         }
     }
 
+    const Methods = () =>{
+        if(get){
+            get(files)
+        }
+    }
+
+    React.useEffect(() => {
+        Methods()
+    }, [files])
+
     const Action = {
         sendFile(e : MouseEvent, index : number) {
             if(e.isTrusted){
@@ -85,16 +95,6 @@ const useUpload = ({
             setFiles(currentFiles => currentFiles.filter((f , i) => f && i !== index))
         }
     }
-
-    const Methods = () => {
-        if(get){
-            get(files)
-        }
-    }
-
-    React.useEffect(() => {
-        Methods()
-    }, [files])
 
     return {
         Action,

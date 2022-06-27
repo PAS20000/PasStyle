@@ -26,6 +26,8 @@ const Preview = {
             return response.icon
         }
 
+        console.log(files)
+
         return(
             <Create.Generic items={files}>  
                 {files.map((file, index) =>  

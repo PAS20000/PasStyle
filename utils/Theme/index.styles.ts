@@ -1,6 +1,3 @@
-import '@emotion/react'
-import { Theme } from '@emotion/react'
-
 export type ColorVariants = {
     100:string
     200:string
@@ -25,10 +22,8 @@ export type ColorObj = {
     white:string
 }
 
-declare module '@emotion/react' {
-    export interface Theme {
-            colors: ColorObj
-    }
+export type Theme = {
+    colors:ColorObj
 }
 
 const theme : Theme = {
